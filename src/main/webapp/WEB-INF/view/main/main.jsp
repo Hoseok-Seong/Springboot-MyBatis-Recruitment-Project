@@ -36,29 +36,33 @@
         <div class="container">
             <div class="my-board-box">
                 <div class="product-box">
-                    <a href="detailPage" class="">
+                    <a href="/recruitment/detail/${dto.id}" class="">
                         <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        쿠팡
                         <div class="card-body">
                         </div>
                     </a>
                 </div>
                 <div class="product-box">
-                    <a href="detailPage" class="">
+                    <a href="/recruitment/detail/${dto.id}" class="">
                         <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
                     </a>
                 </div>
                 <div class="product-box">
-                    <a href="detailPage" class="">
+                    <a href="/recruitment/detail/${dto.id}" class="">
                         <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
                     </a>
                 </div>
                 <div class="product-box">
-                    <a href="detailPage" class="">
+                    <a href="/recruitment/detail/${dto.id}" class="">
                         <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
                     </a>
@@ -68,29 +72,33 @@
         <div class="container">
             <div class="my-board-box">
                 <div class="product-box">
-                    <a href="detailPage" class="">
+                    <a href="/recruitment/detail/${dto.id}" class="">
                         <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
                     </a>
                 </div>
                 <div class="product-box">
-                    <a href="detailPage" class="">
+                    <a href="/recruitment/detail/${dto.id}" class="">
                         <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
                     </a>
                 </div>
                 <div class="product-box">
-                    <a href="detailPage" class="">
+                    <a href="/recruitment/detail/${dto.id}" class="">
                         <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
                     </a>
                 </div>
                 <div class="product-box">
-                    <a href="detailPage" class="">
+                    <a href="/recruitment/detail/${dto.id}" class="">
                         <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
                     </a>

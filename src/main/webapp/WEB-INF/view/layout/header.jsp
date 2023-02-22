@@ -33,7 +33,7 @@
                                 <ul class="navbar-nav m-auto">
                                     <a class="nav-link" href="#"><i class="bi bi-list"></i></a>
                                     <li class="nav-item">
-                                        <a class="nav-link text-dark" href="/main">로고</a>
+                                        <a class="nav-link text-dark" href="/">로고</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" href="/recruitment">채용</a>
@@ -48,10 +48,10 @@
                                 <ul class="navbar-nav m-auto">
                                     <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
                                     <li class="nav-item">
-                                        <a class="nav-link text-dark" href="/login">로그인</a>
+                                        <a class="nav-link text-dark" href="/loginForm">로그인</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link text-dark" href="/join">회원가입</a>
+                                        <a class="nav-link text-dark" href="/joinForm">회원가입</a>
                                     </li>
                                 </ul>
                             </div>
