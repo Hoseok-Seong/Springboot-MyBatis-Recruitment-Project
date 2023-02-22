@@ -3,7 +3,6 @@ package shop.mtcoding.job.model.user;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface UserRepository {
@@ -11,9 +10,7 @@ public interface UserRepository {
 
         public User findById(int id);
 
-        public int insert(@Param("username") String username, @Param("password") String password,
-        @Param("name") String name,
-        @Param("email") String email, @Param("contact") String contact);
+        public int insert(User user);
 
         public int updateById(User user);
 
