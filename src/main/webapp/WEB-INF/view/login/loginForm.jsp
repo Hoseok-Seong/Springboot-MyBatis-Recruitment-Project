@@ -98,12 +98,12 @@
 
                                         <tr class="text-center">
                                             <!-- input의 크기는 class="form-control-lg" 로 늘린다. -->
-                                            <td><input type="text" class="form-control-lg w-75" name="username"
+                                            <td><input type="text" class="form-control-lg w-100" name="username"
                                                     placeholder="username"></td>
                                         </tr>
 
                                         <tr class="text-center">
-                                            <td><input type="password" class="form-control-lg w-60" name="password"
+                                            <td><input type="password" class="form-control-lg w-100" name="password"
                                                     placeholder="password"></td>
                                         </tr>
                                     </table>
