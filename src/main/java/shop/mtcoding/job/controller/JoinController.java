@@ -12,6 +12,7 @@ import lombok.Setter;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.enterprise.EnterpriseRepository;
+import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.model.user.UserRepository;
 import shop.mtcoding.job.util.HashEncoding;
 
@@ -23,9 +24,6 @@ public class JoinController {
 
     @Autowired
     private EnterpriseRepository enterpriseRepository;
-
-    
-   
 
     @GetMapping("/loginForm")
     public String loginForm() {
@@ -62,13 +60,43 @@ public class JoinController {
             System.err.println("알고리즘을 찾을 수 없습니다: " + e.getMessage());
         }
         
-        
         return "redirect:/";
     }
 
     @PostMapping("/enterprise/join")
     public String enterpriseJoin(JoinEnterpriseReqDto joinEnterpriseReqDto) {
-        enterpriseRepository.insert(joinEnterpriseReqDto.toModel());
+        
+        if (joinEnterpriseReqDto.getEnterpriseName() == null || joinEnterpriseReqDto.getEnterpriseName().isEmpty()) {
+            throw new CustomException("enterprisename을 작성해주세요");
+        }
+        if (joinEnterpriseReqDto.getPassword() == null || joinEnterpriseReqDto.getPassword().isEmpty()) {
+            throw new CustomException("password를 작성해주세요");
+        }
+        if (joinEnterpriseReqDto.getAddress() == null || joinEnterpriseReqDto.getAddress().isEmpty()) {
+            throw new CustomException("address를 작성해주세요");
+        }
+        if (joinEnterpriseReqDto.getEmail() == null || joinEnterpriseReqDto.getEmail().isEmpty()) {
+            throw new CustomException("email을 작성해주세요");
+        }
+        if (joinEnterpriseReqDto.getContact() == null || joinEnterpriseReqDto.getContact().isEmpty()) {
+            throw new CustomException("전화번호를 입력해주세요");
+        }
+        if (joinEnterpriseReqDto.getSector() == null || joinEnterpriseReqDto.getSector().isEmpty()) {
+            throw new CustomException("sector을 작성해주세요");
+        }
+        if (joinEnterpriseReqDto.getSize() == null || joinEnterpriseReqDto.getSize().isEmpty()) {
+            throw new CustomException("size을 작성해주세요");
+        }
+        try {
+            String sha256Hash = HashEncoding.sha256(joinEnterpriseReqDto.getPassword());
+            
+            // enterpriseRepository.insert(joinEnterpriseReqDto.toModel(sha256Hash));
+            enterpriseRepository.insert(joinEnterpriseReqDto.getEnterpriseName(), sha256Hash, joinEnterpriseReqDto.getAddress(),
+            joinEnterpriseReqDto.getContact(), joinEnterpriseReqDto.getImage(), joinEnterpriseReqDto.getEmail(), joinEnterpriseReqDto.getSector(), 
+            joinEnterpriseReqDto.getSize());
+        } catch (NoSuchAlgorithmException e) {
+            System.err.println("알고리즘을 찾을 수 없습니다: " + e.getMessage());
+        }
     return "redirect:/loginForm";
     }
 
@@ -80,10 +108,18 @@ public class JoinController {
         private String name;
         private String email;
         private String contact;
-        private String profile;
-    }
 
-    
+        public User toModel() {
+            User user = new User();
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setName(name);
+            user.setEmail(email);
+            user.setContact(contact);
+            return user;
+        }
+
+    }
 
     @Setter
     @Getter
@@ -92,15 +128,21 @@ public class JoinController {
         private String password;
         private String address;
         private String contact;
+        private String image;
         private String email;
+        private String sector;
+        private String size;
 
-        public Enterprise toModel() {
+        public Enterprise toModel(String sha256Hash) {
             Enterprise enterprise = new Enterprise();
             enterprise.setEnterpriseName(enterpriseName);
-            enterprise.setPassword(password);
+            enterprise.setPassword(sha256Hash);
             enterprise.setAddress(address);
             enterprise.setContact(contact);
+            enterprise.setImage(image);
             enterprise.setEmail(email);
+            enterprise.setSector(sector);
+            enterprise.setSize(size);
             return enterprise;
         }
 

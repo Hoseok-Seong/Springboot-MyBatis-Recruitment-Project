@@ -63,8 +63,8 @@
                                     <table class="table table-bordered">
 
                                         <div class="text-center border d-flex justify-content-end">
-                                            input의 크기는 class="form-control-lg" 로 늘린다.
-                                            <td><input type="text" class="form-control-lg w-75" name="enterprisename" placeholder="enterprise name">
+                                            <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
+                                            <td><input type="text" class="form-control-lg w-75" name="enterpriseName" placeholder="enterprise name">
                                                 <button class="btn btn-danger btn-sm" style="float:right;">중복확인</button>
                                             </td>
                                         </div>
@@ -76,15 +76,24 @@
                                             </td>
                                         </tr>
                                         <tr class="text-center">
-                                            <td><input type="text" class="form-control-lg w-100" name="email" placeholder="email"></td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td><input type="text" class="form-control-lg w-100" name="adress" placeholder="adress"></td>
+                                            <td><input type="text" class="form-control-lg w-100" name="address" placeholder="address"></td>
                                         </tr>
                                         <div class="text-center">
                                             <td><input type="text" class="form-control-lg w-75" name="contact" placeholder="contact">
                                                 <button class="btn btn-danger btn-sm" style="float:right;">인증번호</button></td>
                                         </div>
+                                        <tr class="text-center">
+                                            <td><input type="text" class="form-control-lg w-100" name="image" placeholder="image"></td>
+                                        </tr>
+                                        <tr class="text-center">
+                                            <td><input type="text" class="form-control-lg w-100" name="email" placeholder="email"></td>
+                                        </tr>
+                                        <tr class="text-center">
+                                            <td><input type="text" class="form-control-lg w-100" name="sector" placeholder="sector"></td>
+                                        </tr>
+                                        <tr class="text-center">
+                                            <td><input type="text" class="form-control-lg w-100" name="size" placeholder="size"></td>
+                                        </tr>
                                     </table>
                                     <div>
                                         <tr class="text-center">
