@@ -93,7 +93,7 @@
                         </ul>
                         <div class="tab-content ">
                             <div class="tab-pane fade show active" id="loginUser">
-                                <form action="/login" method="post">
+                                <form action="user/login" method="post">
                                     <table class="table table-bordered">
 
                                         <tr class="text-center">
@@ -109,16 +109,16 @@
                                     </table>
                                     <button class="btn btn-danger btn-sm" style="float:right;">로그인</button>
                                     <input type="checkbox" value="">로그인 상태 유지<br><br><br>
-                                    <p>좋은 기업 찾고 계신가요?&nbsp;<a href="http:joinForm">회원가입</a></p>
+                                    <p>좋은 기업 찾고 계신가요?&nbsp;<a href="/joinForm">회원가입</a></p>
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="loginEnterprise">
-                                <form action="/login" method="post">
+                                <form action="enterprise/login" method="post">
                                     <table class="table table-bordered">
 
                                         <tr class="text-center ">
-                                            <td><input type="text" class="form-control-lg w-100" name="username"
-                                                    placeholder="username"></td>
+                                            <td><input type="text" class="form-control-lg w-100" name="enterpriseName"
+                                                    placeholder="enterpriseName"></td>
                                         </tr>
 
                                         <tr class="text-center">
@@ -128,7 +128,7 @@
                                     </table>
                                     <button class="btn btn-danger btn-sm" style="float:right;">로그인</button>
                                     <input type="checkbox" value="">로그인 상태 유지<br><br><br>
-                                    <p>좋은 인재 찾고 계신가요?&nbsp;<a href="http:joinForm">회원가입</a></p>
+                                    <p>좋은 인재 찾고 계신가요?&nbsp;<a href="/joinForm">회원가입</a></p>
 
                                 </form>
                             </div>
