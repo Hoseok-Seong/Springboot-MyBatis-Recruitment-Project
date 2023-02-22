@@ -13,7 +13,7 @@
       select * from bookmark_tb
    </select>
 
-   <select id="findOne" resultType="shop.mtcoding.job.model.bookmark.Bookmark">
+   <select id="findById" resultType="shop.mtcoding.job.model.bookmark.Bookmark">
       select * from bookmark_tb where id = #{id}  
    </select>
 

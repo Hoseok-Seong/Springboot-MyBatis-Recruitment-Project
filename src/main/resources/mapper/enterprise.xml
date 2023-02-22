@@ -15,7 +15,7 @@
       select * from enterprise_tb
    </select>
 
-   <select id="findOne" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
+   <select id="findById" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
       select * from enterprise_tb where id = #{id}  
    </select>
 
