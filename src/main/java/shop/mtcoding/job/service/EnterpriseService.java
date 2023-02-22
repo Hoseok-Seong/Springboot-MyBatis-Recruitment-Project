@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import shop.mtcoding.job.dto.user.UserReqDto.JoinEnterpriseReqDto;
 import shop.mtcoding.job.dto.user.UserReqDto.LoginEnterpriseReqDto;
 import shop.mtcoding.job.handler.exception.CustomException;
+import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.enterprise.EnterpriseRepository;
 import shop.mtcoding.job.model.user.User;
 
@@ -35,9 +36,9 @@ public class EnterpriseService {
     @Transactional
     public void 기업가입하기(JoinEnterpriseReqDto joinEnterpriseReqDto) {
         // 1. 유저 유효성 검사
-        User sameuser = userRepository.findByName(joinEnterpriseReqDto.getUsername());
+        Enterprise sameEnterprise = enterpriseRepository.findByName(joinEnterpriseReqDto.getEnterpriseName());
 
-        if (sameuser != null) {
+        if (sameEnterprise != null) {
             throw new CustomException("동일한 아이디가 존재합니다");
         }
         // 1. db에 insert하기

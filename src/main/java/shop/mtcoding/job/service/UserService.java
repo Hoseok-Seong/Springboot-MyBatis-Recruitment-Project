@@ -23,9 +23,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private EnterpriseRepository enterpriseRepository;
-
     @Transactional(readOnly = true)
     public User 유저로그인하기(LoginUserReqDto loginUserReqDto) {
         try {
@@ -49,8 +46,8 @@ public class UserService {
             throw new CustomException("동일한 아이디가 존재합니다");
         }
         // 1. db에 insert하기
-        int result = userRepository.insert(joinUserReqDto.getUsername(), joinUserReqDto.getPasswor
-                (), joinUserReqDto.getEmail());
+        int result = userRepository.insert(joinUserReqDto.getUsername(), joinUserReqDto.getPasswor(),
+                joinUserReqDto.getEmail());
 
         if (result != 1) {
             throw new CustomException("회원가입이 실패하였습니다");

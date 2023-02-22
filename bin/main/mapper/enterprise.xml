@@ -22,4 +22,8 @@
    <delete id="deleteById">
       delete from enterprise_tb where id = #{id}
    </delete>
+
+   <select id="findByName" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
+      select * from enterprise_tb where enterprise_name = #{enterpriseName}  
+   </select>
 </mapper>

@@ -15,4 +15,6 @@ public interface EnterpriseRepository {
         public int updateById(Enterprise enterprise);
 
         public int deleteById(int id);
+
+        public Enterprise findByName(String enterpriseName);
 }
