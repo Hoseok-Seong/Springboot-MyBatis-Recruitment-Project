@@ -23,5 +23,10 @@ public interface EnterpriseRepository {
 
         public int deleteById(int id);
 
+        public String findSaltByEnterpriseName(String enterpriseName);
+
         public Enterprise findByName(String enterpriseName);
+
+        public Enterprise findByEnterprisenameAndPassword(@Param("enterpriseName") String enterpriseName,
+                        @Param("password") String password);
 }

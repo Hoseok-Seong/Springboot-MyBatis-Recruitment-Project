@@ -11,7 +11,8 @@ import shop.mtcoding.job.dto.Enterprise.EnterpriseReqDto.LoginEnterpriseReqDto;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.enterprise.EnterpriseRepository;
-import shop.mtcoding.job.model.user.User;
+import shop.mtcoding.job.util.saltEncoder;
+import shop.mtcoding.job.util.sha256Encoder;
 
 @Service
 public class EnterpriseService {
@@ -20,11 +21,15 @@ public class EnterpriseService {
     private EnterpriseRepository enterpriseRepository;
 
     @Transactional(readOnly = true)
-    public User 기업로그인하기(LoginEnterpriseReqDto loginEnterpriseReqDto) {
+    public Enterprise 기업로그인하기(LoginEnterpriseReqDto loginEnterpriseReqDto) {
         try {
-            String sha256Hash = sha256Encoder.sha256(loginUserReqDto.getPassword());
-            String salt = saltEncoder.salt();
-            User principal = userRepository.findByUsernameAndPassword(loginUserReqDto.getUsername(),
+            String salt = enterpriseRepository.findSaltByEnterpriseName(loginEnterpriseReqDto.getEnterpriseName());
+            if (salt == null) {
+                throw new CustomException("아이디가 존재하지 않습니다");
+            }
+            String sha256Hash = sha256Encoder.sha256(loginEnterpriseReqDto.getPassword());
+            Enterprise principal = enterpriseRepository.findByEnterprisenameAndPassword(
+                    loginEnterpriseReqDto.getEnterpriseName(),
                     sha256Hash + "_" + salt);
             return principal;
         } catch (NoSuchAlgorithmException e) {
@@ -41,11 +46,22 @@ public class EnterpriseService {
         if (sameEnterprise != null) {
             throw new CustomException("동일한 아이디가 존재합니다");
         }
-        // 1. db에 insert하기
-        int result = enterpriseRepository.insert();
+        // 2. 암호화 후 db에 insert하기
+        try {
+            String sha256Hash = sha256Encoder.sha256(joinEnterpriseReqDto.getPassword());
+            String salt = saltEncoder.salt();
+            int result = enterpriseRepository.insert(joinEnterpriseReqDto.getEnterpriseName(), sha256Hash + "_" + salt,
+                    salt,
+                    joinEnterpriseReqDto.getAddress(), joinEnterpriseReqDto.getContact(),
+                    joinEnterpriseReqDto.getImage(), joinEnterpriseReqDto.getEmail(), joinEnterpriseReqDto.getSize(),
+                    joinEnterpriseReqDto.getSector()
 
-        if (result != 1) {
-            throw new CustomException("회원가입이 실패하였습니다");
+            );
+            if (result != 1) {
+                throw new CustomException("회원가입이 실패하였습니다");
+            }
+        } catch (NoSuchAlgorithmException e) {
+            System.err.println("알고리즘을 찾을 수 없습니다: " + e.getMessage());
         }
     }
 

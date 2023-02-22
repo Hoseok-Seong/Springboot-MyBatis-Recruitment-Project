@@ -7,10 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import shop.mtcoding.job.dto.user.UserReqDto.JoinEnterpriseReqDto;
-import shop.mtcoding.job.dto.user.UserReqDto.LoginEnterpriseReqDto;
+import shop.mtcoding.job.dto.Enterprise.EnterpriseReqDto.JoinEnterpriseReqDto;
+import shop.mtcoding.job.dto.Enterprise.EnterpriseReqDto.LoginEnterpriseReqDto;
 import shop.mtcoding.job.handler.exception.CustomException;
-import shop.mtcoding.job.model.user.User;
+import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.service.EnterpriseService;
 
 @Controller
@@ -36,7 +36,7 @@ public class EnterpriseController {
             throw new CustomException("비밀번호를 작성해주세요");
         }
         // 1. 로그인하기 service
-        User principal = enterpriseService.기업로그인하기(loginEnterpriseReqDto);
+        Enterprise principal = enterpriseService.기업로그인하기(loginEnterpriseReqDto);
 
         // 2. session에 저장
         session.setAttribute("principal", principal);

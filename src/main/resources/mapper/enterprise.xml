@@ -23,7 +23,15 @@
       delete from enterprise_tb where id = #{id}
    </delete>
 
+   <select id="findSaltByEnterprisename" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
+      select salt = #{salt} from user_tb where enterprise_name = #{enterpriseName}   
+   </select>
+
    <select id="findByName" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
       select * from enterprise_tb where enterprise_name = #{enterpriseName}  
+   </select>
+
+   <select id="findByEnterprisenameAndPassword" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
+      select * from user_tb where enterprise_name = #{enterpriseName} and password = #{password}         
    </select>
 </mapper>

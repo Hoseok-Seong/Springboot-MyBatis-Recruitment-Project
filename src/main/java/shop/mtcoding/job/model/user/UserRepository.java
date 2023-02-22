@@ -23,7 +23,7 @@ public interface UserRepository {
 
         public User findByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 
-        public String findSaltById(int id);
+        public String findSaltByUsername(String username);
 
         public User findByName(String username);
 
