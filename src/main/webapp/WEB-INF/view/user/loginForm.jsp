@@ -117,12 +117,12 @@
                                     <table class="table table-bordered">
 
                                         <tr class="text-center ">
-                                            <td><input type="text" class="form-control-lg " name="username"
+                                            <td><input type="text" class="form-control-lg w-100" name="username"
                                                     placeholder="username"></td>
                                         </tr>
 
                                         <tr class="text-center">
-                                            <td><input type="password" class="form-control-lg" name="password"
+                                            <td><input type="password" class="form-control-lg w-100" name="password"
                                                     placeholder="password"></td>
                                         </tr>
                                     </table>
