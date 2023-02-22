@@ -1,10 +1,12 @@
 create table user_tb(
     id int auto_increment primary key,
     username varchar(100) not null unique,
-    password varchar(100) not null,
+    password varchar not null,
+    salt varchar not null,
     name varchar(100) not null,
     email varchar(100) not null,
     contact varchar(100) not null,
+    profile longtext,
     created_at timestamp not null
 );
 

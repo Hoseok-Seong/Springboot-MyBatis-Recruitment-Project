@@ -49,12 +49,26 @@
                                 </ul>
                                 <ul class="navbar-nav m-auto">
                                     <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
+                                <c:choose>
+                                    <c:when test="${principal == null}">
                                     <li class="nav-item">
-                                        <a class="nav-link text-dark" href="/login">로그인</a>
+                                        <a class="nav-link text-dark" href="/loginForm">로그인</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" href="/join">회원가입</a>
                                     </li>
+                                    </c:when>
+
+                                    <c:otherwise>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" href=""><i class="bi bi-bell"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href=""><img src="${principal.profile == null ? '/images/profile.png' : principal.profile}" style="width: 35px;"
+                                                   href="/logout" class="rounded-circle" alt="Cinque Terre"></a>
+                                    </li>
+                                    </c:otherwise>
+                                </c:choose>
                                 </ul>
                             </div>
                     </div>

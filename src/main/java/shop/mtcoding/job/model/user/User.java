@@ -14,5 +14,6 @@ public class User {
     private String name;
     private String email;
     private String contact;
+    private String profile;
     private Timestamp createdAt;
 }

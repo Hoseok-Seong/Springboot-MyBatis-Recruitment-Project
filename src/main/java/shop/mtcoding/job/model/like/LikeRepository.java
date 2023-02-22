@@ -2,6 +2,9 @@ package shop.mtcoding.job.model.like;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
 public interface LikeRepository {
         public List<Like> findAll();
 
