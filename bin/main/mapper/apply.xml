@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.mtcoding.job.model.apply.ApllyRepository">
+<insert id="insert">
+      insert into apply_tb(user_id, enterprise_id, field, created_at) values(#{userId}, #{enterprise_id}, #{field}, now()) 
+   </insert>
+    
+   <update id="updateById">
+      update apply_tb set user_id = #{userId}, enterprise_id=#{enterprise_id}, field = #{field} where id = #{id}
+   </update>
+
+   <select id="findAll" resultType="shop.mtcoding.job.model.apply.Apply">
+      select * from apply_tb
+   </select>
+
+   <select id="findOne" resultType="shop.mtcoding.job.model.apply.Apply">
+      select * from apply_tb where id = #{id}  
+   </select>
+
+   <delete id="deleteById">
+      delete from apply_tb where id = #{id}
+   </delete>
+
+</mapper>

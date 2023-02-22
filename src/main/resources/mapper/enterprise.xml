@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.mtcoding.job.model.enterprise.EnterpriseRepository">
+    <insert id="insert">
+      insert into enterprise_tb(enterprise_name, password, address, contact, image, email, size, created_at) 
+      values(#{enterpriseName}, #{password}, #{address}, #{contact}, #{image}, #{email}, #{size}, now()) 
+   </insert>
+    
+   <update id="updateById">
+      update enterprise_tb set enterprise_name = #{enterpriseName}, password=#{password}, address = #{address}, contact = #{contact}, 
+      image = #{image}, email = #{email}, size = #{size} where id = #{id}
+   </update>
+
+   <select id="findAll" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
+      select * from enterprise_tb
+   </select>
+
+   <select id="findOne" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
+      select * from enterprise_tb where id = #{id}  
+   </select>
+
+   <delete id="deleteById">
+      delete from enterprise_tb where id = #{id}
+   </delete>
+</mapper>
