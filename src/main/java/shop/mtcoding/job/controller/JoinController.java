@@ -60,7 +60,7 @@ public class JoinController {
             System.err.println("알고리즘을 찾을 수 없습니다: " + e.getMessage());
         }
         
-        return "redirect:/";
+        return "redirect:/loginForm";
     }
 
     @PostMapping("/enterprise/join")
