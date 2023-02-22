@@ -63,7 +63,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a href=""><img src="${principal.profile == null ? '/images/profile.png' : principal.profile}" style="width: 35px;"
-                                                   class="rounded-circle" alt="Cinque Terre"></a>
+                                                   href="/logout" class="rounded-circle" alt="Cinque Terre"></a>
                                     </li>
                                     </c:otherwise>
                                 </c:choose>
