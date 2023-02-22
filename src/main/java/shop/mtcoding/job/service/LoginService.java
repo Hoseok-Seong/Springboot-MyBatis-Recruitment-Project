@@ -21,7 +21,7 @@ public class LoginService {
     public User 로그인하기(LoginReqDto loginReqDto) {
         try {
             String sha256Hash = sha256Encoder.sha256(loginReqDto.getPassword());
-            String salt = saltEncoder.salt(loginReqDto.getPassword());
+            String salt = saltEncoder.salt();
             User principal = userRepository.findByUsernameAndPassword(loginReqDto.getUsername(),
                     sha256Hash + "_" + salt);
             return principal;

@@ -11,11 +11,16 @@ public interface UserRepository {
 
         public User findById(int id);
 
-        public int insert(User user);
+        public int insert(@Param("username") String username, @Param("password") String password,
+                        @Param("name") String name,
+                        @Param("email") String email, @Param("contact") String contact,
+                        @Param("profile") String profile);
 
         public int updateById(User user);
 
         public int deleteById(int id);
 
         public User findByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
+
+        public String findSaltById(int id);
 }

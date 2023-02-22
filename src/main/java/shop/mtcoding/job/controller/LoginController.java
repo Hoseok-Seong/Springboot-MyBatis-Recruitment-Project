@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import shop.mtcoding.job.dto.user.UserReqDto.LoginReqDto;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.user.User;
+import shop.mtcoding.job.model.user.UserRepository;
 import shop.mtcoding.job.service.LoginService;
 
 @Controller
@@ -19,6 +20,9 @@ public class LoginController {
 
     @Autowired
     private HttpSession session;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("/loginForm")
     public String loginForm() {
