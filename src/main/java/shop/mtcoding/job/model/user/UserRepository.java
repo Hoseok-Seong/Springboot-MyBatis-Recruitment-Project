@@ -12,6 +12,7 @@ public interface UserRepository {
         public User findById(int id);
 
         public int insert(@Param("username") String username, @Param("password") String password,
+                        @Param("salt") String salt,
                         @Param("name") String name,
                         @Param("email") String email, @Param("contact") String contact,
                         @Param("profile") String profile);

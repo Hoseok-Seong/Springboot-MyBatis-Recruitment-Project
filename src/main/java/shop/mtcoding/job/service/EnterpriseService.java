@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import shop.mtcoding.job.dto.user.UserReqDto.JoinEnterpriseReqDto;
-import shop.mtcoding.job.dto.user.UserReqDto.LoginEnterpriseReqDto;
+import shop.mtcoding.job.dto.Enterprise.EnterpriseReqDto.JoinEnterpriseReqDto;
+import shop.mtcoding.job.dto.Enterprise.EnterpriseReqDto.LoginEnterpriseReqDto;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.enterprise.EnterpriseRepository;
@@ -42,7 +42,7 @@ public class EnterpriseService {
             throw new CustomException("동일한 아이디가 존재합니다");
         }
         // 1. db에 insert하기
-        int result = userRepository.insert(joinReqDto.getUsername(), joinReqDto.getPassword(), joinReqDto.getEmail());
+        int result = enterpriseRepository.insert();
 
         if (result != 1) {
             throw new CustomException("회원가입이 실패하였습니다");
