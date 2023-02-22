@@ -19,6 +19,8 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+    testImplementation 'org.springframework.security:spring-security-test'
 	implementation 'org.jsoup:jsoup:1.15.3'
 	testImplementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter-test', version: '2.2.2'
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
