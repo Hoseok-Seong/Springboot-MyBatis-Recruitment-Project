@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.Getter;
 import lombok.Setter;
+import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.enterprise.EnterpriseRepository;
-import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.model.user.UserRepository;
 
 @Controller
@@ -34,8 +34,24 @@ public class JoinController {
     }
 
     @PostMapping("/join")
-    public String join(JoinReqDto joinReqDto) {
-        userRepository.insert(joinReqDto.getUsername(), joinReqDto.getPassword(), joinReqDto.getName(), joinReqDto.getEmail(), joinReqDto.getContact(), joinReqDto.getProfile());
+    public String join(JoinUserReqDto joinUserReqDto) {
+        if (joinUserReqDto.getUsername() == null || joinUserReqDto.getUsername().isEmpty()) {
+            throw new CustomException("username을 작성해주세요");
+        }
+        if (joinUserReqDto.getPassword() == null || joinUserReqDto.getPassword().isEmpty()) {
+            throw new CustomException("password를 작성해주세요");
+        }
+        if (joinUserReqDto.getName() == null || joinUserReqDto.getName().isEmpty()) {
+            throw new CustomException("name을 작성해주세요");
+        }
+        if (joinUserReqDto.getEmail() == null || joinUserReqDto.getEmail().isEmpty()) {
+            throw new CustomException("email을 작성해주세요");
+        }
+        if (joinUserReqDto.getContact() == null || joinUserReqDto.getContact().isEmpty()) {
+            throw new CustomException("전화번호를 입력해주세요");
+        }
+        
+        userRepository.insert(joinUserReqDto.getUsername(), joinUserReqDto.getPassword(), joinUserReqDto.getName(), joinUserReqDto.getEmail(), joinUserReqDto.getContact(), joinUserReqDto.getProfile());
         return "redirect:/";
     }
 
@@ -47,7 +63,7 @@ public class JoinController {
 
     @Setter
     @Getter
-    public static class JoinReqDto {
+    public static class JoinUserReqDto {
         private String username;
         private String password;
         private String name;
@@ -56,26 +72,7 @@ public class JoinController {
         private String profile;
     }
 
-    @Setter
-    @Getter
-    public class JoinUserReqDto {
-        private String username;
-        private String password;
-        private String name;
-        private String email;
-        private String contact;
-
-        public User toModel() {
-            User user = new User();
-            user.setUsername(username);
-            user.setPassword(password);
-            user.setName(name);
-            user.setEmail(email);
-            user.setContact(contact);
-            return user;
-        }
-
-    }
+    
 
     @Setter
     @Getter
