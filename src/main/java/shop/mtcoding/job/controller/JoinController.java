@@ -1,5 +1,7 @@
 package shop.mtcoding.job.controller;
 
+import java.security.NoSuchAlgorithmException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,7 @@ import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.enterprise.EnterpriseRepository;
 import shop.mtcoding.job.model.user.UserRepository;
+import shop.mtcoding.job.util.HashEncoding;
 
 @Controller
 public class JoinController {
@@ -21,6 +24,7 @@ public class JoinController {
     @Autowired
     private EnterpriseRepository enterpriseRepository;
 
+    
    
 
     @GetMapping("/loginForm")
@@ -50,8 +54,15 @@ public class JoinController {
         if (joinUserReqDto.getContact() == null || joinUserReqDto.getContact().isEmpty()) {
             throw new CustomException("전화번호를 입력해주세요");
         }
+        try {
+            String sha256Hash = HashEncoding.sha256(joinUserReqDto.getPassword());
+            userRepository.insert(joinUserReqDto.getUsername(), sha256Hash, joinUserReqDto.getName(), 
+            joinUserReqDto.getEmail(), joinUserReqDto.getContact());
+        } catch (NoSuchAlgorithmException e) {
+            System.err.println("알고리즘을 찾을 수 없습니다: " + e.getMessage());
+        }
         
-        userRepository.insert(joinUserReqDto.getUsername(), joinUserReqDto.getPassword(), joinUserReqDto.getName(), joinUserReqDto.getEmail(), joinUserReqDto.getContact(), joinUserReqDto.getProfile());
+        
         return "redirect:/";
     }
 

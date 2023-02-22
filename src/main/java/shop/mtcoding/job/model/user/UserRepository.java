@@ -13,8 +13,7 @@ public interface UserRepository {
 
         public int insert(@Param("username") String username, @Param("password") String password,
         @Param("name") String name,
-        @Param("email") String email, @Param("contact") String contact,
-        @Param("profile") String profile);
+        @Param("email") String email, @Param("contact") String contact);
 
         public int updateById(User user);
 
