@@ -5,6 +5,7 @@ create table user_tb(
     name varchar(100) not null,
     email varchar(100) not null,
     contact varchar(100) not null,
+    profile longtext,
     created_at timestamp not null
 );
 

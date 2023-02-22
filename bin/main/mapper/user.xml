@@ -21,4 +21,8 @@
    <delete id="deleteById">
       delete from user_tb where id = #{id}
    </delete>
+
+   <select id="findByUsernameAndPassword" resultType="shop.mtcoding.job.model.user.User">
+      select * from user_tb where username = #{username} and password = #{password}         
+   </select>
 </mapper>
