@@ -15,9 +15,11 @@
                   </div>
                   <div class="carousel-item">
                     <img src="/images/temp_banner2.jpg" class="d-block w-100" alt="..." >
+                    
                   </div>
                   <div class="carousel-item">
                     <img src="/images/temp_banner3.jpg" class="d-block w-100" alt="..." >
+                    
                   </div>
                 </div>
                 
@@ -38,27 +40,31 @@
                 <div class="product-box">
                     <a href="detailPage" class="">
                         <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        쿠팡
                         <div class="card-body">
                         </div>
                     </a>
                 </div>
                 <div class="product-box">
                     <a href="detailPage" class="">
-                        <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        <img class="card-img-top" src="/images/${dto.enterprise_logo}" alt="Card image">
+                        ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
                     </a>
                 </div>
                 <div class="product-box">
                     <a href="detailPage" class="">
-                        <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        <img class="card-img-top" src="/images/${dto.enterprise_logo}" alt="Card image">
+                        ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
                     </a>
                 </div>
                 <div class="product-box">
                     <a href="detailPage" class="">
-                        <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        <img class="card-img-top" src="/images/${dto.enterprise_logo}" alt="Card image">
+                        ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
                     </a>
@@ -69,28 +75,32 @@
             <div class="my-board-box">
                 <div class="product-box">
                     <a href="detailPage" class="">
-                        <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        <img class="card-img-top" src="/images/${dto.enterprise_logo}" alt="Card image">
+                        ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
                     </a>
                 </div>
                 <div class="product-box">
                     <a href="detailPage" class="">
-                        <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        <img class="card-img-top" src="/images/${dto.enterprise_logo}" alt="Card image">
+                        ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
                     </a>
                 </div>
                 <div class="product-box">
                     <a href="detailPage" class="">
-                        <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        <img class="card-img-top" src="/images/${dto.enterprise_logo}" alt="Card image">
+                        ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
                     </a>
                 </div>
                 <div class="product-box">
                     <a href="detailPage" class="">
-                        <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        <img class="card-img-top" src="/images/${dto.enterprise_logo}" alt="Card image">
+                        ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
                     </a>
