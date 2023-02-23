@@ -105,23 +105,22 @@
       </div>
     <br>
     <hr class="md-0">
+  <div style="height: 80px;" class="justify-content-center">
   <script>
-  $("#finish").on("click", function save() {
-            console.log("함수 실행");
-            
+  function save() {
             // 1. 값 받아오기
             let data = {
             title: $("#title").val(),
-            content: $("#content").val()
+            content: $("#content").val(),
             career: $("#career").val(),
-            education: $("#education").val()
+            education: $("#education").val(),
             skill: $("#skill").val(),
-            award: $("#award").val()
+            award: $("#award").val(),
             language: $("#language").val(),
-            link: $("#link").val()
+            link: $("#link").val(),
             file: $("#file").val(),
-            birthdate: $("#birthdate").val()
-            address: $("#address").val()
+            birthdate: $("#birthdate").val(),
+            address: $("#address").val(),
             finish: $("#finish").val()
             };
 
@@ -139,12 +138,11 @@
             }).fail((err)=>{ // 40x, 50x 일 때
                 alert(err.responseJSON.msg);
             });
-        });
+        };
     </script>
-  <div style="height: 80px;" class="justify-content-center">
     <br>
-    <button class="btn btn-secondary btn-lg ms-3" style="float:right;">임시저장</button>
-    <button name="finish" id="finish" value="true" type="button" class="btn btn-primary btn-lg" style="float:right;">작성완료</button>
+    <button onclick="save()" name="finish" value="false" type="button" class="btn btn-secondary btn-lg ms-3" style="float:right;">임시저장</button>
+    <button onclick="save()" name="finish" value="true" type="button" class="btn btn-primary btn-lg" style="float:right;">작성완료</button>
   </div>
 </div>
 <br>
