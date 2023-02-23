@@ -13,7 +13,8 @@ create table user_tb(
 create table enterprise_tb(
     id int auto_increment primary key,
     enterprise_name varchar(100) not null unique,
-    password varchar(100) not null,
+    password varchar not null,
+    salt varchar not null,
     address varchar(100) not null,
     contact varchar(100) not null,
     image longtext not null,

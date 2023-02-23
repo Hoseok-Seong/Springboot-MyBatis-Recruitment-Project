@@ -22,7 +22,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="loginUser">
                                     
-                                    <form action="/join" method="post">
+                                    <form action="user/join" method="post">
                                         <table class="table table-bordered">
                                             <div class="text-center border d-flex justify-content-end">
                                                     <!-- input의 크기는 class="form-control-lg" 로 늘린다. -->

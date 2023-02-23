@@ -12,6 +12,7 @@ public interface UserRepository {
         public User findById(int id);
 
         public int insert(@Param("username") String username, @Param("password") String password,
+                        @Param("salt") String salt,
                         @Param("name") String name,
                         @Param("email") String email, @Param("contact") String contact,
                         @Param("profile") String profile);
@@ -22,5 +23,8 @@ public interface UserRepository {
 
         public User findByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 
-        public String findSaltById(int id);
-        }
+        public String findSaltByUsername(String username);
+
+        public User findByName(String username);
+
+}

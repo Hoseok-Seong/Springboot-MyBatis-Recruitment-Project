@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop.mtcoding.job.model.enterprise.EnterpriseRepository">
     <insert id="insert">
-      insert into enterprise_tb(enterprise_name, password, address, contact, image, email, size, sector, created_at) 
-      values(#{enterpriseName}, #{password}, #{address}, #{contact}, #{image}, #{email}, #{size}, #{sector}, now()) 
+      insert into enterprise_tb(enterprise_name, password, salt, address, contact, image, email, size, sector, created_at) 
+      values(#{enterpriseName}, #{password}, #{salt}, #{address}, #{contact}, #{image}, #{email}, #{size}, #{sector}, now()) 
    </insert>
     
    <update id="updateById">
@@ -15,11 +15,23 @@
       select * from enterprise_tb
    </select>
 
-   <select id="findOne" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
+   <select id="findById" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
       select * from enterprise_tb where id = #{id}  
    </select>
 
    <delete id="deleteById">
       delete from enterprise_tb where id = #{id}
    </delete>
+
+   <select id="findSaltByEnterprisename" resultType="String">
+      select salt from enterprise_tb where enterprise_name = #{enterpriseName}   
+   </select>
+
+   <select id="findByName" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
+      select * from enterprise_tb where enterprise_name = #{enterpriseName}  
+   </select>
+
+   <select id="findByEnterprisenameAndPassword" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
+      select * from enterprise_tb where enterprise_name = #{enterpriseName} and password = #{password}         
+   </select>
 </mapper>

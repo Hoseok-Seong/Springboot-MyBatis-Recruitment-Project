@@ -6,19 +6,21 @@ import lombok.Setter;
 public class UserReqDto {
     @Setter
     @Getter
-    public static class JoinReqDto {
+    public static class LoginUserReqDto {
         private String username;
         private String password;
+    }
+
+    @Setter
+    @Getter
+    public static class JoinUserReqDto {
+        private String username;
+        private String password;
+        private String salt;
         private String name;
         private String email;
         private String contact;
         private String profile;
     }
 
-    @Setter
-    @Getter
-    public static class LoginReqDto {
-        private String username;
-        private String password;
-    }
 }

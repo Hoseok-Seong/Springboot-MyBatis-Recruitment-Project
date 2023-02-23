@@ -55,7 +55,7 @@
                                         <a class="nav-link text-dark" href="/loginForm">로그인</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link text-dark" href="/join">회원가입</a>
+                                        <a class="nav-link text-dark" href="/joinForm">회원가입</a>
                                     </li>
                                     </c:when>
 
@@ -64,7 +64,7 @@
                                         <a class="nav-link text-dark" href=""><i class="bi bi-bell"></i></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href=""><img src="${principal.profile == null ? '/images/profile.png' : principal.profile}" style="width: 35px;"
+                                        <a href="/logout"><img src="/images/profile.png" style="width: 35px;"
                                                    href="/logout" class="rounded-circle" alt="Cinque Terre"></a>
                                     </li>
                                     </c:otherwise>
