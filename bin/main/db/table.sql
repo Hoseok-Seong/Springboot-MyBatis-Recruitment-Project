@@ -39,13 +39,16 @@ create table resume_tb(
     user_id int not null unique,
     title varchar(100) not null,
     content longtext not null,
-    profile longtext not null,
-    age int not null,
+    career longtext not null,
+    education longtext not null,
+    skill longtext not null,
+    award longtext not null,
+    language longtext not null,
+    link longtext not null,
+    file longtext null,
+    birthdate varchar not null,
     address varchar(100) not null,
-    career varchar(100) not null,
-    education varchar(100) not null,
-    position varchar(100) not null,
-    field varchar(100) not null,
+    finish boolean not null,
     created_at timestamp not null
 );
 
