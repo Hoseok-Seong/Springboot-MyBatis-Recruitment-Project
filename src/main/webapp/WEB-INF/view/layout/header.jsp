@@ -64,7 +64,7 @@
                                         <a class="nav-link text-dark" href=""><i class="bi bi-bell"></i></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href=""><img src="${principal.profile == null ? '/images/profile.png' : principal.profile}" style="width: 35px;"
+                                        <a href="/logout"><img src="/images/profile.png" style="width: 35px;"
                                                    href="/logout" class="rounded-circle" alt="Cinque Terre"></a>
                                     </li>
                                     </c:otherwise>

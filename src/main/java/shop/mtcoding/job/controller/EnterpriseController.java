@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import shop.mtcoding.job.dto.Enterprise.EnterpriseReqDto.JoinEnterpriseReqDto;
-import shop.mtcoding.job.dto.Enterprise.EnterpriseReqDto.LoginEnterpriseReqDto;
+import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.JoinEnterpriseReqDto;
+import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.LoginEnterpriseReqDto;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.service.EnterpriseService;
@@ -21,11 +21,6 @@ public class EnterpriseController {
 
     @Autowired
     private HttpSession session;
-
-    @GetMapping("/loginForm")
-    public String loginForm() {
-        return "login/loginForm";
-    }
 
     @PostMapping("/enterprise/login")
     public String enterpriseLogin(LoginEnterpriseReqDto loginEnterpriseReqDto) {
@@ -47,17 +42,6 @@ public class EnterpriseController {
         }
 
         return "redirect:/";
-    }
-
-    @GetMapping("/logout")
-    public String logout() {
-        session.invalidate();
-        return "redirect:/";
-    }
-
-    @GetMapping("/joinForm")
-    public String joinForm() {
-        return "join/joinForm";
     }
 
     @PostMapping("/enterprise/join")

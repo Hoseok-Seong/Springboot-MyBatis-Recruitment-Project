@@ -26,8 +26,8 @@
       select * from user_tb where username = #{username} and password = #{password}         
    </select>
 
-   <select id="findSaltByUsername" resultType="shop.mtcoding.job.model.user.User">
-      select salt = #{salt} from user_tb where username = #{username}  
+   <select id="findSaltByUsername" resultType="String">
+      select salt from user_tb where username = #{username}  
    </select>
 
    <select id="findByName" resultType="shop.mtcoding.job.model.user.User">

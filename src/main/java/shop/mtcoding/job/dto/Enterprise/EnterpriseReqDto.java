@@ -1,4 +1,4 @@
-package shop.mtcoding.job.dto.Enterprise;
+package shop.mtcoding.job.dto.enterprise;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -23,7 +23,7 @@ public interface EnterpriseRepository {
 
         public int deleteById(int id);
 
-        public String findSaltByEnterpriseName(String enterpriseName);
+        public String findSaltByEnterprisename(String enterpriseName);
 
         public Enterprise findByName(String enterpriseName);
 

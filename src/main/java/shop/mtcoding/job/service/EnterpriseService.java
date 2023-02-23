@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import shop.mtcoding.job.dto.Enterprise.EnterpriseReqDto.JoinEnterpriseReqDto;
-import shop.mtcoding.job.dto.Enterprise.EnterpriseReqDto.LoginEnterpriseReqDto;
+import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.JoinEnterpriseReqDto;
+import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.LoginEnterpriseReqDto;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.enterprise.EnterpriseRepository;
@@ -23,7 +23,7 @@ public class EnterpriseService {
     @Transactional(readOnly = true)
     public Enterprise 기업로그인하기(LoginEnterpriseReqDto loginEnterpriseReqDto) {
         try {
-            String salt = enterpriseRepository.findSaltByEnterpriseName(loginEnterpriseReqDto.getEnterpriseName());
+            String salt = enterpriseRepository.findSaltByEnterprisename(loginEnterpriseReqDto.getEnterpriseName());
             if (salt == null) {
                 throw new CustomException("아이디가 존재하지 않습니다");
             }

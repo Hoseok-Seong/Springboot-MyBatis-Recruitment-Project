@@ -23,7 +23,7 @@
       delete from enterprise_tb where id = #{id}
    </delete>
 
-   <select id="findSaltByEnterprisename" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
+   <select id="findSaltByEnterprisename" resultType="String">
       select salt from enterprise_tb where enterprise_name = #{enterpriseName}   
    </select>
 
