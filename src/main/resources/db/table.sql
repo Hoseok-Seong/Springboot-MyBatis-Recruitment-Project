@@ -26,9 +26,9 @@ create table enterprise_tb(
 
 create table recruitment_post_tb(
     id int auto_increment primary key,
-    enterprise_id int not null unique,
+    enterprise_id int not null ,
     title varchar(100) not null,
-    content varchar(100) not null,
+    content longtext not null,
     enterprise_logo longtext not null,
     address varchar(100) not null,
     created_at timestamp not null

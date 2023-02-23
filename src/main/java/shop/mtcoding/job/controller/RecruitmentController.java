@@ -1,11 +1,18 @@
 package shop.mtcoding.job.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
+
 @Controller
 public class RecruitmentController {
+
+    @Autowired
+    private RecruitmentPostRepository recruitmentPostRepository;
 
     @GetMapping("recruitment/detail/{id}")
     public String recruitmentDetail(@PathVariable int id) {
@@ -13,7 +20,10 @@ public class RecruitmentController {
     }
 
     @GetMapping("recruitment/RecruitmentInformation")
-    public String recruitmentinformaiton() {
+    public String recruitmentinformaiton(Model model) {
+
+        model.addAttribute("boards", recruitmentPostRepository.findByBoard());
+
         return "recruitment/recruitmentinformaiton";
     }
 }

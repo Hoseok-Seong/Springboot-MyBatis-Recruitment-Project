@@ -35,15 +35,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <%-- <c:forEach items="${dto }" var="dto">
+                                    <c:forEach items="${boards}" var="board">
                                         <tr>
-                                            <td>${board.bno}</td>
-                                            <td>${board.writer}</td>
-                                            <td><a href="${recruitment/detail/dto.id} ">${board.title}</a></td>
-                                            <td>${board.regDate}</td>
+                                            <td>${board.id}</td>
+                                            <td>${board.title}</td>
+                                            <td><a href="recruitment/detail/${board.id} ">${board.enterpriseName}</a>
+                                            <td>${board.createdAt}</td>
                                         </tr>
-                                        </c:forEach> --%>
-                                        <tr>
+                                        </c:forEach>
+                                        <%-- <tr>
                                             <td>1</td>
                                             <td><a href="${recruitment/detail/dto.id} ">부산갈매기</a></td>
                                             <td>부산갈매기 개발자채용</td>
@@ -72,7 +72,7 @@
                                             <td><a href="${recruitment/detail/dto.id} ">한화</a></td>
                                             <td>한화 개발자채용</td>
                                             <td>2022.02.22</td>
-                                        </tr>
+                                        </tr> --%>
                                 </tbody>
                             </table>
                         </div>
