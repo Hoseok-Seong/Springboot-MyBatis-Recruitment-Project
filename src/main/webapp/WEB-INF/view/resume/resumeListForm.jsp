@@ -29,37 +29,28 @@
                                     <a href="#">파일 업로드</a>
                                 </div>
                             </div>
-                        <c:forEach items="${resumeList}" var="resume">
-                            <div class="card g-col-3 my-3" style="width: 18rem;">
-                            <div>
-                                <div class="card-body">
-                                    <h5 class="card-title">${resume.title}</h5><br>
-                                    <p class="card-text">${resume.content}</small></p>
-                                    <p class="card-text"><small class="text-muted">${resume.birthdate}</small></p>
+                            <c:forEach items="${resumeList}" var="resume">
+                                <div class="card g-col-3 my-3" style="width: 18rem;">
+                                    <div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">${resume.title}</h5><br>
+                                            <p class="card-text">${resume.content}</small></p>
+                                            <p class="card-text"><small class="text-muted">${resume.birthdate}</small></p>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <c:if test="${resume.finish == true}" >
+                                            <small class="text-muted">작업 완료</small>
+                                        </c:if>
+                                        <c:if test="${resume.finish == false}" >
+                                            <small class="text-muted">작업 중</small>
+                                        </c:if>
+                                    </div>
+                                    <a href="#" class="btn btn-primary">상세보기</a>
                                 </div>
-                                </div>
-                                <div class="card-footer">
-                                <c:if test="${resume.finish == true}" >
-                                <small class="text-muted">작업 완료</small>
-                                </c:if>
-                                <c:if test="${resume.finish == false}" >
-                                <small class="text-muted">작업 중</small>
-                                </c:if>
-                                </div>
-                                <a href="#" class="btn btn-primary">상세보기</a>
-                            </div>
                             </c:forEach>
-                                            
-                        </div>        
-                            
-                                
-                                    
-                                
-                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            </div>
             </div>
 <%@ include file="../layout/footer.jsp" %>
