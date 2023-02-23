@@ -11,4 +11,9 @@ public class RecruitmentController {
     public String recruitmentDetail(@PathVariable int id) {
         return "recruitment/detail";
     }
+
+    @GetMapping("recruitment/RecruitmentInformation")
+    public String recruitmentinformaiton() {
+        return "recruitment/recruitmentinformaiton";
+    }
 }

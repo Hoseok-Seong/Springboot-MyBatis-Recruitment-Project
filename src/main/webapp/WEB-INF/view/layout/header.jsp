@@ -38,7 +38,7 @@
                                         <a class="nav-link text-dark" href="/main">로고</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link text-dark" href="/recruitment">채용</a>
+                                        <a class="nav-link text-dark" href="/recruitment/RecruitmentInformation">채용</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" href="/resume">이력서</a>
