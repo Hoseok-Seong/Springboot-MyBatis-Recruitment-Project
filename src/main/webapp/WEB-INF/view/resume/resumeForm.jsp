@@ -105,13 +105,8 @@
       </div>
     <br>
     <hr class="md-0">
-  
-  <div style="height: 80px;" class="justify-content-center">
-    <br>
-    <button class="btn btn-secondary btn-lg ms-3" style="float:right;">임시저장</button>
-    <button onClick="save()" type="submit" class="btn btn-primary btn-lg" style="float:right;">작성완료</button>
-    <script>
-        function save() {
+  <script>
+  $("#finish").on("click", function save() {
             console.log("함수 실행");
             
             // 1. 값 받아오기
@@ -127,6 +122,7 @@
             file: $("#file").val(),
             birthdate: $("#birthdate").val()
             address: $("#address").val()
+            finish: $("#finish").val()
             };
 
             $.ajax({
@@ -143,8 +139,12 @@
             }).fail((err)=>{ // 40x, 50x 일 때
                 alert(err.responseJSON.msg);
             });
-        }
+        });
     </script>
+  <div style="height: 80px;" class="justify-content-center">
+    <br>
+    <button class="btn btn-secondary btn-lg ms-3" style="float:right;">임시저장</button>
+    <button name="finish" id="finish" value="true" type="button" class="btn btn-primary btn-lg" style="float:right;">작성완료</button>
   </div>
 </div>
 <br>

@@ -21,7 +21,8 @@ public class ResumeService {
         int result = resumeRepository.insert(userId, resumeSaveReqDto.getTitle(), resumeSaveReqDto.getContent(),
                 resumeSaveReqDto.getCareer(), resumeSaveReqDto.getEducation(), resumeSaveReqDto.getSkill(),
                 resumeSaveReqDto.getAward(), resumeSaveReqDto.getLanguage(), resumeSaveReqDto.getLink(),
-                resumeSaveReqDto.getFile(), resumeSaveReqDto.getBirthdate(), resumeSaveReqDto.getAddress());
+                resumeSaveReqDto.getFile(), resumeSaveReqDto.getBirthdate(), resumeSaveReqDto.getAddress(),
+                resumeSaveReqDto.isFinish());
         if (result != 1) {
             throw new CustomApiException("글 작성이 실패하였습니다", HttpStatus.INTERNAL_SERVER_ERROR);
         }

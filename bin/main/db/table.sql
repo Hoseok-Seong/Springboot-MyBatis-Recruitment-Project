@@ -48,6 +48,7 @@ create table resume_tb(
     file longtext null,
     birthdate varchar not null,
     address varchar(100) not null,
+    finish boolean not null,
     created_at timestamp not null
 );
 

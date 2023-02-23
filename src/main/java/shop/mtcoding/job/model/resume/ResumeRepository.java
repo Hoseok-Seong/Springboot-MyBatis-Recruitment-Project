@@ -18,7 +18,8 @@ public interface ResumeRepository {
                         @Param("award") String award, @Param("language") String language,
                         @Param("link") String link,
                         @Param("file") String file,
-                        @Param("birthdate") String birthdate, @Param("address") String address);
+                        @Param("birthdate") String birthdate, @Param("address") String address,
+                        @Param("finish") boolean finish);
 
         public int updateById(Resume resume);
 

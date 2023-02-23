@@ -20,6 +20,7 @@ public class ResumeReqDto {
         private String file;
         private String birthdate;
         private String address;
+        private boolean finish;
         private Timestamp createdAt;
     }
 }
