@@ -38,13 +38,22 @@
                                             <p class="card-text"><small class="text-muted">${resume.birthdate}</small></p>
                                         </div>
                                     </div>
-                                    <div class="card-footer">
+                                    <div class="card-footer d-flex justify-content-between">
                                         <c:if test="${resume.finish == true}" >
                                             <small class="text-muted">작업 완료</small>
                                         </c:if>
                                         <c:if test="${resume.finish == false}" >
                                             <small class="text-muted">작업 중</small>
                                         </c:if>
+                                        <div class="btn-group" role="group">
+                                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                            <li><a class="dropdown-item" href="#">이력서 삭제</a></li>
+                                            <li><a class="dropdown-item" href="#">이력서 무시기</a></li>
+                                            <li><a class="dropdown-item" href="#">이력서 저시기</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                     <a href="#" class="btn btn-primary">상세보기</a>
                                 </div>
