@@ -92,7 +92,7 @@
                                     <div class="form-control-sm">
                                      &nbsp;회사분류
                                             <label for="exampleFormControlSelect1"></label>
-                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <select class="form-control" id="exampleFormControlSelect1" name="sector">
                                                 <option value="SI">SI</option>
                                                 <option value="솔루션">솔루션</option>
                                                 <option value="웹 에이젼시">웹 에이젼시</option>
@@ -107,7 +107,7 @@
                                         <div class="form-control-sm">
                                             &nbsp;기업형태
                                             <label for="exampleFormControlSelect1"></label>
-                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <select class="form-control" id="exampleFormControlSelect1" name="size">
                                                 <option value="스타트업">스타트업</option>
                                                 <option value="중소기업">중소기업</option>
                                                 <option value="중견기업">중견기업</option>

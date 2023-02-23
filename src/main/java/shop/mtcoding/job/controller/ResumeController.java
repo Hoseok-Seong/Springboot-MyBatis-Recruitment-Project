@@ -25,6 +25,10 @@ public class ResumeController {
     @Autowired
     private ResumeService resumeService;
 
+    @GetMapping("/resumeListForm")
+    public String resumeListForm() {
+        return "resume/resumeListForm";
+    }
     @GetMapping("/resumeForm")
     public String resumeForm() {
         return "resume/resumeForm";
