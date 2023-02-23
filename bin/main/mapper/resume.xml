@@ -3,8 +3,8 @@
 <mapper namespace="shop.mtcoding.job.model.resume.ResumetRepository">
 
    <insert id="insert">
-      insert into resume_tb(user_id, title, profile, age, address, career, education, position, field, created_at) 
-      values(#{userId}, #{title}, #{profile}, #{age}, #{address}, #{career}, #{education}, #{position}, , #{field}, now()) 
+      insert into resume_tb(user_id, title, content, career, education, skill, award, language, link, file, birthdate, address, created_at) 
+      values(#{userId}, #{title}, #{content}, #{career}, #{education}, #{skill}, #{award}, #{language}, #{link}, #{file}, #{birthdate}, #{address} now()) 
    </insert>
     
    <update id="updateById">

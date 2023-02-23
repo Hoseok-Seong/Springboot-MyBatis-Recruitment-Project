@@ -1,13 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
   <div class="container">
-    <div class="container-fluid pt-4" style="height: 250px;">
-        <h1>username</h1>
+    <div class="container-fluid pt-4 ps-0" style="height: 600px;">
+        <h1><input type="text" name="title" id="title" style="border: none;" placeholder="제목"></h1>
         <br>
         <br>
+        <h2>username</h2>
         <h2>email</h2>
-        <br>
         <h2>contact</h2>
+        <br>
+        <div>생년월일</div>
+        <hr class="md-0">
+        <div class="form-floating mb-3">
+          <input type="date" name="birthdate" id="birthdate" min="1900-01-01" required/>
+        </div>
+        <br>
+        <div>주소</div>
+        <hr class="md-0">
+        <div class="form-floating mb-3">
+          <input type="text" name="address" id="address" class="form-control" id="floatingInputValue">
+          <label for="floatingInput">주소를 입력해주세요 예시: 부산광역시 부산진구 양정동 상세주소</label>
+        </div>
+        <br>
     </div>
     <br>
     <br>
@@ -18,7 +32,7 @@
         <p>&nbsp;&nbsp;• 3~5줄로 요약하여 작성하는 것을 추천합니다! </p>
     </div>
     <div class="form-floating">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" name="content" id="content" style="height: 100px"></textarea>
       </div>
     <br>
     <div class="mt-5">경력</div>
@@ -28,7 +42,7 @@
         <p>&nbsp;&nbsp;• 3~5줄로 요약하여 작성하는 것을 추천합니다! </p>
     </div>
     <div class="form-floating">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" name="career" id="career" style="height: 100px"></textarea>
       </div>
     <br>
     <div class="mt-5">학력</div>
@@ -38,7 +52,7 @@
         <p>&nbsp;&nbsp;• 3~5줄로 요약하여 작성하는 것을 추천합니다! </p>
     </div>
     <div class="form-floating">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" name="education" id="education" style="height: 100px"></textarea>
       </div>
     <br>
     <div class="mt-5">스킬</div>
@@ -48,7 +62,7 @@
         <p>&nbsp;&nbsp;• 3~5줄로 요약하여 작성하는 것을 추천합니다! </p>
     </div>
     <div class="form-floating">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" name="skill" id="skill" style="height: 100px"></textarea>
       </div>
     <br>
     <div class="mt-5">수상 및 기타</div>
@@ -58,7 +72,7 @@
         <p>&nbsp;&nbsp;• 3~5줄로 요약하여 작성하는 것을 추천합니다! </p>
     </div>
     <div class="form-floating">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" name="award" id="award" style="height: 100px"></textarea>
       </div>
     <br>
     <div class="mt-5">외국어</div>
@@ -68,7 +82,7 @@
         <p>&nbsp;&nbsp;• 3~5줄로 요약하여 작성하는 것을 추천합니다! </p>
     </div>
     <div class="form-floating">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" name="language" id="language" style="height: 100px"></textarea>
       </div>
     <br>
     <div class="mt-5">링크</div>
@@ -77,7 +91,7 @@
         <p>&nbsp;&nbsp;• 깃헙, 노션으로 작성한 포트폴리오, 구글 드라이브 파일 등 업무 성과를 보여줄 수 있는 링크가 있다면 작성해주세요.</p>
     </div>
     <div class="form-floating">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" name="link" id="link" style="height: 100px"></textarea>
       </div>
     <br>
     <div class="mt-5">포트폴리오 파일</div>
@@ -87,7 +101,7 @@
     </div>
     <div class="mb-3">
         <label for="formFileMultiple" class="form-label">파일 첨부하기</label>
-        <input class="form-control" type="file" id="formFileMultiple" multiple>
+        <input class="form-control" type="file" name="file" id="file" multiple>
       </div>
     <br>
     <hr class="md-0">
@@ -95,9 +109,43 @@
   <div style="height: 80px;" class="justify-content-center">
     <br>
     <button class="btn btn-secondary btn-lg ms-3" style="float:right;">임시저장</button>
-    <button class="btn btn-primary btn-lg" style="float:right;">작성완료</button>
+    <button onClick="save()" type="button" class="btn btn-primary btn-lg" style="float:right;">작성완료</button>
   </div>
 </div>
 <br>
+<script>
+        function save() {
+                
+                // 1. 값 받아오기
+                let data = {
+                title: $("#title").val(),
+                content: $("#content").val()
+                career: $("#career").val(),
+                education: $("#education").val()
+                skill: $("#skill").val(),
+                award: $("#award").val()
+                language: $("#language").val(),
+                link: $("#link").val()
+                file: $("#file").val(),
+                birthdate: $("#birthdate").val()
+                address: $("#address").val()
+                };
+
+                $.ajax({
+                    type:"post",
+                    url:"/resume",
+                    data:JSON.stringify(data),
+                    headers:{
+                    "Content-Type":"application/json; charset=utf-8"
+                    },
+                    dataType:"json" // default : 응답의 MIMETYPE으로 유추함.
+                }).done((res)=>{ //20x일 때
+                    alert(res.msg);
+                    location.href="/";
+                }).fail((err)=>{ // 40x, 50x 일 때
+                    alert(err.responseJSON.msg);
+                });
+            }
+    </script>
     </body>
     </html>
