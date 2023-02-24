@@ -45,7 +45,7 @@
                                         </c:forEach> --%>
                                         <tr>
                                             <td>1</td>
-                                            <td><a href="${recruitment/detail/dto.id} ">부산갈매기</a></td>
+                                            <td><a href="/recruitment/detail/1">부산갈매기</a></td>
                                             <td>부산갈매기 개발자채용</td>
                                             <td>2022.02.22</td>
                                         </tr>

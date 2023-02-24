@@ -2,24 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository">
     <insert id="insert">
-      insert into resume_tb(user_id, title, content, enterprise_logo, address, created_at) 
-      values(#{userId}, #{title}, #{content}, #{enterpriseLogo}, #{address}, now()) 
+      insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, created_at) 
+      values(#{enterprise_id},#{title},#{career},#{education},#{pay},#{sector},#{position},#{address},#{content},now());
    </insert>
-    
+
    <update id="updateById">
-      update resume_tb set user_id = #{userId}, title=#{title}, content = #{content}, enterprise_logo = #{enterpriseLogo}, address = #{address} where id = #{id}
+      update recruitment_post_tb 
+      set user_id = #{enterprise_id}, title=#{title}, career = #{content}, education = #{education}, pay = #{pay}, sector = #{sector}, position = #{position}, address = #{address}, content = #{content} 
+      where id = #{id}
    </update>
 
    <select id="findAll" resultType="shop.mtcoding.job.model.recruitmentPost.RecruitmentPost">
-      select * from resume_tb
+      select * from recruitment_post_tb
    </select>
 
    <select id="findById" resultType="shop.mtcoding.job.model.recruitmentPost.RecruitmentPost">
-      select * from resume_tb where id = #{id}  
+      select * from recruitment_post_tb where id = #{id}  
    </select>
 
    <delete id="deleteById">
-      delete from resume_tb where id = #{id}
+      delete from recruitment_post_tb where id = #{id}
    </delete>
 
 </mapper>
