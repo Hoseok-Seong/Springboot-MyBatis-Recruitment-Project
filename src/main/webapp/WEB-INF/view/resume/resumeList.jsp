@@ -29,7 +29,7 @@
                                     <a href="#">파일 업로드</a>
                                 </div>
                             </div>
-                            <c:forEach items="${resumeList}" var="resume">
+                            <c:forEach items="${resumeList}" var="resume" varStatus="status">
                                 <div class="card g-col-3 my-3" style="width: 18rem;">
                                     <div>
                                         <div class="card-body">
@@ -55,7 +55,104 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <a href="#" class="btn btn-primary">상세보기</a>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop${resume.id}">
+                                    상세보기
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="staticBackdrop${resume.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">${resume.userId}님의 ${resume.id}번 이력서</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body justify-content-start">
+                                            <div class="container-fluid">
+                                            <div class="container-fluid pt-4 ps-0" style="height: 600px;">
+                                                <h1>${resume.title}</h1>
+                                                <br>
+                                                <br>
+                                                <h2>username</h2>
+                                                <h2>email</h2>
+                                                <h2>contact</h2>
+                                                <br>
+                                                <div>생년월일</div>
+                                                <hr class="md-0">
+                                                <div class="form-floating mb-3">
+                                                ${resume.birthdate}
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div>주소</div>
+                                                <hr class="md-0">
+                                                <div class="form-floating mb-3">
+                                                <input type="text" name="address" id="address" class="form-control" id="floatingInputValue" value="${resume.address}">
+                                                <label for="floatingInput">주소를 입력해주세요 예시: 부산광역시 부산진구 양정동 상세주소</label>
+                                                </div>
+                                                <br> 
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div>간단 소개글</div>
+                                            <hr class="md-0">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" name="content" id="content" style="height: 100px">${resume.content}</textarea>
+                                            </div>
+                                            <br>
+                                            <div class="mt-5">경력</div>
+                                            <hr class="md-0">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" name="career" id="career" style="height: 100px">${resume.career}</textarea>
+                                            </div>
+                                            <br>
+                                            <div class="mt-5">학력</div>
+                                            <hr class="md-0">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" name="education" id="education" style="height: 100px">${resume.education}</textarea>
+                                            </div>
+                                            <br>
+                                            <div class="mt-5">스킬</div>
+                                            <hr class="md-0">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" name="skill" id="skill" style="height: 100px">${resume.skill}</textarea>
+                                            </div>
+                                            <br>
+                                            <div class="mt-5">수상 및 기타</div>
+                                            <hr class="md-0">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" name="award" id="award" style="height: 100px">${resume.award}</textarea>
+                                            </div>
+                                            <br>
+                                            <div class="mt-5">외국어</div>
+                                            <hr class="md-0">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" name="language" id="language" style="height: 100px">${resume.language}</textarea>
+                                            </div>
+                                            <br>
+                                            <div class="mt-5">링크</div>
+                                            <hr class="md-0">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" name="link" id="link" style="height: 100px">${resume.link}</textarea>
+                                            </div>
+                                            <br>
+                                            <div class="mt-5">포트폴리오 파일</div>
+                                            <hr class="md-0">
+                                            <div class="mb-3">
+                                                <label for="formFileMultiple" class="form-label">파일 첨부하기</label>
+                                                <input class="form-control" type="file" name="file" id="file" multiple>
+                                            </div>
+                                            <br>
+                                            <hr class="md-0">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">나가기</button>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
                                 </div>
                             </c:forEach>
                         </div>
