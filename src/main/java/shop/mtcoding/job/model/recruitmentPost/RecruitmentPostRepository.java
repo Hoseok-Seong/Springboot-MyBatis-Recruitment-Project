@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.BoardReqDto;
+import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.BoardRespDto;
 
 @Mapper
 public interface RecruitmentPostRepository {
@@ -18,5 +18,5 @@ public interface RecruitmentPostRepository {
 
         public int deleteById(int id);
 
-        public List<BoardReqDto> findByBoard();
+        public List<BoardRespDto> findByBoard();
 }

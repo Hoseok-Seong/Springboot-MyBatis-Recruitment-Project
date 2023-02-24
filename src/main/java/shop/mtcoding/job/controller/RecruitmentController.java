@@ -19,11 +19,11 @@ public class RecruitmentController {
         return "recruitment/detail";
     }
 
-    @GetMapping("recruitment/RecruitmentInformation")
+    @GetMapping("recruitment/list")
     public String recruitmentinformaiton(Model model) {
 
         model.addAttribute("boards", recruitmentPostRepository.findByBoard());
 
-        return "recruitment/recruitmentinformaiton";
+        return "recruitment/list";
     }
 }

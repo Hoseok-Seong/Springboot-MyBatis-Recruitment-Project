@@ -22,8 +22,8 @@
       delete from resume_tb where id = #{id}
    </delete>
 
-   <select id="findByBoard" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto$BoardReqDto">
-   SELECT r.title, e.enterprise_name, r.id, r.created_at
+   <select id="findByBoard" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$BoardRespDto">
+   SELECT e.enterprise_name, r.title,  r.id, r.enterprise_logo, r.created_at
    FROM recruitment_post_tb r
    JOIN enterprise_tb e
    ON r.enterprise_id = e.id;

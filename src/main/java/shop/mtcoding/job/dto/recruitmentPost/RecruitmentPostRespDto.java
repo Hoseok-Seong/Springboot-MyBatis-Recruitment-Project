@@ -5,11 +5,11 @@ import java.sql.Timestamp;
 import lombok.Getter;
 import lombok.Setter;
 
-public class RecruitmentPostReqDto {
+public class RecruitmentPostRespDto {
 
     @Getter
     @Setter
-    public static class BoardReqDto {
+    public static class BoardRespDto {
         private Integer id;
         private String title;
         private String enterpriseName;
