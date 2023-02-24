@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository">
-    <insert id="insert">
+   <insert id="insert">
       insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, created_at) 
-      values(#{enterprise_id},#{title},#{career},#{education},#{pay},#{sector},#{position},#{address},#{content},now());
+      values(#{enterpriseId},#{title},#{career},#{education},#{pay},#{sector},#{position},#{address},#{content},now());
    </insert>
 
    <update id="updateById">

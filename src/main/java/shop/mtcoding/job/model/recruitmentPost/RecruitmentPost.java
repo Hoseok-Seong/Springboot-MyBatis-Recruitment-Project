@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 public class RecruitmentPost {
     private int id;
-    private String enterpriseId;
+    private int enterpriseId;
     private String title;
     private String career;
     private String education;
