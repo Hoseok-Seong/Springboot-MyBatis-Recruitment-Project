@@ -35,7 +35,7 @@
                                 <ul class="navbar-nav m-auto">
                                     <a class="nav-link" href="#"><i class="bi bi-list"></i></a>
                                     <li class="nav-item">
-                                        <a class="nav-link text-dark" href="/main">로고</a>
+                                        <a class="nav-link text-dark pt-1" href="/main"><img src="/images/projectLogo.png" alt="" style="width: 100px; height: 30px;"></a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" href="/recruitment/RecruitmentInformation">채용</a>
