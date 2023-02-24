@@ -9,14 +9,15 @@ import lombok.Setter;
 @Setter
 public class RecruitmentPost {
     private int id;
-    private String enterpriseId;
+    private int enterpriseId;
     private String title;
     private String career;
     private String education;
     private String pay;
     private String sector;
     private String position;
-    private String content;
     private String address;
+    private String content;
+    private String enterpriseLogo;
     private Timestamp createdAt;
 }

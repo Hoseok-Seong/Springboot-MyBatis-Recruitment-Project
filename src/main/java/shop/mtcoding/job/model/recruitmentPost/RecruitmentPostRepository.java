@@ -16,6 +16,8 @@ public interface RecruitmentPostRepository {
 
         public int insert(RecruitmentPost recruitmentPost);
 
+        public int insertWithEnterpriseName(RecruitmentPost recruitmentPost);
+
         public int updateById(RecruitmentPost recruitmentPost);
 
         public int deleteById(int id);
