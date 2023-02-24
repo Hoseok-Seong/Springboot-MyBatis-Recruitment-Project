@@ -167,7 +167,7 @@
                     dataType: "json"
                 }).done((res) => { // 20X 일때
                     alert(res.msg);
-                    location.href = "/";
+                    location.href = "/resumeList";
                 }).fail((err) => { // 40X, 50X 일때
                     alert(err.responseJSON.msg);
                 });
