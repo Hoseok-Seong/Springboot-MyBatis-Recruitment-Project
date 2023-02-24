@@ -43,17 +43,17 @@
                     </div>
                 <div class="card g-col-6 my-5 m-3" style="width: 525px; height: 400px; background-color: #f3f8ee;">
                         <div class="card-body">
-                            <h3 class="card-title">이력서만 등록해도 찾아오는 면접 제안</h3><br>
-                            <p class="card-text">매치업은 서류 전형 없이 바로 면접 진행!</small></p>
+                            <h3 class="card-title">기업 추천 서비스 개발!</h3><br>
+                            <p class="card-text">이력서만 등록을 해주시면 </small></p>
                             <p class="card-text">채용담당자가 직접 면접을 제안합니다.</small></p>
                             <img src="/images/resume_03.png" alt="">
                         </div>
                     </div>
                 <div class="card g-col-6 my-5 m-3" style="width: 525px; height: 400px; background-color: #ecf8fb;">
                         <div class="card-body">
-                            <h3 class="card-title">언제 어디서나 자유롭게 작성</h3><br>
-                            <p class="card-text">주말엔 노트북, 출퇴근길엔 스마트폰으로.</small></p>
-                            <p class="card-text">자유롭게 작성하고 필요할 땐 PDF로 저장하세요.</small></p>
+                            <h3 class="card-title">북마크 서비스 개발!</h3><br>
+                            <p class="card-text">북마크가 많은 기업들을 소개 시켜드립니다</small></p>
+                            <p class="card-text">가입자들이 체크한 북마크가 많은 순 대로 나열</small></p>
                             <img src="/images/resume_04.png" alt="">
                         </div>
                     </div>
