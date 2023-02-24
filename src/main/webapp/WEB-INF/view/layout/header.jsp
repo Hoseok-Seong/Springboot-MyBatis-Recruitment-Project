@@ -41,7 +41,7 @@
                                         <a class="nav-link text-dark" href="/recruitment/RecruitmentInformation">채용</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link text-dark" href="/resumeForm">이력서</a>
+                                        <a class="nav-link text-dark" href="/resumeMain">이력서</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" href="/community">커뮤니티</a>
