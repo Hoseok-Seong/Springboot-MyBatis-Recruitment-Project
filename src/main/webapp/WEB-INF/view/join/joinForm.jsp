@@ -23,7 +23,7 @@
                                 <div class="tab-pane fade show active" id="loginUser">
                                     <form action="user/join" method="post">
                                         <table class="table table-borderless">
-                                            <!-- <div class="text-center border d-flex justify-content-end"> -->
+                                            <div class="text-center border d-flex justify-content-end"> 
                                                     <!-- input의 크기는 class="form-control-lg" 로 늘린다. -->
                                                 <td><input type="text" class="form-control-lg w-75" name="username" placeholder="username">
                                                     <button class="btn btn-danger btn-sm" style="float:right;">중복확인</button></td>
@@ -62,7 +62,7 @@
                                 <form action="enterprise/join" method="post">
                                     <table class="table table-borderless">
 
-                                        <!-- <div class="text-center border d-flex justify-content-end"> -->
+                                        <div class="text-center border d-flex justify-content-end"> 
                                             <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
                                             <td><input type="text" class="form-control-lg w-75" name="enterpriseName" placeholder="enterprise name">
                                                 <button class="btn btn-danger btn-sm" style="float:right;">중복확인</button>

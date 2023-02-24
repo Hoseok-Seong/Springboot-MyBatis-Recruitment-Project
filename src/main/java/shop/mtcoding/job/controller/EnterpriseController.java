@@ -61,12 +61,12 @@ public class EnterpriseController {
         if (joinEnterpriseReqDto.getContact() == null || joinEnterpriseReqDto.getContact().isEmpty()) {
             throw new CustomException("전화번호를 입력해주세요");
         }
-        // if (joinEnterpriseReqDto.getSector() == null || joinEnterpriseReqDto.getSector().isEmpty()) {
-        //     throw new CustomException("sector을 작성해주세요");
-        // }
-        // if (joinEnterpriseReqDto.getSize() == null || joinEnterpriseReqDto.getSize().isEmpty()) {
-        //     throw new CustomException("size을 작성해주세요");
-        // }
+        if (joinEnterpriseReqDto.getSector() == null || joinEnterpriseReqDto.getSector().isEmpty()) {
+            throw new CustomException("sector을 작성해주세요");
+        }
+        if (joinEnterpriseReqDto.getSize() == null || joinEnterpriseReqDto.getSize().isEmpty()) {
+            throw new CustomException("size을 작성해주세요");
+        }
 
         enterpriseService.기업가입하기(joinEnterpriseReqDto);
 

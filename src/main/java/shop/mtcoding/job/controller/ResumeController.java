@@ -33,11 +33,11 @@ public class ResumeController {
     @Autowired
     private ResumeRepository resumeRepository;
 
-    @GetMapping("/resumeListForm")
-    public String resumeListForm(Model model) {
+    @GetMapping("/resumeList")
+    public String resumeList(Model model) {
         List<Resume> resumeList = resumeRepository.findAll();
         model.addAttribute("resumeList", resumeList);
-        return "resume/resumeListForm";
+        return "resume/resumeList";
     }
 
     
