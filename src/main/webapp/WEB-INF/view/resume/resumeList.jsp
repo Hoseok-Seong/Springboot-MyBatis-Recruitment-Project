@@ -49,7 +49,7 @@
                                             <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                            <li><a class="dropdown-item" href="#">이력서 삭제</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="deleteById(${resume.id})">이력서 삭제</a></li>
                                             <li><a class="dropdown-item" href="#">이력서 무시기</a></li>
                                             <li><a class="dropdown-item" href="#">이력서 저시기</a></li>
                                             </ul>
@@ -159,4 +159,18 @@
                     </div>
                 </div>
             </div>
+            <script>
+            function deleteById(id) {
+                $.ajax({
+                    type: "delete",
+                    url: "/resume/" + id,
+                    dataType: "json"
+                }).done((res) => { // 20X 일때
+                    alert(res.msg);
+                    location.href = "/";
+                }).fail((err) => { // 40X, 50X 일때
+                    alert(err.responseJSON.msg);
+                });
+            }
+            </script>
 <%@ include file="../layout/footer.jsp" %>
