@@ -49,7 +49,7 @@
                                             <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                            <li><a class="dropdown-item" href="#" onclick="confirmDelete(${resume.id})">이력서 삭제</a></li>
+                                            <li><a class="dropdown-item" href="#">이력서 삭제</a></li>
                                             <li><a class="dropdown-item" href="#">이력서 무시기</a></li>
                                             <li><a class="dropdown-item" href="#">이력서 저시기</a></li>
                                             </ul>
@@ -59,7 +59,7 @@
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop${resume.id}">
                                     상세보기
                                     </button>
-
+                                    
                                     <!-- Modal -->
                                     <div class="modal fade" id="staticBackdrop${resume.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
@@ -71,7 +71,9 @@
                                         <div class="modal-body justify-content-start">
                                             <div class="container-fluid">
                                             <div class="container-fluid pt-4 ps-0" style="height: 600px;">
-                                                <h1>${resume.title}</h1>
+                                                <%-- <h1>${resume.title}</h1> --%>
+                                                <h1><input type="text" name="title" id="title" placeholder="제목">${resume.title}</h1>
+                                                <h1><input type="text" name="birthdate" id="birthdate" placeholder="sadasd">${resume.birthdate}</h1>
                                                 <br>
                                                 <br>
                                                 <h2>username</h2>
@@ -149,6 +151,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">나가기</button>
+                                            <button onclick="updateByResume(${resume.id})" type="button" class="btn btn-primary">글수정완료</button>
                                         </div>
                                         </div>
                                     </div>
@@ -159,24 +162,6 @@
                     </div>
                 </div>
             </div>
-            <script>
-            function confirmDelete(resumeId) {
-            if (confirm('이력서를 삭제하시면 복구가 불가능합니다. 정말로 삭제하시겠습니까?')) {
-                deleteById(resumeId);
-            }
-            }
+           
 
-            function deleteById(resumeId) {
-                $.ajax({
-                    type: "delete",
-                    url: "/resume/" + resumeId,
-                    dataType: "json"
-                }).done((res) => { // 20X 일때
-                    alert(res.msg);
-                    location.href = "/resumeList";
-                }).fail((err) => { // 40X, 50X 일때
-                    alert(err.responseJSON.msg);
-                });
-            }
-            </script>
 <%@ include file="../layout/footer.jsp" %>
