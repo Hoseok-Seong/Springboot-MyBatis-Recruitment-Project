@@ -107,3 +107,31 @@ a {
     color: #f56a79;
     font-weight: bold;
 }
+
+.hh-background-wrap {
+    background-image: url('https://img.freepik.com/free-photo/business-women-signature-at-document_1388-90.jpg');
+    background-size: 1200px 500px;
+    width: 1200px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hh-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .hh-content span {
+    color: white;
+  }
+  
+  .hh-content span:nth-child(1) {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .hh-content span:nth-child(2) {
+    font-size: 20px;
+  }

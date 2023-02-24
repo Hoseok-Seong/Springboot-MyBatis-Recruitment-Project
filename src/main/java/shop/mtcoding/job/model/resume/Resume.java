@@ -12,12 +12,15 @@ public class Resume {
     private int userId;
     private String title;
     private String content;
-    private String profile;
-    private int age;
-    private String address;
     private String career;
     private String education;
-    private String position;
-    private String field;
+    private String skill;
+    private String award;
+    private String language;
+    private String link;
+    private String file;
+    private String birthdate;
+    private String address;
+    private boolean finish;
     private Timestamp createdAt;
 }

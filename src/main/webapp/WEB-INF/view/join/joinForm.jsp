@@ -21,16 +21,15 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="loginUser">
-                                    
                                     <form action="user/join" method="post">
-                                        <table class="table table-bordered">
-                                            <div class="text-center border d-flex justify-content-end">
+                                        <table class="table table-borderless">
+                                            <div class="text-center border d-flex justify-content-end"> 
                                                     <!-- input의 크기는 class="form-control-lg" 로 늘린다. -->
                                                 <td><input type="text" class="form-control-lg w-75" name="username" placeholder="username">
                                                     <button class="btn btn-danger btn-sm" style="float:right;">중복확인</button></td>
                                             </div>
                                             <tr class="text-center">
-                                                <td><input type="password" class="form-control-lg w-100" name="password" placeholder="password"></td>
+                                                <td><input type="password" class="form-control-lg" style="width:350px" name="password" placeholder="password"></td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td><input type="password" class="form-control-lg w-100" name="" placeholder="password check"></td>
@@ -50,19 +49,20 @@
                                                 <td><input type="text" class="form-control-lg w-100" name="certificationNumber" placeholder="certification-number"></td>
                                             </tr>
                                         </table>
-                                            <div>
-                                                <tr class="text-center">
-                                                    <input type="checkbox"> 필수 동의 항목 및 개인정보 수집 및 이용 동의, 광고성 정보 수신에 동의합니다.
+                                            <div class="text-center">
+                                                <tr>
+                                                 &nbsp;<input type="checkbox"  aria-label="Checkbox for following text input"> 필수 동의 항목 및 개인정보 수집 및 이용 동의, 광고성 정보 수신에 동의합니다.
                                                 </tr>
                                             </div>
+                                            <br>
                                         <button class="btn btn-danger btn-sm m-1" style="float:right;">회원가입</button>
                                     </form> 
                                 </div>
                             <div class="tab-pane fade" id="loginEnterprise">
                                 <form action="enterprise/join" method="post">
-                                    <table class="table table-bordered">
+                                    <table class="table table-borderless">
 
-                                        <div class="text-center border d-flex justify-content-end">
+                                        <div class="text-center border d-flex justify-content-end"> 
                                             <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
                                             <td><input type="text" class="form-control-lg w-75" name="enterpriseName" placeholder="enterprise name">
                                                 <button class="btn btn-danger btn-sm" style="float:right;">중복확인</button>
@@ -88,18 +88,39 @@
                                         <tr class="text-center">
                                             <td><input type="text" class="form-control-lg w-100" name="email" placeholder="email"></td>
                                         </tr>
-                                        <tr class="text-center">
-                                            <td><input type="text" class="form-control-lg w-100" name="sector" placeholder="sector"></td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td><input type="text" class="form-control-lg w-100" name="size" placeholder="size"></td>
-                                        </tr>
                                     </table>
-                                    <div>
-                                        <tr class="text-center">
-                                            <input type="checkbox"> 필수 동의 항목 및 개인정보 수집 및 이용 동의, 광고성 정보 수신에 동의합니다.
+                                    <div class="form-control-sm">
+                                     &nbsp;회사분류
+                                            <label for="exampleFormControlSelect1"></label>
+                                            <select class="form-control" id="exampleFormControlSelect1" name="sector">
+                                                <option value="SI">SI</option>
+                                                <option value="솔루션">솔루션</option>
+                                                <option value="웹 에이젼시">웹 에이젼시</option>
+                                                <option value="인력소싱">인력소싱</option>
+                                                <option value="IT 대기업 계열사">IT 대기업 계열사</option>
+                                                <option value="IT 스타트업">IT 스타트업</option>
+                                                <option value="IT 서비">IT 서비스</option>
+                                                <option value="IT 컨설팅 회사">IT 컨설팅 회사</option>
+                                            </select>
+                                        </div><br>
+                                      
+                                        <div class="form-control-sm">
+                                            &nbsp;기업형태
+                                            <label for="exampleFormControlSelect1"></label>
+                                            <select class="form-control" id="exampleFormControlSelect1" name="size">
+                                                <option value="스타트업">스타트업</option>
+                                                <option value="중소기업">중소기업</option>
+                                                <option value="중견기업">중견기업</option>
+                                                <option value="대기업">대기업</option>
+                                            </select>
+                                        </div><br>
+                                    <div class="text-center">
+                                        <tr>
+                                            &nbsp;<input type="checkbox" aria-label="Checkbox for following text input"> 필수 동의 항목 및 개인정보 수집 및 이용 동의, 광고성 정보
+                                            수신에 동의합니다.
                                         </tr>
                                     </div>
+                                    <br>
                                     <button class="btn btn-danger btn-sm m-1" style="float:right;">회원가입</button>
                                 </form>
                             </div>

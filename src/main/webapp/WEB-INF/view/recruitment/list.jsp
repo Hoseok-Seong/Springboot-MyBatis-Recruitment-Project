@@ -35,28 +35,10 @@
                         </div>
                     </div>
                     <div class="row row-cols-1 row-cols-md-4 g-4 d-flex flex-wrap">
-                        <%-- <div class="card-body">
-                            <table class="table table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>글번호</th>
-                                        <th>기업명</th>
-                                        <th>제목</th>
-                                        <th>작성일</th>
-                                    </tr>
-                                </thead>
-                                <tbody> --%
-                                    <%-- <tr>
-                                        <td>${board.id}</td>
-                                        <td>${board.title}</td>
-                                        <td><a href="recruitment/detail/${board.id} ">${board.enterpriseName}</a>
-                                        <td>${board.createdAt}</td>
-                                        </tr> --%>
-
-                                        <div class="container">
-                                        </div>
-                                </tbody>
-                            </table>
+                        <div class="container">
+                        </div>
+                        </tbody>
+                        </table>
                     </div>
                 </div>
         </div>

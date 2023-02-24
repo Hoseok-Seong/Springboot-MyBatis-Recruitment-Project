@@ -26,11 +26,23 @@ create table enterprise_tb(
 
 create table recruitment_post_tb(
     id int auto_increment primary key,
+<<<<<<< HEAD
     enterprise_id int not null ,
     title varchar(100) not null,
     content longtext not null,
     enterprise_logo longtext not null,
+=======
+    enterprise_id int not null,
+    title varchar(100) not null,
+    career varchar(100) not null,
+    education varchar(100) not null,
+    pay varchar(100) not null,
+    sector varchar(100) not null,
+    position varchar(100) not null,
+>>>>>>> dev
     address varchar(100) not null,
+    content longtext not null,
+    enterprise_logo varchar(100),
     created_at timestamp not null
 );
 
@@ -39,13 +51,16 @@ create table resume_tb(
     user_id int not null unique,
     title varchar(100) not null,
     content longtext not null,
-    profile longtext not null,
-    age int not null,
+    career longtext not null,
+    education longtext not null,
+    skill longtext not null,
+    award longtext not null,
+    language longtext not null,
+    link longtext not null,
+    file longtext null,
+    birthdate varchar not null,
     address varchar(100) not null,
-    career varchar(100) not null,
-    education varchar(100) not null,
-    position varchar(100) not null,
-    field varchar(100) not null,
+    finish boolean not null,
     created_at timestamp not null
 );
 
