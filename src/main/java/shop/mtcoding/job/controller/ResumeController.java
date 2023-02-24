@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -40,7 +41,6 @@ public class ResumeController {
         return "resume/resumeList";
     }
 
-    
     @GetMapping("/resumeForm")
     public String resumeForm() {
         return "resume/resumeForm";
@@ -111,4 +111,20 @@ public class ResumeController {
 
         return new ResponseEntity<>(new ResponseDto<>(1, "이력서 쓰기 성공", null), HttpStatus.CREATED);
     }
+
+    @GetMapping("/resume/{id}")
+    public String resumeDetail(@PathVariable int id, Model model) {
+        User principal = (User) session.getAttribute("principal");
+        if (principal == null) {
+            throw new CustomApiException("인증이 실패했습니다", HttpStatus.UNAUTHORIZED);
+        }
+        model.addAttribute();
+        return "/resume/detail";
+    }
+
+    @GetMapping("/resumeDetail")
+    public String resumeD() {
+        return "/resume/resumeDetail";
+    }
+
 }
