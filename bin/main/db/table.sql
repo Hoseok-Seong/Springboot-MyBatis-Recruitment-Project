@@ -41,7 +41,7 @@ create table recruitment_post_tb(
 
 create table resume_tb(
     id int auto_increment primary key,
-    user_id int not null unique,
+    user_id int not null,
     title varchar(100) not null,
     content longtext not null,
     career longtext not null,

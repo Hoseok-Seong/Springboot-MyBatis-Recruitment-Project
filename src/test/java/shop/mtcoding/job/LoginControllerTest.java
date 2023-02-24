@@ -34,7 +34,7 @@ public class LoginControllerTest {
     @Autowired
     private HttpSession session;
 
-    String requestBody = "username=ssar&password=03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4&email=ssar@nate.com";
+    String requestBody = "username=ssar&password=6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b_{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2=ssar@nate.com";
 
     @Test
     public void testNotNullOrEmptyString() {
@@ -45,15 +45,15 @@ public class LoginControllerTest {
     @Test
     public void login_test() throws Exception {
         // given
+        String requestBody2 = "username=ssar&password=6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b_{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2&email=ssar@nate.com";
         String requestBody = "username=ssar&password=1234";
-
+        String salt = "{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2";
         assertNotNull(requestBody);
         assertFalse(requestBody.isEmpty());
 
         // when
-        ResultActions resultActions = mvc.perform(post("/login").content(requestBody)
+        ResultActions resultActions = mvc.perform(post("/user/login").content(requestBody2)
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE));
-
         HttpSession session = resultActions.andReturn().getRequest().getSession();
         User principal = (User) session.getAttribute("principal");
         System.out.println("테스트 : " + principal.getUsername());
