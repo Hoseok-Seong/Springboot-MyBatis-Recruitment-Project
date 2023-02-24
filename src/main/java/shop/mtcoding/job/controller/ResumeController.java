@@ -1,11 +1,14 @@
 package shop.mtcoding.job.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.resume.ResumeReqDto.ResumeSaveReqDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
+import shop.mtcoding.job.model.resume.Resume;
+import shop.mtcoding.job.model.resume.ResumeRepository;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.service.ResumeService;
 
@@ -25,6 +30,17 @@ public class ResumeController {
     @Autowired
     private ResumeService resumeService;
 
+    @Autowired
+    private ResumeRepository resumeRepository;
+
+    @GetMapping("/resumeList")
+    public String resumeList(Model model) {
+        List<Resume> resumeList = resumeRepository.findAll();
+        model.addAttribute("resumeList", resumeList);
+        return "resume/resumeList";
+    }
+
+    
     @GetMapping("/resumeForm")
     public String resumeForm() {
         return "resume/resumeForm";
