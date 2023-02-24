@@ -48,7 +48,7 @@ public class ResumeController {
 
     @GetMapping("/resumeMain")
     public String resumeMain() {
-        return "resume/resumeMain";
+        return "resume/main";
     }
 
     @PostMapping("/resume")

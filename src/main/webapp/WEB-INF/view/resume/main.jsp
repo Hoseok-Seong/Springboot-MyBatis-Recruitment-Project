@@ -1,18 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
     <div class="container my-5">
-        <div class="d-flex justify-content-center text-center">
+        <div class="d-inline-flex justify-content-left text-center">
+            <div class="text-on-img">
+                <div class="hh-background-wrap">
+                  <div class="hh-content">
+                    <span><h1>합격을 부르는 이력서</h1></span>
+                    <span><h2><h2></span> 
+                        <div class="d-flex justify-content-center text-center m-4">
+                            <span><b><a class="btn btn-secondary btn-lg m-3" href="/resumeList" role="button">이력서 관리</a></span>
+                            <span><b><a class="btn btn-secondary btn-lg m-3" href="/resumeForm" role="button">새 이력서 작성</a></span>
+                        </div>
+                  </div>
+                </div>
+              </div>
             <div class="col-lg-8 col-lg-6">
-            <h1>합격을 부르는 이력서</h1>
-            <h2>원티드 이력서로 지원 시 
-            <br>일반 이력서보다 서류 합격률이 2배 높아집니다.</h2>
             </div>
         </div>
-             <div class="d-flex justify-content-center text-center m-4">
-                <span><a class="btn btn-primary m-3" href="#" role="button">이력서 관리</a></span>
-                <span><a class="btn btn-primary m-3" href="#" role="button">새 이력서 작성</a></span>
-            </div>
-            <hr>
             <div class="d-flex justify-content-center text-center m-5">
                 <div class="col-lg-8 col-lg-6">
                 <h1>저희 이력서의 장점은 이렇습니다.</h1>
