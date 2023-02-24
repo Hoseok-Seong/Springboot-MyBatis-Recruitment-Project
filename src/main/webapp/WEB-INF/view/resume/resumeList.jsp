@@ -49,7 +49,7 @@
                                             <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                            <li><a class="dropdown-item" href="#" onclick="deleteById(${resume.id})">이력서 삭제</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="confirmDelete(${resume.id})">이력서 삭제</a></li>
                                             <li><a class="dropdown-item" href="#">이력서 무시기</a></li>
                                             <li><a class="dropdown-item" href="#">이력서 저시기</a></li>
                                             </ul>
@@ -160,10 +160,16 @@
                 </div>
             </div>
             <script>
-            function deleteById(id) {
+            function confirmDelete(resumeId) {
+            if (confirm('이력서를 삭제하시면 복구가 불가능합니다. 정말로 삭제하시겠습니까?')) {
+                deleteById(resumeId);
+            }
+            }
+
+            function deleteById(resumeId) {
                 $.ajax({
                     type: "delete",
-                    url: "/resume/" + id,
+                    url: "/resume/" + resumeId,
                     dataType: "json"
                 }).done((res) => { // 20X 일때
                     alert(res.msg);
