@@ -127,7 +127,10 @@
                 formData.append('sector', $('#sector').val());
                 formData.append('position', $('#position').val());
                 formData.append('address', $('#address').val());
-                formData.append('enterpriseLogo', $('#enterpriseLogo')[0].files[0]);
+                var enterpriseLogoFile = $('#enterpriseLogo')[0].files[0];
+                if (enterpriseLogoFile) {
+                    formData.append('enterpriseLogo', enterpriseLogoFile);
+                }
 
                 $.ajax({
                     type: 'post',
