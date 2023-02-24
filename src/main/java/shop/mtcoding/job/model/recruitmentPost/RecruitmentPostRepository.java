@@ -4,11 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-<<<<<<< HEAD
+import shop.mtcoding.job.dto.recruitment.RecruitmentPostRespDto.RecruitmentPostDetailRespDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.BoardRespDto;
-=======
-import shop.mtcoding.job.dto.recruitment.RecruitmentPostRespDto.RecruitmentPostDetailRespDto;;
->>>>>>> dev
 
 @Mapper
 public interface RecruitmentPostRepository {

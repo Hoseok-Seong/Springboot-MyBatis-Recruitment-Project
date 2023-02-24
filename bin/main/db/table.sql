@@ -26,12 +26,6 @@ create table enterprise_tb(
 
 create table recruitment_post_tb(
     id int auto_increment primary key,
-<<<<<<< HEAD
-    enterprise_id int not null ,
-    title varchar(100) not null,
-    content longtext not null,
-    enterprise_logo longtext not null,
-=======
     enterprise_id int not null,
     title varchar(100) not null,
     career varchar(100) not null,
@@ -39,7 +33,6 @@ create table recruitment_post_tb(
     pay varchar(100) not null,
     sector varchar(100) not null,
     position varchar(100) not null,
->>>>>>> dev
     address varchar(100) not null,
     content longtext not null,
     enterprise_logo varchar(100),

@@ -1,14 +1,10 @@
 package shop.mtcoding.job.controller;
 
-<<<<<<< HEAD
-import org.springframework.beans.factory.annotation.Autowired;
-=======
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
->>>>>>> dev
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,8 +29,6 @@ public class RecruitmentController {
     @Autowired
     private RecruitmentPostRepository recruitmentPostRepository;
 
-<<<<<<< HEAD
-=======
     @Autowired
     private RecruitmentService recruitmentService;
 
@@ -91,7 +85,6 @@ public class RecruitmentController {
         return "recruitment/saveForm";
     }
 
->>>>>>> dev
     @GetMapping("recruitment/detail/{id}")
     public String recruitmentPostDetail(@PathVariable int id, Model model) {
         model.addAttribute("recruitmentPostDtos", recruitmentPostRepository.findByIdWithEnterpriseId(id));
