@@ -1,8 +1,9 @@
 package shop.mtcoding.job.dto.recruitment;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Getter;
 import lombok.Setter;
-import shop.mtcoding.job.dto.recruitment.RecruitmentPostRespDto.RecruitmentPostDetailRespDto;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;
 
 public class RecruitmentPostReqDto {
@@ -19,8 +20,9 @@ public class RecruitmentPostReqDto {
         private String address;
         private String position;
         private String content;
+        private MultipartFile enterpriseLogo;
 
-        public RecruitmentPost toModel(int enterpriseId) {
+        public RecruitmentPost toModel(int enterpriseId, String enterpriseLogo) {
             RecruitmentPost recruitmentPost = new RecruitmentPost();
             recruitmentPost.setTitle(title);
             recruitmentPost.setEnterpriseId(enterpriseId);
@@ -31,7 +33,7 @@ public class RecruitmentPostReqDto {
             recruitmentPost.setAddress(address);
             recruitmentPost.setPosition(position);
             recruitmentPost.setContent(content);
-
+            recruitmentPost.setEnterpriseLogo(enterpriseLogo);
             return recruitmentPost;
         }
     }

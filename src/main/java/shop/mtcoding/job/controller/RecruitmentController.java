@@ -8,13 +8,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.recruitment.RecruitmentPostReqDto.RecruitmentPostDetailReqDto;
+import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
@@ -34,10 +37,14 @@ public class RecruitmentController {
 
     @PostMapping("/recruitment")
     public @ResponseBody ResponseEntity<?> saveRecruitmentPost(
-            @RequestBody RecruitmentPostDetailReqDto recruitmentPostDetailReqDto) {
+            @ModelAttribute RecruitmentPostDetailReqDto recruitmentPostDetailReqDto) {
         Enterprise principal = (Enterprise) session.getAttribute("principal");
         if (principal == null) {
             throw new CustomException("로그인을 먼저 해주세요", HttpStatus.UNAUTHORIZED);
+        }
+
+        if (recruitmentPostDetailReqDto.getEnterpriseLogo() == null) {
+            throw new CustomApiException("사진이 전송되지 않았습니다");
         }
 
         recruitmentService.채용공고쓰기(recruitmentPostDetailReqDto, principal.getId());

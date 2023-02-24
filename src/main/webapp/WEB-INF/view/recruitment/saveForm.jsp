@@ -9,7 +9,7 @@
 
         <div class="container my-3">
 
-            <form>
+            <form enctype="multipart/form-data">
 
                 <div class="form-group pb-3">
                     <input type="text" class="form-control form-control-lg" placeholder="Enter title" name="title"
@@ -99,12 +99,12 @@
                     <textarea class="form-control summernote" rows="5" id="content" name="content"></textarea>
                 </div>
 
-                <!-- <div class="input-group mb-3">
+                <div class="input-group mb-3">
                     <label class="input-group-text" for="logo">
                         로고사진
                     </label>
-                    <input type="file" class="form-control" id="logo" name="logo">
-                </div> -->
+                    <input type="file" class="form-control" id="enterpriseLogo" name="enterpriseLogo">
+                </div>
 
                 <div class="d-flex justify-content-center">
                     <button onclick="save()" type="button" class="btn btn-primary">글쓰기완료</button>
@@ -113,72 +113,46 @@
         </div>
 
         <script>
+
             function save() {
-                let data = {
-                    title: $("#title").val(),
-                    career: $("#career").val(),
-                    education: $("#education").val(),
-                    sector: $("#sector").val(),
-                    pay: $("#pay").val(),
-                    address: $("#address").val(),
-                    position: $("#position").val(),
-                    content: $("#content").val()
-                };
-                console.log(data)
+                // FormData 객체 생성
+                var formData = new FormData();
+
+                // input 요소에서 값을 가져와서 FormData 객체에 추가
+                formData.append('title', $('#title').val());
+                formData.append('content', $('#content').val());
+                formData.append('career', $('#career').val());
+                formData.append('education', $('#education').val());
+                formData.append('pay', $('#pay').val());
+                formData.append('sector', $('#sector').val());
+                formData.append('position', $('#position').val());
+                formData.append('address', $('#address').val());
+                formData.append('enterpriseLogo', $('#enterpriseLogo')[0].files[0]);
+
                 $.ajax({
-                    type: "post",
-                    url: "/recruitment",
-                    data: JSON.stringify(data),
-                    contentType: "application/json; charset=utf-8",
+                    type: 'post',
+                    url: '/recruitment',
+                    data: formData,
+                    contentType: false, // 필수 : x-www-form-urlencoded로 파싱되는 것을 방지
+                    processData: false, // 필수: contentType을 false로 줬을 때 QueryString 자동 설정됨. 해제
                     dataType: "json"
-                }).done((res) => {
+                }).done((res) => { // 20X 일때
                     alert(res.msg);
                     location.href = "/";
-                }).fail((err) => {
+                }).fail((err) => { // 40X, 50X 일때
                     alert(err.responseJSON.msg);
                 });
             }
-
-            // function save() {
-            //     // FormData 객체 생성
-            //     var formData = new FormData();
-
-            //     // input 요소에서 값을 가져와서 FormData 객체에 추가
-            //     formData.append('title', $('#title').val());
-            //     formData.append('content', $('#content').val());
-            //     formData.append('career', $('#career').val());
-            //     formData.append('education', $('#education').val());
-            //     formData.append('pay', $('#pay').val());
-            //     formData.append('sector', $('#sector').val());
-            //     formData.append('position', $('#position').val());
-            //     formData.append('address', $('#address').val());
-            //     formData.append('logo', $('#logo')[0].files[0]);
-
-            //     $.ajax({
-            //         type: 'post',
-            //         url: '/recruitment',
-            //         data: formData,
-            //         contentType: false, // 필수 : x-www-form-urlencoded로 파싱되는 것을 방지
-            //         processData: false, // 필수: contentType을 false로 줬을 때 QueryString 자동 설정됨. 해제
-            //         enctype: "multipart/form-data",
-            //         dataType: "json"
-            //     }).done((res) => { // 20X 일때
-            //         alert(res.msg);
-            //         location.href = "/";
-            //     }).fail((err) => { // 40X, 50X 일때
-            //         alert(err.responseJSON.msg);
-            //     });
-            // }
         </script>
 
         <script>
             $('.summernote').summernote({
-                tabsize: 2
-                // height: 400,
-                // disableDragAndDrop: true,
+                tabsize: 2,
+                height: 400,
+                disableDragAndDrop: true,
             });
             $('.summernote').summernote(
-                // 'code', '주요업무 <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br><br>자격요건 <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br><br>우대사항 <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br><br>혜택 및 복지 <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>'
+                'code', '주요업무 <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br><br>자격요건 <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br><br>우대사항 <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br><br>혜택 및 복지 <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>'
             );
         </script>
 

@@ -16,7 +16,8 @@ public class RecruitmentPost {
     private String pay;
     private String sector;
     private String position;
-    private String content;
     private String address;
+    private String content;
+    private String enterpriseLogo;
     private Timestamp createdAt;
 }
