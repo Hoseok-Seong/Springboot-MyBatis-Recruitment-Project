@@ -1,10 +1,14 @@
 package shop.mtcoding.job.controller;
 
+<<<<<<< HEAD
+import org.springframework.beans.factory.annotation.Autowired;
+=======
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+>>>>>>> dev
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,12 +25,16 @@ import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
 import shop.mtcoding.job.service.RecruitmentService;
 
+import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
+
 @Controller
 public class RecruitmentController {
 
     @Autowired
     private RecruitmentPostRepository recruitmentPostRepository;
 
+<<<<<<< HEAD
+=======
     @Autowired
     private RecruitmentService recruitmentService;
 
@@ -83,14 +91,18 @@ public class RecruitmentController {
         return "recruitment/saveForm";
     }
 
+>>>>>>> dev
     @GetMapping("recruitment/detail/{id}")
     public String recruitmentPostDetail(@PathVariable int id, Model model) {
         model.addAttribute("recruitmentPostDtos", recruitmentPostRepository.findByIdWithEnterpriseId(id));
         return "recruitment/detail";
     }
 
-    @GetMapping("recruitment/RecruitmentInformation")
-    public String recruitmentinformaiton() {
-        return "recruitment/recruitmentinformaiton";
+    @GetMapping("recruitment/list")
+    public String recruitmentinformaiton(Model model) {
+
+        model.addAttribute("boards", recruitmentPostRepository.findByBoard());
+
+        return "recruitment/list";
     }
 }
