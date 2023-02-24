@@ -16,9 +16,7 @@ public class RecruitmentController {
 
     @GetMapping("recruitment/detail/{id}")
     public String recruitmentPostDetail(@PathVariable int id, Model model) {
-
-        model.addAttribute("recruitmentPostDtos", recruitmentPostRepository.findById(id));
-
+        model.addAttribute("recruitmentPostDtos", recruitmentPostRepository.findByIdWithEnterpriseId(id));
         return "recruitment/detail";
     }
 

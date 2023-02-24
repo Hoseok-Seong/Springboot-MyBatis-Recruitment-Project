@@ -26,7 +26,7 @@ create table enterprise_tb(
 
 create table recruitment_post_tb(
     id int auto_increment primary key,
-    enterprise_id int not null unique,
+    enterprise_id int not null,
     title varchar(100) not null,
     career varchar(100) not null,
     education varchar(100) not null,

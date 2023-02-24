@@ -20,8 +20,28 @@
       select * from recruitment_post_tb where id = #{id}  
    </select>
 
+   <select id="findByIdWithEnterpriseId" resultType="shop.mtcoding.job.dto.recruitment.RecruitmentPostRespDto$RecruitmentPostDetailRespDto">
+      SELECT 
+         recruitment_post_tb.title, 
+         recruitment_post_tb.career, 
+         recruitment_post_tb.education, 
+         recruitment_post_tb.pay, 
+         recruitment_post_tb.sector, 
+         recruitment_post_tb.position, 
+         recruitment_post_tb.address, 
+         recruitment_post_tb.content, 
+         recruitment_post_tb.enterprise_id, 
+         enterprise_tb.enterprise_name
+      FROM 
+         recruitment_post_tb 
+      JOIN enterprise_tb 
+      ON recruitment_post_tb.enterprise_id = enterprise_tb.id
+      where recruitment_post_tb.id = #{id}
+   </select>
+
    <delete id="deleteById">
       delete from recruitment_post_tb where id = #{id}
+
    </delete>
 
 </mapper>

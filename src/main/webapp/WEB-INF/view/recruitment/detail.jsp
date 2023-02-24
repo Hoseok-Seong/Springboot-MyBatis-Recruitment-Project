@@ -10,7 +10,7 @@
         <div class="container my-3">
 
             <div>
-                쿠팡(주)
+                ${recruitmentPostDtos.enterpriseName}
             </div>
 
             <div class="">
@@ -24,7 +24,7 @@
                             경력
                         </dt>
                         <dd>
-                            ${recruitmentPostDtos.career}   무관(신입 포함)
+                            ${recruitmentPostDtos.career}
                         </dd>
                     </dl>
                     <dl>
