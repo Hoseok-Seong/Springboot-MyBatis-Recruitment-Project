@@ -162,6 +162,43 @@
                     </div>
                 </div>
             </div>
+             <script>
+            function updateByResume(id) {
+                let data = {
+                    title: $("#title").val(),
+                    content: $("#content").val(),
+                    career: $("#career").val(),
+                    education: $("#education").val(),
+                    skill: $("#skill").val(),
+                    award: $("#award").val(),
+                    language: $("#language").val(),
+                    link: $("#link").val(),
+                    file: $("#file").val(),
+                    birthdate: $("#birthdate").val(),
+                    address: $("#address").val()
+                    };
+                console.log(data.title);
+                console.log(data.content);
+                console.log(data.career);
+                console.log(data.education);
+                console.log(data.birthdate);
+                console.log(data.language);
+                $.ajax({
+                    type: "put",
+                    url: "resume/" + id + "/update",
+                    data: JSON.stringify(data),
+                    contentType: 'application/json;charset=UTF-8',
+                    dataType: "json"  // default : 응답의 mime 타입으로 유추함
+                }).done((res) => {    // 20x 일때
+                    console.log(res);
+                    alert(res.msg);
+                    location.href = "/resumeMain";
+                }).fail((err) => {    // 40x , 50x 일때
+                    console.log(err);
+                    alert(err.responseJSON.msg);
+                });
+            }
+        </script>
            
 
 <%@ include file="../layout/footer.jsp" %>
