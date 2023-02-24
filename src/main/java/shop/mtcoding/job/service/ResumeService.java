@@ -47,4 +47,32 @@ public class ResumeService {
             // 로그를 남겨야 함 (DB or File)
         }
     }
+
+    public void 이력서수정(int id, ResumeSaveReqDto resumeSaveReqDto, int principalId) {
+        Resume resumePS = resumeRepository.findById(id);
+        System.out.println("테스트 : " +"aaaa");
+        if (resumePS == null) {
+            throw new CustomApiException("해당 이력서를 찾을 수 없습니다.");
+        }
+        if (resumePS.getUserId() != principalId) {
+            throw new CustomApiException("해당 이력서를 수정할 권한이 없습니다.", HttpStatus.FORBIDDEN);
+        }
+        System.out.println("테스트 : " +"bbbbb");
+        try {
+        int result = resumeRepository.updateById(id,resumeSaveReqDto.getTitle() ,resumeSaveReqDto.getContent(),
+                resumeSaveReqDto.getCareer(), resumeSaveReqDto.getSkill(), resumeSaveReqDto.getAward(), resumeSaveReqDto.getAddress(),
+                resumeSaveReqDto.getLink(), resumeSaveReqDto.getEducation(), 
+                resumeSaveReqDto.getFile(), resumeSaveReqDto.getBirthdate(), 
+                resumeSaveReqDto.getLanguage() 
+                );
+                
+        if (result != 1) {
+            throw new CustomApiException("이력서 수정에 실패하였습니다.", HttpStatus.INTERNAL_SERVER_ERROR);
+          }
+
+          }catch(Exception e) {
+            throw new CustomApiException("업데이트 실패");
+        }
+        System.out.println("테스트 : " +"ccccc");
+    }
 }
