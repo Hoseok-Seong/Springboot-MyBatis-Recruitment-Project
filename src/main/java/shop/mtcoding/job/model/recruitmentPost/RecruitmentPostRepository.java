@@ -4,11 +4,15 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import shop.mtcoding.job.dto.recruitment.RecruitmentPostRespDto.RecruitmentPostDetailRespDto;;
+
 @Mapper
 public interface RecruitmentPostRepository {
         public List<RecruitmentPost> findAll();
 
         public RecruitmentPost findById(int id);
+
+        public RecruitmentPostDetailRespDto findByIdWithEnterpriseId(int id);
 
         public int insert(RecruitmentPost recruitmentPost);
 
