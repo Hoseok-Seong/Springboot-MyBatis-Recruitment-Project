@@ -7,7 +7,7 @@
       values(#{userId}, #{title}, #{content}, #{career}, #{education}, #{skill}, #{award}, #{language}, #{link}, #{file}, #{birthdate}, #{address}, #{finish}, now()) 
    </insert>
     
-   <update id="updateById">
+  <update id="updateById">
       update resume_tb set content=#{content}, career=#{career}, skill=#{skill}, award = #{award}, address = #{address}, 
       link = #{link}, education = #{education}, file = #{file}, language = #{language} where id = #{id}
    </update>

@@ -40,21 +40,7 @@ public class ResumeControllerTest {
     @Autowired
     private ObjectMapper om;
     private MockHttpSession mockSession;
-
-    @BeforeEach // Test 메서드 실행 직전 마다에 호출됨.
-    public void setUp() {
-        // 데이터 인서트
-        User user = new User();
-        user.setId(1);
-        user.setUsername("ssar");
-        user.setPassword("1234");
-        user.setEmail("ssar@nate.com");
-        user.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
-
-        mockSession = new MockHttpSession();
-        mockSession.setAttribute("principal", user);
-    }
-
+    
     @Test
     public void resumeList_test() throws Exception {
         // given

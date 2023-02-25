@@ -131,7 +131,7 @@ public class ResumeController {
         return new ResponseEntity<>(new ResponseDto<>(1, "삭제 성공", null), HttpStatus.OK);
 
     }
-
+    
     @GetMapping("/resume/updateForm")
     public String updateForm() {
         return "resume/updateForm";
