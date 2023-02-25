@@ -8,7 +8,7 @@
 
    <update id="updateById">
       update recruitment_post_tb 
-      set user_id = #{enterprise_id}, title=#{title}, career = #{content}, education = #{education}, pay = #{pay}, sector = #{sector}, position = #{position}, address = #{address}, content = #{content} 
+      set enterprise_id = #{enterpriseId}, title=#{title}, career = #{career}, education = #{education}, pay = #{pay}, sector = #{sector}, position = #{position}, address = #{address}, content = #{content} , enterprise_logo =#{enterpriseLogo}
       where id = #{id}
    </update>
 
@@ -20,8 +20,9 @@
       select * from recruitment_post_tb where id = #{id}  
    </select>
 
-   <select id="findByIdWithEnterpriseId" resultType="shop.mtcoding.job.dto.recruitment.RecruitmentPostRespDto$RecruitmentPostDetailRespDto">
+   <select id="findByIdWithEnterpriseId" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$RecruitmentPostDetailRespDto">
       SELECT 
+         recruitment_post_tb.id, 
          recruitment_post_tb.title, 
          recruitment_post_tb.career, 
          recruitment_post_tb.education, 
@@ -44,7 +45,7 @@
 
    </delete>
 
-   <select id="findByPost" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$PostRespDto">
+   <select id="findByPost" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$RecruitmentPostListRespDto">
    SELECT e.enterprise_name, r.title,  r.id, r.enterprise_logo, r.created_at
    FROM recruitment_post_tb r
    JOIN enterprise_tb e

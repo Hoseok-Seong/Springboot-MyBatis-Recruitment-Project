@@ -1,4 +1,4 @@
-package shop.mtcoding.job.dto.recruitment;
+package shop.mtcoding.job.dto.recruitmentPost;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -10,8 +10,7 @@ public class RecruitmentPostReqDto {
 
     @Setter
     @Getter
-    public static class RecruitmentPostDetailReqDto {
-
+    public static class SaveRecruitmentPostReqDto {
         private String title;
         private String career;
         private String education;
@@ -37,4 +36,35 @@ public class RecruitmentPostReqDto {
             return recruitmentPost;
         }
     }
+
+    @Setter
+    @Getter
+    public static class UpdateRecruitmentPostReqDto {
+        private String title;
+        private String career;
+        private String education;
+        private String sector;
+        private String pay;
+        private String address;
+        private String position;
+        private String content;
+        private MultipartFile enterpriseLogo;
+
+        public RecruitmentPost toModel(int id, int enterpriseId, String enterpriseLogo) {
+            RecruitmentPost recruitmentPost = new RecruitmentPost();
+            recruitmentPost.setId(id);
+            recruitmentPost.setTitle(title);
+            recruitmentPost.setEnterpriseId(enterpriseId);
+            recruitmentPost.setCareer(career);
+            recruitmentPost.setEducation(education);
+            recruitmentPost.setSector(sector);
+            recruitmentPost.setPay(pay);
+            recruitmentPost.setAddress(address);
+            recruitmentPost.setPosition(position);
+            recruitmentPost.setContent(content);
+            recruitmentPost.setEnterpriseLogo(enterpriseLogo);
+            return recruitmentPost;
+        }
+    }
+
 }

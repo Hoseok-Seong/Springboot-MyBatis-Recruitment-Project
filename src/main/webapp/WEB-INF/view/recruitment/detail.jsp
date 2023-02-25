@@ -81,9 +81,20 @@
             </div>
             <hr />
             <div class="d-flex justify-content-center">
-                <div>
-                    <button type="button" class="btn btn-primary">지원하기</button>
-                </div>
+
+                <c:choose>
+                    <c:when test="${principalEnt == null}">
+                        <div>
+                            <button type="button" class="btn btn-primary">지원하기</button>
+                        </div>
+                    </c:when>
+                    <c:when test="${principalEnt.id == recruitmentPostDtos.enterpriseId}">
+                        <div>
+                            <a href="/recruitment/${recruitmentPostDtos.id}/updateForm" class="btn btn-warning">수정</a>
+                            <button type="button" class="btn btn-danger">삭제</button>
+                        </div>
+                    </c:when>
+                </c:choose>
             </div>
         </div>
 
