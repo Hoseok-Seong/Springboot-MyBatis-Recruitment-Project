@@ -25,24 +25,23 @@ import shop.mtcoding.job.model.resume.Resume;
 @AutoConfigureMockMvc
 @SpringBootTest(webEnvironment = WebEnvironment.MOCK)
 public class ResumeControllerTest {
-    
+
     @Autowired
     private MockMvc mvc;
     @Autowired
     private ObjectMapper om;
-    
+
     @Test
     public void resumeList_test() throws Exception {
         // given
         // when
         ResultActions resultActions = mvc.perform(
-                get("/resumeListForm"));
+                get("/resumeList"));
         Map<String, Object> map = resultActions.andReturn().getModelAndView().getModel();
         List<Resume> resumeList = (List<Resume>) map.get("resumeList");
         System.out.println("테스트 : size : " + resumeList.size());
         String model = om.writeValueAsString(resumeList);
         System.out.println("테스트 : size : " + model);
-
 
         // then
         resultActions.andExpectAll(status().isOk());

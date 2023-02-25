@@ -30,13 +30,13 @@ public class EnterpriseController {
             throw new CustomException("비밀번호를 작성해주세요");
         }
         // 1. 로그인하기 service
-        Enterprise principal = enterpriseService.기업로그인하기(loginEnterpriseReqDto);
+        Enterprise principalEnt = enterpriseService.기업로그인하기(loginEnterpriseReqDto);
 
         // 2. session에 저장
-        session.setAttribute("principal", principal);
+        session.setAttribute("principalEnt", principalEnt);
 
         // 3. principal 유효성 검사
-        if (session.getAttribute("principal") == null) {
+        if (session.getAttribute("principalEnt") == null) {
             throw new CustomException("존재하지 않는 아이디거나 비밀번호를 다시 확인해주시기 바랍니다");
         }
 

@@ -40,14 +40,6 @@
                 <div class="product-box">
                     <a href="detailPage" class="">
                         <img class="card-img-top" src="/images/coupang.png" alt="Card image">
-                        쿠팡
-                        <div class="card-body">
-                        </div>
-                    </a>
-                </div>
-                <div class="product-box">
-                    <a href="detailPage" class="">
-                        <img class="card-img-top" src="/images/${dto.enterprise_logo}" alt="Card image">
                         ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
@@ -55,7 +47,7 @@
                 </div>
                 <div class="product-box">
                     <a href="detailPage" class="">
-                        <img class="card-img-top" src="/images/${dto.enterprise_logo}" alt="Card image">
+                        <img class="card-img-top" src="/images/coupang.png" alt="Card image">
                         ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
@@ -63,7 +55,15 @@
                 </div>
                 <div class="product-box">
                     <a href="detailPage" class="">
-                        <img class="card-img-top" src="/images/${dto.enterprise_logo}" alt="Card image">
+                        <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        ${dto.enterprise_name}
+                        <div class="card-body">
+                        </div>
+                    </a>
+                </div>
+                <div class="product-box">
+                    <a href="detailPage" class="">
+                        <img class="card-img-top" src="/images/coupang.png" alt="Card image">
                         ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
@@ -75,7 +75,7 @@
             <div class="my-board-box">
                 <div class="product-box">
                     <a href="detailPage" class="">
-                        <img class="card-img-top" src="/images/${dto.enterprise_logo}" alt="Card image">
+                        <img class="card-img-top" src="/images/coupang.png" alt="Card image">
                         ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
@@ -83,7 +83,7 @@
                 </div>
                 <div class="product-box">
                     <a href="detailPage" class="">
-                        <img class="card-img-top" src="/images/${dto.enterprise_logo}" alt="Card image">
+                        <img class="card-img-top" src="/images/coupang.png" alt="Card image">
                         ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="product-box">
                     <a href="detailPage" class="">
-                        <img class="card-img-top" src="/images/${dto.enterprise_logo}" alt="Card image">
+                        <img class="card-img-top" src="/images/coupang.png" alt="Card image">
                         ${dto.enterprise_name}
                         <div class="card-body">
                         </div>
@@ -99,7 +99,8 @@
                 </div>
                 <div class="product-box">
                     <a href="detailPage" class="">
-                        <img class="card-img-top" src="/images/${dto.enterprise_logo}" alt="Card image">
+                        <img class="card-img-top" src="/images/coupang.png" alt="Card image">
+                        <%-- <img class="card-img-top" src="/images/${dto.enterprise_logo}" alt="Card image"> --%>
                         ${dto.enterprise_name}
                         <div class="card-body">
                         </div>

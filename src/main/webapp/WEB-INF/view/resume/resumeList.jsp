@@ -50,7 +50,7 @@
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                             <li><a class="dropdown-item" href="#" onclick="confirmDelete(${resume.id})">이력서 삭제</a></li>
-                                            <li><a class="dropdown-item" href="#">이력서 무시기</a></li>
+                                            <li><a class="dropdown-item" href="#">이력서 제출</a></li>
                                             <li><a class="dropdown-item" href="#">이력서 저시기</a></li>
                                             </ul>
                                         </div>

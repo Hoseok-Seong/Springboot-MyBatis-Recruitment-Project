@@ -18,14 +18,14 @@
                     </div>
                     <div class="container jm_container mt-5">
                         <div class="row">
-                            <c:forEach items="${boards}" var="board">
+                            <c:forEach items="${Posts}" var="post">
                                 <div class="col-sm-3 mb-3">
                                     <a href="#" style="color: inherit; text-decoration: none;">
                                         <div class="card jm_card h-100">
                                             <img src="/images/coupang.png" class="card-img-top jm_card_img_top">
                                             <div class="card-body jm_card_body">
-                                                <div class="jm_company_name">${board.title}</div>
-                                                <div class="jm_company_title">${board.enterpriseName}</div>
+                                                <div class="jm_company_name">${post.title}</div>
+                                                <div class="jm_company_title">${post.enterpriseName}</div>
                                                 <button type="button" class="btn btn-warning btn-sm">상세보기</button>
                                             </div>
                                         </div>

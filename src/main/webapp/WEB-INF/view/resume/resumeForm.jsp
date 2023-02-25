@@ -107,7 +107,7 @@
     <hr class="md-0">
   <div style="height: 80px;" class="justify-content-center">
   <script>
-  function save() {
+  function save(result) {
             // 1. 값 받아오기
             let data = {
             title: $("#title").val(),
@@ -121,7 +121,7 @@
             file: $("#file").val(),
             birthdate: $("#birthdate").val(),
             address: $("#address").val(),
-            finish: $("#finish").val()
+            finish: result
             };
 
             $.ajax({
@@ -141,8 +141,8 @@
         };
     </script>
     <br>
-    <button onclick="save()" name="finish" value="false" type="button" class="btn btn-secondary btn-lg ms-3" style="float:right;">임시저장</button>
-    <button onclick="save()" name="finish" value="true" type="button" class="btn btn-primary btn-lg" style="float:right;">작성완료</button>
+    <button onclick="save(false)" name="finish" value="false" type="button" class="btn btn-secondary btn-lg ms-3" style="float:right;">임시저장</button>
+    <button onclick="save(true)" name="finish" value="true" type="button" class="btn btn-primary btn-lg" style="float:right;">작성완료</button>
   </div>
 </div>
 <br>
