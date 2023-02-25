@@ -23,4 +23,20 @@ public class ResumeReqDto {
         private boolean finish;
         private Timestamp createdAt;
     }
+
+    @Setter
+    @Getter
+    public static class ResumeUpdateReqDto {
+        private String content;
+        private String career;
+        private String education;
+        private String skill;
+        private String award;
+        private String language;
+        private String link;
+        private String file;
+        private String address;
+        private boolean finish;
+        private Timestamp createdAt;
+    }
 }
