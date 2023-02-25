@@ -10,7 +10,7 @@ public class RecruitmentPostRespDto {
     @Setter
     @Getter
     public static class RecruitmentPostDetailRespDto {
-        private int id;
+        private Integer id;
         private String enterpriseId;
         private String title;
         private String career;

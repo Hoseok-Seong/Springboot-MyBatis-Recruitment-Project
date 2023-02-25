@@ -90,7 +90,7 @@
                     </c:when>
                     <c:when test="${principalEnt.id == recruitmentPostDtos.enterpriseId}">
                         <div>
-                            <a href="/recruitment/${recruitmentPostDtos.enterpriseId}/updateForm" class="btn btn-warning">수정</a>
+                            <a href="/recruitment/${recruitmentPostDtos.id}/updateForm" class="btn btn-warning">수정</a>
                             <button type="button" class="btn btn-danger">삭제</button>
                         </div>
                     </c:when>

@@ -17,10 +17,15 @@
                         </div>
                     </div>
                     <div class="container jm_container mt-5">
+                        <div class="mb-2 d-flex flex-row-reverse">
+                            <button class="btn btn-primary" type="button" id="saveForm"
+                                onclick="location.href = '/recruitment/saveForm'">채용공고쓰기</button>
+                        </div>
                         <div class="row">
                             <c:forEach items="${Posts}" var="post">
                                 <div class="col-sm-3 mb-3">
-                                    <a href="/recruitment/detail/${post.id}" style="color: inherit; text-decoration: none;">
+                                    <a href="/recruitment/detail/${post.id}"
+                                        style="color: inherit; text-decoration: none;">
                                         <div class="card jm_card h-100">
                                             <img src="/images/coupang.png" class="card-img-top jm_card_img_top">
                                             <div class="card-body jm_card_body">

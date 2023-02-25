@@ -22,6 +22,7 @@
 
    <select id="findByIdWithEnterpriseId" resultType="shop.mtcoding.job.dto.recruitment.RecruitmentPostRespDto$RecruitmentPostDetailRespDto">
       SELECT 
+         recruitment_post_tb.id, 
          recruitment_post_tb.title, 
          recruitment_post_tb.career, 
          recruitment_post_tb.education, 

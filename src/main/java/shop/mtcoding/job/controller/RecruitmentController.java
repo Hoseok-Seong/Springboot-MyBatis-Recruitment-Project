@@ -18,6 +18,7 @@ import shop.mtcoding.job.dto.recruitment.RecruitmentPostReqDto.RecruitmentPostDe
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
+import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
 import shop.mtcoding.job.service.RecruitmentService;
 
@@ -53,10 +54,12 @@ public class RecruitmentController {
         if (recruitmentPostDetailReqDto.getPay() == null || recruitmentPostDetailReqDto.getPay().isEmpty()) {
             throw new CustomApiException("급여란을 작성해주세요");
         }
-        if (recruitmentPostDetailReqDto.getSector() == null || recruitmentPostDetailReqDto.getSector().isEmpty()) {
+        if (recruitmentPostDetailReqDto.getSector() == null || recruitmentPostDetailReqDto.getSector().isEmpty()
+                || recruitmentPostDetailReqDto.getSector().equals("Open this select menu")) {
             throw new CustomApiException("기업형태를 선택해주세요");
         }
-        if (recruitmentPostDetailReqDto.getPosition() == null || recruitmentPostDetailReqDto.getPosition().isEmpty()) {
+        if (recruitmentPostDetailReqDto.getPosition() == null || recruitmentPostDetailReqDto.getPosition().isEmpty()
+                || recruitmentPostDetailReqDto.getPosition().equals("Open this select menu")) {
             throw new CustomApiException("희망포지션을 선택해주세요");
         }
         if (recruitmentPostDetailReqDto.getAddress() == null || recruitmentPostDetailReqDto.getAddress().isEmpty()) {
@@ -81,6 +84,25 @@ public class RecruitmentController {
             throw new CustomException("로그인을 먼저 해주세요", HttpStatus.UNAUTHORIZED);
         }
         return "recruitment/saveForm";
+    }
+
+    @GetMapping("recruitment/{id}/updateForm")
+    public String recruitmentUpdateForm(@PathVariable int id, Model model) {
+        Enterprise principalEnt = (Enterprise) session.getAttribute("principalEnt");
+        if (principalEnt == null) {
+            throw new CustomException("로그인을 먼저 해주세요", HttpStatus.UNAUTHORIZED);
+        }
+        RecruitmentPost recruitmentPS = recruitmentPostRepository.findById(id);
+        if (recruitmentPS == null) {
+            throw new CustomException("없는 게시글을 수정할 수 없습니다");
+        }
+        if (recruitmentPS.getEnterpriseId() != principalEnt.getId()) {
+            throw new CustomException("게시글을 수정할 권한이 없습니다", HttpStatus.FORBIDDEN);
+        }
+
+        model.addAttribute("recruitment", recruitmentPS);
+
+        return "recruitment/updateForm";
     }
 
     @GetMapping("recruitment/detail/{id}")
