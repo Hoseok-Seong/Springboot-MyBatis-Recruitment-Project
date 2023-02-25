@@ -8,7 +8,7 @@
 
    <update id="updateById">
       update recruitment_post_tb 
-      set user_id = #{enterprise_id}, title=#{title}, career = #{content}, education = #{education}, pay = #{pay}, sector = #{sector}, position = #{position}, address = #{address}, content = #{content} 
+      set enterprise_id = #{enterpriseId}, title=#{title}, career = #{career}, education = #{education}, pay = #{pay}, sector = #{sector}, position = #{position}, address = #{address}, content = #{content} , enterprise_logo =#{enterpriseLogo}
       where id = #{id}
    </update>
 

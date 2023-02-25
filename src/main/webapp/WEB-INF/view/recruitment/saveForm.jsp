@@ -136,12 +136,10 @@
                         return;
                     }
                     formData.append('enterpriseLogo', enterpriseLogoFile);
-                }
-
-
-                var enterpriseLogoFile = $('#enterpriseLogo')[0].files[0];
-                if (enterpriseLogoFile) {
-                    formData.append('enterpriseLogo', enterpriseLogoFile);
+                } else {
+                    // 
+                    alert('파일을 선택해주세요.');
+                    return;
                 }
 
                 $.ajax({

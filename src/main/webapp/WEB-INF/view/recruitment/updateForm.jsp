@@ -113,7 +113,7 @@
 
         <script>
 
-            function save() {
+            function updateById(id) {
                 // FormData 객체 생성
                 var formData = new FormData();
 
@@ -126,14 +126,23 @@
                 formData.append('sector', $('#sector').val());
                 formData.append('position', $('#position').val());
                 formData.append('address', $('#address').val());
+
                 var enterpriseLogoFile = $('#enterpriseLogo')[0].files[0];
                 if (enterpriseLogoFile) {
+                    // 파일 유형 체크
+                    if (!enterpriseLogoFile.type.startsWith('image/')) {
+                        alert('이미지 파일만 업로드 가능합니다.');
+                        return;
+                    }
                     formData.append('enterpriseLogo', enterpriseLogoFile);
+                } else {
+                    alert('파일을 선택해주세요.');
+                    return;
                 }
 
                 $.ajax({
-                    type: 'post',
-                    url: '/recruitment',
+                    type: 'put',
+                    url: '/recruitment/'+id,
                     data: formData,
                     contentType: false, // 필수 : x-www-form-urlencoded로 파싱되는 것을 방지
                     processData: false, // 필수: contentType을 false로 줬을 때 QueryString 자동 설정됨. 해제
