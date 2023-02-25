@@ -76,7 +76,7 @@ public class RecruitmentController {
 
     @GetMapping("recruitment/saveForm")
     public String recruitmentSaveForm() {
-        Enterprise principal = (Enterprise) session.getAttribute("principal");
+        Enterprise principal = (Enterprise) session.getAttribute("principalEnt");
         if (principal == null) {
             throw new CustomException("기업회원으로 로그인 하세요", HttpStatus.UNAUTHORIZED);
         }

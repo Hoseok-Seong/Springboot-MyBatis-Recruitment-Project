@@ -17,6 +17,7 @@ public class ApplyService {
 
     @Transactional
     public void 이력서제출(InsertApplyReqDto insertApplyReqDto, int userId) {
+        System.out.println("서비스단 도착");
         Apply apply = insertApplyReqDto.toModel(userId);
         int result = applyRepository.insert(apply);
         if (result != 1) {

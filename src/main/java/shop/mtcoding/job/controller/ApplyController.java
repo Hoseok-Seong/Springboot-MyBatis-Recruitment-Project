@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.job.dto.ResponseDto;
@@ -26,15 +27,15 @@ public class ApplyController {
     private ApplyService applyService;
 
     @PostMapping("/apply/{id}")
-    public @ResponseBody ResponseEntity<?> insertApply(@ModelAttribute InsertApplyReqDto insertApplyReqDto,
+    public @ResponseBody ResponseEntity<?> insertApply(@RequestBody @ModelAttribute InsertApplyReqDto insertApplyReqDto,
             @PathVariable int id) {
         User principal = (User) session.getAttribute("principal");
         if (principal == null) {
             throw new CustomApiException("인증이 실패했습니다", HttpStatus.UNAUTHORIZED);
         }
-
+        System.out.println("컨트롤러 도착");
         applyService.이력서제출(insertApplyReqDto, principal.getId());
-        return new ResponseEntity<>(new ResponseDto<>(1, "글쓰기성공", null), HttpStatus.CREATED);
+        return new ResponseEntity<>(new ResponseDto<>(1, "이력서 제출 성공", null), HttpStatus.CREATED);
     }
 
 }

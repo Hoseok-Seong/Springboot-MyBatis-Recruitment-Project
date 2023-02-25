@@ -13,7 +13,7 @@
                 ${recruitmentPostDtos.enterpriseName}
             </div>
 
-            <div class="">
+            <div>
                 <h2><b>${recruitmentPostDtos.title}</h2>
             </div>
 
@@ -82,9 +82,43 @@
             <hr />
             <div class="d-flex justify-content-center">
                 <div>
-                    <button type="button" class="btn btn-primary">지원하기</button>
+                    <button type="button" class="btn btn-primary"
+                        onclick="confirmApply(${recruitmentPostDtos.id}, ${recruitmentPostDtos.enterpriseId})">지원하기</button>
                 </div>
             </div>
         </div>
+        <script>
+            function confirmApply(postId, enterpriseId) {
+                console.log(" 경고창")
+                console.log(${ recruitmentPostDtos.id });
+                console.log(${ recruitmentPostDtos.enterpriseId });
+                // console.log(${ recruitmentPostDtos.sector });
+                if (confirm('이력서를 제출하시면 수정이 불가능합니다. 정말로 제출하시겠습니까?')) {
+                    ApplyById(postId,
+                        enterpriseId);
+                }
+            } function ApplyById(postId, enterpriseId) {
+                console.log(" 2번 경고창")
+                let data = {
+                    recruitmentPostId: postId,
+                    enterpriseId: enterpriseId,
+                    sector: postId
+                };
 
-            <%@ include file="../layout/footer.jsp" %>
+                $.ajax({
+                    type: "post",
+                    url: "/apply/" + postId,
+                    data: JSON.stringify(data),
+                    headers: {
+                        "Content-Type": "application/json; charset=utf-8"
+                    },
+                    dataType: "json" // default : 응답의 MIMETYPE으로 유추함.
+                }).done((res) => { // 20X 일때
+                    alert(res.msg);
+                    location.href = "recruitment/detail";
+                }).fail((err) => { // 40X, 50X 일때
+                    alert(err.responseJSON.msg);
+                });
+            }
+        </script>
+        <%@ include file="../layout/footer.jsp" %>

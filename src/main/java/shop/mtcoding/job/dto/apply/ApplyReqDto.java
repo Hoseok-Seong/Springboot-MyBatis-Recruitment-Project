@@ -11,13 +11,15 @@ public class ApplyReqDto {
 
         private int userId;
         private int enterpriseId;
-        private String field;
+        private int recruitmentPostId;
+        private String sector;
 
         public Apply toModel(int userId) {
             Apply apply = new Apply();
             apply.setUserId(userId);
             apply.setEnterpriseId(enterpriseId);
-            apply.setField(field);
+            apply.setRecruitmentPostId(recruitmentPostId);
+            apply.setSector(sector);
             return apply;
         }
     }

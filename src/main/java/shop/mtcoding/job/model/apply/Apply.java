@@ -11,6 +11,7 @@ public class Apply {
     private int id;
     private int userId;
     private int enterpriseId;
-    private String field;
+    private int recruitmentPostId;
+    private String sector;
     private Timestamp createdAt;
 }
