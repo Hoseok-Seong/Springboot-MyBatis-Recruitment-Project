@@ -21,4 +21,8 @@
       delete from apply_tb where id = #{id}
    </delete>
 
+   <select id="findByUserIdWithRecruitmentPostId" resultType="shop.mtcoding.job.model.apply.Apply">
+      select * from apply_tb where user_id = #{userId} and recruitment_post_id = #{recruitmentPostId}  
+   </select>
+
 </mapper>

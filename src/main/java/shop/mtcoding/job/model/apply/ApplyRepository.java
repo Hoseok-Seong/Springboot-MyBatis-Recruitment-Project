@@ -18,4 +18,7 @@ public interface ApplyRepository {
         public int updateById(Apply apply);
 
         public int deleteById(int id);
+
+        public Apply findByUserIdWithRecruitmentPostId(@Param("userId") int userId,
+                        @Param("recruitmentPostId") int recruitmentPostId);
 }

@@ -17,12 +17,10 @@ public class ApplyService {
 
     @Transactional
     public void 이력서제출(InsertApplyReqDto insertApplyReqDto, int userId) {
-        Apply applyPS =  applyRepository.findById(userId)
-        if (resumePS == null) {
-            throw new CustomApiException("존재하지 않는 게시글입니다");
-        }
-        if (resumePS.getUserId() != userId) {
-            throw new CustomApiException("해당 게시글을 삭제할 권한이 없습니다", HttpStatus.FORBIDDEN);
+        Apply applyPS = applyRepository.findByUserIdWithRecruitmentPostId(userId,
+                insertApplyReqDto.getRecruitmentPostId());
+        if (applyPS != null) {
+            throw new CustomApiException("이미 이력서를 제출한 채용공고입니다");
         }
 
         int result = applyRepository.insert(userId, insertApplyReqDto.getEnterpriseId(),
