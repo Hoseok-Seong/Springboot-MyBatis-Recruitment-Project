@@ -31,7 +31,10 @@
                                             <div class="card-body jm_card_body">
                                                 <div class="jm_company_name">${post.title}</div>
                                                 <div class="jm_company_title">${post.enterpriseName}</div>
-                                                <button type="button" class="btn btn-warning btn-sm">상세보기</button>
+                                                <button type="button" class="btn btn-warning btn-sm">
+                                                    <a
+                                                        href="${request.contextPath}/recruitment/detail/${post.id}">상세보기</a>
+                                                </button>
                                             </div>
                                         </div>
                                     </a>

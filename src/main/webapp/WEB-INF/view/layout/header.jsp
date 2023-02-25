@@ -35,7 +35,9 @@
                                 <ul class="navbar-nav m-auto">
                                     <a class="nav-link" href="#"><i class="bi bi-list"></i></a>
                                     <li class="nav-item">
-                                        <a class="nav-link text-dark pt-1" href="/main"><img src="/images/projectLogo.png" alt="" style="width: 100px; height: 30px;"></a>
+                                        <a class="nav-link text-dark pt-1" href="/main"><img
+                                                src="/images/projectLogo.png" alt=""
+                                                style="width: 100px; height: 30px;"></a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" href="/recruitment/list">채용</a>
@@ -49,26 +51,28 @@
                                 </ul>
                                 <ul class="navbar-nav m-auto">
                                     <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
-                                <c:choose>
-                                    <c:when test="${principalEnt == null}">
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" href="/loginForm">로그인</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" href="/joinForm">회원가입</a>
-                                    </li>
-                                    </c:when>
+                                    <c:choose>
+                                        <c:when test="${not empty principal or not empty principalEnt}">
+                                            <!-- 세션에 principal 또는 principalEnt 중 하나 이상이 존재하는 경우 -->
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" href=""><i class="bi bi-bell"></i></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="/logout"><img src="/images/profile.png" style="width: 35px;"
+                                                        class="rounded-circle" alt="Cinque Terre"></a>
+                                            </li>
+                                        </c:when>
 
-                                    <c:otherwise>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" href=""><i class="bi bi-bell"></i></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/logout"><img src="/images/profile.png" style="width: 35px;"
-                                                   href="/logout" class="rounded-circle" alt="Cinque Terre"></a>
-                                    </li>
-                                    </c:otherwise>
-                                </c:choose>
+                                        <c:otherwise>
+                                            <!-- 세션에 principal 또는 principalEnt가 존재하지 않는 경우 -->
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" href="/loginForm">로그인</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" href="/joinForm">회원가입</a>
+                                            </li>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </ul>
                             </div>
                     </div>

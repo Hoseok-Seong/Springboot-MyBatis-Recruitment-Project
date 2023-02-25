@@ -13,8 +13,8 @@
                 ${recruitmentPostDtos.enterpriseName}
             </div>
 
-            <div class="">
-                <h2><b>${recruitmentPostDtos.title}</h2>
+            <div>
+                <h2><b>${recruitmentPostDtos.title}</b></h2>
             </div>
 
             <div class="d-flex justify-content-between pb-3">
@@ -79,13 +79,17 @@
                     ${recruitmentPostDtos.content}
                 </div>
             </div>
+            <input type="hidden" name="postId" id="postId" value="${recruitmentPostDtos.id}">
+            <input type="hidden" name="enterpriseId" id="enterpriseId" value="${recruitmentPostDtos.enterpriseId}">
+            <input type="hidden" name="sector" id="sector" value="${recruitmentPostDtos.sector}">
+            <input type="hidden" name="resumeId" id="resumeId" value="${resume.id}">
             <hr />
             <div class="d-flex justify-content-center">
 
                 <c:choose>
                     <c:when test="${principalEnt == null}">
                         <div>
-                            <button type="button" class="btn btn-primary">지원하기</button>
+                            <button type="button" class="btn btn-primary" onClick="confirmApply()">지원하기</button>
                         </div>
                     </c:when>
                     <c:when test="${principalEnt.id == recruitmentPostDtos.enterpriseId}">
@@ -97,5 +101,33 @@
                 </c:choose>
             </div>
         </div>
+        <script>
+            function confirmApply() {
+                if (confirm('이력서를 제출하시면 수정이 불가능합니다. 정말로 제출하시겠습니까?')) {
+                    ApplyById();
+                }
+            } function ApplyById() {
+                let data = {
+                    recruitmentPostId: $("#postId").val(),
+                    enterpriseId: $("#enterpriseId").val(),
+                    sector: $("#sector").val(),
+                    resumeId: $("#resumeId").val(),
+                };
 
-            <%@ include file="../layout/footer.jsp" %>
+                $.ajax({
+                    type: "post",
+                    url: "/apply/" + $("#postId").val(),
+                    data: JSON.stringify(data),
+                    headers: {
+                        "Content-Type": "application/json; charset=utf-8"
+                    },
+                    dataType: "json" // default : 응답의 MIMETYPE으로 유추함.
+                }).done((res) => { // 20X 일때
+                    alert(res.msg);
+                    location.href = "/recruitment/list";
+                }).fail((err) => { // 40X, 50X 일때
+                    alert(err.responseJSON.msg);
+                });
+            }
+        </script>
+        <%@ include file="../layout/footer.jsp" %>

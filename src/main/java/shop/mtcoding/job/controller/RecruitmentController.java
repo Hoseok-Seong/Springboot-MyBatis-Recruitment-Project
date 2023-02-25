@@ -22,6 +22,8 @@ import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
+import shop.mtcoding.job.model.resume.ResumeRepository;
+import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.service.RecruitmentService;
 
 @Controller
@@ -35,6 +37,9 @@ public class RecruitmentController {
 
     @Autowired
     private HttpSession session;
+
+    @Autowired
+    private ResumeRepository resumeRepository;
 
     @PutMapping("/recruitment/{id}")
     public @ResponseBody ResponseEntity<?> saveRecruitmentPost(@PathVariable int id,
@@ -183,6 +188,12 @@ public class RecruitmentController {
     @GetMapping("recruitment/detail/{id}")
     public String recruitmentPostDetail(@PathVariable int id, Model model) {
         model.addAttribute("recruitmentPostDtos", recruitmentPostRepository.findByIdWithEnterpriseId(id));
+
+        User principal = (User) session.getAttribute("principal");
+        if (principal != null) {
+            model.addAttribute("resume", resumeRepository.findByUserId(principal.getId()));
+        }
+
         return "recruitment/detail";
     }
 

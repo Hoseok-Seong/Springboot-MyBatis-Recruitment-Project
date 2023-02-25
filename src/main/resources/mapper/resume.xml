@@ -24,4 +24,8 @@
       delete from resume_tb where id = #{id}
    </delete>
 
+   <select id="findByUserId" resultType="shop.mtcoding.job.model.resume.Resume">
+      select * from resume_tb where user_id = #{userId}  
+   </select>
+
 </mapper>

@@ -24,4 +24,6 @@ public interface ResumeRepository {
         public int updateById(Resume resume);
 
         public int deleteById(int id);
+
+        public Resume findByUserId(int userId);
 }
