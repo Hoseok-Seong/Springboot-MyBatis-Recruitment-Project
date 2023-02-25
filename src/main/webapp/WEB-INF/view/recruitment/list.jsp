@@ -27,7 +27,7 @@
                                     <a href="/recruitment/detail/${post.id}"
                                         style="color: inherit; text-decoration: none;">
                                         <div class="card jm_card h-100">
-                                            <img src="/images/coupang.png" class="card-img-top jm_card_img_top">
+                                            <img src="${post.enterpriseLogo}" class="card-img-top jm_card_img_top">
                                             <div class="card-body jm_card_body">
                                                 <div class="jm_company_name">${post.title}</div>
                                                 <div class="jm_company_title">${post.enterpriseName}</div>

@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.job.dto.ResponseDto;
-import shop.mtcoding.job.dto.recruitment.RecruitmentPostReqDto.SaveRecruitmentPostReqDto;
-import shop.mtcoding.job.dto.recruitment.RecruitmentPostReqDto.UpdateRecruitmentPostReqDto;
+import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.SaveRecruitmentPostReqDto;
+import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.UpdateRecruitmentPostReqDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;

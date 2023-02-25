@@ -1,14 +1,12 @@
 package shop.mtcoding.job.service;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import shop.mtcoding.job.dto.recruitment.RecruitmentPostReqDto.SaveRecruitmentPostReqDto;
-import shop.mtcoding.job.dto.recruitment.RecruitmentPostReqDto.UpdateRecruitmentPostReqDto;
+import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.SaveRecruitmentPostReqDto;
+import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.UpdateRecruitmentPostReqDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;

@@ -20,7 +20,7 @@
       select * from recruitment_post_tb where id = #{id}  
    </select>
 
-   <select id="findByIdWithEnterpriseId" resultType="shop.mtcoding.job.dto.recruitment.RecruitmentPostRespDto$RecruitmentPostDetailRespDto">
+   <select id="findByIdWithEnterpriseId" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$RecruitmentPostDetailRespDto">
       SELECT 
          recruitment_post_tb.id, 
          recruitment_post_tb.title, 
@@ -45,7 +45,7 @@
 
    </delete>
 
-   <select id="findByPost" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$PostRespDto">
+   <select id="findByPost" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$RecruitmentPostListRespDto">
    SELECT e.enterprise_name, r.title,  r.id, r.enterprise_logo, r.created_at
    FROM recruitment_post_tb r
    JOIN enterprise_tb e

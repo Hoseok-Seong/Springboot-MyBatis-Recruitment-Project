@@ -1,4 +1,4 @@
-package shop.mtcoding.job.dto.recruitment;
+package shop.mtcoding.job.dto.recruitmentPost;
 
 import org.springframework.web.multipart.MultipartFile;
 
