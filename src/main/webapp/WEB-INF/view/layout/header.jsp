@@ -50,7 +50,7 @@
                                 <ul class="navbar-nav m-auto">
                                     <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
                                 <c:choose>
-                                    <c:when test="${principal == null}">
+                                    <c:when test="${principalEnt == null}">
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" href="/loginForm">로그인</a>
                                     </li>

@@ -36,8 +36,8 @@ public class RecruitmentController {
     @PostMapping("/recruitment")
     public @ResponseBody ResponseEntity<?> saveRecruitmentPost(
             @ModelAttribute RecruitmentPostDetailReqDto recruitmentPostDetailReqDto) {
-        Enterprise principal = (Enterprise) session.getAttribute("principal");
-        if (principal == null) {
+        Enterprise principalEnt = (Enterprise) session.getAttribute("principalEnt");
+        if (principalEnt == null) {
             throw new CustomApiException("로그인을 먼저 해주세요", HttpStatus.UNAUTHORIZED);
         }
         if (recruitmentPostDetailReqDto.getTitle() == null || recruitmentPostDetailReqDto.getTitle().isEmpty()) {
@@ -69,16 +69,16 @@ public class RecruitmentController {
             throw new CustomApiException("로고 사진을 선택해주세요");
         }
 
-        recruitmentService.채용공고쓰기(recruitmentPostDetailReqDto, principal.getId());
+        recruitmentService.채용공고쓰기(recruitmentPostDetailReqDto, principalEnt.getId());
 
         return new ResponseEntity<>(new ResponseDto<>(1, "글쓰기성공", null), HttpStatus.CREATED);
     }
 
     @GetMapping("recruitment/saveForm")
     public String recruitmentSaveForm() {
-        Enterprise principal = (Enterprise) session.getAttribute("principal");
-        if (principal == null) {
-            throw new CustomException("기업회원으로 로그인 하세요", HttpStatus.UNAUTHORIZED);
+        Enterprise principalEnt = (Enterprise) session.getAttribute("principalEnt");
+        if (principalEnt == null) {
+            throw new CustomException("로그인을 먼저 해주세요", HttpStatus.UNAUTHORIZED);
         }
         return "recruitment/saveForm";
     }
