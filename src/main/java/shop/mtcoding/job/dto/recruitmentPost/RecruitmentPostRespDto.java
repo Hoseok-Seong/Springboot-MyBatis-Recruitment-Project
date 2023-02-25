@@ -9,7 +9,7 @@ public class RecruitmentPostRespDto {
 
     @Getter
     @Setter
-    public static class BoardRespDto {
+    public static class PostRespDto {
         private Integer id;
         private String title;
         private String enterpriseName;

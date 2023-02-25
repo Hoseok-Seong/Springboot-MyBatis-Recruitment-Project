@@ -44,7 +44,7 @@
 
    </delete>
 
-   <select id="findByBoard" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$BoardRespDto">
+   <select id="findByPost" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$PostRespDto">
    SELECT e.enterprise_name, r.title,  r.id, r.enterprise_logo, r.created_at
    FROM recruitment_post_tb r
    JOIN enterprise_tb e
