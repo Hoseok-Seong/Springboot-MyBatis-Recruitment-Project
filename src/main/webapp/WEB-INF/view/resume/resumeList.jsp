@@ -50,7 +50,7 @@
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                             <li><a class="dropdown-item" href="#" onclick="confirmDelete(${resume.id})">이력서 삭제</a></li>
-                                            <li><a class="dropdown-item" href="#">이력서 제출</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="">이력서 제출</a></li>
                                             <li><a class="dropdown-item" href="#">이력서 저시기</a></li>
                                             </ul>
                                         </div>
@@ -170,6 +170,25 @@
                 $.ajax({
                     type: "delete",
                     url: "/resume/" + resumeId,
+                    dataType: "json"
+                }).done((res) => { // 20X 일때
+                    alert(res.msg);
+                    location.href = "/resumeList";
+                }).fail((err) => { // 40X, 50X 일때
+                    alert(err.responseJSON.msg);
+                });
+            }
+
+            function confirmApply(resumeId) {
+            if (confirm('이력서를 제출하시면 수정이 불가능합니다. 정말로 제출하시겠습니까?')) {
+                ApplyById(resumeId);
+            }
+            }
+
+            function ApplyById(resumeId) {
+                $.ajax({
+                    type: "post",
+                    url: "/apply/" + resumeId,
                     dataType: "json"
                 }).done((res) => { // 20X 일때
                     alert(res.msg);
