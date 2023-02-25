@@ -17,9 +17,16 @@ public class ApplyService {
 
     @Transactional
     public void 이력서제출(InsertApplyReqDto insertApplyReqDto, int userId) {
-        System.out.println("서비스단 도착");
-        Apply apply = insertApplyReqDto.toModel(userId);
-        int result = applyRepository.insert(apply);
+        Apply applyPS =  applyRepository.findById(userId)
+        if (resumePS == null) {
+            throw new CustomApiException("존재하지 않는 게시글입니다");
+        }
+        if (resumePS.getUserId() != userId) {
+            throw new CustomApiException("해당 게시글을 삭제할 권한이 없습니다", HttpStatus.FORBIDDEN);
+        }
+
+        int result = applyRepository.insert(userId, insertApplyReqDto.getEnterpriseId(),
+                insertApplyReqDto.getRecruitmentPostId(), insertApplyReqDto.getSector());
         if (result != 1) {
             throw new CustomApiException("이력서 제출 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }

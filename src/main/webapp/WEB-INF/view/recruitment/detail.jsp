@@ -14,7 +14,7 @@
             </div>
 
             <div>
-                <h2><b>${recruitmentPostDtos.title}</h2>
+                <h2><b>${recruitmentPostDtos.title}</b></h2>
             </div>
 
             <div class="d-flex justify-content-between pb-3">
@@ -79,35 +79,31 @@
                     ${recruitmentPostDtos.content}
                 </div>
             </div>
+            <input type="hidden" name="postId" id="postId" value="${recruitmentPostDtos.id}">
+            <input type="hidden" name="enterpriseId" id="enterpriseId" value="${recruitmentPostDtos.enterpriseId}">
+            <input type="hidden" name="sector" id="sector" value="${recruitmentPostDtos.sector}">
             <hr />
             <div class="d-flex justify-content-center">
                 <div>
-                    <button type="button" class="btn btn-primary"
-                        onclick="confirmApply(${recruitmentPostDtos.id}, ${recruitmentPostDtos.enterpriseId})">지원하기</button>
+                    <button type="button" class="btn btn-primary" onClick="confirmApply()">지원하기</button>
                 </div>
             </div>
         </div>
         <script>
-            function confirmApply(postId, enterpriseId) {
-                console.log(" 경고창")
-                console.log(${ recruitmentPostDtos.id });
-                console.log(${ recruitmentPostDtos.enterpriseId });
-                // console.log(${ recruitmentPostDtos.sector });
+            function confirmApply() {
                 if (confirm('이력서를 제출하시면 수정이 불가능합니다. 정말로 제출하시겠습니까?')) {
-                    ApplyById(postId,
-                        enterpriseId);
+                    ApplyById();
                 }
-            } function ApplyById(postId, enterpriseId) {
-                console.log(" 2번 경고창")
+            } function ApplyById() {
                 let data = {
-                    recruitmentPostId: postId,
-                    enterpriseId: enterpriseId,
-                    sector: postId
+                    recruitmentPostId: $("#postId").val(),
+                    enterpriseId: $("#enterpriseId").val(),
+                    sector: $("#sector").val(),
                 };
 
                 $.ajax({
                     type: "post",
-                    url: "/apply/" + postId,
+                    url: "/apply/" + $("#postId").val(),
                     data: JSON.stringify(data),
                     headers: {
                         "Content-Type": "application/json; charset=utf-8"
@@ -115,7 +111,7 @@
                     dataType: "json" // default : 응답의 MIMETYPE으로 유추함.
                 }).done((res) => { // 20X 일때
                     alert(res.msg);
-                    location.href = "recruitment/detail";
+                    location.href = "recruitment/list";
                 }).fail((err) => { // 40X, 50X 일때
                     alert(err.responseJSON.msg);
                 });

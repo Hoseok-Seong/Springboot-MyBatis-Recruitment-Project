@@ -3,6 +3,7 @@ package shop.mtcoding.job.model.apply;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface ApplyRepository {
@@ -10,7 +11,9 @@ public interface ApplyRepository {
 
         public Apply findById(int id);
 
-        public int insert(Apply apply);
+        public int insert(@Param("userId") int userId, @Param("enterpriseId") int enterpriseId,
+                        @Param("recruitmentPostId") int recruitmentPostId,
+                        @Param("sector") String sector);
 
         public int updateById(Apply apply);
 

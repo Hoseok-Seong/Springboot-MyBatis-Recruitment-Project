@@ -75,8 +75,8 @@ create table like_tb(
 
 create table apply_tb(
     id int auto_increment primary key,
-    user_id int not null unique,
-    enterprise_id int not null unique,
+    user_id int not null,
+    enterprise_id int not null,
     recruitment_post_id int not null unique,
     sector varchar(100),
     created_at timestamp not null
