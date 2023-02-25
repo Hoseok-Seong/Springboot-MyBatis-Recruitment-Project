@@ -28,10 +28,10 @@ public class EnterpriseService {
                 throw new CustomException("아이디가 존재하지 않습니다");
             }
             String sha256Hash = sha256Encoder.sha256(loginEnterpriseReqDto.getPassword());
-            Enterprise principal = enterpriseRepository.findByEnterprisenameAndPassword(
+            Enterprise principalEnt = enterpriseRepository.findByEnterprisenameAndPassword(
                     loginEnterpriseReqDto.getEnterpriseName(),
                     sha256Hash + "_" + salt);
-            return principal;
+            return principalEnt;
         } catch (NoSuchAlgorithmException e) {
             System.err.println("알고리즘을 찾을 수 없습니다: " + e.getMessage());
         }
