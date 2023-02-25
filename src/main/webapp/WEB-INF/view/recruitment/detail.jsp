@@ -82,6 +82,7 @@
             <input type="hidden" name="postId" id="postId" value="${recruitmentPostDtos.id}">
             <input type="hidden" name="enterpriseId" id="enterpriseId" value="${recruitmentPostDtos.enterpriseId}">
             <input type="hidden" name="sector" id="sector" value="${recruitmentPostDtos.sector}">
+            <input type="hidden" name="resumeId" id="resumeId" value="${resume.id}">
             <hr />
             <div class="d-flex justify-content-center">
                 <div>
@@ -99,6 +100,7 @@
                     recruitmentPostId: $("#postId").val(),
                     enterpriseId: $("#enterpriseId").val(),
                     sector: $("#sector").val(),
+                    resumeId: $("#resumeId").val(),
                 };
 
                 $.ajax({
@@ -111,7 +113,7 @@
                     dataType: "json" // default : 응답의 MIMETYPE으로 유추함.
                 }).done((res) => { // 20X 일때
                     alert(res.msg);
-                    location.href = "recruitment/list";
+                    location.href = "/recruitment/list";
                 }).fail((err) => { // 40X, 50X 일때
                     alert(err.responseJSON.msg);
                 });

@@ -13,7 +13,7 @@ public interface ApplyRepository {
 
         public int insert(@Param("userId") int userId, @Param("enterpriseId") int enterpriseId,
                         @Param("recruitmentPostId") int recruitmentPostId,
-                        @Param("sector") String sector);
+                        @Param("sector") String sector, @Param("resumeId") int resumeId);
 
         public int updateById(Apply apply);
 

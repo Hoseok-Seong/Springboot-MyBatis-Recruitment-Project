@@ -79,5 +79,6 @@ create table apply_tb(
     enterprise_id int not null,
     recruitment_post_id int not null unique,
     sector varchar(100),
+    resume_id int not null,
     created_at timestamp not null
 );

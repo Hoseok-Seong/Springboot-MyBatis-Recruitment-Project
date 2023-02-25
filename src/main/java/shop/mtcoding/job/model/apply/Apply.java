@@ -13,5 +13,6 @@ public class Apply {
     private int enterpriseId;
     private int recruitmentPostId;
     private String sector;
+    private int resumeId;
     private Timestamp createdAt;
 }
