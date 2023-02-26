@@ -51,15 +51,15 @@
                                             data-bs-toggle="dropdown" aria-expanded="false">
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                            <li><a class="dropdown-item" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop${resume.id}">이력서 수정</a></li>
+                                            <li><a class="dropdown-item" data-bs-toggle="modal" 
+                                            data-bs-target="#staticBackdrop${resume.id}">이력서 수정</a></li>
                                             <li><a class="dropdown-item" href="#"
                                                     onclick="confirmDelete(${resume.id})">이력서 삭제</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-custom" data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop${resume.id}">
                                     상세보기
                                 </button>
@@ -200,33 +200,33 @@
                 });
             }
         </script>
-         <script>
-            function updateByResume(id) {
-                let data = {
-                    title: $("#title").val(),
-                    content: $("#content").val(),
-                    career: $("#career").val(),
-                    education: $("#education").val(),
-                    skill: $("#skill").val(),
-                    award: $("#award").val(),
-                    language: $("#language").val(),
-                    link: $("#link").val(),
-                    file: $("#file").val(),
-                    birthdate: $("#birthdate").val(),
-                    address: $("#address").val()
-                    };
-                    $.ajax({
-                        type: "put",
-                        url: "resume/" + id ,
-                        data: JSON.stringify(data),
-                        contentType: 'application/json;charset=UTF-8',
-                        dataType: "json"  // default : 응답의 mime 타입으로 유추함
-                    }).done((res) => {    // 20x 일때
-                        alert(res.msg);
-                        location.href = "/resumeList";
-                    }).fail((err) => {    // 40x , 50x 일때
-                        alert(err.responseJSON.msg);
-                    });
-            }
+<script>
+function updateByResume(id) {
+    let data = {
+        title: $("#title").val(),
+        content: $("#content").val(),
+        career: $("#career").val(),
+        education: $("#education").val(),
+        skill: $("#skill").val(),
+        award: $("#award").val(),
+        language: $("#language").val(),
+        link: $("#link").val(),
+        file: $("#file").val(),
+        birthdate: $("#birthdate").val(),
+        address: $("#address").val()
+        };
+        $.ajax({
+            type: "put",
+            url: "resume/" + id ,
+            data: JSON.stringify(data),
+            contentType: 'application/json;charset=UTF-8',
+            dataType: "json"  // default : 응답의 mime 타입으로 유추함
+        }).done((res) => {    // 20x 일때
+            alert(res.msg);
+            location.href = "/resumeList";
+        }).fail((err) => {    // 40x , 50x 일때
+            alert(err.responseJSON.msg);
+        });
+}
 </script>
         <%@ include file="../layout/footer.jsp" %>
