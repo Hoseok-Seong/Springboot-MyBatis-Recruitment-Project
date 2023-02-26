@@ -27,6 +27,7 @@ public class ResumeReqDto {
     @Setter
     @Getter
     public static class ResumeUpdateReqDto {
+        private String title;
         private String content;
         private String career;
         private String education;

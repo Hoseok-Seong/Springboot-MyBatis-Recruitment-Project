@@ -202,6 +202,7 @@
          <script>
             function updateByResume(id) {
                 let data = {
+                    title: $("#title").val(),
                     content: $("#content").val(),
                     career: $("#career").val(),
                     education: $("#education").val(),
@@ -210,11 +211,12 @@
                     language: $("#language").val(),
                     link: $("#link").val(),
                     file: $("#file").val(),
+                    birthdate: $("#birthdate").val(),
                     address: $("#address").val()
                     };
                     $.ajax({
                         type: "put",
-                        url: "resume/" + id + "/update",
+                        url: "resume/" + id ,
                         data: JSON.stringify(data),
                         contentType: 'application/json;charset=UTF-8',
                         dataType: "json"  // default : 응답의 mime 타입으로 유추함

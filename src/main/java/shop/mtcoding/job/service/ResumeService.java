@@ -58,9 +58,10 @@ public class ResumeService {
             throw new CustomApiException("해당 이력서를 수정할 권한이 없습니다.", HttpStatus.FORBIDDEN);
         }
         try {
-            int result = resumeRepository.updateById(id, resumeUpdateReqDto.getContent(),
+            int result = resumeRepository.updateById(id, resumeUpdateReqDto.getTitle(),
+                    resumeUpdateReqDto.getContent(),
                     resumeUpdateReqDto.getCareer(), resumeUpdateReqDto.getSkill(), resumeUpdateReqDto.getAward(),
-                    resumeUpdateReqDto.getAddress(),
+                    resumeUpdateReqDto.getAddress(), resumeUpdateReqDto.getBirthdate(),
                     resumeUpdateReqDto.getLink(), resumeUpdateReqDto.getEducation(), resumeUpdateReqDto.getFile(),
                     resumeUpdateReqDto.getLanguage());
 
