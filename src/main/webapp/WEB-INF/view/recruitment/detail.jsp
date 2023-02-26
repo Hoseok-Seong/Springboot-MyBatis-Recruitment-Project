@@ -110,18 +110,42 @@
                                                     </c:when>
                                                     <c:otherwise>
                                                         <c:forEach items="${resumes}" var="resume">
-                                                            ${resume.id}
-                                                            ${resume.userId}
-                                                            ${resume.title}
-                                                            <button type="button" id="chooseResume"
-                                                                value="${resume.id}">지원서 선택</button>
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">번호</th>
+                                                                        <th scope="col">작성자</th>
+                                                                        <th scope="col">제목</th>
+                                                                        <th scope="col">제출</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td scope="row" id="resumeId">${resume.id}</th>
+                                                                        <td scope="row">${resume.userId}</td>
+                                                                        <td scope="row">${resume.title}</td>
+                                                                        <td scope="row">
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input"
+                                                                                    type="radio" name="chooseResume"
+                                                                                    id="chooseResume"
+                                                                                    value=" ${resume.id}">
+                                                                                <label class="form-check-label"
+                                                                                    for="chooseResume">
+                                                                                    이력서 선택
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
                                                         </c:forEach>
+                                                        <div>
+                                                            <button type="button" class="btn btn-primary"
+                                                                onClick="confirmApply()">지원하기</button>
+                                                        </div>
                                                     </c:otherwise>
                                                 </c:choose>
-                                            </div>
-                                            <div>
-                                                <button type="button" class="btn btn-primary"
-                                                    onClick="confirmApply(document.getElementById('chooseResume').value)">지원하기</button>
                                             </div>
                                         </div>
                                     </div>
@@ -143,15 +167,24 @@
         </div>
         <script>
             function confirmApply() {
-                if (confirm('이력서를 제출하시면 수정이 불가능합니다. 정말로 제출하시겠습니까?')) {
-                    ApplyById();
+                let selectedResumeId = 0;
+                selectedResumeId = document.querySelector('input[name="chooseResume"]:checked').value;
+                // console.log(selectedResumeId);
+                // let selectedResumeId = selectedResume ? selectedResume.value : null;
+                if (selectedResumeId == 0) {
+                    alert("이력서를 선택해 주세요.")
+                } else {
+                    if (confirm(selectedResumeId + '번 이력서를 선택하셨습니다. \n 이력서를 제출하시면 수정이 불가능합니다. \n 정말로 제출하시겠습니까? ')) {
+                        ApplyById(selectedResumeId);
+                    }
                 }
-            } function ApplyById() {
+
+            } function ApplyById(selectedResumeId) {
                 let data = {
                     recruitmentPostId: $("#postId").val(),
                     enterpriseId: $("#enterpriseId").val(),
                     sector: $("#sector").val(),
-                    resumeId: $("#resumeId").val(),
+                    resumeId: selectedResumeId
                 };
 
                 $.ajax({
