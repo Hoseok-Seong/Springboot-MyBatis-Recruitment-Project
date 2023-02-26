@@ -71,9 +71,5 @@ public class EnterpriseService {
         }
     }
 
-    @Transactional
-    public List<PostRespDto> 채용정보검색(PostRespDto postRespDto) {
-        List<PostRespDto> postPSList = recruitmentPostRepository.findByTitleOrContent(postRespDto);
-        return postPSList;
-    }
+    
 }

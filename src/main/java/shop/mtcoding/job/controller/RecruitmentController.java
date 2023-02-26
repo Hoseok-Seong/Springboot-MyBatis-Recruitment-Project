@@ -28,7 +28,6 @@ import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
 import shop.mtcoding.job.model.resume.ResumeRepository;
 import shop.mtcoding.job.model.user.User;
-import shop.mtcoding.job.service.EnterpriseService;
 import shop.mtcoding.job.service.RecruitmentService;
 
 @Controller
@@ -45,9 +44,6 @@ public class RecruitmentController {
 
     @Autowired
     private ResumeRepository resumeRepository;
-
-    @Autowired
-    private EnterpriseService enterpriseService;
 
     @PutMapping("/recruitment/{id}")
     public @ResponseBody ResponseEntity<?> saveRecruitmentPost(@PathVariable int id,
@@ -215,7 +211,7 @@ public class RecruitmentController {
 
     @PostMapping("/recruitment/search")
     public ResponseEntity<?> searchList(@RequestBody PostRespDto postRespDto, Model model) {
-        List<PostRespDto> postPSList = enterpriseService.채용정보검색(postRespDto);
+        List<PostRespDto> postPSList = recruitmentService.채용정보검색(postRespDto);
         return new ResponseEntity<>(new ResponseDto<>(1, "검색 성공", postPSList), HttpStatus.OK);
     }
 }

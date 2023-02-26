@@ -1,5 +1,7 @@
 package shop.mtcoding.job.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -7,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.SaveRecruitmentPostReqDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.UpdateRecruitmentPostReqDto;
+import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.PostRespDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;
@@ -53,5 +56,11 @@ public class RecruitmentService {
         if (result != 1) {
             throw new CustomApiException("채용공고수정 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @Transactional
+    public List<PostRespDto> 채용정보검색(PostRespDto postRespDto) {
+        List<PostRespDto> postPSList = recruitmentPostRepository.findByTitleOrContent(postRespDto);
+        return postPSList;
     }
 }
