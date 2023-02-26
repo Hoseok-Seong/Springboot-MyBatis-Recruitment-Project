@@ -21,12 +21,12 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="loginUser">
-                                    <form action="user/join" method="post">
+                                    <form action="user/join" method="post" onsubmit="return valid()">
                                         <table class="table table-borderless">
                                             <div class="text-center border d-flex justify-content-end"> 
                                                     <!-- input의 크기는 class="form-control-lg" 로 늘린다. -->
                                                 <td><input type="text" class="form-control-lg w-75" name="username" placeholder="username">
-                                                    <button class="btn btn-custom btn-sm" onclick="sameCheck() style="float:right;">중복확인</button></td>
+                                                    <button type="button" class="btn btn-custom btn-sm" onclick="sameCheck()" style="float:right;">중복확인</button></td>
                                             </div>
                                             <tr class="text-center">
                                                 <td><input type="password" class="form-control-lg" style="width:350px" name="password" placeholder="password"></td>
@@ -59,13 +59,13 @@
                                     </form> 
                                 </div>
                             <div class="tab-pane fade" id="loginEnterprise">
-                                <form action="enterprise/join" method="post">
+                                <form action="enterprise/join" method="post" onsubmit="return valid()">
                                     <table class="table table-borderless">
 
                                         <div class="text-center border d-flex justify-content-end"> 
                                             <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
                                             <td><input type="text" class="form-control-lg w-75" name="enterpriseName" placeholder="enterprise name">
-                                                <button class="btn btn-custom btn-sm" onclick="sameCheck() style="float:right;">중복확인</button>
+                                                <button class="btn btn-custom btn-sm" onclick="sameCheck()" style="float:right;">중복확인</button>
                                             </td>
                                         </div>
                                         <tr class="text-center">
