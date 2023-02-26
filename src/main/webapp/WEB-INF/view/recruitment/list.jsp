@@ -48,20 +48,8 @@
                         data: JSON.stringify(data),
                         dataType: "json"
                     })
-                //     <c:forEach items="${Posts}" var="post">
-                // <div class="col-sm-3 mb-3">
-                //                     <a href="#" style="color: inherit; text-decoration: none;">
-                //                         <div class="card jm_card h-100">
-                //                             <img src="${post.enterpriseLogo}" class="card-img-top jm_card_img_top">
-                //                             <div class="card-body jm_card_body">
-                //                                 <div class="jm_company_name">${post.title}</div>
-                //                                 <div class="jm_company_title">${post.enterpriseName}</div>
-                //                             </div>
-                //                         </div>
-                //                     </a>
-                //                 </div>
-                // </c:forEach>
                         .done((res) => {
+                            console.log(res.data);
                             $("#emptyBox").empty();
                             for (let i = 0; i < res.data.length; i++) {
                                 let el =
@@ -76,12 +64,6 @@
                                              </div>
                                          </a>
                                      </div>`
-                                    // `<div>` +
-                                    // res.data[i].title +
-                                    // res.data[i].enterpriseName +
-                                    // `<img src=`+res.data[i].enterpriseLogo+`>`+
-                                    // `</div>`;
-
                                 $("#emptyBox").append(el);
                             }
 

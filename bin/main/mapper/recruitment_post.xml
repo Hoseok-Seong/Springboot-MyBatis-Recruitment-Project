@@ -56,6 +56,7 @@
       select e.enterprise_name, r.id, r.title, r.enterprise_logo, r.created_at 
       from recruitment_post_tb r
       JOIN enterprise_tb e 
+      on r.enterprise_id = e.id 
       where r.title like CONCAT('%',#{searchString},'%');
    </select>
 
