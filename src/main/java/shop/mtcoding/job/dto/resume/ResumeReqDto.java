@@ -8,7 +8,7 @@ import lombok.Setter;
 public class ResumeReqDto {
     @Setter
     @Getter
-    public static class ResumeSaveReqDto {
+    public static class SaveResumeReqDto {
         private String title;
         private String content;
         private String career;
