@@ -167,11 +167,9 @@
         </div>
         <script>
             function confirmApply() {
-                let selectedResumeId = 0;
-                selectedResumeId = document.querySelector('input[name="chooseResume"]:checked').value;
-                // console.log(selectedResumeId);
-                // let selectedResumeId = selectedResume ? selectedResume.value : null;
-                if (selectedResumeId == 0) {
+                var selectedResume = document.querySelector('input[name="chooseResume"]:checked');
+                var selectedResumeId = selectedResume ? selectedResume.value : null;
+                if (selectedResumeId == null) {
                     alert("이력서를 선택해 주세요.")
                 } else {
                     if (confirm(selectedResumeId + '번 이력서를 선택하셨습니다. \n 이력서를 제출하시면 수정이 불가능합니다. \n 정말로 제출하시겠습니까? ')) {
