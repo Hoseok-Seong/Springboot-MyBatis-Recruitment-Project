@@ -25,7 +25,7 @@
                                         <table class="table table-borderless">
                                             <div class="text-center border d-flex justify-content-end"> 
                                                     <!-- input의 크기는 class="form-control-lg" 로 늘린다. -->
-                                                <td><input type="text" class="form-control-lg w-75" name="username" placeholder="username">
+                                                <td><input type="text" id="username" class="form-control-lg w-75" name="username" placeholder="username">
                                                     <button type="button" class="btn btn-custom btn-sm" onclick="sameCheck()" style="float:right;">중복확인</button></td>
                                             </div>
                                             <tr class="text-center">

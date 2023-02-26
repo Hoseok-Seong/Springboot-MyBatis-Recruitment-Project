@@ -87,7 +87,7 @@ public class UserController {
     @GetMapping("/user/usernameSameCheck")
     public @ResponseBody ResponseDto<?> check(String username) {
         if (username == null || username.isEmpty()) {
-            return new ResponseDto<>(-1, "username 쿼리스트링을 전달해주세요..", null);
+            return new ResponseDto<>(-1, "username이 입력되지 않았습니다.", null);
         }
         if (username.equals("ssar")) { // db에 있음
             return new ResponseDto<>(1, "동일한 username이 존재합니다.", false);
