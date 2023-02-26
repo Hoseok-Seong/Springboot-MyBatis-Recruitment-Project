@@ -51,7 +51,8 @@
                                             data-bs-toggle="dropdown" aria-expanded="false">
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                            <li><a class="dropdown-item" href="#" onclick="">이력서 수정</a></li>
+                                            <li><a class="dropdown-item" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop${resume.id}">이력서 수정</a></li>
                                             <li><a class="dropdown-item" href="#"
                                                     onclick="confirmDelete(${resume.id})">이력서 삭제</a></li>
                                         </ul>
