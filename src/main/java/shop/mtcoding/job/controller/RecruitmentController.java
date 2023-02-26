@@ -191,7 +191,7 @@ public class RecruitmentController {
 
         User principal = (User) session.getAttribute("principal");
         if (principal != null) {
-            model.addAttribute("resume", resumeRepository.findByUserId(principal.getId()));
+            model.addAttribute("resumes", resumeRepository.findByUserId(principal.getId()));
         }
 
         return "recruitment/detail";
