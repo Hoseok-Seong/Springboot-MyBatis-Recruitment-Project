@@ -21,7 +21,12 @@ public interface ResumeRepository {
                         @Param("birthdate") String birthdate, @Param("address") String address,
                         @Param("finish") boolean finish);
 
-        public int updateById(Resume resume);
+        public int updateById(@Param("id") int id, @Param("title") String title,
+                        @Param("content") String content, @Param("career") String career, @Param("skill") String skill,
+                        @Param("award") String award, @Param("birthdate") String birthdate,
+                        @Param("address") String address, @Param("link") String link,
+                        @Param("education") String education, @Param("file") String file,
+                        @Param("language") String language);
 
         public int deleteById(int id);
 

@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.resume.ResumeReqDto.ResumeSaveReqDto;
+import shop.mtcoding.job.dto.resume.ResumeReqDto.ResumeUpdateReqDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.model.resume.Resume;
 import shop.mtcoding.job.model.resume.ResumeRepository;
@@ -128,5 +130,22 @@ public class ResumeController {
         resumeService.이력서삭제(id, principal.getId());
         return new ResponseEntity<>(new ResponseDto<>(1, "삭제 성공", null), HttpStatus.OK);
 
+    }
+
+    @GetMapping("/resume/updateForm")
+    public String updateForm() {
+        return "resume/updateForm";
+    }
+
+    @PutMapping("/resume/{id}")
+    public @ResponseBody ResponseEntity<?> update(@PathVariable int id,
+            @RequestBody ResumeUpdateReqDto resumeUpdateReqDto) throws Exception {
+        User principal = (User) session.getAttribute("principal");
+        if (principal == null) {
+            throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
+        }
+
+        resumeService.이력서수정(id, resumeUpdateReqDto, principal.getId());
+        return new ResponseEntity<>(new ResponseDto<>(1, "수정성공", null), HttpStatus.OK);
     }
 }
