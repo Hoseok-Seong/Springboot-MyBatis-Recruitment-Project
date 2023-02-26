@@ -49,6 +49,7 @@ public class RecruitmentPostRespDto {
         private String title;
         private String enterpriseName;
         private String enterpriseLogo;
+        private String searchString;
         private Timestamp createdAt;
     }
 

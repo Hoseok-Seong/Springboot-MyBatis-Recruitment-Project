@@ -214,8 +214,8 @@ public class RecruitmentController {
     }
 
     @PostMapping("/recruitment/search")
-    public ResponseEntity<?> searchBoard(@RequestBody PostRespDto postRespDto, Model model) {
-        List<PostRespDto> boardPSList = enterpriseService.채용정보검색(postRespDto);
-        return new ResponseEntity<>(new ResponseDto<>(1, "검색 성공", boardPSList), HttpStatus.OK);
+    public ResponseEntity<?> searchList(@RequestBody PostRespDto postRespDto, Model model) {
+        List<PostRespDto> postPSList = enterpriseService.채용정보검색(postRespDto);
+        return new ResponseEntity<>(new ResponseDto<>(1, "검색 성공", postPSList), HttpStatus.OK);
     }
 }
