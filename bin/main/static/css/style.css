@@ -139,8 +139,25 @@ a {
 }
 
 .btn-custom {
+    /* 버튼 텍스트 색상 */
     background-color: #ff7f00;
     border-color: #fff;
     color: #fff;
+    /* 버튼 텍스트 사이즈 */
+    font-size: 14px;
+    padding: 0.25rem 0.5rem;
+
+    border-radius: 10px
+}
+
+.login-btn-custom {
     /* 버튼 텍스트 색상 */
+    background-color: #ff7f00;
+    border-color: #fff;
+    color: #fff;
+    /* 버튼 텍스트 사이즈 */
+    font-size: 20px;
+    padding: 0.25rem 0.5rem;
+
+    border-radius: 10px
 }

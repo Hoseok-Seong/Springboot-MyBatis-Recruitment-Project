@@ -124,7 +124,8 @@
                                                                 name="password" placeholder="password"></td>
                                                     </tr>
                                                 </table>
-                                                <button class="btn btn-custom btn-sm" style="float:right;">로그인</button>
+                                                <button class="btn login-btn-custom btn-sm"
+                                                    style="float:right;">로그인</button>
                                                 <input type="checkbox" value="">로그인 상태 유지<br><br><br>
                                                 <div class="d-inline-flex justify-content-between">
                                                     <p>좋은 기업 찾고 계신가요?&nbsp;<a href="/joinForm">회원가입</a></p>
@@ -145,7 +146,8 @@
                                                                 name="password" placeholder="password"></td>
                                                     </tr>
                                                 </table>
-                                                <button class="btn btn-custom btn-sm" style="float:right;">로그인</button>
+                                                <button class="btn login-btn-custom btn-sm"
+                                                    style="float:right;">로그인</button>
                                                 <input type="checkbox" value="">로그인 상태 유지<br><br><br>
                                                 <p>좋은 인재 찾고 계신가요?&nbsp;<a href="/joinForm">회원가입</a></p>
                                             </form>

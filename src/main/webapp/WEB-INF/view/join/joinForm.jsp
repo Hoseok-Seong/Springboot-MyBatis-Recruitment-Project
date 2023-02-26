@@ -26,7 +26,7 @@
                                             <div class="text-center border d-flex justify-content-end"> 
                                                     <!-- input의 크기는 class="form-control-lg" 로 늘린다. -->
                                                 <td><input type="text" class="form-control-lg w-75" name="username" placeholder="username">
-                                                    <button class="btn btn-danger btn-sm" style="float:right;">중복확인</button></td>
+                                                    <button class="btn btn-custom btn-sm" style="float:right;">중복확인</button></td>
                                             </div>
                                             <tr class="text-center">
                                                 <td><input type="password" class="form-control-lg" style="width:350px" name="password" placeholder="password"></td>
@@ -42,7 +42,7 @@
                                             </tr>
                                             <div class="text-center">
                                                 <td><input type="text" class="form-control-lg w-75" name="contact" placeholder="contact">
-                                                    <button class="btn btn-danger btn-sm" style="float:right;">인증번호</button><td>
+                                                    <button class="btn btn-custom btn-sm" style="float:right;">인증번호</button><td>
                                             </div>
                                             </tr>
                                             <tr class="text-center">
@@ -55,7 +55,7 @@
                                                 </tr>
                                             </div>
                                             <br>
-                                        <button class="btn btn-danger btn-sm m-1" style="float:right;">회원가입</button>
+                                        <button class="btn btn-custom btn-sm m-1" style="float:right;">회원가입</button>
                                     </form> 
                                 </div>
                             <div class="tab-pane fade" id="loginEnterprise">
@@ -65,7 +65,7 @@
                                         <div class="text-center border d-flex justify-content-end"> 
                                             <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
                                             <td><input type="text" class="form-control-lg w-75" name="enterpriseName" placeholder="enterprise name">
-                                                <button class="btn btn-danger btn-sm" style="float:right;">중복확인</button>
+                                                <button class="btn btn-custom btn-sm" style="float:right;">중복확인</button>
                                             </td>
                                         </div>
                                         <tr class="text-center">
@@ -80,7 +80,7 @@
                                         </tr>
                                         <div class="text-center">
                                             <td><input type="text" class="form-control-lg w-75" name="contact" placeholder="contact">
-                                                <button class="btn btn-danger btn-sm" style="float:right;">인증번호</button></td>
+                                                <button class="btn btn-custom btn-sm" style="float:right;">인증번호</button></td>
                                         </div>
                                         <tr class="text-center">
                                             <td><input type="text" class="form-control-lg w-100" name="image" placeholder="image"></td>
@@ -121,7 +121,7 @@
                                         </tr>
                                     </div>
                                     <br>
-                                    <button class="btn btn-danger btn-sm m-1" style="float:right;">회원가입</button>
+                                    <button class="btn btn-custom btn-sm m-1" style="float:right;">회원가입</button>
                                 </form>
                             </div>
                         </div>
