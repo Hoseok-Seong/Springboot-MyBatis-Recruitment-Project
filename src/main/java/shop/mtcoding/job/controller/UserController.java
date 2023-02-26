@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.user.UserReqDto.JoinUserReqDto;
 import shop.mtcoding.job.dto.user.UserReqDto.LoginUserReqDto;
+import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.user.User;
+import shop.mtcoding.job.model.user.UserRepository;
 import shop.mtcoding.job.service.UserService;
 
 @Controller
@@ -22,6 +24,9 @@ public class UserController {
 
     @Autowired
     private HttpSession session;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("/loginForm")
     public String loginForm() {
@@ -85,12 +90,13 @@ public class UserController {
     }
 
     @GetMapping("/user/usernameSameCheck")
-    public @ResponseBody ResponseDto<?> check(String username) {
+    public @ResponseBody ResponseDto<?> check(String username, JoinUserReqDto joinUserReqDto) {
         if (username == null || username.isEmpty()) {
             return new ResponseDto<>(-1, "username이 입력되지 않았습니다.", null);
         }
-        if (username.equals("ssar")) { // db에 있음
-            return new ResponseDto<>(1, "동일한 username이 존재합니다.", false);
+        User sameuser = userRepository.findByName(joinUserReqDto.getUsername());
+        if (sameuser != null) {
+            return new ResponseDto<>(1, "동일한 아이디가 존재합니다.", true);
         } else {
             return new ResponseDto<>(1, "해당 username으로 회원가입이 가능합니다.", true);
         }
