@@ -21,7 +21,7 @@
                     <div class="grid text-center d-inline-flex justify-content-between float-left flex-wrap ">
                         <div class="card g-col-3 my-3" style="width: 18rem;">
 
-                            <a href="#">이력서 등록</a>
+                            <a href="/resumeForm">이력서 등록</a>
 
                         </div>
                         <div class="card g-col-3 my-3" style="width: 18rem;">
@@ -169,7 +169,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-primary"
                                                     data-bs-dismiss="modal">나가기</button>
-                                                    <button onclick="updateByResume(${resume.id})" type="button" class="btn btn-primary">글수정완료</button>
+                                                <button onclick="updateByResume(${resume.id})" type="button" class="btn btn-primary">글수정완료</button>
                                             </div>
                                         </div>
                                     </div>
