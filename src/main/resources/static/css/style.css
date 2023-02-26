@@ -96,7 +96,7 @@ a {
 }
 
 .btn-custom:hover {
-    background-color: #3d65e7;
+    background-color: #ff7f00;
 }
 
 .my-nav-tabs {
@@ -106,7 +106,7 @@ a {
 .my-nav-tabs .my-nav-link.active {
     background-color: transparent;
     border-color: transparent;
-    color: #f56a79;
+    color: #ff7f00;
     font-weight: bold;
 }
 
@@ -136,4 +136,11 @@ a {
 
 .hh-content span:nth-child(2) {
     font-size: 20px;
+}
+
+.btn-custom {
+    background-color: #ff7f00;
+    border-color: #fff;
+    color: #fff;
+    /* 버튼 텍스트 색상 */
 }
