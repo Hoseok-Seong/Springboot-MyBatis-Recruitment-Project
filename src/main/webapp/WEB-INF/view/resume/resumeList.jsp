@@ -78,7 +78,7 @@
                                             <div class="modal-body justify-content-start">
                                                 <div class="container-fluid">
                                                     <div class="container-fluid pt-4 ps-0" style="height: 600px;">
-                                                        <h1>${resume.title}</h1>
+                                                        <h1><input type="text" name="title" id="title" style="border: none;" value="${resume.title}" placeholder="제목"></h1>
                                                         <br>
                                                         <br>
                                                         <h2>username</h2>
@@ -88,7 +88,7 @@
                                                         <div>생년월일</div>
                                                         <hr class="md-0">
                                                         <div class="form-floating mb-3">
-                                                            ${resume.birthdate}
+                                                           <input type="date" name="birthdate" id="birthdate" value="${resume.birthdate}" min="1900-01-01" required />
                                                         </div>
                                                         <br>
                                                         <br>

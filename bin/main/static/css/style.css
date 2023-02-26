@@ -25,14 +25,15 @@ a {
     text-decoration: none;
     color: black;
 }
-.carousel-inner  {
+
+.carousel-inner {
     top: 0;
     left: 0;
     min-width: 100%;
     max-height: 300px;
-  } 
+}
 
-  .container {
+.container {
 
     margin: 0px auto;
     /* border: solid red; */
@@ -63,6 +64,7 @@ a {
     width: 100%;
     height: 100px;
 }
+
 .my-container {
     max-width: 650px;
     margin: 0 auto;
@@ -116,22 +118,22 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .hh-content {
+}
+
+.hh-content {
     display: flex;
     flex-direction: column;
-  }
-  
-  .hh-content span {
+}
+
+.hh-content span {
     color: white;
-  }
-  
-  .hh-content span:nth-child(1) {
+}
+
+.hh-content span:nth-child(1) {
     font-size: 25px;
     font-weight: bold;
-  }
-  
-  .hh-content span:nth-child(2) {
+}
+
+.hh-content span:nth-child(2) {
     font-size: 20px;
-  }
+}

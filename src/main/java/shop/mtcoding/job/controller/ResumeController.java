@@ -137,7 +137,7 @@ public class ResumeController {
         return "resume/updateForm";
     }
 
-    @PutMapping("/resume/{id}/update")
+    @PutMapping("/resume/{id}")
     public @ResponseBody ResponseEntity<?> update(@PathVariable int id,
             @RequestBody ResumeUpdateReqDto resumeUpdateReqDto) throws Exception {
         User principal = (User) session.getAttribute("principal");
