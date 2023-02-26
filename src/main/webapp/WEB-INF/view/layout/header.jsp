@@ -94,7 +94,6 @@
                                 <!-- Modal footer -->
                                 <button type="button" data-dismiss="modal">X</button>
                             </div>
-
                             <!-- Modal body -->
                             <div class="modal-body">
                                 <div class="card-body">
@@ -157,5 +156,4 @@
                             </div>
                         </div>
                     </div>
-                </div>
                 </div>
