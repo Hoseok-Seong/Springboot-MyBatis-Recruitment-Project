@@ -1,5 +1,7 @@
 package shop.mtcoding.job.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +14,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.SaveRecruitmentPostReqDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.UpdateRecruitmentPostReqDto;
+import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.PostRespDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
@@ -24,6 +28,7 @@ import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
 import shop.mtcoding.job.model.resume.ResumeRepository;
 import shop.mtcoding.job.model.user.User;
+import shop.mtcoding.job.service.EnterpriseService;
 import shop.mtcoding.job.service.RecruitmentService;
 
 @Controller
@@ -40,6 +45,9 @@ public class RecruitmentController {
 
     @Autowired
     private ResumeRepository resumeRepository;
+
+    @Autowired
+    private EnterpriseService enterpriseService;
 
     @PutMapping("/recruitment/{id}")
     public @ResponseBody ResponseEntity<?> saveRecruitmentPost(@PathVariable int id,
@@ -203,5 +211,11 @@ public class RecruitmentController {
         model.addAttribute("Posts", recruitmentPostRepository.findByPost());
 
         return "recruitment/list";
+    }
+
+    @PostMapping("/recruitment/search")
+    public ResponseEntity<?> searchBoard(@RequestBody PostRespDto postRespDto, Model model) {
+        List<PostRespDto> boardPSList = enterpriseService.채용정보검색(postRespDto);
+        return new ResponseEntity<>(new ResponseDto<>(1, "검색 성공", boardPSList), HttpStatus.OK);
     }
 }
