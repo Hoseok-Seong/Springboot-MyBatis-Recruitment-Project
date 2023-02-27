@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
-    <div class="container my-5">
+    <div class="container my-3">
         <div class="d-inline-flex justify-content-left text-center">
             <div class="text-on-img">
                 <div class="hh-background-wrap">
