@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
-        <div class="container-fluid my-5">
+        <div class="container-fluid my-3">
             <div class="row justify-content-center">
                 <!-- col-md => col-lg 변환 : div width 증가 -->
-                <div class="col-lg-8 col-lg-6">
-                    <div class="card shadow-sm">
-                        <div class="card-body inline-flex">
-                            <img class="card-title card-img-top my-text-ellipsis" style="height: 250px;"
-                                src="/images/temp_banner4.png" alt="Card image">
-                            <a href="#" class="btn btn-primary">채용페이지</a>
-                        </div>
+                <div class="" style="width: 58%;">
+                <div class="hh-background-wrap">
+                  <div class="hh-content">
+                    <span><h1>합격을 부르는 이력서</h1></span>
+                    <div class="d-flex justify-content-center text-center m-4">
+                        <span><b><a class="btn btn-secondary btn-lg m-3" href="/resumeList" role="button">채용페이지</a></span>
                     </div>
+                  </div>
+                </div>
+                
+                    
                     <br>
                     <div class="d-flex justify-content-between mt-3">
                         <H4>최근문서</H4>
