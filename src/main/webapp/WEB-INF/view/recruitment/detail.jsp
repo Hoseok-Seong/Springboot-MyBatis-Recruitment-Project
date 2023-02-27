@@ -123,7 +123,7 @@
                                                                     <tr>
                                                                         <td scope="row" id="resumeId">${resume.id}</th>
                                                                         <td scope="row">${resume.userId}</td>
-                                                                        <td scope="row">${resume.title}</td>
+                                                                        <td scope="row" class="my-text-ellipsis">${resume.title}</td>
                                                                         <td scope="row">
                                                                             <div class="form-check">
                                                                                 <input class="form-check-input"
