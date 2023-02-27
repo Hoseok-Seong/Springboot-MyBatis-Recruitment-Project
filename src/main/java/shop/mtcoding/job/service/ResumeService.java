@@ -5,8 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import shop.mtcoding.job.dto.resume.ResumeReqDto.ResumeSaveReqDto;
 import shop.mtcoding.job.dto.resume.ResumeReqDto.ResumeUpdateReqDto;
+import shop.mtcoding.job.dto.resume.ResumeReqDto.SaveResumeReqDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.model.resume.Resume;
 import shop.mtcoding.job.model.resume.ResumeRepository;
@@ -18,13 +18,13 @@ public class ResumeService {
     private ResumeRepository resumeRepository;
 
     @Transactional
-    public void 이력서쓰기(ResumeSaveReqDto resumeSaveReqDto, int userId) {
+    public void 이력서쓰기(SaveResumeReqDto saveResumeReqDto, int userId) {
 
-        int result = resumeRepository.insert(userId, resumeSaveReqDto.getTitle(), resumeSaveReqDto.getContent(),
-                resumeSaveReqDto.getCareer(), resumeSaveReqDto.getEducation(), resumeSaveReqDto.getSkill(),
-                resumeSaveReqDto.getAward(), resumeSaveReqDto.getLanguage(), resumeSaveReqDto.getLink(),
-                resumeSaveReqDto.getFile(), resumeSaveReqDto.getBirthdate(), resumeSaveReqDto.getAddress(),
-                resumeSaveReqDto.isFinish());
+        int result = resumeRepository.insert(userId, saveResumeReqDto.getTitle(), saveResumeReqDto.getContent(),
+                saveResumeReqDto.getCareer(), saveResumeReqDto.getEducation(), saveResumeReqDto.getSkill(),
+                saveResumeReqDto.getAward(), saveResumeReqDto.getLanguage(), saveResumeReqDto.getLink(),
+                saveResumeReqDto.getFile(), saveResumeReqDto.getBirthdate(), saveResumeReqDto.getAddress(),
+                saveResumeReqDto.isFinish());
         if (result != 1) {
             throw new CustomApiException("이력서 작성이 실패하였습니다", HttpStatus.INTERNAL_SERVER_ERROR);
         }

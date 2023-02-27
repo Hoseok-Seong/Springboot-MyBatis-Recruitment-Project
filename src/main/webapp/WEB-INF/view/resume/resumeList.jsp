@@ -37,8 +37,8 @@
                             <div class="card g-col-3 my-3" style="width: 18rem;">
                                 <div>
                                     <div class="card-body">
-                                        <h5 class="card-title">${resume.title}</h5><br>
-                                        <p class="card-text">${resume.content}</small></p>
+                                        <h5 class="card-title my-text-ellipsis">${resume.title}</h5><br>
+                                        <p class="card-text my-text-ellipsis">${resume.content}</small></p>
                                         <p class="card-text"><small class="text-muted">${resume.birthdate}</small></p>
                                     </div>
                                 </div>

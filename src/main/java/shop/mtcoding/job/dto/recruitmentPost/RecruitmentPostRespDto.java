@@ -41,4 +41,16 @@ public class RecruitmentPostRespDto {
         private String enterpriseName;
         private Timestamp createdAt;
     }
+
+    @Getter
+    @Setter
+    public static class PostRespDto {
+        private Integer id;
+        private String title;
+        private String enterpriseName;
+        private String enterpriseLogo;
+        private String searchString;
+        private Timestamp createdAt;
+    }
+
 }

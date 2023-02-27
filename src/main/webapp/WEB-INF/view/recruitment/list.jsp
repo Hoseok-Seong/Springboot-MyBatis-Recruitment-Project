@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
+        <!-- 게시판부분 -->
 
         <div style="width: 80%; margin: 0 auto;">
-
-            <!-- 게시판 부분 -->
-
             <main class="pt-3">
                 <div class="container">
                     <div class="d-flex justify-content-between align-items-center">
@@ -24,29 +22,64 @@
                         <div class="row">
                             <c:forEach items="${Posts}" var="post">
                                 <div class="col-sm-3 mb-3">
-                                    <a href="/recruitment/detail/${post.id}" style="color: inherit; text-decoration: none;">
-                                    <div class="card jm_card">
-                                        <img src="${post.enterpriseLogo}" class="card-img-top jm_card_img_top"></a>
+                                    <a href="/recruitment/detail/${post.id}"
+                                        style="color: inherit; text-decoration: none;">
+                                        <div class="card jm_card">
+                                            <img src="${post.enterpriseLogo}" class="card-img-top jm_card_img_top">
+                                    </a>
+                                </div>
+                                <div class="card-body jm_card_body"><br>
+                                    <div class="jm_company_name">${post.title}</div>
+                                    <div class="jm_company_title">${post.enterpriseName}</div>
+                                    <div class="jm_company_title">
+                                        <h6>서울, 부산</h6>
                                     </div>
-                                    <div class="card-body jm_card_body"><br>
-                                        <div class="jm_company_name">${post.title}</div>
-                                        <div class="jm_company_title">${post.enterpriseName}</div>
-                                        <div class="jm_company_title"><h6>서울, 부산</h6></div>
-                                        <div class="jm_company_title"><h6>채용보상금 1,000,000원</h6></div>
+                                    <div class="jm_company_title">
+                                        <h6>채용보상금 1,000,000원</h6>
                                     </div>
                                 </div>
-                            </c:forEach>
                         </div>
-                    </div>
-                    <div class="row row-cols-1 row-cols-md-4 g-4 d-flex flex-wrap">
-                        <div class="container">
-                        </div>
-                        </tbody>
-                        </table>
+                        </c:forEach>
                     </div>
                 </div>
-        </div>
-        </main>
+
+                <script>
+                    function search() {
+                        let data = {
+                            searchString: $("#search").val()
+                        };
+                        $.ajax({
+                            type: "post",
+                            url: "/recruitment/search",
+                            contentType: "application/json;charset=UTF-8",
+                            data: JSON.stringify(data),
+                            dataType: "json"
+                        })
+                            .done((res) => {
+                                console.log(res.data);
+                                $("#emptyBox").empty();
+                                for (let i = 0; i < res.data.length; i++) {
+                                    let el =
+                                        `<div class="col-sm-3 mb-3">
+                                       <a href="#" style="color: inherit; text-decoration: none;">
+                                             <div class="card jm_card h-100">
+                                                 <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
+                                                 <div class="card-body jm_card_body">
+                                                     <div class="jm_company_name">`+ res.data[i].title + `</div>
+                                                     <div class="jm_company_title">`+ res.data[i].enterpriseName + `</div>
+                                                 </div>
+                                             </div>
+                                         </a>
+                                     </div>`
+                                    $("#emptyBox").append(el);
+                                }
+
+                                alert(res.msg);
+                            })
+                            .fail((err) => {
+                                alert(err.responseJSON.msg);
+                            })
+                    }
+                </script>
         </div>
         </body>
-        <div style="height : 200px"></div>

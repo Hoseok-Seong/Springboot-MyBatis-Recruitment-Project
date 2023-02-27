@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.PostRespDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostDetailRespDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostListRespDto;;
 
@@ -24,4 +25,6 @@ public interface RecruitmentPostRepository {
         public int deleteById(int id);
 
         public List<RecruitmentPostListRespDto> findByPost();
+
+        public List<PostRespDto> findByTitleOrContent(PostRespDto postRespDto);
 }
