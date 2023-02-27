@@ -23,7 +23,7 @@
         </head>
 
         <body>
-            <div class="container-fluid">
+            <div class="container-fluid" style="width: 65%">
                 <div style="height: 50px">
                     <nav class="navbar navbar-expand-sm">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -31,12 +31,11 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav m-auto">
+                            <ul class="navbar-nav col-7">
                                 <a class="nav-link" href="#"><i class="bi bi-list"></i></a>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark pt-1" href="/main"><img
-                                            src="/images/projectLogo.png" alt=""
-                                            style="width: 100px; height: 30px;"></a>
+                                    <a class="nav-link text-dark pt-1" href="/main"><img src="/images/projectLogo.png"
+                                            alt="" style="width: 100px; height: 30px;"></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" href="/recruitment/list">채용</a>
@@ -48,7 +47,7 @@
                                     <a class="nav-link text-dark" href="/community">커뮤니티</a>
                                 </li>
                             </ul>
-                            <ul class="navbar-nav m-auto">
+                            <ul class="navbar-nav col-5 justify-content-end">
                                 <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
                                 <c:choose>
                                     <c:when test="${not empty principal or not empty principalEnt}">
@@ -65,22 +64,24 @@
                                     <c:otherwise>
                                         <!-- 세션에 principal 또는 principalEnt가 존재하지 않는 경우 -->
                                         <li class="nav-item">
-                                            <a class="nav-link text-dark" data-toggle="modal" data-target="#login">로그인</a>
+                                            <a class="nav-link text-dark" data-toggle="modal"
+                                                data-target="#login">로그인</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link text-dark" data-toggle="modal" data-target="#join">회원가입</a>
+                                            <a class="nav-link text-dark" data-toggle="modal"
+                                                data-target="#join">회원가입</a>
                                         </li>
                                     </c:otherwise>
                                 </c:choose>
                             </ul>
                         </div>
-                    </nav>  
+                    </nav>
                 </div>
             </div>
-                <hr class="my-1">
+            <hr class="my-1">
             </header>
 
-            
+
             <%-- 회원가입 Modal --%>
                 <!-- The Modal -->
                 <div class="modal" id="login">
@@ -167,85 +168,113 @@
 
                             <!-- Modal body -->
                             <div class="card-body">
-                            <ul class="nav my-nav-tabs nav-fill my-2">
-                                <li class="nav-item">
-                                    <a class="my-nav-link list-group-item list-group-item-action active"
-                                        data-toggle="tab" href="#joinUser">개인회원</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="my-nav-link list-group-item list-group-item-action" 
-                                        data-toggle="tab" href="#joinEnterprise">기업회원</a>
-                                </li>
-                            </ul>
+                                <ul class="nav my-nav-tabs nav-fill my-2">
+                                    <li class="nav-item">
+                                        <a class="my-nav-link list-group-item list-group-item-action active"
+                                            data-toggle="tab" href="#joinUser">개인회원</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="my-nav-link list-group-item list-group-item-action" data-toggle="tab"
+                                            href="#joinEnterprise">기업회원</a>
+                                    </li>
+                                </ul>
                             </div>
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="joinUser">
                                     <form action="/user/join" method="post" onsubmit="return valid()">
                                         <table class="table table-borderless">
-                                            <div class="text-center d-flex justify-content-end"><br> 
+                                            <div class="text-center d-flex justify-content-end"><br>
                                                 <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
-                                                <td><input type="text" id="enterpriseName" class="form-control-lg col-9" name="userName" placeholder="username">
-                                                    <button type="button" class="btn btn-custom btn-sm col-2 my-2 me-3" onclick="sameCheck()" style="float:right;">중복확인</button>
+                                                    <td><input type="text" id="enterpriseName"
+                                                            class="form-control-lg col-9" name="userName"
+                                                            placeholder="username">
+                                                        <button type="button"
+                                                            class="btn btn-custom btn-sm col-2 my-2 me-3"
+                                                            onclick="sameCheck()" style="float:right;">중복확인</button>
+                                                    </td>
+                                            </div>
+                                            <tr class="text-center">
+                                                <td><input type="password" class="form-control-lg w-100" name="password"
+                                                        placeholder="password"></td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td><input type="password" class="form-control-lg w-100"
+                                                        name="passwordCheck" placeholder="passwordcheck">
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td><input type="text" class="form-control-lg w-100" name="name"
+                                                        placeholder="name"></td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td><input type="text" class="form-control-lg w-100" name="email"
+                                                        placeholder="email"></td>
+                                            </tr>
+                                            <div class="text-center">
+                                                <td><input type="text" class="form-control-lg w-75 col-9" name="contact"
+                                                        placeholder="contact">
+                                                    <button class="btn btn-custom btn-sm  col-2 my-2 me-3"
+                                                        style="float:right;">인증번호</button>
                                                 </td>
                                             </div>
                                             <tr class="text-center">
-                                                <td><input type="password" class="form-control-lg w-100" name="password" placeholder="password"></td>
-                                            </tr>
-                                            <tr class="text-center">
-                                                <td><input type="password" class="form-control-lg w-100" name="passwordCheck" placeholder="passwordcheck">
+                                                <td><input type="text" class="form-control-lg w-100"
+                                                        name="certificationNumber" placeholder="certification-number">
                                                 </td>
-                                            </tr>
-                                            <tr class="text-center">
-                                                <td><input type="text" class="form-control-lg w-100" name="name" placeholder="name"></td>
-                                            </tr>
-                                            <tr class="text-center">
-                                                <td><input type="text" class="form-control-lg w-100" name="email" placeholder="email"></td>
-                                            </tr>
-                                             <div class="text-center">
-                                                <td><input type="text" class="form-control-lg w-75 col-9" name="contact" placeholder="contact">
-                                                    <button class="btn btn-custom btn-sm  col-2 my-2 me-3" style="float:right;">인증번호</button></td>
-                                            </div>
-                                            <tr class="text-center">
-                                                <td><input type="text" class="form-control-lg w-100" name="certificationNumber" placeholder="certification-number"></td>
                                             </tr>
                                         </table>
-                                            <div class="text-center">
-                                                <tr>
-                                                 &nbsp;<input type="checkbox"  aria-label="Checkbox for following text input"> 필수 동의 항목 및 개인정보 수집 및 이용 동의, 광고성 정보 수신에 동의합니다.
-                                                </tr>
+                                        <div class="text-center">
+                                            <tr>
+                                                &nbsp;<input type="checkbox"
+                                                    aria-label="Checkbox for following text input"> 필수 동의 항목 및 개인정보 수집 및
+                                                이용 동의, 광고성 정보 수신에 동의합니다.
+                                            </tr>
                                             <br>
-                                                <button class="btn btn-custom btn-sm my-4 ms-3 me-4" style="float:right;">회원가입</button>
-                                            </div>
-                                    </form> 
+                                            <button class="btn btn-custom btn-sm my-4 ms-3 me-4"
+                                                style="float:right;">회원가입</button>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="tab-pane fade" id="joinEnterprise">
                                     <form action="/enterprise/join" method="post" onsubmit="return valid()">
                                         <table class="table table-borderless">
                                             <div class="text-center d-flex justify-content-end"> <br>
                                                 <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
-                                                <td><input type="text" id="enterpriseName" class="form-control-lg w-75 col-9" name="enterpriseName" placeholder="enterprise name">
-                                                    <button type="button" class="btn btn-custom btn-sm col-2 my-2 me-3" onclick="sameCheck()" style="float:right;">중복확인</button>
-                                                </td>
+                                                    <td><input type="text" id="enterpriseName"
+                                                            class="form-control-lg w-75 col-9" name="enterpriseName"
+                                                            placeholder="enterprise name">
+                                                        <button type="button"
+                                                            class="btn btn-custom btn-sm col-2 my-2 me-3"
+                                                            onclick="sameCheck()" style="float:right;">중복확인</button>
+                                                    </td>
                                             </div>
                                             <tr class="text-center">
-                                                <td><input type="password" class="form-control-lg w-100" name="password" placeholder="password"></td>
+                                                <td><input type="password" class="form-control-lg w-100" name="password"
+                                                        placeholder="password"></td>
                                             </tr>
                                             <tr class="text-center">
-                                                <td><input type="password" class="form-control-lg w-100" name="passwordCheck" placeholder="passwordcheck">
+                                                <td><input type="password" class="form-control-lg w-100"
+                                                        name="passwordCheck" placeholder="passwordcheck">
                                                 </td>
                                             </tr>
                                             <tr class="text-center">
-                                                <td><input type="text" class="form-control-lg w-100" name="address" placeholder="address"></td>
+                                                <td><input type="text" class="form-control-lg w-100" name="address"
+                                                        placeholder="address"></td>
                                             </tr>
                                             <div class="text-center">
-                                                <td><input type="text" class="form-control-lg w-75 col-9" name="contact" placeholder="contact">
-                                                    <button class="btn btn-custom btn-sm col-2 my-2 me-3" style="float:right;">인증번호</button></td>
+                                                <td><input type="text" class="form-control-lg w-75 col-9" name="contact"
+                                                        placeholder="contact">
+                                                    <button class="btn btn-custom btn-sm col-2 my-2 me-3"
+                                                        style="float:right;">인증번호</button>
+                                                </td>
                                             </div>
                                             <tr class="text-center">
-                                                <td><input type="text" class="form-control-lg w-100" name="image" placeholder="image"></td>
+                                                <td><input type="text" class="form-control-lg w-100" name="image"
+                                                        placeholder="image"></td>
                                             </tr>
                                             <tr class="text-center">
-                                                <td><input type="text" class="form-control-lg w-100" name="email" placeholder="email"></td>
+                                                <td><input type="text" class="form-control-lg w-100" name="email"
+                                                        placeholder="email"></td>
                                             </tr>
                                         </table>
                                         <div class="form-control-sm">
@@ -262,7 +291,7 @@
                                                 <option value="IT 컨설팅 회사">IT 컨설팅 회사</option>
                                             </select>
                                         </div><br>
-                                            
+
                                         <div class="form-control-sm">
                                             &nbsp;기업형태
                                             <label for="exampleFormControlSelect1"></label>
@@ -275,43 +304,46 @@
                                         </div><br>
                                         <div class="text-center">
                                             <tr>
-                                                &nbsp;<input type="checkbox" aria-label="Checkbox for following text input"> 필수 동의 항목 및 개인정보 수집 및 이용 동의, 광고성 정보
+                                                &nbsp;<input type="checkbox"
+                                                    aria-label="Checkbox for following text input"> 필수 동의 항목 및 개인정보 수집 및
+                                                이용 동의, 광고성 정보
                                                 수신에 동의합니다.
                                             </tr>
                                         </div>
                                         <br>
-                                        <button class="btn btn-custom btn-sm m-1 my-4 ms-3 me-4" style="float:right;">회원가입</button>
+                                        <button class="btn btn-custom btn-sm m-1 my-4 ms-3 me-4"
+                                            style="float:right;">회원가입</button>
                                     </form>
-                                </div>    
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-        <script>
-                let submitCheck = false;
-                function valid() {
-                    if (submitCheck) {
-                        return true;
-                    } else {
-                        alert("유저네임 중복체크를 해주세요");
-                        return false;
-                    }
-                }
-                function sameCheck() {
-                    let username = $("#username").val();
-                    $.ajax({
-                        type: "get",
-                        url: "/user/usernameSameCheck?username=" + username
-                    }).done((res) => {
-                        //console.log(res);
-                        if (res.data === true) {
-                            alert(res.msg);
-                            submitCheck = true;
+                <script>
+                    let submitCheck = false;
+                    function valid() {
+                        if (submitCheck) {
+                            return true;
                         } else {
-                            alert(res.msg);
-                            submitCheck = false;
+                            alert("유저네임 중복체크를 해주세요");
+                            return false;
                         }
-                    }).fail((err) => {
-                    });
-                }
-            </script>
+                    }
+                    function sameCheck() {
+                        let username = $("#username").val();
+                        $.ajax({
+                            type: "get",
+                            url: "/user/usernameSameCheck?username=" + username
+                        }).done((res) => {
+                            //console.log(res);
+                            if (res.data === true) {
+                                alert(res.msg);
+                                submitCheck = true;
+                            } else {
+                                alert(res.msg);
+                                submitCheck = false;
+                            }
+                        }).fail((err) => {
+                        });
+                    }
+                </script>
