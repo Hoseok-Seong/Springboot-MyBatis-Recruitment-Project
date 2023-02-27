@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <footer>
-        <div class="container-fluid" style="height: 150px;">
+        <div class="container-fluid" style="height: 150px; width: 65%">
             <nav class="navbar navbar-expand-sm">
                 <div class="collapse navbar-collapse my_nav" id="navbarSupportedContent">
-                    <ul class="navbar-nav m-auto">
+                    <ul class="navbar-nav col-7">
                         <li class="nav-item">
                             <a class="nav-link" href="#">기업소개</a>
                         </li>
@@ -17,7 +17,7 @@
                             <a class="nav-link" href="#">개인정보 처리방침</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav m-auto">
+                    <ul class="navbar-nav col-5 justify-content-end">
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="bi bi-facebook"></i></a>
                         </li>
