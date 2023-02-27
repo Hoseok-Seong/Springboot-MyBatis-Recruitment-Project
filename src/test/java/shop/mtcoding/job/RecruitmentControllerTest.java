@@ -1,42 +1,58 @@
 package shop.mtcoding.job;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import javax.servlet.http.HttpSession;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
+import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.PostRespDto;
+
+@AutoConfigureMockMvc
+@SpringBootTest(webEnvironment = WebEnvironment.MOCK)
 public class RecruitmentControllerTest {
+
     @Autowired
     private MockMvc mvc;
+    private MockHttpSession mockSession;
 
-    @Autowired
-    private HttpSession mockSession;
+    @BeforeEach
+    public void setUp() {
+        PostRespDto postRespDto = new PostRespDto();
+        postRespDto.setId(1);
+        postRespDto.setTitle("임시제목1");
+        postRespDto.setEnterpriseName("ssar");
+        postRespDto.setEnterpriseLogo("null");
+        postRespDto.setSearchString("1");
+        postRespDto.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        mockSession = new MockHttpSession();
+        mockSession.setAttribute("principal", postRespDto);
+    }
 
     @Test
     public void searchBoard_test() throws Exception {
-        // given
-        String searchString = "1";
-        MockHttpSession mockSession = new MockHttpSession();
-        
-        // when
-        MockHttpServletRequestBuilder request = post("/recruitment/search")
-            .content(searchString)
-            .contentType(MediaType.TEXT_PLAIN_VALUE)
-            .session(mockSession);
-        ResultActions resultActions = mvc.perform(request).andDo(MockMvcResultHandlers.print());
+   // given
+   String searchString = "1";
 
-        // then
-        resultActions.andExpect(status().isOk())
-                .andExpect(jsonPath("$.title").value("임시제목1"))
-                .andExpect(jsonPath("$.data[0].id").value(1));
+   // when
+   ResultActions resultActions = mvc.perform(post("/recruitment/search")
+   .content("{\"searchString\": \"" + searchString + "\"}")
+   .contentType(MediaType.APPLICATION_JSON_VALUE)
+   .session(mockSession));
+
+    
+   // then
+   resultActions.andExpect(jsonPath("$..[0].title").value("임시제목1"));
+   resultActions.andExpect(jsonPath("$..[0].id").value(1));
     }
 }
