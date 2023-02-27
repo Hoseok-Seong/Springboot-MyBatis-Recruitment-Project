@@ -17,18 +17,16 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.transaction.annotation.Transactional;
 
-
 @Transactional // 메서드 실행 직후 롤백! // auto_increment 초기화 안 됨.
 @AutoConfigureMockMvc
 @SpringBootTest(webEnvironment = WebEnvironment.MOCK)
 public class JoinContorollerTest {
-    
+
     @Autowired
     private MockMvc mvc;
 
     @Autowired
     private HttpSession session;
-
 
     @Test
     public void join_test() throws Exception {

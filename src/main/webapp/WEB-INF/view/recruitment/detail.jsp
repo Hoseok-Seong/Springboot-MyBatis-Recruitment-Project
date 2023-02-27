@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
+        <div class="container my-5 p-0" style="width: 60%;">
+            <div class="row">
+                <!-- 채용공고 시작 -->
+                <div class="col-8">
+                    <div>
+                        ${recruitmentPostDtos.enterpriseName}
+                    </div>
 
-        <style>
-            * {
-                font-weight: normal;
-            }
-        </style>
+                    <div>
+                        <h2><b>${recruitmentPostDtos.title}</b></h2>
+                    </div>
 
         <div class="container my-3">
             <div class="row">

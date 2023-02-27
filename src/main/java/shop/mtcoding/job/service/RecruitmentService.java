@@ -54,4 +54,21 @@ public class RecruitmentService {
             throw new CustomApiException("채용공고수정 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @Transactional
+    public void 채용공고삭제(int id, int enterpriseId) {
+        RecruitmentPost recruitmentPS = recruitmentPostRepository.findById(id);
+        if (recruitmentPS == null) {
+            throw new CustomApiException("존재하지 않는 채용공고입니다");
+        }
+        if (recruitmentPS.getEnterpriseId() != enterpriseId) {
+            throw new CustomApiException("해당 채용공고를 삭제할 권한이 없습니다", HttpStatus.FORBIDDEN);
+        }
+
+        try {
+            recruitmentPostRepository.deleteById(id);
+        } catch (Exception e) {
+            throw new CustomApiException("서버에 일시적인 문제가 발생했습니다", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
