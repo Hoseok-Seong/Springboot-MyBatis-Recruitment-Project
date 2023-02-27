@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
   <%@ include file="../layout/header.jsp" %>
-    <div class="container">
-      <div class="container-fluid pt-4 ps-0" style="height: 600px;">
+    <div class="container" style="width: 65%">
+      <div class="container-fluid pt-4 ps-0" style="height: 500px;">
+        <br>
+        <br>
         <h1><input type="text" name="title" id="title" style="border: none;" placeholder="제목"></h1>
         <br>
         <br>
-        <h2>username</h2>
-        <h2>email</h2>
-        <h2>contact</h2>
         <br>
         <div>생년월일</div>
         <hr class="md-0">
@@ -15,12 +14,14 @@
           <input type="date" name="birthdate" id="birthdate" min="1900-01-01" required />
         </div>
         <br>
+        <br>
         <div>주소</div>
         <hr class="md-0">
         <div class="form-floating mb-3">
           <input type="text" name="address" id="address" class="form-control" id="floatingInputValue">
           <label for="floatingInput">주소를 입력해주세요 예시: 부산광역시 부산진구 양정동 상세주소</label>
         </div>
+        <br>
         <br>
       </div>
       <br>

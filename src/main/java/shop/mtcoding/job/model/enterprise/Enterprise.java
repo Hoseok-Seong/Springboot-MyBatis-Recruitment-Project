@@ -14,7 +14,6 @@ public class Enterprise {
     private String salt;
     private String address;
     private String contact;
-    private String image;
     private String email;
     private String sector;
     private String size;

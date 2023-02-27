@@ -2,30 +2,27 @@
     <%@ include file="../layout/header.jsp" %>
         <div class="container-fluid my-3">
             <div class="row justify-content-center">
-                <!-- col-md => col-lg 변환 : div width 증가 -->
-                <div class="" style="width: 58%;">
                 <div class="hh-background-wrap">
-                  <div class="hh-content">
-                    <span><h1>합격을 부르는 이력서</h1></span>
-                    <div class="d-flex justify-content-center text-center m-4">
-                        <span><b><a class="btn hh-btn-custom btn-lg m-3" href="/resumeList" role="button">채용페이지</a></span>
+                    <div class="hh-content">
+                        <span>
+                            <h1>합격을 부르는 이력서</h1>
+                        </span>
+                        <div class="d-flex justify-content-center text-center m-4">
+                            <span><b><a class="btn hh-btn-custom btn-lg m-3" href="/recruitment/list"
+                                        role="button">채용페이지</a></span>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                
-                    
-                    <br>
+                <br>
+                <div class="container-fluid" style="width: 65%;">
                     <div class="d-flex justify-content-between mt-3">
                         <H4>최근문서</H4>
-                        <a href="#">이력서 페이지 이동</a>
                     </div>
                     <br>
 
                     <div class="grid text-center d-inline-flex justify-content-between float-left flex-wrap ">
                         <div class="card g-col-3 my-3" style="width: 18rem;">
-
                             <a href="/resumeForm">이력서 등록</a>
-
                         </div>
                         <div class="card g-col-3 my-3" style="width: 18rem;">
                             <div>
@@ -44,14 +41,16 @@
                                 </div>
                                 <div class="card-footer d-flex justify-content-between">
                                     <div class="btn-group" role="group">
-                                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" style="background-color: #fff; border-color: #fff; color: black;"
+                                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle"
+                                            style="background-color: #fff; border-color: #fff; color: black;"
                                             data-bs-toggle="dropdown" aria-expanded="false">
                                         </button>
-                                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1" >
-                                            <li><a class="dropdown-item" data-bs-toggle="modal" 
-                                            data-bs-target="#staticBackdrop${resume.id}">이력서 수정</a></li>
+                                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                            <li><a class="dropdown-item" data-bs-toggle="modal"
+                                                    data-bs-target="#staticBackdrop${resume.id}">이력서 수정</a></li>
                                             <li><a class="dropdown-item" href="#"
-                                                    onclick="confirmDelete(${resume.id})">이력서 삭제</a></li>
+                                                    onclick="confirmDelete(${resume.id})">이력서
+                                                    삭제</a></li>
                                         </ul>
                                     </div>
                                     <c:if test="${resume.finish == true}">
@@ -81,18 +80,18 @@
                                             </div>
                                             <div class="modal-body justify-content-start">
                                                 <div class="container-fluid">
-                                                    <div class="container-fluid pt-4 ps-0" style="height: 600px;">
-                                                        <h1><input type="text" name="title" id="title" style="border: none;" value="${resume.title}" placeholder="제목"></h1>
+                                                    <div class="container-fluid pt-4 ps-0" style="height: 450px;">
+                                                        <h1><input type="text" name="title" id="title"
+                                                                style="border: none;" value="${resume.title}"
+                                                                placeholder="제목"></h1>
                                                         <br>
                                                         <br>
-                                                        <h2>username</h2>
-                                                        <h2>email</h2>
-                                                        <h2>contact</h2>
                                                         <br>
                                                         <div>생년월일</div>
                                                         <hr class="md-0">
                                                         <div class="form-floating mb-3">
-                                                           <input type="date" name="birthdate" id="birthdate" value="${resume.birthdate}" min="1900-01-01" required />
+                                                            <input type="date" name="birthdate" id="birthdate"
+                                                                value="${resume.birthdate}" min="1900-01-01" required />
                                                         </div>
                                                         <br>
                                                         <br>
@@ -172,7 +171,8 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-primary"
                                                     data-bs-dismiss="modal">나가기</button>
-                                                <button onclick="updateByResume(${resume.id})" type="button" class="btn btn-primary">글수정완료</button>
+                                                <button onclick="updateByResume(${resume.id})" type="button"
+                                                    class="btn btn-primary">글수정완료</button>
                                             </div>
                                         </div>
                                     </div>
@@ -203,33 +203,33 @@
                 });
             }
         </script>
-<script>
-function updateByResume(id) {
-    let data = {
-        title: $("#title").val(),
-        content: $("#content").val(),
-        career: $("#career").val(),
-        education: $("#education").val(),
-        skill: $("#skill").val(),
-        award: $("#award").val(),
-        language: $("#language").val(),
-        link: $("#link").val(),
-        file: $("#file").val(),
-        birthdate: $("#birthdate").val(),
-        address: $("#address").val()
-        };
-        $.ajax({
-            type: "put",
-            url: "resume/" + id ,
-            data: JSON.stringify(data),
-            contentType: 'application/json;charset=UTF-8',
-            dataType: "json"  // default : 응답의 mime 타입으로 유추함
-        }).done((res) => {    // 20x 일때
-            alert(res.msg);
-            location.href = "/resumeList";
-        }).fail((err) => {    // 40x , 50x 일때
-            alert(err.responseJSON.msg);
-        });
-}
-</script>
+        <script>
+            function updateByResume(id) {
+                let data = {
+                    title: $("#title").val(),
+                    content: $("#content").val(),
+                    career: $("#career").val(),
+                    education: $("#education").val(),
+                    skill: $("#skill").val(),
+                    award: $("#award").val(),
+                    language: $("#language").val(),
+                    link: $("#link").val(),
+                    file: $("#file").val(),
+                    birthdate: $("#birthdate").val(),
+                    address: $("#address").val()
+                };
+                $.ajax({
+                    type: "put",
+                    url: "resume/" + id,
+                    data: JSON.stringify(data),
+                    contentType: 'application/json;charset=UTF-8',
+                    dataType: "json"  // default : 응답의 mime 타입으로 유추함
+                }).done((res) => {    // 20x 일때
+                    alert(res.msg);
+                    location.href = "/resumeList";
+                }).fail((err) => {    // 40x , 50x 일때
+                    alert(err.responseJSON.msg);
+                });
+            }
+        </script>
         <%@ include file="../layout/footer.jsp" %>

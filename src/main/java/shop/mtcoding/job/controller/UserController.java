@@ -95,7 +95,7 @@ public class UserController {
         }
         User sameuser = userRepository.findByName(joinUserReqDto.getUsername());
         if (sameuser != null) {
-            return new ResponseDto<>(1, "동일한 아이디가 존재합니다.", true);
+            return new ResponseDto<>(1, "동일한 아이디가 존재합니다.", false);
         } else {
             return new ResponseDto<>(1, "해당 아이디로 회원가입이 가능합니다.", true);
         }

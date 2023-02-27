@@ -7,7 +7,7 @@
             }
         </style>
 
-        <div class="container my-3">
+        <div class="container my-3" style="width: 65%">
 
             <form enctype="multipart/form-data">
 
@@ -20,8 +20,8 @@
                     <div class="border border-end-0 border-start-0 pt-3" style="width: 47%;">
                         <div class="input-group mb-3">
                             <span class="input-group-text">경력</span>
-                            <input type="text" class="form-control" list="career_list" placeholder="경력을 입력해주세요" name="career"
-                                id="career" value="${recruitment.career}">
+                            <input type="text" class="form-control" list="career_list" placeholder="경력을 입력해주세요"
+                                name="career" id="career" value="${recruitment.career}">
                             <datalist id="career_list">
                                 <option value="신입">
                                 <option value="경력">
@@ -42,20 +42,19 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text">기업형태</span>
                             <%-- 선택되어있었던 값이 수정할때 미리 선택되어있게 value값에 조건을 걸음 --%>
-                            <select class="form-select" aria-label="Default select example" name="sector" id="sector">
-                                <option value="Si" ${recruitment.sector == 'Si' ? 'selected' : ''}>Si</option>
-                                <option value="웹에이전시" ${recruitment.sector == '웹에이전시' ? 'selected' : ''}>웹에이전시</option>
-                                <option value="인력소싱" ${recruitment.sector == '인력소싱' ? 'selected' : ''}>인력소싱</option>
-                                <option value="대기업" ${recruitment.sector == '대기업' ? 'selected' : ''}>대기업</option>
-                                <option value="스타트업" ${recruitment.sector == '스타트업' ? 'selected' : ''}>스타트업</option>
-                                <option value="서비스" ${recruitment.sector == '서비스' ? 'selected' : ''}>서비스</option>
-                                <option value="컨설팅" ${recruitment.sector == '컨설팅' ? 'selected' : ''}>컨설팅</option>
-                            </select>
+                                <select class="form-select" aria-label="Default select example" name="sector"
+                                    id="sector">
+                                    <option value="Si" ${recruitment.sector=='Si' ? 'selected' : '' }>Si</option>
+                                    <option value="웹에이전시" ${recruitment.sector=='웹에이전시' ? 'selected' : '' }>웹에이전시
+                                    </option>
+                                    <option value="인력소싱" ${recruitment.sector=='인력소싱' ? 'selected' : '' }>인력소싱</option>
+                                    <option value="대기업" ${recruitment.sector=='대기업' ? 'selected' : '' }>대기업</option>
+                                    <option value="스타트업" ${recruitment.sector=='스타트업' ? 'selected' : '' }>스타트업</option>
+                                    <option value="서비스" ${recruitment.sector=='서비스' ? 'selected' : '' }>서비스</option>
+                                    <option value="컨설팅" ${recruitment.sector=='컨설팅' ? 'selected' : '' }>컨설팅</option>
+                                </select>
                         </div>
-
-
                     </div>
-
                     <div class="border border-end-0 border-start-0 pt-3" style=" width: 47%;">
                         <div class="input-group mb-3">
                             <span class="input-group-text">급여</span>
@@ -76,26 +75,34 @@
                             </datalist>
                         </div>
                         <div class="input-group mb-3">
-                        <span class="input-group-text">희망포지션</span>
-                        <select class="form-select" aria-label="Default select example" name="position" id="position">
-                            <option value="프론트엔드" ${recruitment.position == '프론트엔드' ? 'selected' : ''}>프론트엔드</option>
-                            <option value="백엔드" ${recruitment.position == '백엔드' ? 'selected' : ''}>백엔드</option>
-                            <option value="소프트웨어" ${recruitment.position == '소프트웨어' ? 'selected' : ''}>소프트웨어</option>
-                            <option value="안드로이드" ${recruitment.position == '안드로이드' ? 'selected' : ''}>안드로이드</option>
-                            <option value="IOS" ${recruitment.position == 'IOS' ? 'selected' : ''}>IOS</option>
-                            <option value="시스템, 네트워크 관리자" ${recruitment.position == '시스템, 네트워크 관리자' ? 'selected' : ''}>시스템, 네트워크 관리자</option>
-                            <option value="머신러닝 엔지니어" ${recruitment.position == '머신러닝 엔지니어' ? 'selected' : ''}>머신러닝 엔지니어</option>
-                            <option value="데이터 엔지니어" ${recruitment.position == '데이터 엔지니어' ? 'selected' : ''}>데이터 엔지니어</option>
-                            <option value="빅데이터 엔지니어" ${recruitment.position == '빅데이터 엔지니어' ? 'selected' : ''}>빅데이터 엔지니어</option>
-                            <option value="보안 엔지니어" ${recruitment.position == '보안 엔지니어' ? 'selected' : ''}>보안 엔지니어</option>
-                            <option value="임베디드개발자" ${recruitment.position == '임베디드개발자' ? 'selected' : ''}>임베디드개발자</option>
-                        </select>
+                            <span class="input-group-text">희망포지션</span>
+                            <select class="form-select" aria-label="Default select example" name="position"
+                                id="position">
+                                <option value="프론트엔드" ${recruitment.position=='프론트엔드' ? 'selected' : '' }>프론트엔드</option>
+                                <option value="백엔드" ${recruitment.position=='백엔드' ? 'selected' : '' }>백엔드</option>
+                                <option value="소프트웨어" ${recruitment.position=='소프트웨어' ? 'selected' : '' }>소프트웨어</option>
+                                <option value="안드로이드" ${recruitment.position=='안드로이드' ? 'selected' : '' }>안드로이드</option>
+                                <option value="IOS" ${recruitment.position=='IOS' ? 'selected' : '' }>IOS</option>
+                                <option value="시스템, 네트워크 관리자" ${recruitment.position=='시스템, 네트워크 관리자' ? 'selected' : ''
+                                    }>시스템, 네트워크 관리자</option>
+                                <option value="머신러닝 엔지니어" ${recruitment.position=='머신러닝 엔지니어' ? 'selected' : '' }>머신러닝
+                                    엔지니어</option>
+                                <option value="데이터 엔지니어" ${recruitment.position=='데이터 엔지니어' ? 'selected' : '' }>데이터 엔지니어
+                                </option>
+                                <option value="빅데이터 엔지니어" ${recruitment.position=='빅데이터 엔지니어' ? 'selected' : '' }>빅데이터
+                                    엔지니어</option>
+                                <option value="보안 엔지니어" ${recruitment.position=='보안 엔지니어' ? 'selected' : '' }>보안 엔지니어
+                                </option>
+                                <option value="임베디드개발자" ${recruitment.position=='임베디드개발자' ? 'selected' : '' }>임베디드개발자
+                                </option>
+                            </select>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <textarea class="form-control summernote" rows="5" id="content" name="content">${recruitment.content}</textarea>
+                    <textarea class="form-control summernote" rows="5" id="content"
+                        name="content">${recruitment.content}</textarea>
                 </div>
 
                 <div class="input-group mb-3">
@@ -142,7 +149,7 @@
 
                 $.ajax({
                     type: 'put',
-                    url: '/recruitment/'+id,
+                    url: '/recruitment/' + id,
                     data: formData,
                     contentType: false, // 필수 : x-www-form-urlencoded로 파싱되는 것을 방지
                     processData: false, // 필수: contentType을 false로 줬을 때 QueryString 자동 설정됨. 해제

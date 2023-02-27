@@ -7,7 +7,7 @@
             }
         </style>
 
-        <div class="container my-3">
+        <div class="container my-3" style="width: 65%">
 
             <form enctype="multipart/form-data">
 
@@ -20,8 +20,8 @@
                     <div class="border border-end-0 border-start-0 pt-3" style="width: 47%;">
                         <div class="input-group mb-3">
                             <span class="input-group-text">경력</span>
-                            <input type="text" class="form-control" list="career_list" placeholder="경력을 입력해주세요" name="career"
-                                id="career" vlaue="신입">
+                            <input type="text" class="form-control" list="career_list" placeholder="경력을 입력해주세요"
+                                name="career" id="career" vlaue="신입">
                             <datalist id="career_list">
                                 <option value="신입">
                                 <option value="경력">

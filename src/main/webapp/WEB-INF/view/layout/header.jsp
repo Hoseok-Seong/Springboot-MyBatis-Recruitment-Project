@@ -43,9 +43,6 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" href="/resumeMain">이력서</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" href="/community">커뮤니티</a>
-                                </li>
                             </ul>
                             <ul class="navbar-nav col-5 justify-content-end">
                                 <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
@@ -64,12 +61,12 @@
                                     <c:otherwise>
                                         <!-- 세션에 principal 또는 principalEnt가 존재하지 않는 경우 -->
                                         <li class="nav-item">
-                                            <a class="nav-link text-dark" data-toggle="modal"
-                                                data-target="#login">로그인</a>
+                                            <a class="nav-link text-dark" data-toggle="modal" data-target="#login"
+                                                style="cursor: pointer;">로그인</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link text-dark" data-toggle="modal"
-                                                data-target="#join">회원가입</a>
+                                            <a class="nav-link text-dark" data-toggle="modal" data-target="#join"
+                                                style="cursor: pointer;">회원가입</a>
                                         </li>
                                     </c:otherwise>
                                 </c:choose>
@@ -115,12 +112,12 @@
                                                     <tr class="text-center">
                                                         <!-- input의 크기는 class="form-control-lg" 로 늘린다. -->
                                                         <td><input type="text" class="form-control-lg w-100"
-                                                                name="username" placeholder="username"></td>
+                                                                name="username" placeholder="아이디"></td>
                                                     </tr>
 
                                                     <tr class="text-center">
                                                         <td><input type="password" class="form-control-lg w-100"
-                                                                name="password" placeholder="password"></td>
+                                                                name="password" placeholder="비밀번호"></td>
                                                     </tr>
                                                 </table>
                                                 <button type="submit" class="btn login-btn-custom btn-sm me-2"
@@ -136,12 +133,12 @@
 
                                                     <tr class="text-center ">
                                                         <td><input type="text" class="form-control-lg w-100"
-                                                                name="enterpriseName" placeholder="enterpriseName"></td>
+                                                                name="enterpriseName" placeholder="아이디"></td>
                                                     </tr>
 
                                                     <tr class="text-center">
                                                         <td><input type="password" class="form-control-lg w-100"
-                                                                name="password" placeholder="password"></td>
+                                                                name="password" placeholder="비밀번호"></td>
                                                     </tr>
                                                 </table>
                                                 <button class="btn login-btn-custom btn-sm me-2"
@@ -185,9 +182,8 @@
                                         <table class="table table-borderless">
                                             <div class="text-center d-flex justify-content-end"><br>
                                                 <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
-                                                    <td><input type="text" id="enterpriseName"
-                                                            class="form-control-lg col-9" name="userName"
-                                                            placeholder="username">
+                                                    <td><input type="text" id="username" class="form-control-lg col-9"
+                                                            name="username" placeholder="아이디">
                                                         <button type="button"
                                                             class="btn btn-custom btn-sm col-2 my-2 me-3"
                                                             onclick="sameCheck()" style="float:right;">중복확인</button>
@@ -195,33 +191,26 @@
                                             </div>
                                             <tr class="text-center">
                                                 <td><input type="password" class="form-control-lg w-100" name="password"
-                                                        placeholder="password"></td>
+                                                        placeholder="비밀번호"></td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td><input type="password" class="form-control-lg w-100"
-                                                        name="passwordCheck" placeholder="passwordcheck">
+                                                        name="passwordcheck" placeholder="비밀번호 중복검사">
                                                 </td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td><input type="text" class="form-control-lg w-100" name="name"
-                                                        placeholder="name"></td>
+                                                        placeholder="이름"></td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td><input type="text" class="form-control-lg w-100" name="email"
-                                                        placeholder="email"></td>
+                                                        placeholder="이메일"></td>
                                             </tr>
                                             <div class="text-center">
-                                                <td><input type="text" class="form-control-lg w-75 col-9" name="contact"
-                                                        placeholder="contact">
-                                                    <button class="btn btn-custom btn-sm  col-2 my-2 me-3"
-                                                        style="float:right;">인증번호</button>
+                                                <td><input type="text" class="form-control-lg w-100" name="contact"
+                                                        placeholder="전화번호">
                                                 </td>
                                             </div>
-                                            <tr class="text-center">
-                                                <td><input type="text" class="form-control-lg w-100"
-                                                        name="certificationNumber" placeholder="certification-number">
-                                                </td>
-                                            </tr>
                                         </table>
                                         <div class="text-center">
                                             <tr>
@@ -230,7 +219,7 @@
                                                 이용 동의, 광고성 정보 수신에 동의합니다.
                                             </tr>
                                             <br>
-                                            <button class="btn btn-custom btn-sm my-4 ms-3 me-4"
+                                            <button class="btn btn-custom btn-sm my-3 ms-3 me-4"
                                                 style="float:right;">회원가입</button>
                                         </div>
                                     </form>
@@ -242,7 +231,7 @@
                                                 <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
                                                     <td><input type="text" id="enterpriseName"
                                                             class="form-control-lg w-75 col-9" name="enterpriseName"
-                                                            placeholder="enterprise name">
+                                                            placeholder="아이디">
                                                         <button type="button"
                                                             class="btn btn-custom btn-sm col-2 my-2 me-3"
                                                             onclick="sameCheck()" style="float:right;">중복확인</button>
@@ -250,31 +239,25 @@
                                             </div>
                                             <tr class="text-center">
                                                 <td><input type="password" class="form-control-lg w-100" name="password"
-                                                        placeholder="password"></td>
+                                                        placeholder="비밀번호"></td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td><input type="password" class="form-control-lg w-100"
-                                                        name="passwordCheck" placeholder="passwordcheck">
+                                                        name="passwordCheck" placeholder="비밀번호 중복검사">
                                                 </td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td><input type="text" class="form-control-lg w-100" name="address"
-                                                        placeholder="address"></td>
+                                                        placeholder="주소"></td>
                                             </tr>
                                             <div class="text-center">
-                                                <td><input type="text" class="form-control-lg w-75 col-9" name="contact"
-                                                        placeholder="contact">
-                                                    <button class="btn btn-custom btn-sm col-2 my-2 me-3"
-                                                        style="float:right;">인증번호</button>
+                                                <td><input type="text" class="form-control-lg w-100" name="contact"
+                                                        placeholder="전화번호">
                                                 </td>
                                             </div>
                                             <tr class="text-center">
-                                                <td><input type="text" class="form-control-lg w-100" name="image"
-                                                        placeholder="image"></td>
-                                            </tr>
-                                            <tr class="text-center">
                                                 <td><input type="text" class="form-control-lg w-100" name="email"
-                                                        placeholder="email"></td>
+                                                        placeholder="이메일"></td>
                                             </tr>
                                         </table>
                                         <div class="form-control-sm">
@@ -311,7 +294,7 @@
                                             </tr>
                                         </div>
                                         <br>
-                                        <button class="btn btn-custom btn-sm m-1 my-4 ms-3 me-4"
+                                        <button class="btn btn-custom btn-sm m-1 my-3 ms-3 me-4"
                                             style="float:right;">회원가입</button>
                                     </form>
                                 </div>

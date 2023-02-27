@@ -12,18 +12,6 @@
                         <h2><b>${recruitmentPostDtos.title}</b></h2>
                     </div>
 
-        <div class="container my-3">
-            <div class="row">
-                <!-- 채용공고 시작 -->
-                <div class="col-8">
-                    <div>
-                        ${recruitmentPostDtos.enterpriseName}
-                    </div>
-
-                    <div>
-                        <h2><b>${recruitmentPostDtos.title}</b></h2>
-                    </div>
-
                     <div class="d-flex justify-content-between pb-3">
                         <div class="border border-end-0 border-start-0 pt-3" style="width: 48%;">
                             <dl>
@@ -98,11 +86,13 @@
                     <div class="d-flex justify-content-center py-3">
                         <c:choose>
                             <c:when test="${principalEnt == null}">
-                                <div class="card" style="width: 18rem;">
+                                <div class="card" style="width: 22rem;">
                                     <div class="card-body">
+                                        <br>
                                         <h5 class="card-title">지원하기</h5>
+                                        <br>
                                         <p class="card-text">지금 지원해보세요</p>
-                                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                        <button style="background-color: #36f;" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#collapseExample" aria-expanded="false"
                                             aria-controls="collapseExample">
                                             이력서 찾아보기
@@ -115,39 +105,28 @@
                                                     </c:when>
                                                     <c:otherwise>
                                                         <c:forEach items="${resumes}" var="resume">
-                                                            <table class="table">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th scope="col">번호</th>
-                                                                        <th scope="col">작성자</th>
-                                                                        <th scope="col">제목</th>
-                                                                        <th scope="col">제출</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td scope="row" id="resumeId">${resume.id}</th>
-                                                                        <td scope="row">${resume.userId}</td>
-                                                                        <td scope="row" class="my-text-ellipsis">${resume.title}</td>
-                                                                        <td scope="row">
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input"
-                                                                                    type="radio" name="chooseResume"
-                                                                                    id="chooseResume"
-                                                                                    value=" ${resume.id}">
-                                                                                <label class="form-check-label"
-                                                                                    for="chooseResume">
-                                                                                    이력서 선택
-                                                                                </label>
-                                                                            </div>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
+                                                            <div class="card"
+                                                                style="width: 14rem; background-color: #f2f4f7">
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <h5 class="card-title">${resume.id}</h5>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-9">
+                                                                            <p class="card-text">${resume.title}</p>
+                                                                        </div>
+                                                                        <div class="col-3">
+                                                                            <input class="form-check-input" type="radio"
+                                                                                name="chooseResume" id="chooseResume"
+                                                                                value=" ${resume.id}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <br>
                                                         </c:forEach>
                                                         <div>
-                                                            <button type="button" class="btn btn-primary"
-                                                                onClick="confirmApply()">지원하기</button>
+                                                            <button type="button" onClick="confirmApply()">지원하기</button>
                                                         </div>
                                                     </c:otherwise>
                                                 </c:choose>
@@ -157,12 +136,46 @@
                                 </div>
 
                             </c:when>
-                            <c:when test="${principalEnt.id == recruitmentPostDtos.enterpriseId}">
-                                <div>
-                                    <a href="/recruitment/${recruitmentPostDtos.id}/updateForm"
-                                        class="btn btn-warning">수정</a>
-                                    <button type="button" class="btn btn-danger">삭제</button>
+                            <c:when test="${principalEnt != null}">
+                                <div class="card" style="width: 22rem;">
+                                    <div class="card-body">
+                                        <br>
+                                        <h5 class="card-title">지원하기</h5>
+                                        <br>
+                                        <p class="card-text">지금 지원해보세요</p>
+                                        <button style="background-color: #36f;" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseExample" aria-expanded="false"
+                                            aria-controls="collapseExample">
+                                            이력서 찾아보기
+                                        </button>
+                                        <div class="collapse" id="collapseExample">
+                                            <div class="card card-body">
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <c:when test="${principalEnt.id == recruitmentPostDtos.enterpriseId}">
+                                    <div class="card" style="width: 22rem;">
+                                        <div class="card-body">
+                                            <br>
+                                            <h5 class="card-title">지원하기</h5>
+                                            <br>
+                                            <p class="card-text">지금 지원해보세요</p>
+                                            <a href="/recruitment/${recruitmentPostDtos.id}/updateForm">수정</a>
+                                            <button type="button">삭제</button>
+                                            <div class="collapse" id="collapseExample">
+                                                <div class="card card-body">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <a href="/recruitment/${recruitmentPostDtos.id}/updateForm">수정</a>
+                                        <button type="button">삭제</button>
+                                    </div>
+                                </c:when>
                             </c:when>
                         </c:choose>
                     </div>

@@ -53,7 +53,7 @@ public class EnterpriseService {
             int result = enterpriseRepository.insert(joinEnterpriseReqDto.getEnterpriseName(), sha256Hash + "_" + salt,
                     salt,
                     joinEnterpriseReqDto.getAddress(), joinEnterpriseReqDto.getContact(),
-                    joinEnterpriseReqDto.getImage(), joinEnterpriseReqDto.getEmail(), joinEnterpriseReqDto.getSize(),
+                    joinEnterpriseReqDto.getEmail(), joinEnterpriseReqDto.getSize(),
                     joinEnterpriseReqDto.getSector()
 
             );
