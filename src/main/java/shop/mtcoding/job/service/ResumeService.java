@@ -49,6 +49,7 @@ public class ResumeService {
         }
     }
 
+    @Transactional
     public void 이력서수정(int id, ResumeUpdateReqDto resumeUpdateReqDto, int principalId) {
         Resume resumePS = resumeRepository.findById(id);
         if (resumePS == null) {
