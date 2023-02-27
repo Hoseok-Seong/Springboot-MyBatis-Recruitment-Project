@@ -12,7 +12,7 @@
             <form enctype="multipart/form-data">
 
                 <div class="form-group pb-3">
-                    <input type="text" class="form-control form-control-lg" placeholder="Enter title" name="title"
+                    <input type="text" class="form-control form-control-lg" placeholder="제목을 입력해주세요" name="title"
                         id="title" vlaue="제목">
                 </div>
 
@@ -20,7 +20,7 @@
                     <div class="border border-end-0 border-start-0 pt-3" style="width: 47%;">
                         <div class="input-group mb-3">
                             <span class="input-group-text">경력</span>
-                            <input type="text" class="form-control" list="career_list" placeholder="TEST" name="career"
+                            <input type="text" class="form-control" list="career_list" placeholder="경력을 입력해주세요" name="career"
                                 id="career" vlaue="신입">
                             <datalist id="career_list">
                                 <option value="신입">
@@ -30,7 +30,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">학력</span>
-                            <input type="text" class="form-control" list="education_list" placeholder="TEST"
+                            <input type="text" class="form-control" list="education_list" placeholder="학력을 입력해주세요"
                                 name="education" id="education" vlaue="학력무관">
                             <datalist id="education_list">
                                 <option value="학력무관">
@@ -58,7 +58,7 @@
                     <div class="border border-end-0 border-start-0 pt-3" style=" width: 47%;">
                         <div class="input-group mb-3">
                             <span class="input-group-text">급여</span>
-                            <input type="text" class="form-control" list="pay_list" placeholder="TEST" name="pay"
+                            <input type="text" class="form-control" list="pay_list" placeholder="급여를 입력해주세요" name="pay"
                                 id="pay" vlaue="면접 후 결정">
                             <datalist id="pay_list">
                                 <option value="면접 후 결정">
@@ -67,7 +67,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">근무지역</span>
-                            <input type="text" class="form-control" list="address_list" placeholder="TEST"
+                            <input type="text" class="form-control" list="address_list" placeholder="근무지역을 입력해주세요"
                                 name="address" id="address" vlaue="전국">
                             <datalist id="address_list">
                                 <option value="전국">

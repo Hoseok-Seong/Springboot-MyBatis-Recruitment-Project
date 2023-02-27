@@ -95,7 +95,7 @@
                     <c:when test="${principalEnt.id == recruitmentPostDtos.enterpriseId}">
                         <div>
                             <a href="/recruitment/${recruitmentPostDtos.id}/updateForm" class="btn btn-warning">수정</a>
-                            <button type="button" class="btn btn-danger">삭제</button>
+                            <button type="button" class="btn btn-danger" onClick="confirmDelete(${recruitmentPostDtos.id})">삭제</button>
                         </div>
                     </c:when>
                 </c:choose>
@@ -128,6 +128,25 @@
                 }).fail((err) => { // 40X, 50X 일때
                     alert(err.responseJSON.msg);
                 });
+            }
+            function confirmDelete(recruitmentPostId) {
+                if (confirm('채용공고를 삭제하시면 복구가 불가능합니다. 정말로 삭제하시겠습니까?')) {
+                    deleteById(recruitmentPostId);
+                }
+            }
+
+            function deleteById(recruitmentPostId){
+                $.ajax({
+                    type: "delete",
+                    url: '/recruitment/'+recruitmentPostId,
+                    dataType: "json"
+                }).done((res) => { // 20X 일때
+                    alert(res.msg);
+                    location.href = "/recruitment/list";
+                }).fail((err) => { // 40X, 50X 일때
+                    alert(err.responseJSON.msg);
+                });
+
             }
         </script>
         <%@ include file="../layout/footer.jsp" %>
