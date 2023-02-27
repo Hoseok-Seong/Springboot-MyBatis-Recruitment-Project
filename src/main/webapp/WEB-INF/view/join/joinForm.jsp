@@ -21,12 +21,12 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="loginUser">
-                                    <form action="user/join" method="post">
+                                    <form action="user/join" method="post" onsubmit="return valid()">
                                         <table class="table table-borderless">
                                             <div class="text-center border d-flex justify-content-end"> 
                                                     <!-- input의 크기는 class="form-control-lg" 로 늘린다. -->
-                                                <td><input type="text" class="form-control-lg w-75" name="username" placeholder="username">
-                                                    <button class="btn btn-danger btn-sm" style="float:right;">중복확인</button></td>
+                                                <td><input type="text" id="username" class="form-control-lg w-75" name="username" placeholder="username">
+                                                    <button type="button" class="btn btn-custom btn-sm" onclick="sameCheck()" style="float:right;">중복확인</button></td>
                                             </div>
                                             <tr class="text-center">
                                                 <td><input type="password" class="form-control-lg" style="width:350px" name="password" placeholder="password"></td>
@@ -42,7 +42,7 @@
                                             </tr>
                                             <div class="text-center">
                                                 <td><input type="text" class="form-control-lg w-75" name="contact" placeholder="contact">
-                                                    <button class="btn btn-danger btn-sm" style="float:right;">인증번호</button><td>
+                                                    <button class="btn btn-custom btn-sm" style="float:right;">인증번호</button><td>
                                             </div>
                                             </tr>
                                             <tr class="text-center">
@@ -55,17 +55,17 @@
                                                 </tr>
                                             </div>
                                             <br>
-                                        <button class="btn btn-danger btn-sm m-1" style="float:right;">회원가입</button>
+                                        <button class="btn btn-custom btn-sm m-1" style="float:right;">회원가입</button>
                                     </form> 
                                 </div>
                             <div class="tab-pane fade" id="loginEnterprise">
-                                <form action="enterprise/join" method="post">
+                                <form action="enterprise/join" method="post" onsubmit="return valid()">
                                     <table class="table table-borderless">
 
                                         <div class="text-center border d-flex justify-content-end"> 
                                             <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
                                             <td><input type="text" class="form-control-lg w-75" name="enterpriseName" placeholder="enterprise name">
-                                                <button class="btn btn-danger btn-sm" style="float:right;">중복확인</button>
+                                                <button class="btn btn-custom btn-sm" onclick="sameCheck()" style="float:right;">중복확인</button>
                                             </td>
                                         </div>
                                         <tr class="text-center">
@@ -80,7 +80,7 @@
                                         </tr>
                                         <div class="text-center">
                                             <td><input type="text" class="form-control-lg w-75" name="contact" placeholder="contact">
-                                                <button class="btn btn-danger btn-sm" style="float:right;">인증번호</button></td>
+                                                <button class="btn btn-custom btn-sm" style="float:right;">인증번호</button></td>
                                         </div>
                                         <tr class="text-center">
                                             <td><input type="text" class="form-control-lg w-100" name="image" placeholder="image"></td>
@@ -121,7 +121,7 @@
                                         </tr>
                                     </div>
                                     <br>
-                                    <button class="btn btn-danger btn-sm m-1" style="float:right;">회원가입</button>
+                                    <button class="btn btn-custom btn-sm m-1" style="float:right;">회원가입</button>
                                 </form>
                             </div>
                         </div>
@@ -130,4 +130,32 @@
             </div>
         </div>
         </div>
+        <script>
+                let submitCheck = false;
+                function valid() {
+                    if (submitCheck) {
+                        return true;
+                    } else {
+                        alert("유저네임 중복체크를 해주세요");
+                        return false;
+                    }
+                }
+                function sameCheck() {
+                    let username = $("#username").val();
+                    $.ajax({
+                        type: "get",
+                        url: "/user/usernameSameCheck?username=" + username
+                    }).done((res) => {
+                        //console.log(res);
+                        if (res.data === true) {
+                            alert(res.msg);
+                            submitCheck = true;
+                        } else {
+                            alert(res.msg);
+                            submitCheck = false;
+                        }
+                    }).fail((err) => {
+                    });
+                }
+            </script>
         <%@ include file="../layout/footer.jsp" %>

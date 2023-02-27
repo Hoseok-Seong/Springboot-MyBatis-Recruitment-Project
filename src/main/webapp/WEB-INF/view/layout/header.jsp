@@ -66,7 +66,8 @@
                                         <c:otherwise>
                                             <!-- 세션에 principal 또는 principalEnt가 존재하지 않는 경우 -->
                                             <li class="nav-item">
-                                                <a class="nav-link text-dark" href="/loginForm">로그인</a>
+                                                <a class="nav-link text-dark" data-toggle="modal" data-target="#login"
+                                                    href="/loginForm">로그인</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link text-dark" href="/joinForm">회원가입</a>
@@ -81,3 +82,78 @@
                 </div>
                 <hr class="my-1">
             </header>
+
+            <body>
+                <!-- The Modal -->
+                <div class="modal" id="login">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">로그인</h4>
+                                <!-- Modal footer -->
+                                <button type="button" data-dismiss="modal">X</button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <div class="card-body">
+                                    <ul class="nav my-nav-tabs nav-fill mb-4">
+                                        <li class="nav-item">
+                                            <a class="my-nav-link list-group-item list-group-item-action active"
+                                                data-toggle="tab" href="#loginUser">개인회원</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="my-nav-link list-group-item list-group-item-action"
+                                                data-toggle="tab" href="#loginEnterprise">기업회원</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content ">
+                                        <div class="tab-pane fade show active" id="loginUser">
+                                            <form action="user/login" method="post">
+                                                <table class="table table-borderless">
+
+                                                    <tr class="text-center">
+                                                        <!-- input의 크기는 class="form-control-lg" 로 늘린다. -->
+                                                        <td><input type="text" class="form-control-lg w-100"
+                                                                name="username" placeholder="username"></td>
+                                                    </tr>
+
+                                                    <tr class="text-center">
+                                                        <td><input type="password" class="form-control-lg w-100"
+                                                                name="password" placeholder="password"></td>
+                                                    </tr>
+                                                </table>
+                                                <button class="btn login-btn-custom btn-sm"
+                                                    style="float:right;">로그인</button>
+                                                <input type="checkbox" value="">로그인 상태 유지<br><br><br>
+                                                <div class="d-inline-flex justify-content-between">
+                                                    <p>좋은 기업 찾고 계신가요?&nbsp;<a href="/joinForm">회원가입</a></p>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade" id="loginEnterprise">
+                                            <form action="enterprise/login" method="post">
+                                                <table class="table table-borderless">
+
+                                                    <tr class="text-center ">
+                                                        <td><input type="text" class="form-control-lg w-100"
+                                                                name="enterpriseName" placeholder="enterpriseName"></td>
+                                                    </tr>
+
+                                                    <tr class="text-center">
+                                                        <td><input type="password" class="form-control-lg w-100"
+                                                                name="password" placeholder="password"></td>
+                                                    </tr>
+                                                </table>
+                                                <button class="btn login-btn-custom btn-sm"
+                                                    style="float:right;">로그인</button>
+                                                <input type="checkbox" value="">로그인 상태 유지<br><br><br>
+                                                <p>좋은 인재 찾고 계신가요?&nbsp;<a href="/joinForm">회원가입</a></p>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
