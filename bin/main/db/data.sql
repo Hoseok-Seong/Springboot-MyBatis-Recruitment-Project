@@ -683,5 +683,9 @@ LINE Hybrid Work 2.0에 따라 근무 가능한 장소에서 근무</br>
 
 
 
+insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo, created_at) values(1,'임시제목1','임시경력1','임시학력1','임시급여1','인력소싱','프론트엔드','임시근무지역1','임시내용1', '/images/coupang.png',now());
+insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo, created_at) values(1,'임시제목2','임시경력2','임시학력2','임시급여2','대기업','백엔드','임시근무지역2','임시내용2', '/images/coupang.png',now());
+insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo, created_at) values(2,'임시제목3','임시경력3','임시학력3','임시급여3','스타트업','소프트웨어','임시근무지역3','임시내용3', '/images/coupang.png',now());
+insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo, created_at) values(2,'임시제목4','임시경력4','임시학력4','임시급여4','서비스','안드로이드','임시근무지역4','임시내용4', '/images/coupang.png',now());
 
 commit;	
