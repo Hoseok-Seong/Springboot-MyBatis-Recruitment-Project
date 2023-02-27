@@ -11,8 +11,8 @@ import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.LoginEnterpriseReqDto;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.enterprise.EnterpriseRepository;
-import shop.mtcoding.job.util.saltEncoder;
-import shop.mtcoding.job.util.sha256Encoder;
+import shop.mtcoding.job.util.SaltEncoder;
+import shop.mtcoding.job.util.Sha256Encoder;
 
 @Service
 public class EnterpriseService {
@@ -27,7 +27,7 @@ public class EnterpriseService {
             if (salt == null) {
                 throw new CustomException("아이디가 존재하지 않습니다");
             }
-            String sha256Hash = sha256Encoder.sha256(loginEnterpriseReqDto.getPassword());
+            String sha256Hash = Sha256Encoder.sha256(loginEnterpriseReqDto.getPassword());
             Enterprise principalEnt = enterpriseRepository.findByEnterprisenameAndPassword(
                     loginEnterpriseReqDto.getEnterpriseName(),
                     sha256Hash + "_" + salt);
@@ -48,8 +48,8 @@ public class EnterpriseService {
         }
         // 2. 암호화 후 db에 insert하기
         try {
-            String sha256Hash = sha256Encoder.sha256(joinEnterpriseReqDto.getPassword());
-            String salt = saltEncoder.salt();
+            String sha256Hash = Sha256Encoder.sha256(joinEnterpriseReqDto.getPassword());
+            String salt = SaltEncoder.salt();
             int result = enterpriseRepository.insert(joinEnterpriseReqDto.getEnterpriseName(), sha256Hash + "_" + salt,
                     salt,
                     joinEnterpriseReqDto.getAddress(), joinEnterpriseReqDto.getContact(),

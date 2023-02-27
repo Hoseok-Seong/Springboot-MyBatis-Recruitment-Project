@@ -11,8 +11,8 @@ import shop.mtcoding.job.dto.user.UserReqDto.LoginUserReqDto;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.model.user.UserRepository;
-import shop.mtcoding.job.util.saltEncoder;
-import shop.mtcoding.job.util.sha256Encoder;
+import shop.mtcoding.job.util.SaltEncoder;
+import shop.mtcoding.job.util.Sha256Encoder;
 
 @Service
 public class UserService {
@@ -26,7 +26,7 @@ public class UserService {
             if (salt == null) {
                 throw new CustomException("아이디가 존재하지 않습니다");
             }
-            String sha256Hash = sha256Encoder.sha256(loginUserReqDto.getPassword());
+            String sha256Hash = Sha256Encoder.sha256(loginUserReqDto.getPassword());
             User principal = userRepository.findByUsernameAndPassword(loginUserReqDto.getUsername(),
                     sha256Hash + "_" + salt);
             return principal;
@@ -46,8 +46,8 @@ public class UserService {
         }
         // 2. 암호화 후 db에 insert하기
         try {
-            String sha256Hash = sha256Encoder.sha256(joinUserReqDto.getPassword());
-            String salt = saltEncoder.salt();
+            String sha256Hash = Sha256Encoder.sha256(joinUserReqDto.getPassword());
+            String salt = SaltEncoder.salt();
             int result = userRepository.insert(joinUserReqDto.getUsername(), sha256Hash + "_" + salt, salt,
                     joinUserReqDto.getName(), joinUserReqDto.getEmail(), joinUserReqDto.getContact(),
                     joinUserReqDto.getProfile());

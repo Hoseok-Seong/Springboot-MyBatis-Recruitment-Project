@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.user.UserReqDto.JoinUserReqDto;
 import shop.mtcoding.job.dto.user.UserReqDto.LoginUserReqDto;
-import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.model.user.UserRepository;
@@ -69,13 +68,13 @@ public class UserController {
     @PostMapping("/user/join")
     public String userJoin(JoinUserReqDto joinUserReqDto) {
         if (joinUserReqDto.getUsername() == null || joinUserReqDto.getUsername().isEmpty()) {
-            throw new CustomException("username을 작성해주세요");
+            throw new CustomException("아이디를 작성해주세요");
         }
         if (joinUserReqDto.getPassword() == null || joinUserReqDto.getPassword().isEmpty()) {
-            throw new CustomException("password를 작성해주세요");
+            throw new CustomException("비밀번호를 작성해주세요");
         }
         if (joinUserReqDto.getName() == null || joinUserReqDto.getName().isEmpty()) {
-            throw new CustomException("name을 작성해주세요");
+            throw new CustomException("이름을 작성해주세요");
         }
         if (joinUserReqDto.getEmail() == null || joinUserReqDto.getEmail().isEmpty()) {
             throw new CustomException("email을 작성해주세요");
@@ -92,13 +91,13 @@ public class UserController {
     @GetMapping("/user/usernameSameCheck")
     public @ResponseBody ResponseDto<?> check(String username, JoinUserReqDto joinUserReqDto) {
         if (username == null || username.isEmpty()) {
-            return new ResponseDto<>(-1, "username이 입력되지 않았습니다.", null);
+            return new ResponseDto<>(-1, "아이디가 입력되지 않았습니다.", null);
         }
         User sameuser = userRepository.findByName(joinUserReqDto.getUsername());
         if (sameuser != null) {
             return new ResponseDto<>(1, "동일한 아이디가 존재합니다.", true);
         } else {
-            return new ResponseDto<>(1, "해당 username으로 회원가입이 가능합니다.", true);
+            return new ResponseDto<>(1, "해당 아이디로 회원가입이 가능합니다.", true);
         }
     }
 }

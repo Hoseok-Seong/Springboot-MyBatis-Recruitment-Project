@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.job.dto.ResponseDto;
-import shop.mtcoding.job.dto.resume.ResumeReqDto.ResumeUpdateReqDto;
 import shop.mtcoding.job.dto.resume.ResumeReqDto.SaveResumeReqDto;
+import shop.mtcoding.job.dto.resume.ResumeReqDto.UpdateResumeReqDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.resume.Resume;
@@ -42,7 +42,7 @@ public class ResumeController {
     public String resumeList(Model model) {
         User principal = (User) session.getAttribute("principal");
         if (principal == null) {
-            throw new CustomException("인증이 되지 않았습니다. 로그인을 해주세요.", HttpStatus.UNAUTHORIZED);
+            throw new CustomException("회원 인증이 되지 않았습니다. 로그인을 해주세요.", HttpStatus.UNAUTHORIZED);
         }
         List<Resume> resumeList = resumeRepository.findByUserId(principal.getId());
         model.addAttribute("resumeList", resumeList);
@@ -53,7 +53,7 @@ public class ResumeController {
     public String resumeForm() {
         User principal = (User) session.getAttribute("principal");
         if (principal == null) {
-            throw new CustomException("인증이 되지 않았습니다. 로그인을 해주세요.", HttpStatus.UNAUTHORIZED);
+            throw new CustomException("회원 인증이 되지 않았습니다. 로그인을 해주세요.", HttpStatus.UNAUTHORIZED);
         }
         return "resume/resumeForm";
     }
@@ -67,16 +67,12 @@ public class ResumeController {
     public @ResponseBody ResponseEntity<?> save(@RequestBody SaveResumeReqDto saveResumeReqDto) {
         User principal = (User) session.getAttribute("principal");
         if (principal == null) {
-            throw new CustomApiException("인증이 실패했습니다", HttpStatus.UNAUTHORIZED);
+            throw new CustomApiException("회원 인증이 실패했습니다", HttpStatus.UNAUTHORIZED);
         }
 
         if (saveResumeReqDto.getTitle() == null ||
                 saveResumeReqDto.getTitle().isEmpty()) {
             throw new CustomApiException("제목을 작성해주세요");
-        }
-
-        if (saveResumeReqDto.getTitle().length() > 100) {
-            throw new CustomApiException("제목의 길이는 100자 이하까지 가능합니다");
         }
 
         if (saveResumeReqDto.getBirthdate() == null ||
@@ -133,11 +129,11 @@ public class ResumeController {
     public @ResponseBody ResponseEntity<?> delete(@PathVariable int id) {
         User principal = (User) session.getAttribute("principal");
         if (principal == null) {
-            throw new CustomApiException("인증이 실패했습니다", HttpStatus.UNAUTHORIZED);
+            throw new CustomApiException("회원 인증이 실패했습니다", HttpStatus.UNAUTHORIZED);
         }
 
         resumeService.이력서삭제(id, principal.getId());
-        return new ResponseEntity<>(new ResponseDto<>(1, "삭제 성공", null), HttpStatus.OK);
+        return new ResponseEntity<>(new ResponseDto<>(1, "이력서 삭제 성공", null), HttpStatus.OK);
 
     }
 
@@ -148,13 +144,13 @@ public class ResumeController {
 
     @PutMapping("/resume/{id}")
     public @ResponseBody ResponseEntity<?> update(@PathVariable int id,
-            @RequestBody ResumeUpdateReqDto resumeUpdateReqDto) throws Exception {
+            @RequestBody UpdateResumeReqDto updateResumeReqDto) throws Exception {
         User principal = (User) session.getAttribute("principal");
         if (principal == null) {
-            throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
+            throw new CustomApiException("회원 인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
         }
 
-        resumeService.이력서수정(id, resumeUpdateReqDto, principal.getId());
-        return new ResponseEntity<>(new ResponseDto<>(1, "수정성공", null), HttpStatus.OK);
+        resumeService.이력서수정(id, updateResumeReqDto, principal.getId());
+        return new ResponseEntity<>(new ResponseDto<>(1, "이력서 수정 성공", null), HttpStatus.OK);
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.SaveRecruitmentPostReqDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.UpdateRecruitmentPostReqDto;
-import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.PostRespDto;
+import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostSearchRespDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;
@@ -33,7 +33,7 @@ public class RecruitmentService {
         // 저장된 파일의 경로를 DB에 저장
         int result = recruitmentPostRepository.insert(recruitmentPost);
         if (result != 1) {
-            throw new CustomException("채용공고쓰기 실패", HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new CustomException("채용공고 작성 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -41,10 +41,10 @@ public class RecruitmentService {
     public void 채용공고수정(int id, UpdateRecruitmentPostReqDto updateRecruitmentPostReqDto, int enterpriseId) {
         RecruitmentPost recruitmentPS = recruitmentPostRepository.findById(id);
         if (recruitmentPS == null) {
-            throw new CustomApiException("없는 게시글을 수정할 수 없습니다");
+            throw new CustomApiException("존재하지 않는 채용공고를 수정할 수 없습니다");
         }
         if (recruitmentPS.getEnterpriseId() != enterpriseId) {
-            throw new CustomApiException("게시글을 수정할 권한이 없습니다", HttpStatus.FORBIDDEN);
+            throw new CustomApiException("채용공고를 수정할 권한이 없습니다", HttpStatus.FORBIDDEN);
         }
 
         // 사진을 /static/image에 UUID로 변경해서 저장
@@ -54,14 +54,8 @@ public class RecruitmentService {
 
         int result = recruitmentPostRepository.updateById(recruitmentPost);
         if (result != 1) {
-            throw new CustomApiException("채용공고수정 실패", HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new CustomApiException("채용공고 수정 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    }
-
-    @Transactional
-    public List<PostRespDto> 채용정보검색(PostRespDto postRespDto) {
-        List<PostRespDto> postPSList = recruitmentPostRepository.findByTitleOrContent(postRespDto);
-        return postPSList;
     }
 
     public void 채용공고삭제(int id, int enterpriseId) {
@@ -78,5 +72,11 @@ public class RecruitmentService {
         } catch (Exception e) {
             throw new CustomApiException("서버에 일시적인 문제가 발생했습니다", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @Transactional
+    public List<RecruitmentPostSearchRespDto> 채용정보검색(RecruitmentPostSearchRespDto postRespDto) {
+        List<RecruitmentPostSearchRespDto> postPSList = recruitmentPostRepository.findByTitleOrContent(postRespDto);
+        return postPSList;
     }
 }

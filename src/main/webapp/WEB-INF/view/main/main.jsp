@@ -40,113 +40,105 @@
         </div>
 
         <%-- 박스부 --%>
-            <div class="container">
-                <div class="d-inline-flex justify-content-between float-left flex-wrap">
+            <div class="container-fluid" style="width: 65%">
+                <div class="d-inline-flex justify-content-between flex-wrap">
                     <div class="g-col-3 my-3" style="width: 18rem;">
-                        <a href="/recruitment/detail/${post.id}"
-                            style="color: inherit; text-decoration: none;">
-                        <div class="card jm_card">
-                            <img src="/images/main01.jpg" class="card-img-top jm_card_img_top">
-                        </div>
+                        <a href="/recruitment/detail/${post.id}" style="color: inherit; text-decoration: none;">
+                            <div class="card jm_card">
+                                <img src="/images/main01.jpg" class="card-img-top jm_card_img_top">
+                            </div>
                             <div class="jm_card_body"><br>
-                                <div class="jm_company_title"><h4>Java 개발자</h4></div>
-                                <div class="jm_company_name"><h5>쿠팡</h5></div>
-                                <div class="jm_company_name"><h6>서울, 부산</h6></div>
-                                <div class="jm_company_name"><h6>채용보상금 1,000,000원</h6></div>
+                                <div class="jm_company_title">
+                                    <h4>Java 개발자</h4>
+                                </div>
+                                <div class="jm_company_name">
+                                    <h5>쿠팡</h5>
+                                </div>
                             </div>
                         </a>
                     </div>
                     <div class="g-col-3 my-3" style="width: 18rem;">
-                        <a href="/recruitment/detail/${post.id}"
-                            style="color: inherit; text-decoration: none;">
-                        <div class="card jm_card">
-                            <img src="/images/main02.jpg" class="card-img-top jm_card_img_top">
-                        </div>
+                        <a href="/recruitment/detail/${post.id}" style="color: inherit; text-decoration: none;">
+                            <div class="card jm_card">
+                                <img src="/images/main02.jpg" class="card-img-top jm_card_img_top">
+                            </div>
                             <div class="jm_card_body"><br>
-                                <div class="jm_company_title"><h4>Search 개발자</h4></div>
-                                <div class="jm_company_name"><h5>Search</h5></div>
-                                <div class="jm_company_name"><h6>서울, 부산</h6></div>
-                                <div class="jm_company_name"><h6>채용보상금 1,000,000원</h6></div>
+                                <div class="jm_company_title">
+                                    <h4>Search 개발자</h4>
+                                </div>
+                                <div class="jm_company_name">
+                                    <h5>Search</h5>
+                                </div>
+                                <div class="jm_company_name">
+                                    <h6>서울, 부산</h6>
+                                </div>
+                                <div class="jm_company_name">
+                                    <h6>채용보상금 1,000,000원</h6>
+                                </div>
                             </div>
                         </a>
                     </div>
                     <div class="g-col-3 my-3" style="width: 18rem;">
-                        <a href="/recruitment/detail/${post.id}"
-                            style="color: inherit; text-decoration: none;">
-                        <div class="card jm_card">
-                            <img src="/images/resume_03.png" class="card-img-top jm_card_img_top">
-                        </div>
+                        <a href="/recruitment/detail/${post.id}" style="color: inherit; text-decoration: none;">
+                            <div class="card jm_card">
+                                <img src="/images/resume_03.png" class="card-img-top jm_card_img_top">
+                            </div>
                             <div class="jm_card_body"><br>
-                                <div class="jm_company_title"><h4>앱 개발자</h4></div>
-                                <div class="jm_company_name"><h5>원티두</h5></div>
-                                <div class="jm_company_name"><h6>서울, 부산</h6></div>
-                                <div class="jm_company_name"><h6>채용보상금 1,000,000원</h6></div>
+                                <div class="jm_company_title">
+                                    <h4>앱 개발자</h4>
+                                </div>
+                                <div class="jm_company_name">
+                                    <h5>원티두</h5>
+                                </div>
                             </div>
                         </a>
                     </div>
                     <div class="g-col-3 my-3" style="width: 18rem;">
-                        <a href="/recruitment/detail/${post.id}"
-                            style="color: inherit; text-decoration: none;">
-                        <div class="card jm_card">
-                            <img src="/images/resume_04.png" class="card-img-top jm_card_img_top">
-                        </div>
+                        <a href="/recruitment/detail/${post.id}" style="color: inherit; text-decoration: none;">
+                            <div class="card jm_card">
+                                <img src="/images/resume_04.png" class="card-img-top jm_card_img_top">
+                            </div>
                             <div class="jm_card_body"><br>
-                                <div class="jm_company_title"><h4>백엔드 개발자</h4></div>
-                                <div class="jm_company_name"><h5>완티드</h5></div>
-                                <div class="jm_company_name"><h6>서울, 부산</h6></div>
-                                <div class="jm_company_name"><h6>채용보상금 1,000,000원</h6></div>
+                                <div class="jm_company_title">
+                                    <h4>백엔드 개발자</h4>
+                                </div>
+                                <div class="jm_company_name">
+                                    <h5>완티드</h5>
+                                </div>
                             </div>
                         </a>
                     </div>
                     <div class="g-col-3 my-3" style="width: 18rem;">
-                        <a href="/recruitment/detail/${post.id}"
-                            style="color: inherit; text-decoration: none;">
-                        <div class="card jm_card">
-                            <img src="/images/coupang.png" class="card-img-top jm_card_img_top">
-                        </div>
+                        <a href="/recruitment/detail/${post.id}" style="color: inherit; text-decoration: none;">
+                            <div class="card jm_card">
+                                <img src="/images/coupang.png" class="card-img-top jm_card_img_top">
+                            </div>
                             <div class="jm_card_body">
-                                <div class="jm_company_title"><h4>Java 개발자</h4></div>
-                                <div class="jm_company_name"><h5>쿠팡</h5></div>
+                                <div class="jm_company_title">
+                                    <h4>Java 개발자</h4>
+                                </div>
+                                <div class="jm_company_name">
+                                    <h5>쿠팡</h5>
+                                </div>
                             </div>
                         </a>
                     </div>
                     <div class="g-col-3 my-3" style="width: 18rem;">
-                        <a href="/recruitment/detail/${post.id}"
-                            style="color: inherit; text-decoration: none;">
-                        <div class="card jm_card">
-                            <img src="/images/coupang.png" class="card-img-top jm_card_img_top">
-                        </div>
+                        <a href="/recruitment/detail/${post.id}" style="color: inherit; text-decoration: none;">
+                            <div class="card jm_card">
+                                <img src="/images/coupang.png" class="card-img-top jm_card_img_top">
+                            </div>
                             <div class="jm_card_body">
-                                <div class="jm_company_title"><h4>Java 개발자</h4></div>
-                                <div class="jm_company_name"><h5>쿠팡</h5></div>
+                                <div class="jm_company_title">
+                                    <h4>Java 개발자</h4>
+                                </div>
+                                <div class="jm_company_name">
+                                    <h5>쿠팡</h5>
+                                </div>
                             </div>
                         </a>
                     </div>
-                    <div class="g-col-3 my-3" style="width: 18rem;">
-                        <a href="/recruitment/detail/${post.id}"
-                            style="color: inherit; text-decoration: none;">
-                        <div class="card jm_card">
-                            <img src="/images/coupang.png" class="card-img-top jm_card_img_top">
-                        </div>
-                            <div class="jm_card_body">
-                                <div class="jm_company_title"><h4>Java 개발자</h4></div>
-                                <div class="jm_company_name"><h5>쿠팡</h5></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="g-col-3 my-3" style="width: 18rem;">
-                        <a href="/recruitment/detail/${post.id}"
-                            style="color: inherit; text-decoration: none;">
-                        <div class="card jm_card">
-                            <img src="/images/coupang.png" class="card-img-top jm_card_img_top">
-                        </div>
-                            <div class="jm_card_body">
-                                <div class="jm_company_title"><h4>Java 개발자</h4></div>
-                                <div class="jm_company_name"><h5>쿠팡</h5></div>
-                            </div>
-                        </a>
-                    </div>
-                    
-                </div>    
+                </div>
+            </div>
             </div>
             <%@ include file="../layout/footer.jsp" %>
