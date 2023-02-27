@@ -43,23 +43,23 @@
                                     </div>
                                 </div>
                                 <div class="card-footer d-flex justify-content-between">
-                                    <c:if test="${resume.finish == true}">
-                                        <small class="text-muted">작업 완료</small>
-                                    </c:if>
-                                    <c:if test="${resume.finish == false}">
-                                        <small class="text-muted">작업 중</small>
-                                    </c:if>
                                     <div class="btn-group" role="group">
-                                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle"
+                                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" style="background-color: #fff; border-color: #fff; color: black;"
                                             data-bs-toggle="dropdown" aria-expanded="false">
                                         </button>
-                                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1" >
                                             <li><a class="dropdown-item" data-bs-toggle="modal" 
                                             data-bs-target="#staticBackdrop${resume.id}">이력서 수정</a></li>
                                             <li><a class="dropdown-item" href="#"
                                                     onclick="confirmDelete(${resume.id})">이력서 삭제</a></li>
                                         </ul>
                                     </div>
+                                    <c:if test="${resume.finish == true}">
+                                        <small class="text-muted my-3 me-2">작업 완료</small>
+                                    </c:if>
+                                    <c:if test="${resume.finish == false}">
+                                        <small class="text-muted my-3 me-2">작업 중</small>
+                                    </c:if>
                                 </div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-custom" data-bs-toggle="modal"

@@ -205,3 +205,6 @@ a {
 
       border-radius: 10px
   }
+  :root {
+    accent-color: #ff7f00;
+  }

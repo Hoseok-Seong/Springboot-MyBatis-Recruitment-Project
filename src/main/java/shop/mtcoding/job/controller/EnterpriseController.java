@@ -70,7 +70,7 @@ public class EnterpriseController {
 
         enterpriseService.기업가입하기(joinEnterpriseReqDto);
 
-        return "redirect:/loginForm";
+        return "redirect:/";
     }
 
 }
