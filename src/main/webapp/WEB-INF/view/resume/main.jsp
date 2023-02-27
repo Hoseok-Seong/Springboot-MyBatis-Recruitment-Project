@@ -9,7 +9,7 @@
                     <span><h2><h2></span> 
                     <div class="d-flex justify-content-center text-center m-4">
                         <span><b><a class="btn hh-btn-custom btn-lg m-3" href="/resumeList" role="button">이력서 관리</a></span>
-                        <span><b><a class="btn hh-btn-custom btn-lg m-3" href="/resumeForm" role="button">새 이력서 작성</a></span>
+                        <span><b><a class="btn hh-btn-custom btn-lg m-3" href="/resumeForm" role="button">이력서 작성</a></span>
                     </div>
                   </div>
                 </div>
