@@ -6,38 +6,34 @@
             <!-- 게시판 부분 -->
 
             <main class="pt-3">
-                <div class="container-fluid px-4">
+                <div class="container">
                     <div class="d-flex justify-content-between align-items-center">
                         <h1 class="mt-4">채용정보</h1>
                         <div class="input-group" style="width: 50%;">
                             <input type="text" class="form-control" id="search" placeholder="검색어를 입력하세요">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button" id="searchButton">검색</button>
+                                <button type="button" id="searchButton">검색</button>
                             </div>
                         </div>
                     </div>
                     <div class="container jm_container mt-5">
                         <div class="mb-2 d-flex flex-row-reverse">
-                            <button class="btn btn-primary" type="button" id="saveForm"
+                            <button type="button" id="saveForm"
                                 onclick="location.href = '/recruitment/saveForm'">채용공고쓰기</button>
                         </div>
                         <div class="row">
                             <c:forEach items="${Posts}" var="post">
                                 <div class="col-sm-3 mb-3">
-                                    <a href="/recruitment/detail/${post.id}"
-                                        style="color: inherit; text-decoration: none;">
-                                        <div class="card jm_card h-100">
-                                            <img src="${post.enterpriseLogo}" class="card-img-top jm_card_img_top">
-                                            <div class="card-body jm_card_body">
-                                                <div class="jm_company_name">${post.title}</div>
-                                                <div class="jm_company_title">${post.enterpriseName}</div>
-                                                <button type="button" class="btn btn-warning btn-sm">
-                                                    <a
-                                                        href="${request.contextPath}/recruitment/detail/${post.id}">상세보기</a>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </a>
+                                    <a href="/recruitment/detail/${post.id}" style="color: inherit; text-decoration: none;">
+                                    <div class="card jm_card">
+                                        <img src="${post.enterpriseLogo}" class="card-img-top jm_card_img_top"></a>
+                                    </div>
+                                    <div class="card-body jm_card_body"><br>
+                                        <div class="jm_company_name">${post.title}</div>
+                                        <div class="jm_company_title">${post.enterpriseName}</div>
+                                        <div class="jm_company_title"><h6>서울, 부산</h6></div>
+                                        <div class="jm_company_title"><h6>채용보상금 1,000,000원</h6></div>
+                                    </div>
                                 </div>
                             </c:forEach>
                         </div>
