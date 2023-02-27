@@ -37,6 +37,11 @@ button {
     cursor: pointer; /* 커서 모양 */
 }
 
+.my-text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .my_main_banner {
     height: 400px;

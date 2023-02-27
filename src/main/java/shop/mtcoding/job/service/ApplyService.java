@@ -30,4 +30,24 @@ public class ApplyService {
             throw new CustomApiException("이력서 제출 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @Transactional
+    public void 이력서제출취소(int RecruitmentPostId, int userId) {
+        Apply applyPS = applyRepository.findByUserIdWithRecruitmentPostId(userId,
+                RecruitmentPostId);
+        if (applyPS == null) {
+            throw new CustomApiException("존재하지 않는 이력서입니다");
+        }
+        if (applyPS.getUserId() != userId) {
+            throw new CustomApiException("해당 이력서를 삭제할 권한이 없습니다", HttpStatus.FORBIDDEN);
+        }
+
+        // 제어권이 없으므로 try, catch
+        try {
+            applyRepository.deleteByUserIdWithRecruitmentPostId(userId, RecruitmentPostId);
+        } catch (Exception e) {
+            throw new CustomApiException("서버에 일시적인 문제가 발생했습니다", HttpStatus.INTERNAL_SERVER_ERROR);
+            // 로그를 남겨야 함 (DB or File)
+        }
+    }
 }
