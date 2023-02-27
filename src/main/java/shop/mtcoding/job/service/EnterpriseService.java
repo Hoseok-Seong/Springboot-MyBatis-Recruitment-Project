@@ -1,7 +1,6 @@
 package shop.mtcoding.job.service;
 
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,11 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.JoinEnterpriseReqDto;
 import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.LoginEnterpriseReqDto;
-import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.PostRespDto;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.enterprise.EnterpriseRepository;
-import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
 import shop.mtcoding.job.util.saltEncoder;
 import shop.mtcoding.job.util.sha256Encoder;
 
@@ -22,9 +19,6 @@ public class EnterpriseService {
 
     @Autowired
     private EnterpriseRepository enterpriseRepository;
-
-    @Autowired
-    private RecruitmentPostRepository recruitmentPostRepository;
 
     @Transactional(readOnly = true)
     public Enterprise 기업로그인하기(LoginEnterpriseReqDto loginEnterpriseReqDto) {
@@ -71,5 +65,4 @@ public class EnterpriseService {
         }
     }
 
-    
 }

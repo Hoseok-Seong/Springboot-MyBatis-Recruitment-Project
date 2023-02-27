@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
-        <div class="container-fluid my-5">
+        <div class="container-fluid my-3">
             <div class="row justify-content-center">
                 <!-- col-md => col-lg 변환 : div width 증가 -->
-                <div class="col-lg-8 col-lg-6">
-                    <div class="card shadow-sm">
-                        <div class="card-body inline-flex">
-                            <img class="card-title card-img-top my-text-ellipsis" style="height: 250px;"
-                                src="/images/temp_banner4.png" alt="Card image">
-                            <a href="#" class="btn btn-primary">채용페이지</a>
-                        </div>
+                <div class="" style="width: 58%;">
+                <div class="hh-background-wrap">
+                  <div class="hh-content">
+                    <span><h1>합격을 부르는 이력서</h1></span>
+                    <div class="d-flex justify-content-center text-center m-4">
+                        <span><b><a class="btn hh-btn-custom btn-lg m-3" href="/resumeList" role="button">채용페이지</a></span>
                     </div>
+                  </div>
+                </div>
+                
+                    
                     <br>
                     <div class="d-flex justify-content-between mt-3">
                         <H4>최근문서</H4>
@@ -40,23 +43,23 @@
                                     </div>
                                 </div>
                                 <div class="card-footer d-flex justify-content-between">
-                                    <c:if test="${resume.finish == true}">
-                                        <small class="text-muted">작업 완료</small>
-                                    </c:if>
-                                    <c:if test="${resume.finish == false}">
-                                        <small class="text-muted">작업 중</small>
-                                    </c:if>
                                     <div class="btn-group" role="group">
-                                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle"
+                                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" style="background-color: #fff; border-color: #fff; color: black;"
                                             data-bs-toggle="dropdown" aria-expanded="false">
                                         </button>
-                                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1" >
                                             <li><a class="dropdown-item" data-bs-toggle="modal" 
                                             data-bs-target="#staticBackdrop${resume.id}">이력서 수정</a></li>
                                             <li><a class="dropdown-item" href="#"
                                                     onclick="confirmDelete(${resume.id})">이력서 삭제</a></li>
                                         </ul>
                                     </div>
+                                    <c:if test="${resume.finish == true}">
+                                        <small class="text-muted my-3 me-2">작업 완료</small>
+                                    </c:if>
+                                    <c:if test="${resume.finish == false}">
+                                        <small class="text-muted my-3 me-2">작업 중</small>
+                                    </c:if>
                                 </div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-custom" data-bs-toggle="modal"

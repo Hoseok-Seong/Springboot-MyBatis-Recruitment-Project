@@ -21,6 +21,7 @@ import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.resume.ResumeReqDto.ResumeUpdateReqDto;
 import shop.mtcoding.job.dto.resume.ResumeReqDto.SaveResumeReqDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
+import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.resume.Resume;
 import shop.mtcoding.job.model.resume.ResumeRepository;
 import shop.mtcoding.job.model.user.User;
@@ -39,13 +40,21 @@ public class ResumeController {
 
     @GetMapping("/resumeList")
     public String resumeList(Model model) {
-        List<Resume> resumeList = resumeRepository.findAll();
+        User principal = (User) session.getAttribute("principal");
+        if (principal == null) {
+            throw new CustomException("인증이 되지 않았습니다. 로그인을 해주세요.", HttpStatus.UNAUTHORIZED);
+        }
+        List<Resume> resumeList = resumeRepository.findByUserId(principal.getId());
         model.addAttribute("resumeList", resumeList);
         return "resume/resumeList";
     }
 
     @GetMapping("/resumeForm")
     public String resumeForm() {
+        User principal = (User) session.getAttribute("principal");
+        if (principal == null) {
+            throw new CustomException("인증이 되지 않았습니다. 로그인을 해주세요.", HttpStatus.UNAUTHORIZED);
+        }
         return "resume/resumeForm";
     }
 

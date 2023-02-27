@@ -86,7 +86,7 @@ public class UserController {
 
         userService.유저가입하기(joinUserReqDto);
 
-        return "redirect:/loginForm";
+        return "redirect:/";
     }
 
     @GetMapping("/user/usernameSameCheck")
