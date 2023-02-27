@@ -12,15 +12,15 @@
                             <ul class="nav my-nav-tabs nav-fill mb-4">
                                 <li class="nav-item">
                                     <a class="my-nav-link list-group-item list-group-item-action active"
-                                        data-toggle="tab" href="#loginUser">개인회원</a>
+                                        data-toggle="tab" href="#joinUser">개인회원</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="my-nav-link list-group-item list-group-item-action" data-toggle="tab"
-                                        href="#loginEnterprise">기업회원</a>
+                                    <a class="my-nav-link list-group-item list-group-item-action" 
+                                        data-toggle="tab" href="#joinEnterprise">기업회원</a>
                                 </li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane fade show active" id="loginUser">
+                                <div class="tab-pane fade show active" id="joinUser">
                                     <form action="user/join" method="post" onsubmit="return valid()">
                                         <table class="table table-borderless">
                                             <div class="text-center border d-flex justify-content-end"> 
@@ -58,39 +58,38 @@
                                         <button class="btn btn-custom btn-sm m-1" style="float:right;">회원가입</button>
                                     </form> 
                                 </div>
-                            <div class="tab-pane fade" id="loginEnterprise">
-                                <form action="enterprise/join" method="post" onsubmit="return valid()">
-                                    <table class="table table-borderless">
-
-                                        <div class="text-center border d-flex justify-content-end"> 
-                                            <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
-                                            <td><input type="text" class="form-control-lg w-75" name="enterpriseName" placeholder="enterprise name">
-                                                <button class="btn btn-custom btn-sm" onclick="sameCheck()" style="float:right;">중복확인</button>
-                                            </td>
-                                        </div>
-                                        <tr class="text-center">
-                                            <td><input type="password" class="form-control-lg w-100" name="password" placeholder="password"></td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td><input type="password" class="form-control-lg w-100" name="passwordCheck" placeholder="passwordcheck">
-                                            </td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td><input type="text" class="form-control-lg w-100" name="address" placeholder="address"></td>
-                                        </tr>
-                                        <div class="text-center">
-                                            <td><input type="text" class="form-control-lg w-75" name="contact" placeholder="contact">
-                                                <button class="btn btn-custom btn-sm" style="float:right;">인증번호</button></td>
-                                        </div>
-                                        <tr class="text-center">
-                                            <td><input type="text" class="form-control-lg w-100" name="image" placeholder="image"></td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td><input type="text" class="form-control-lg w-100" name="email" placeholder="email"></td>
-                                        </tr>
-                                    </table>
-                                    <div class="form-control-sm">
-                                     &nbsp;회사분류
+                                <div class="tab-pane fade" id="joinEnterprise">
+                                    <form action="enterprise/join" method="post" onsubmit="return valid()">
+                                        <table class="table table-borderless">
+                                            <div class="text-center border d-flex justify-content-end"> 
+                                                <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
+                                                <td><input type="text" class="form-control-lg w-75" name="enterpriseName" placeholder="enterprise name">
+                                                    <button class="btn btn-custom btn-sm" onclick="sameCheck()" style="float:right;">중복확인</button>
+                                                </td>
+                                            </div>
+                                            <tr class="text-center">
+                                                <td><input type="password" class="form-control-lg w-100" name="password" placeholder="password"></td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td><input type="password" class="form-control-lg w-100" name="passwordCheck" placeholder="passwordcheck">
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td><input type="text" class="form-control-lg w-100" name="address" placeholder="address"></td>
+                                            </tr>
+                                            <div class="text-center">
+                                                <td><input type="text" class="form-control-lg w-75" name="contact" placeholder="contact">
+                                                    <button class="btn btn-custom btn-sm" style="float:right;">인증번호</button></td>
+                                            </div>
+                                            <tr class="text-center">
+                                                <td><input type="text" class="form-control-lg w-100" name="image" placeholder="image"></td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td><input type="text" class="form-control-lg w-100" name="email" placeholder="email"></td>
+                                            </tr>
+                                        </table>
+                                        <div class="form-control-sm">
+                                            &nbsp;회사분류
                                             <label for="exampleFormControlSelect1"></label>
                                             <select class="form-control" id="exampleFormControlSelect1" name="sector">
                                                 <option value="SI">SI</option>
@@ -103,7 +102,7 @@
                                                 <option value="IT 컨설팅 회사">IT 컨설팅 회사</option>
                                             </select>
                                         </div><br>
-                                      
+                                            
                                         <div class="form-control-sm">
                                             &nbsp;기업형태
                                             <label for="exampleFormControlSelect1"></label>
@@ -114,21 +113,21 @@
                                                 <option value="대기업">대기업</option>
                                             </select>
                                         </div><br>
-                                    <div class="text-center">
-                                        <tr>
-                                            &nbsp;<input type="checkbox" aria-label="Checkbox for following text input"> 필수 동의 항목 및 개인정보 수집 및 이용 동의, 광고성 정보
-                                            수신에 동의합니다.
-                                        </tr>
-                                    </div>
-                                    <br>
-                                    <button class="btn btn-custom btn-sm m-1" style="float:right;">회원가입</button>
-                                </form>
+                                        <div class="text-center">
+                                            <tr>
+                                                &nbsp;<input type="checkbox" aria-label="Checkbox for following text input"> 필수 동의 항목 및 개인정보 수집 및 이용 동의, 광고성 정보
+                                                수신에 동의합니다.
+                                            </tr>
+                                        </div>
+                                        <br>
+                                        <button class="btn btn-custom btn-sm m-1" style="float:right;">회원가입</button>
+                                    </form>
+                                </div>    
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <script>
                 let submitCheck = false;

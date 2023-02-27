@@ -97,7 +97,7 @@ a {
 
 .card-img-top {
     width: 100%;
-    height: 100px;
+    height: 250px;
 }
 .my-container {
     max-width: 650px;
@@ -140,7 +140,7 @@ a {
 .my-nav-tabs .my-nav-link.active {
     background-color: transparent;
     border-color: transparent;
-    color: #f56a79;
+    color: #ff7f00;
     font-weight: bold;
 }
 
@@ -170,4 +170,38 @@ a {
   
   .hh-content span:nth-child(2) {
     font-size: 20px;
+  }
+  .btn-custom {
+      /* 버튼 텍스트 색상 */
+      background-color: #ff7f00;
+      border-color: #fff;
+      color: #fff;
+      /* 버튼 텍스트 사이즈 */
+      font-size: 14px;
+      padding: 0.25rem 0.5rem;
+
+      border-radius: 10px
+  }
+  .hh-btn-custom {
+      /* 버튼 텍스트 색상 */
+      background-color: #ff7f00;
+      border-color: #fff;
+      color: #fff;
+      /* 버튼 텍스트 사이즈 */
+      font-size: 20px;
+      padding: 0.25rem 0.5rem;
+
+      border-radius: 10px
+  }
+
+  .login-btn-custom {
+      /* 버튼 텍스트 색상 */
+      background-color: #ff7f00;
+      border-color: #fff;
+      color: #fff;
+      /* 버튼 텍스트 사이즈 */
+      font-size: 20px;
+      padding: 0.25rem 0.5rem;
+
+      border-radius: 10px
   }
