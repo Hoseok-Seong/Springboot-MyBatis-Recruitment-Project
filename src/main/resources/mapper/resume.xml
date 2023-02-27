@@ -8,8 +8,8 @@
    </insert>
     
    <update id="updateById">
-      update resume_tb set user_id = #{userId}, title = #{title}, profile=#{profile}, 
-      age = #{age}, address = #{address}, career = #{career}, education = #{education}, position = #{position}, field = #{field} where id = #{id}
+      update resume_tb set title=#{title}, content=#{content}, career=#{career}, skill=#{skill}, award = #{award}, address = #{address}, 
+      birthdate = #{birthdate}, link = #{link}, education = #{education}, file = #{file}, language = #{language} where id = #{id}
    </update>
 
    <select id="findAll" resultType="shop.mtcoding.job.model.resume.Resume">

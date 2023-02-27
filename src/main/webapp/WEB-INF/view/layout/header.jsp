@@ -24,15 +24,15 @@
 
         <body>
             <header>
-                <div class="container-fluid">
+                <div class="container-fluid" style="width: 65%">
                     <div style="height: 50px">
-                        <nav class="navbar navbar-expand-sm">
+                        <nav class="navbar navbar-expand-sm justify-content-between">
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarSupportedContent">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav m-auto">
+                                <ul class="navbar-nav col-7">
                                     <a class="nav-link" href="#"><i class="bi bi-list"></i></a>
                                     <li class="nav-item">
                                         <a class="nav-link text-dark pt-1" href="/main"><img
@@ -49,7 +49,7 @@
                                         <a class="nav-link text-dark" href="/community">커뮤니티</a>
                                     </li>
                                 </ul>
-                                <ul class="navbar-nav m-auto">
+                                <ul class="navbar-nav col-5 justify-content-end">
                                     <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
                                     <c:choose>
                                         <c:when test="${not empty principal or not empty principalEnt}">

@@ -21,7 +21,7 @@
                     <div class="grid text-center d-inline-flex justify-content-between float-left flex-wrap ">
                         <div class="card g-col-3 my-3" style="width: 18rem;">
 
-                            <a href="#">이력서 등록</a>
+                            <a href="/resumeForm">이력서 등록</a>
 
                         </div>
                         <div class="card g-col-3 my-3" style="width: 18rem;">
@@ -34,8 +34,8 @@
                             <div class="card g-col-3 my-3" style="width: 18rem;">
                                 <div>
                                     <div class="card-body">
-                                        <h5 class="card-title">${resume.title}</h5><br>
-                                        <p class="card-text">${resume.content}</small></p>
+                                        <h5 class="card-title my-text-ellipsis">${resume.title}</h5><br>
+                                        <p class="card-text my-text-ellipsis">${resume.content}</small></p>
                                         <p class="card-text"><small class="text-muted">${resume.birthdate}</small></p>
                                     </div>
                                 </div>
@@ -51,14 +51,15 @@
                                             data-bs-toggle="dropdown" aria-expanded="false">
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                            <li><a class="dropdown-item" href="#" onclick="">이력서 수정</a></li>
+                                            <li><a class="dropdown-item" data-bs-toggle="modal" 
+                                            data-bs-target="#staticBackdrop${resume.id}">이력서 수정</a></li>
                                             <li><a class="dropdown-item" href="#"
                                                     onclick="confirmDelete(${resume.id})">이력서 삭제</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-custom" data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop${resume.id}">
                                     상세보기
                                 </button>
@@ -78,7 +79,7 @@
                                             <div class="modal-body justify-content-start">
                                                 <div class="container-fluid">
                                                     <div class="container-fluid pt-4 ps-0" style="height: 600px;">
-                                                        <h1>${resume.title}</h1>
+                                                        <h1><input type="text" name="title" id="title" style="border: none;" value="${resume.title}" placeholder="제목"></h1>
                                                         <br>
                                                         <br>
                                                         <h2>username</h2>
@@ -88,7 +89,7 @@
                                                         <div>생년월일</div>
                                                         <hr class="md-0">
                                                         <div class="form-floating mb-3">
-                                                            ${resume.birthdate}
+                                                           <input type="date" name="birthdate" id="birthdate" value="${resume.birthdate}" min="1900-01-01" required />
                                                         </div>
                                                         <br>
                                                         <br>
@@ -168,6 +169,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-primary"
                                                     data-bs-dismiss="modal">나가기</button>
+                                                <button onclick="updateByResume(${resume.id})" type="button" class="btn btn-primary">글수정완료</button>
                                             </div>
                                         </div>
                                     </div>
@@ -198,4 +200,33 @@
                 });
             }
         </script>
+<script>
+function updateByResume(id) {
+    let data = {
+        title: $("#title").val(),
+        content: $("#content").val(),
+        career: $("#career").val(),
+        education: $("#education").val(),
+        skill: $("#skill").val(),
+        award: $("#award").val(),
+        language: $("#language").val(),
+        link: $("#link").val(),
+        file: $("#file").val(),
+        birthdate: $("#birthdate").val(),
+        address: $("#address").val()
+        };
+        $.ajax({
+            type: "put",
+            url: "resume/" + id ,
+            data: JSON.stringify(data),
+            contentType: 'application/json;charset=UTF-8',
+            dataType: "json"  // default : 응답의 mime 타입으로 유추함
+        }).done((res) => {    // 20x 일때
+            alert(res.msg);
+            location.href = "/resumeList";
+        }).fail((err) => {    // 40x , 50x 일때
+            alert(err.responseJSON.msg);
+        });
+}
+</script>
         <%@ include file="../layout/footer.jsp" %>

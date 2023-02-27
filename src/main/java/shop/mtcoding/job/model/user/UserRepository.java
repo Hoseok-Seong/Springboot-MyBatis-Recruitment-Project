@@ -27,4 +27,6 @@ public interface UserRepository {
 
         public User findByName(String username);
 
+        public User findByUsername(String username);
+
 }

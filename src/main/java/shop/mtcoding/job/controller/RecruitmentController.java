@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,6 +45,18 @@ public class RecruitmentController {
 
     @Autowired
     private ResumeRepository resumeRepository;
+
+    @DeleteMapping("/recruitment/{id}")
+    public @ResponseBody ResponseEntity<?> delete(@PathVariable int id) {
+        Enterprise principalEnt = (Enterprise) session.getAttribute("principalEnt");
+        if (principalEnt == null) {
+            throw new CustomApiException("인증이 실패했습니다", HttpStatus.UNAUTHORIZED);
+        }
+
+        recruitmentService.채용공고삭제(id, principalEnt.getId());
+        return new ResponseEntity<>(new ResponseDto<>(1, "채용공고삭제 성공", null), HttpStatus.OK);
+
+    }
 
     @PutMapping("/recruitment/{id}")
     public @ResponseBody ResponseEntity<?> saveRecruitmentPost(@PathVariable int id,
@@ -100,7 +113,7 @@ public class RecruitmentController {
 
         recruitmentService.채용공고수정(id, updateRecruitmentPostReqDto, principalEnt.getId());
 
-        return new ResponseEntity<>(new ResponseDto<>(1, "글쓰기성공", null), HttpStatus.CREATED);
+        return new ResponseEntity<>(new ResponseDto<>(1, "채용공고수정 성공", null), HttpStatus.CREATED);
     }
 
     @PostMapping("/recruitment")
@@ -158,7 +171,7 @@ public class RecruitmentController {
 
         recruitmentService.채용공고쓰기(saveRecruitmentPostReqDto, principalEnt.getId());
 
-        return new ResponseEntity<>(new ResponseDto<>(1, "글쓰기성공", null), HttpStatus.CREATED);
+        return new ResponseEntity<>(new ResponseDto<>(1, "채용공고쓰기 성공", null), HttpStatus.CREATED);
     }
 
     @GetMapping("recruitment/saveForm")
@@ -178,10 +191,10 @@ public class RecruitmentController {
         }
         RecruitmentPost recruitmentPS = recruitmentPostRepository.findById(id);
         if (recruitmentPS == null) {
-            throw new CustomException("없는 게시글을 수정할 수 없습니다");
+            throw new CustomException("없는 채용공고를 수정할 수 없습니다");
         }
         if (recruitmentPS.getEnterpriseId() != principalEnt.getId()) {
-            throw new CustomException("게시글을 수정할 권한이 없습니다", HttpStatus.FORBIDDEN);
+            throw new CustomException("채용공고를 수정할 권한이 없습니다", HttpStatus.FORBIDDEN);
         }
 
         model.addAttribute("recruitment", recruitmentPS);
@@ -195,7 +208,7 @@ public class RecruitmentController {
 
         User principal = (User) session.getAttribute("principal");
         if (principal != null) {
-            model.addAttribute("resume", resumeRepository.findByUserId(principal.getId()));
+            model.addAttribute("resumes", resumeRepository.findByUserId(principal.getId()));
         }
 
         return "recruitment/detail";

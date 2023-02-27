@@ -134,7 +134,7 @@
               dataType: "json" // default : 응답의 MIMETYPE으로 유추함.
             }).done((res) => { //20x일 때
               alert(res.msg);
-              location.href = "/";
+              location.href = "/resumeList";
             }).fail((err) => { // 40x, 50x 일 때
               alert(err.responseJSON.msg);
             });
