@@ -2,8 +2,6 @@ package shop.mtcoding.job;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.sql.Timestamp;
@@ -18,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
@@ -26,7 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import shop.mtcoding.job.dto.resume.ResumeReqDto.ResumeUpdateReqDto;
+import shop.mtcoding.job.dto.resume.ResumeReqDto.UpdateResumeReqDto;
 import shop.mtcoding.job.model.resume.Resume;
 import shop.mtcoding.job.model.user.User;
 
@@ -79,7 +76,7 @@ public class ResumeControllerTest {
     @Test
     public void update_test() throws Exception {
         // given
-        ResumeUpdateReqDto resumeUpdateReqDto = new ResumeUpdateReqDto();
+        UpdateResumeReqDto resumeUpdateReqDto = new UpdateResumeReqDto();
         resumeUpdateReqDto.setContent("내용1-수정");
         resumeUpdateReqDto.setCareer("경력1-수정");
         resumeUpdateReqDto.setSkill("기술1-수정");

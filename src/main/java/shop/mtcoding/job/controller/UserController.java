@@ -1,11 +1,14 @@
 package shop.mtcoding.job.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.job.dto.ResponseDto;
@@ -66,7 +69,7 @@ public class UserController {
     }
 
     @PostMapping("/user/join")
-    public String userJoin(JoinUserReqDto joinUserReqDto) {
+    public String userJoin(JoinUserReqDto joinUserReqDto, @RequestParam List<String> skill) {
         if (joinUserReqDto.getUsername() == null || joinUserReqDto.getUsername().isEmpty()) {
             throw new CustomException("아이디를 작성해주세요");
         }
@@ -83,7 +86,7 @@ public class UserController {
             throw new CustomException("전화번호를 입력해주세요");
         }
 
-        userService.유저가입하기(joinUserReqDto);
+        userService.유저가입하기(joinUserReqDto,skill);
 
         return "redirect:/";
     }
