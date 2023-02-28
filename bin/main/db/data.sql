@@ -12,6 +12,16 @@ insert into enterprise_tb(enterprise_name, password, salt, address, contact, ema
 insert into enterprise_tb(enterprise_name, password, salt, address, contact, email, sector, size, created_at) values('노티플러스', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b_{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2', '{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2', '영식', '1', '1', '1', '1', now());
 insert into enterprise_tb(enterprise_name, password, salt, address, contact, email, sector, size, created_at) values('라인플러스', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b_{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2', '{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2', '영식', '1', '1', '1', '1', now());
 
+insert into user_skill_tb(user_id, skill) values(1, 1);
+insert into user_skill_tb(user_id, skill) values(1, 2);
+insert into user_skill_tb(user_id, skill) values(2, 3);
+insert into user_skill_tb(user_id, skill) values(1, 4);
+insert into user_skill_tb(user_id, skill) values(2, 5);
+insert into user_skill_tb(user_id, skill) values(1, 6);
+insert into user_skill_tb(user_id, skill) values(1, 7);
+insert into user_skill_tb(user_id, skill) values(1, 8);
+insert into user_skill_tb(user_id, skill) values(2, 8);
+
 insert into resume_tb(user_id, title, content, career, education, skill, award, language, link, file, birthdate, address, finish, created_at)  
 values('1', 
 '개발 친화적 커뮤니케이션으로 주간 개발 목표 달성률 50%P 향상', 
