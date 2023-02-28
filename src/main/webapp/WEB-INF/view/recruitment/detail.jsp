@@ -85,7 +85,8 @@
                 <div class="col-4">
                     <div class="d-flex justify-content-center py-3">
                         <c:choose>
-                            <c:when test="${principalEnt == null}">
+                            <%-- 개인회원 인증 됐을 시 --%>
+                            <c:when test="${principal != null}">
                                 <div class="card" style="width: 22rem;">
                                     <div class="card-body">
                                         <br>
@@ -100,6 +101,7 @@
                                         <div class="collapse" id="collapseExample">
                                             <div class="card card-body">
                                                 <c:choose>
+                                                    <%-- 유저 인증 안 됐을 시 --%>
                                                     <c:when test="${principal == null}">
                                                         로그인이 필요합니다
                                                     </c:when>
@@ -118,7 +120,7 @@
                                                                         <div class="col-3">
                                                                             <input class="form-check-input" type="radio"
                                                                                 name="chooseResume" id="chooseResume"
-                                                                                value=" ${resume.id}">
+                                                                                value="${resume.id}">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -134,9 +136,39 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </c:when>
+
+                            <%-- 기업회원 인증됐을 시 --%>
                             <c:when test="${principalEnt != null}">
+                            <div class="col">
+                                <div class="card" style="width: 22rem;">
+                                    <div class="card-body">
+                                        <br>
+                                        <h5 class="card-title">매칭 서비스</h5>
+                                        <br>
+                                        <p class="card-text">회사가 찾는 인재를 매칭해드려요</p>
+                                        <button style="background-color: #36f;" type="button">
+                                        매칭 서비스 사용하기
+                                        </button>
+                                    </div>
+                                </div>
+                                <c:choose>
+                                        <%-- 자신이 쓴 공고일 경우 --%>
+                                        <c:when test="${principalEnt.id == recruitmentPostDtos.enterpriseId}">
+                                        <div class="card mt-5" style="width: 22rem;">
+                                            <div class="card card-body">
+                                            <button class="my_blue_button" href="/recruitment/${recruitmentPostDtos.id}/updateForm">수정</button>
+                                            <button class="my_gray_button" href="/recruitment/${recruitmentPostDtos.id}/updateForm">삭제</button>
+                                            </div>
+                                        </div>    
+                                        </c:when>
+                                        </c:choose>
+                                </div>            
+                            </c:when>
+
+                            <%-- 아무 인증이 안됐을 경우--%>
+                            <c:when test="${principal == null && principalEnt == null}">
+                            <div class="col">
                                 <div class="card" style="width: 22rem;">
                                     <div class="card-body">
                                         <br>
@@ -150,32 +182,28 @@
                                         </button>
                                         <div class="collapse" id="collapseExample">
                                             <div class="card card-body">
-
+                                                <c:choose>
+                                                    <%-- 유저 인증 안 됐을 시 --%>
+                                                    <c:when test="${principal == null}">
+                                                        로그인이 필요합니다
+                                                    </c:when>
+                                                </c:choose>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <c:when test="${principalEnt.id == recruitmentPostDtos.enterpriseId}">
-                                    <div class="card" style="width: 22rem;">
-                                        <div class="card-body">
-                                            <br>
-                                            <h5 class="card-title">지원하기</h5>
-                                            <br>
-                                            <p class="card-text">지금 지원해보세요</p>
-                                            <a href="/recruitment/${recruitmentPostDtos.id}/updateForm">수정</a>
-                                            <button type="button">삭제</button>
-                                            <div class="collapse" id="collapseExample">
-                                                <div class="card card-body">
-
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="card mt-5" style="width: 22rem;">
+                                    <div class="card-body">
+                                        <br>
+                                        <h5 class="card-title">매칭 서비스</h5>
+                                        <br>
+                                        <p class="card-text">회사가 찾는 인재를 매칭해드려요</p>
+                                        <button style="background-color: #36f;" type="button">
+                                        매칭 서비스 사용하기
+                                        </button>
                                     </div>
-                                    <div>
-                                        <a href="/recruitment/${recruitmentPostDtos.id}/updateForm">수정</a>
-                                        <button type="button">삭제</button>
-                                    </div>
-                                </c:when>
+                                </div>
+                            </div>
                             </c:when>
                         </c:choose>
                     </div>
