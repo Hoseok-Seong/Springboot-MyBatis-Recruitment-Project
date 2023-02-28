@@ -36,10 +36,10 @@ public class ApplyService {
         Apply applyPS = applyRepository.findByUserIdWithRecruitmentPostId(userId,
                 RecruitmentPostId);
         if (applyPS == null) {
-            throw new CustomApiException("존재하지 않는 이력서입니다");
+            throw new CustomApiException("존재하지 않는 지원서입니다");
         }
         if (applyPS.getUserId() != userId) {
-            throw new CustomApiException("해당 이력서를 삭제할 권한이 없습니다", HttpStatus.FORBIDDEN);
+            throw new CustomApiException("해당 지원서를 삭제할 권한이 없습니다", HttpStatus.FORBIDDEN);
         }
 
         // 제어권이 없으므로 try, catch

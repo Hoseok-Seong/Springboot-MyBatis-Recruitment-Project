@@ -56,7 +56,7 @@ public class ApplyController {
         }
 
         applyService.이력서제출취소(id, principal.getId());
-        return new ResponseEntity<>(new ResponseDto<>(1, "이력서 제출 취소 성공", null), HttpStatus.OK);
+        return new ResponseEntity<>(new ResponseDto<>(1, "지원서 삭제 성공", null), HttpStatus.OK);
 
     }
 
