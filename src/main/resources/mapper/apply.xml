@@ -29,4 +29,18 @@
       delete from apply_tb where user_id = #{userId} and recruitment_post_id = #{recruitmentPostId}  
    </delete>
 
+   <select id="findByUserId" resultType="shop.mtcoding.job.dto.apply.ApplyRespDto$ApplyListForUserRespDto">
+      SELECT a.recruitment_post_id, e.enterprise_name, r.title, a.sector, a.resume_id, a.created_at
+      FROM apply_tb a
+      JOIN recruitment_post_tb r
+      ON a.id = r.enterprise_id
+      LEFT OUTER JOIN enterprise_tb e
+      ON a.enterprise_id = e.id
+      WHERE user_id = #{userId}
+   </select>
+
+   <select id="findByEnterpriseId" resultType="shop.mtcoding.job.model.apply.Apply">
+      select * from apply_tb where enterprise_id = #{enterprise_id} 
+   </select>
+
 </mapper>

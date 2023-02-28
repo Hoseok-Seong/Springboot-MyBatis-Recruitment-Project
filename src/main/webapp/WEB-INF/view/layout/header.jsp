@@ -43,6 +43,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" href="/resumeMain">이력서</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="/applyList">지원현황</a>
+                                </li>
                             </ul>
                             <ul class="navbar-nav col-5 justify-content-end">
                                 <a class="nav-link" href="#"><i class="bi bi-search"></i></a>

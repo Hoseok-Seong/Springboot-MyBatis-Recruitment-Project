@@ -1,12 +1,16 @@
 package shop.mtcoding.job.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +18,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.apply.ApplyReqDto.InsertApplyReqDto;
+import shop.mtcoding.job.dto.apply.ApplyRespDto.ApplyListForUserRespDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
+import shop.mtcoding.job.handler.exception.CustomException;
+import shop.mtcoding.job.model.apply.ApplyRepository;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.service.ApplyService;
 
@@ -25,6 +32,9 @@ public class ApplyController {
 
     @Autowired
     private ApplyService applyService;
+
+    @Autowired
+    private ApplyRepository applyRepository;
 
     @PostMapping("/apply/{id}")
     public @ResponseBody ResponseEntity<?> insertApply(@RequestBody InsertApplyReqDto insertApplyReqDto,
@@ -49,4 +59,15 @@ public class ApplyController {
 
     }
 
+    @GetMapping("/applyList")
+    public String applyList(Model model, ApplyListForUserRespDto applyListForUserRespDto) {
+        User principal = (User) session.getAttribute("principal");
+        if (principal == null) {
+            throw new CustomException("회원 인증이 되지 않았습니다. 로그인을 해주세요.", HttpStatus.UNAUTHORIZED);
+        }
+        List<ApplyListForUserRespDto> applyList = applyRepository.findByUserId(
+                principal.getId());
+        model.addAttribute("applyLists", applyList);
+        return "apply/applyListForUser";
+    }
 }

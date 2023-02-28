@@ -676,4 +676,25 @@ LINE Hybrid Work 2.0에 따라 근무 가능한 장소에서 근무</br>
 </br>
 이 외, 더 많은 혜택 및 복지가 여러분을 기다리고 있습니다. 입사 후 더 자세히 만나보세요!</br>', '/images/lineplus_logo.png',now());
 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('1', '1', '1', '스타트업', '1', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('1', '2', '2', '스타트업', '2', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('1', '3', '3', '스타트업', '3', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('1', '4', '4', '대기업', '1', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('1', '5', '5', '스타트업', '2', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('1', '6', '6', '인력소싱', '3', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('1', '7', '7', '스타트업', '1', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('1', '8', '8', '스타트업', '2', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('1', '9', '9', '서비스', '3', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('1', '10', '10', '대기업', '1', now());
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('2', '1', '1', '스타트업', '4', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('2', '2', '2', '스타트업', '5', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('2', '3', '3', '스타트업', '6', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('2', '4', '4', '대기업', '4', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('2', '5', '5', '스타트업', '5', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('2', '6', '6', '인력소싱', '6', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('2', '7', '7', '스타트업', '4', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('2', '8', '8', '스타트업', '5', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('2', '9', '9', '서비스', '6', now()); 
+insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('2', '10', '10', '대기업', '4', now());  
+
 commit;	

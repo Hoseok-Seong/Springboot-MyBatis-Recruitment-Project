@@ -76,7 +76,7 @@ create table apply_tb(
     id int auto_increment primary key,
     user_id int not null,
     enterprise_id int not null,
-    recruitment_post_id int not null unique,
+    recruitment_post_id int not null,
     sector varchar(100),
     resume_id int not null,
     created_at timestamp not null

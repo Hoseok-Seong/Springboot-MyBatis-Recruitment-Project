@@ -162,7 +162,7 @@
                                             </div>
                                         </div>    
                                         </c:when>
-                                        </c:choose>
+                                </c:choose>
                                 </div>            
                             </c:when>
 
