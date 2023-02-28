@@ -37,15 +37,29 @@
                                     <a class="nav-link text-dark pt-1" href="/main"><img src="/images/projectLogo.png"
                                             alt="" style="width: 100px; height: 30px;"></a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" href="/recruitment/list">채용</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" href="/resumeMain">이력서</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" href="/applyList">지원현황</a>
-                                </li>
+                                <c:choose>
+                                    <c:when test="${principalEnt != null}">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" href="/recruitment/list">채용</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" href="/recruitment/list">지원자 현황</a>
+                                        </li>
+                                    </c:when>
+
+                                    <c:otherwise>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" href="/recruitment/list">채용</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" href="/resumeMain">이력서</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" href="/applyList">지원현황</a>
+                                        </li>
+                                    </c:otherwise>
+                                </c:choose>
+                                
                             </ul>
                             <ul class="navbar-nav col-5 justify-content-end">
                                 <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
