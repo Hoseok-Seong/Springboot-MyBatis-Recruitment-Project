@@ -7,11 +7,9 @@ public class ApplyReqDto {
     @Setter
     @Getter
     public static class InsertApplyReqDto {
-
         private int enterpriseId;
         private int recruitmentPostId;
         private String sector;
         private int resumeId;
-
     }
 }

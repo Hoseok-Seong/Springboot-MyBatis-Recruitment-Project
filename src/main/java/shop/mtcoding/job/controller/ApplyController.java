@@ -31,7 +31,7 @@ public class ApplyController {
             @PathVariable int id) {
         User principal = (User) session.getAttribute("principal");
         if (principal == null) {
-            throw new CustomApiException("인증이 실패했습니다", HttpStatus.UNAUTHORIZED);
+            throw new CustomApiException("회원 인증이 실패했습니다", HttpStatus.UNAUTHORIZED);
         }
         applyService.이력서제출(insertApplyReqDto, principal.getId());
         return new ResponseEntity<>(new ResponseDto<>(1, "이력서 제출 성공", null), HttpStatus.CREATED);
@@ -41,7 +41,7 @@ public class ApplyController {
     public @ResponseBody ResponseEntity<?> deleteApply(@PathVariable int id) {
         User principal = (User) session.getAttribute("principal");
         if (principal == null) {
-            throw new CustomApiException("인증이 실패했습니다", HttpStatus.UNAUTHORIZED);
+            throw new CustomApiException("회원 인증이 실패했습니다", HttpStatus.UNAUTHORIZED);
         }
 
         applyService.이력서제출취소(id, principal.getId());

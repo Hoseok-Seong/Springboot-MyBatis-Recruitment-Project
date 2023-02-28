@@ -1,25 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
-    <div class="container my-5">
-        <div class="d-inline-flex justify-content-left text-center">
-            <div class="text-on-img">
-                <div class="hh-background-wrap">
-                  <div class="hh-content">
-                    <span><h1>합격을 부르는 이력서</h1></span>
-                    <span><h2><h2></span> 
-                    <div class="d-flex justify-content-center text-center m-4">
-                        <span><b><a class="btn hh-btn-custom btn-lg m-3" href="/resumeList" role="button">이력서 관리</a></span>
-                        <span><b><a class="btn hh-btn-custom btn-lg m-3" href="/resumeForm" role="button">이력서 작성</a></span>
+        <div class="container my-3">
+            <div class="d-inline-flex justify-content-left text-center">
+                <div class="text-on-img">
+                    <div class="hh-background-wrap">
+                        <div class="hh-content">
+                            <span>
+                                <h1>합격을 부르는 이력서</h1>
+                            </span>
+                            <span>
+                                <h2>
+                                    <h2>
+                            </span>
+                            <div class="d-flex justify-content-center text-center m-4">
+                                <span><b><a class="btn hh-btn-custom btn-lg m-3" href="/resumeList" role="button">이력서
+                                            관리</a></span>
+                                <span><b><a class="btn hh-btn-custom btn-lg m-3" href="/resumeForm" role="button">이력서
+                                            작성</a></span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
             </div>
-        </div>
-            <div class="d-flex justify-content-center text-center m-5">
+            <div class="d-flex justify-content-center text-center mt-5">
                 <div class="col-lg-8 col-lg-6">
-                <h1>저희 이력서의 장점은 이렇습니다.</h1>
+                    <h1>저희 이력서의 장점은 이렇습니다.</h1>
                 </div>
-           </div> 
+            </div>
             <div class="grid text-center d-inline-flex justify-content-between float-left flex-wrap">
                 <div class="card g-col-6 my-5 m-3" style="width: 525px; height: 400px; background-color: #f1f7fe;">
                     <div class="card-body">
@@ -28,7 +35,7 @@
                         <p class="card-text">회사별 양식에 맞출 필요 없이 하나의 이력서만 작성하세요.</small></p>
                         <img src="/images/resume_01.png" alt="">
                     </div>
-                </div>    
+                </div>
                 <div class="card g-col-6 my-5 m-3" style="width: 525px; height: 400px; background-color: #f1f1fe;">
                     <div class="card-body">
                         <h3 class="card-title">완성도를 높여주는 이력서 코칭</h3><br>
@@ -54,6 +61,6 @@
                     </div>
                 </div>
             </div>
-        </div>  
-    </div>        
- <%@ include file="../layout/footer.jsp" %>
+        </div>
+        </div>
+        <%@ include file="../layout/footer.jsp" %>

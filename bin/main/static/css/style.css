@@ -1,40 +1,70 @@
 button {
-    background-color: #ff8000ce; /* 배경 색상 */
-    border: none; /* 테두리 없애기 */
-    color: white; /* 글자 색상 */
-    padding: 10px 22px; /* 안쪽 여백 */
-    text-align: center; /* 가운데 정렬 */
-    text-decoration: none; /* 밑줄 없애기 */
-    display: inline-block; /* 인라인 요소로 설정 */
-    font-size: 16px; /* 글자 크기 */
-    margin: 4px 2px; /* 바깥쪽 여백 */
-    cursor: pointer; /* 커서 모양 */
+    background-color: #ff8000ce;
+    /* 배경 색상 */
+    border: none;
+    /* 테두리 없애기 */
+    color: white;
+    /* 글자 색상 */
+    padding: 10px 22px;
+    /* 안쪽 여백 */
+    text-align: center;
+    /* 가운데 정렬 */
+    text-decoration: none;
+    /* 밑줄 없애기 */
+    display: inline-block;
+    /* 인라인 요소로 설정 */
+    font-size: 16px;
+    /* 글자 크기 */
+    margin: 4px 2px;
+    /* 바깥쪽 여백 */
+    cursor: pointer;
+    /* 커서 모양 */
 }
 
 .my_gray_button {
-    background-color: #636664; /* 배경 색상 */
-    border: none; /* 테두리 없애기 */
-    color: white; /* 글자 색상 */
-    padding: 10px 22px; /* 안쪽 여백 */
-    text-align: center; /* 가운데 정렬 */
-    text-decoration: none; /* 밑줄 없애기 */
-    display: inline-block; /* 인라인 요소로 설정 */
-    font-size: 16px; /* 글자 크기 */
-    margin: 4px 2px; /* 바깥쪽 여백 */
-    cursor: pointer; /* 커서 모양 */
+    background-color: #636664;
+    /* 배경 색상 */
+    border: none;
+    /* 테두리 없애기 */
+    color: white;
+    /* 글자 색상 */
+    padding: 10px 22px;
+    /* 안쪽 여백 */
+    text-align: center;
+    /* 가운데 정렬 */
+    text-decoration: none;
+    /* 밑줄 없애기 */
+    display: inline-block;
+    /* 인라인 요소로 설정 */
+    font-size: 16px;
+    /* 글자 크기 */
+    margin: 4px 2px;
+    /* 바깥쪽 여백 */
+    cursor: pointer;
+    /* 커서 모양 */
 }
 
 .my_blue_button {
-    background-color: #0a2cc2; /* 배경 색상 */
-    border: none; /* 테두리 없애기 */
-    color: white; /* 글자 색상 */
-    padding: 10px 22px; /* 안쪽 여백 */
-    text-align: center; /* 가운데 정렬 */
-    text-decoration: none; /* 밑줄 없애기 */
-    display: inline-block; /* 인라인 요소로 설정 */
-    font-size: 16px; /* 글자 크기 */
-    margin: 4px 2px; /* 바깥쪽 여백 */
-    cursor: pointer; /* 커서 모양 */
+    background-color: #0a2cc2;
+    /* 배경 색상 */
+    border: none;
+    /* 테두리 없애기 */
+    color: white;
+    /* 글자 색상 */
+    padding: 10px 22px;
+    /* 안쪽 여백 */
+    text-align: center;
+    /* 가운데 정렬 */
+    text-decoration: none;
+    /* 밑줄 없애기 */
+    display: inline-block;
+    /* 인라인 요소로 설정 */
+    font-size: 16px;
+    /* 글자 크기 */
+    margin: 4px 2px;
+    /* 바깥쪽 여백 */
+    cursor: pointer;
+    /* 커서 모양 */
 }
 
 .my-text-ellipsis {
@@ -66,12 +96,12 @@ a {
     color: black;
 }
 
-.carousel-inner  {
+.carousel-inner {
     top: 0;
     left: 0;
     min-width: 100%;
     max-height: 300px;
-  } 
+}
 
 .container {
 
@@ -104,6 +134,7 @@ a {
     width: 100%;
     height: 250px;
 }
+
 .my-container {
     max-width: 650px;
     margin: 0 auto;
@@ -135,7 +166,7 @@ a {
 }
 
 .btn-custom:hover {
-    background-color: #3d65e7;
+    background-color: #f7f8fa;
 }
 
 .my-nav-tabs {
@@ -157,59 +188,66 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .hh-content {
+}
+
+.hh-content {
     display: flex;
     flex-direction: column;
-  }
-  
-  .hh-content span {
+}
+
+.hh-content span {
     color: white;
-  }
-  
-  .hh-content span:nth-child(1) {
+}
+
+.hh-content span:nth-child(1) {
     font-size: 25px;
     font-weight: bold;
-  }
-  
-  .hh-content span:nth-child(2) {
+}
+
+.hh-content span:nth-child(2) {
     font-size: 20px;
-  }
-  .btn-custom {
-      /* 버튼 텍스트 색상 */
-      background-color: #ff7f00;
-      border-color: #fff;
-      color: #fff;
-      /* 버튼 텍스트 사이즈 */
-      font-size: 14px;
-      padding: 0.25rem 0.5rem;
+}
 
-      border-radius: 10px
-  }
-  .hh-btn-custom {
-      /* 버튼 텍스트 색상 */
-      background-color: #ff7f00;
-      border-color: #fff;
-      color: #fff;
-      /* 버튼 텍스트 사이즈 */
-      font-size: 20px;
-      padding: 0.25rem 0.5rem;
+.btn-custom {
+    /* 버튼 텍스트 색상 */
+    background-color: #ff7f00;
+    border-color: #fff;
+    color: #fff;
+    /* 버튼 텍스트 사이즈 */
+    font-size: 14px;
+    padding: 0.25rem 0.5rem;
 
-      border-radius: 10px
-  }
+    border-radius: 10px
+}
 
-  .login-btn-custom {
-      /* 버튼 텍스트 색상 */
-      background-color: #ff7f00;
-      border-color: #fff;
-      color: #fff;
-      /* 버튼 텍스트 사이즈 */
-      font-size: 20px;
-      padding: 0.25rem 0.5rem;
+.hh-btn-custom {
+    /* 버튼 텍스트 색상 */
+    background-color: #ff7f00;
+    border-color: #fff;
+    color: #fff;
+    /* 버튼 텍스트 사이즈 */
+    font-size: 20px;
+    padding: 0.25rem 0.5rem;
 
-      border-radius: 10px
-  }
-  :root {
+    border-radius: 10px
+}
+
+.login-btn-custom {
+    /* 버튼 텍스트 색상 */
+    background-color: #ff7f00;
+    border-color: #fff;
+    color: #fff;
+    /* 버튼 텍스트 사이즈 */
+    font-size: 20px;
+    padding: 0.25rem 0.5rem;
+
+    border-radius: 10px
+}
+
+.login-btn-custom:hover {
+    background-color: #f7f8fa;
+}
+
+:root {
     accent-color: #ff7f00;
-  }
+}

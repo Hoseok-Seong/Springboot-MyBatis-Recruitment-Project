@@ -3,7 +3,7 @@ package shop.mtcoding.job.util;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-public class saltEncoder {
+public class SaltEncoder {
     public static String salt() {
         String input = "5thProject";
         PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();

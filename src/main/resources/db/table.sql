@@ -17,7 +17,6 @@ create table enterprise_tb(
     salt varchar not null,
     address varchar(100) not null,
     contact varchar(100) not null,
-    image longtext not null,
     email varchar(100) not null,
     sector varchar(100) not null,
     size varchar(100) not null,

@@ -47,13 +47,13 @@ public class EnterpriseController {
     public String enterpriseJoin(JoinEnterpriseReqDto joinEnterpriseReqDto) {
 
         if (joinEnterpriseReqDto.getEnterpriseName() == null || joinEnterpriseReqDto.getEnterpriseName().isEmpty()) {
-            throw new CustomException("enterprisename을 작성해주세요");
+            throw new CustomException("아이디를 작성해주세요");
         }
         if (joinEnterpriseReqDto.getPassword() == null || joinEnterpriseReqDto.getPassword().isEmpty()) {
-            throw new CustomException("password를 작성해주세요");
+            throw new CustomException("비밀번호를 작성해주세요");
         }
         if (joinEnterpriseReqDto.getAddress() == null || joinEnterpriseReqDto.getAddress().isEmpty()) {
-            throw new CustomException("address를 작성해주세요");
+            throw new CustomException("주소를 작성해주세요");
         }
         if (joinEnterpriseReqDto.getEmail() == null || joinEnterpriseReqDto.getEmail().isEmpty()) {
             throw new CustomException("email을 작성해주세요");
@@ -62,10 +62,10 @@ public class EnterpriseController {
             throw new CustomException("전화번호를 입력해주세요");
         }
         if (joinEnterpriseReqDto.getSector() == null || joinEnterpriseReqDto.getSector().isEmpty()) {
-            throw new CustomException("sector을 작성해주세요");
+            throw new CustomException("분야를 작성해주세요");
         }
         if (joinEnterpriseReqDto.getSize() == null || joinEnterpriseReqDto.getSize().isEmpty()) {
-            throw new CustomException("size을 작성해주세요");
+            throw new CustomException("기업규모를 작성해주세요");
         }
 
         enterpriseService.기업가입하기(joinEnterpriseReqDto);

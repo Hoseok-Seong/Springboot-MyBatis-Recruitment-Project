@@ -44,7 +44,7 @@ public class RecruitmentPostRespDto {
 
     @Getter
     @Setter
-    public static class PostRespDto {
+    public static class RecruitmentPostSearchRespDto {
         private Integer id;
         private String title;
         private String enterpriseName;

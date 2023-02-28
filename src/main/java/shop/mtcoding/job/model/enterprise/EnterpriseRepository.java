@@ -15,7 +15,6 @@ public interface EnterpriseRepository {
                         @Param("salt") String salt,
                         @Param("address") String address,
                         @Param("contact") String contact,
-                        @Param("image") String image,
                         @Param("email") String email, @Param("size") String size,
                         @Param("sector") String sector);
 
