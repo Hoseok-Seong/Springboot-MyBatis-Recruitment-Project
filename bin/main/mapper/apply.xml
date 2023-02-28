@@ -33,7 +33,7 @@
       SELECT a.recruitment_post_id, e.enterprise_name, r.title, a.sector, a.resume_id, a.created_at
       FROM apply_tb a
       JOIN recruitment_post_tb r
-      ON a.id = r.enterprise_id
+      ON a.enterprise_id = r.enterprise_id
       LEFT OUTER JOIN enterprise_tb e
       ON a.enterprise_id = e.id
       WHERE user_id = #{userId}

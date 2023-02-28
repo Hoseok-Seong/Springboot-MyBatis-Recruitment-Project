@@ -1,5 +1,6 @@
 package shop.mtcoding.job.model.apply;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -15,7 +16,8 @@ public interface ApplyRepository {
 
         public int insert(@Param("userId") int userId, @Param("enterpriseId") int enterpriseId,
                         @Param("recruitmentPostId") int recruitmentPostId,
-                        @Param("sector") String sector, @Param("resumeId") int resumeId);
+                        @Param("sector") String sector, @Param("resumeId") int resumeId,
+                        @Param("createdAt") Timestamp createdAt);
 
         public int updateById(Apply apply);
 

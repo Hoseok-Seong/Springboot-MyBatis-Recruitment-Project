@@ -25,7 +25,7 @@ public class ApplyService {
 
         int result = applyRepository.insert(userId, insertApplyReqDto.getEnterpriseId(),
                 insertApplyReqDto.getRecruitmentPostId(), insertApplyReqDto.getSector(),
-                insertApplyReqDto.getResumeId());
+                insertApplyReqDto.getResumeId(), insertApplyReqDto.getCreatedAt());
         if (result != 1) {
             throw new CustomApiException("이력서 제출 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }

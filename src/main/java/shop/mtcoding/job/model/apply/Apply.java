@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import lombok.Getter;
 import lombok.Setter;
+import shop.mtcoding.job.util.DateUtil;
 
 @Getter
 @Setter
@@ -15,4 +16,8 @@ public class Apply {
     private String sector;
     private int resumeId;
     private Timestamp createdAt;
+
+    public String getCreatedAtToString() {
+        return DateUtil.format(createdAt);
+    }
 }

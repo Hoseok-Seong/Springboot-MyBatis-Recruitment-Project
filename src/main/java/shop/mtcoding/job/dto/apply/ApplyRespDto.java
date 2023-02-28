@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import lombok.Getter;
 import lombok.Setter;
+import shop.mtcoding.job.util.DateUtil;
 
 public class ApplyRespDto {
     @Getter

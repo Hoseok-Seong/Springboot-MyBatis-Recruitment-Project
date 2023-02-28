@@ -2,37 +2,29 @@
     <%@ include file="../layout/header.jsp" %>
     <div class="container my-3" style="width: 65%">
     <table class="table table-striped">
-    private int enterpriseId;
-        private int recruitmentPostId;
-        private String sector;
-        private int resumeId;
-        private Timestamp createdAt;
         <thead>
             <tr>
-            <th scope="col">기업</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">기업명</th>
+            <th scope="col">채용공고 번호</th>
+            <th scope="col">제목</th>
+            <th scope="col">분야</th>
+            <th scope="col">이력서번호</th>
+            <th scope="col">지원일자</th>
+            <th scope="col">삭제하기</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-            </tr>
+            <c:forEach items="${applyLists}" var="applyList">
+                <tr>
+                <td>${applyList.enterpriseName}</td>
+                <td>${applyList.recruitmentPostId}</td>
+                <td>${applyList.title}</td>
+                <td>${applyList.sector}</td>
+                <td>${applyList.resumeId}</td>
+                <td>${applyList.createdAt}</td>
+                <td><button >삭제</button></td>
+                </tr>
+            </c:forEach>
         </tbody>
     </table>
     </div>
