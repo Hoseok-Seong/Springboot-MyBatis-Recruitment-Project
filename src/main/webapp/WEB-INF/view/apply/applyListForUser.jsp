@@ -22,10 +22,30 @@
                 <td>${applyList.sector}</td>
                 <td>${applyList.resumeId}</td>
                 <td>${applyList.createdAt}</td>
-                <td><button >삭제</button></td>
+                <td><button onclick="confirmDelete(${applyList.recruitmentPostId})">삭제</button></td>
                 </tr>
             </c:forEach>
         </tbody>
     </table>
     </div>
+    <script>
+        function confirmDelete(recruitmentPostId) {
+            if (confirm('지원서를 삭제하시면 복구가 불가능합니다. 정말로 삭제하시겠습니까?')) {
+                deleteById(recruitmentPostId);
+            }
+        }
+
+        function deleteById(recruitmentPostId) {
+            $.ajax({
+                type: "delete",
+                url: "/apply/" + recruitmentPostId,
+                dataType: "json"
+            }).done((res) => { // 20X 일때
+                alert(res.msg);
+                location.href = "/applyList";
+            }).fail((err) => { // 40X, 50X 일때
+                alert(err.responseJSON.msg);
+            });
+        }
+    </script>
     <%@ include file="../layout/footer.jsp" %>
