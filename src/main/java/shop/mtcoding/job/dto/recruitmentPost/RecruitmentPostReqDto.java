@@ -1,5 +1,7 @@
 package shop.mtcoding.job.dto.recruitmentPost;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Getter;
@@ -11,6 +13,7 @@ public class RecruitmentPostReqDto {
     @Setter
     @Getter
     public static class SaveRecruitmentPostReqDto {
+        private int id;
         private String title;
         private String career;
         private String education;
@@ -19,6 +22,7 @@ public class RecruitmentPostReqDto {
         private String address;
         private String position;
         private String content;
+        private List<String> skill;
         private MultipartFile enterpriseLogo;
 
         public RecruitmentPost toModel(int enterpriseId, String enterpriseLogo) {

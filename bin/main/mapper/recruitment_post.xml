@@ -20,6 +20,10 @@
       select * from recruitment_post_tb where id = #{id}  
    </select>
 
+   <select id="findByEnterpriseLogo" resultType="shop.mtcoding.job.model.recruitmentPost.RecruitmentPost">
+      select * from recruitment_post_tb where enterprise_logo = #{enterpriseLogo}
+   </select>
+
    <select id="findByIdWithEnterpriseId" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$RecruitmentPostDetailRespDto">
       SELECT 
          recruitment_post_tb.id, 

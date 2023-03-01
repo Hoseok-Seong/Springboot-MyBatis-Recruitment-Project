@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.mtcoding.job.model.skill.RecruitmentSkillRepository">
+    <insert id="insert">
+      insert into recruitment_skill_tb(recruitment_id,skill) values(#{recruitmentId},#{skill}) 
+    </insert>
+    
+   <update id="updateById">
+      update recruitment_skill_tb set recruitment_id = #{recruitmentId},enterprise_name = #{enterpriseName}, skill = #{skill} where id = #{id}
+   </update>
+
+   <select id="findAll" resultType="shop.mtcoding.job.model.skill.RecruitmentSkill">
+      select * from recruitment_skill_tb
+   </select>
+
+   <select id="findById" resultType="shop.mtcoding.job.model.skill.RecruitmentSkill">
+      select * from recruitment_skill_tb where id = #{id}  
+   </select>
+
+   <delete id="deleteById">
+      delete from recruitment_skill_tb where id = #{id}
+   </delete>
+</mapper>

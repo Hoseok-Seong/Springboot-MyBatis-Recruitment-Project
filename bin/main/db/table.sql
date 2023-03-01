@@ -91,6 +91,5 @@ create table user_skill_tb(
 create table recruitment_skill_tb(
     id int auto_increment primary key,
     recruitment_id int not null,
-    enterprise_name varchar(100) not null,
-    skill varchar(100) not null
+    skill varchar(100)
 );

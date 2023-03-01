@@ -22,13 +22,13 @@ insert into user_skill_tb(user_id, skill) values(1, 7);
 insert into user_skill_tb(user_id, skill) values(1, 8);
 insert into user_skill_tb(user_id, skill) values(2, 8);
 
-insert into recruitment_skill_tb(recruitment_id,enterprise_name, skill ) values(1,'긴트', '2');
-insert into recruitment_skill_tb(recruitment_id,enterprise_name, skill ) values(1,'긴트', '5');
-insert into recruitment_skill_tb(recruitment_id,enterprise_name, skill ) values(1,'긴트', '6');
-insert into recruitment_skill_tb(recruitment_id,enterprise_name, skill ) values(2,'더데이비포', '1');
-insert into recruitment_skill_tb(recruitment_id,enterprise_name, skill ) values(2,'더데이비포', '8');
-insert into recruitment_skill_tb(recruitment_id,enterprise_name, skill ) values(2,'더데이비포', '9');
-insert into recruitment_skill_tb(recruitment_id,enterprise_name, skill ) values(2,'더데이비포', '11');
+insert into recruitment_skill_tb(recruitment_id, skill ) values(1, 2);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(1, 5);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(1, 6);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(2, 1);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(2, 8);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(2, 9);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(2, 11);
 
 insert into resume_tb(user_id, title, content, career, education, skill, award, language, link, file, birthdate, address, finish, created_at)  
 values('1', 
