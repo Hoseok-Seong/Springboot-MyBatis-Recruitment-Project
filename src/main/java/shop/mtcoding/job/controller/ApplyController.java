@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +22,8 @@ import shop.mtcoding.job.dto.apply.ApplyRespDto.ApplyListForUserRespDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.apply.ApplyRepository;
+import shop.mtcoding.job.model.resume.Resume;
+import shop.mtcoding.job.model.resume.ResumeRepository;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.service.ApplyService;
 
@@ -36,6 +37,9 @@ public class ApplyController {
 
     @Autowired
     private ApplyRepository applyRepository;
+
+    @Autowired
+    private ResumeRepository resumeRepository;
 
     @PostMapping("/apply/{id}")
     public @ResponseBody ResponseEntity<?> insertApply(@RequestBody InsertApplyReqDto insertApplyReqDto,
@@ -69,6 +73,10 @@ public class ApplyController {
         List<ApplyListForUserRespDto> applyList = applyRepository.findByUserId(
                 principal.getId());
         model.addAttribute("applyLists", applyList);
+
+        List<Resume> resumeList = resumeRepository.findByUserId(principal.getId());
+        model.addAttribute("resumeList", resumeList);
+
         return "apply/applyListForUser";
     }
 
