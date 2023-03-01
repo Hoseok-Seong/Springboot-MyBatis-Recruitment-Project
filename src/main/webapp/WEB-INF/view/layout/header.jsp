@@ -215,7 +215,7 @@
                                         <div class="text-center">
                                             <tr>
                                                 &nbsp;<input type="checkbox"
-                                                    aria-label="Checkbox for following text input"> 필수 동의 항목 및 개인정보 수집 및
+                                                    aria-label="Checkbox for following text input" id="agree-checkbox" name="agree" required>> 필수 동의 항목 및 개인정보 수집 및
                                                 이용 동의, 광고성 정보 수신에 동의합니다.
                                             </tr>
                                             <br>
@@ -287,9 +287,8 @@
                                         </div><br>
                                         <div class="text-center">
                                             <tr>
-                                                &nbsp;<input type="checkbox"
-                                                    aria-label="Checkbox for following text input"> 필수 동의 항목 및 개인정보 수집 및
-                                                이용 동의, 광고성 정보
+                                                &nbsp;<input type="checkbox" aria-label="Checkbox for following text input" id="agree-checkbox" name="agree" required>> 
+                                                필수 동의 항목 및 개인정보 수집 및 이용 동의, 광고성 정보
                                                 수신에 동의합니다.
                                             </tr>
                                         </div>
@@ -329,4 +328,17 @@
                         }).fail((err) => {
                         });
                     }
+                </script>
+                
+                <script>
+                    const form = document.querySelector('#signup-form');
+                    form.addEventListener('submit', (event) => {
+                        const agreeCheckbox = document.querySelector('#agree-checkbox');
+                        
+                        // 개인정보 수집 동의 체크박스가 체크되었는지 확인
+                        if (!agreeCheckbox.checked) {
+                        event.preventDefault(); // 폼 제출 취소
+                        alert('개인정보 수집에 동의해야 가입할 수 있습니다.');
+                        }
+                    });
                 </script>
