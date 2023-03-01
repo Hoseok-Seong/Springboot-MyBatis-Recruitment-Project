@@ -25,6 +25,10 @@
       select * from apply_tb where user_id = #{userId} and recruitment_post_id = #{recruitmentPostId}  
    </select>
 
+   <select id="findByIdWithEnterpriseId" resultType="shop.mtcoding.job.model.apply.Apply">
+      select * from apply_tb where id = #{id} and enterprise_id = #{enterpriseId}  
+   </select>
+
    <delete id="deleteByUserIdWithRecruitmentPostId">
       delete from apply_tb where user_id = #{userId} and recruitment_post_id = #{recruitmentPostId}  
    </delete>
@@ -40,7 +44,7 @@
    </select>
 
    <select id="findByEnterpriseId" resultType="shop.mtcoding.job.dto.apply.ApplyRespDto$ApplyListForEntRespDto">
-      select a.user_id, u.username, u.name, a.recruitment_post_id, e.enterprise_name, r.title, a.resume_id, a.created_at
+      select a.id, a.user_id, u.username, u.name, a.recruitment_post_id, e.enterprise_name, r.title, a.resume_id, a.created_at
       from apply_tb a
       join user_tb u
       on a.user_id = u.id
@@ -50,4 +54,8 @@
       on a.recruitment_post_id = r.id
       where a.enterprise_id = #{enterpriseId}
    </select>
+
+   <update id="updateResultById">
+      update apply_tb set result = #{result} where id = #{id}
+   </update>
 </mapper>

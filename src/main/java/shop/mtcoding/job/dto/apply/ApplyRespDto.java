@@ -26,6 +26,7 @@ public class ApplyRespDto {
     @Getter
     @Setter
     public static class ApplyListForEntRespDto {
+        private Integer id;
         private Integer userId;
         private String username;
         private String name;

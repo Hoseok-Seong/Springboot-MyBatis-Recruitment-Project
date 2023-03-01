@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import shop.mtcoding.job.dto.apply.ApplyReqDto.InsertApplyReqDto;
+import shop.mtcoding.job.dto.apply.ApplyReqDto.UpdateApplicantResultReqDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.model.apply.Apply;
 import shop.mtcoding.job.model.apply.ApplyRepository;
@@ -56,9 +58,9 @@ public class ApplyService {
     }
 
     @Transactional
-    public void 이력서제출취소(int RecruitmentPostId, int userId) {
+    public void 이력서제출취소(int recruitmentPostId, int userId) {
         Apply applyPS = applyRepository.findByUserIdWithRecruitmentPostId(userId,
-                RecruitmentPostId);
+                recruitmentPostId);
         if (applyPS == null) {
             throw new CustomApiException("존재하지 않는 지원서입니다");
         }
@@ -68,7 +70,27 @@ public class ApplyService {
 
         // 제어권이 없으므로 try, catch
         try {
-            applyRepository.deleteByUserIdWithRecruitmentPostId(userId, RecruitmentPostId);
+            applyRepository.deleteByUserIdWithRecruitmentPostId(userId, recruitmentPostId);
+        } catch (Exception e) {
+            throw new CustomApiException("서버에 일시적인 문제가 발생했습니다", HttpStatus.INTERNAL_SERVER_ERROR);
+            // 로그를 남겨야 함 (DB or File)
+        }
+    }
+
+    @Transactional
+    public void 합격불합격(int applyId, @RequestBody UpdateApplicantResultReqDto updateApplicantResultReqDto,
+            int enterpriseId) {
+        Apply applyPS = applyRepository.findByIdWithEnterpriseId(applyId, enterpriseId);
+        if (applyPS == null) {
+            throw new CustomApiException("존재하지 않는 지원서입니다");
+        }
+        if (applyPS.getEnterpriseId() != enterpriseId) {
+            throw new CustomApiException("해당 지원서를 처리할 권한이 없습니다", HttpStatus.FORBIDDEN);
+        }
+
+        // 제어권이 없으므로 try, catch
+        try {
+            applyRepository.updateResultById(applyId, updateApplicantResultReqDto.isResult());
         } catch (Exception e) {
             throw new CustomApiException("서버에 일시적인 문제가 발생했습니다", HttpStatus.INTERNAL_SERVER_ERROR);
             // 로그를 남겨야 함 (DB or File)

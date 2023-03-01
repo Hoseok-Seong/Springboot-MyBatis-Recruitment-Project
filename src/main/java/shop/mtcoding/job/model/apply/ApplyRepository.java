@@ -27,10 +27,15 @@ public interface ApplyRepository {
         public Apply findByUserIdWithRecruitmentPostId(@Param("userId") int userId,
                         @Param("recruitmentPostId") int recruitmentPostId);
 
+        public Apply findByIdWithEnterpriseId(@Param("id") int id,
+                        @Param("enterpriseId") int enterpriseId);
+
         public int deleteByUserIdWithRecruitmentPostId(@Param("userId") int userId,
                         @Param("recruitmentPostId") int recruitmentPostId);
 
         public List<ApplyListForUserRespDto> findByUserId(int UserId);
 
         public List<ApplyListForEntRespDto> findByEnterpriseId(int enterpriseId);
+
+        public int updateResultById(@Param("id") int id, @Param("result") boolean result);
 }

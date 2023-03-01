@@ -30,11 +30,11 @@
                             <td>${applyList.name}</td>
                             <td data-bs-toggle="modal" data-bs-target="#staticBackdrop${applyList.userId}"
                                 style="cursor: pointer;">
-                                <button class="btn btn-primary">이력서</button>
+                                <button class="btn btn-warning">이력서</button>
                             </td>
                             <td>${applyList.createdAtToString}</td>
                             <td>
-                                <button class="btn btn-warning" onclick="confirmDelete()">결과</button>
+                                <button class="btn btn-primary" disabled="disabled">결과</button>
                             </td>
 
                             <!-- modal -->
@@ -136,7 +136,19 @@
                                                         readonly>${resumeList[applyList.userId-1].link}</textarea>
                                                 </div>
                                                 <br>
-                                                <hr class="md-0">
+                                                <input type="hidden" id="name" value="${applyList.name}">
+                                                <button
+                                                    onclick="confirmResult2(`${applyList.name}`, `${applyList.id}`, false)"
+                                                    name="finish" value="false" type="button"
+                                                    class="btn btn-secondary btn-lg ms-3"
+                                                    style="float:right;">불합격</button>
+                                                <button
+                                                    onclick="confirmResult(`${applyList.name}`, `${applyList.id}`, true)"
+                                                    name="finish" value="true" type="button"
+                                                    class="btn btn-primary btn-lg" style="float:right;">서류합격</button>
+                                                <br>
+                                                <br>
+                                                <br>
                                             </div>
                                         </div>
                                     </div>
@@ -148,10 +160,38 @@
             </table>
         </div>
         <script>
-            function confirmDelete(recruitmentPostId) {
-                if (confirm('지원서를 삭제하시면 복구가 불가능합니다.\n정말로 삭제하시겠습니까?')) {
-                    deleteById(recruitmentPostId);
+            function confirmResult(name, applyId, result) {
+                if (confirm('한번 처리한 요청은 변경이 불가능합니다.\n' + name + '님의 지원서를 합격 처리하시겠습니까?')) {
+                    save(applyId, result);
                 }
             }
+
+            function confirmResult2(name, applyId, result) {
+                if (confirm('한번 처리한 요청은 변경이 불가능합니다.\n' + name + '님의 지원서를 불합격 처리하시겠습니까?')) {
+                    save(applyId, result);
+                }
+            }
+
+            function save(applyId, result) {
+                // 1. 값 받아오기
+                let data = {
+                    result: result
+                };
+
+                $.ajax({
+                    type: "put",
+                    url: "/apply/" + applyId,
+                    data: JSON.stringify(data),
+                    headers: {
+                        "Content-Type": "application/json; charset=utf-8"
+                    },
+                    dataType: "json" // default : 응답의 MIMETYPE으로 유추함.
+                }).done((res) => { //20x일 때
+                    alert(res.msg);
+                    location.href = "/applicantList";
+                }).fail((err) => { // 40x, 50x 일 때
+                    alert(err.responseJSON.msg);
+                });
+            };
         </script>
         <%@ include file="../layout/footer.jsp" %>

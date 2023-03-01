@@ -20,4 +20,10 @@ public class ApplyReqDto {
             return DateUtil.format(createdAt);
         }
     }
+
+    @Getter
+    @Setter
+    public static class UpdateApplicantResultReqDto {
+        private boolean result;
+    }
 }

@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.apply.ApplyReqDto.InsertApplyReqDto;
+import shop.mtcoding.job.dto.apply.ApplyReqDto.UpdateApplicantResultReqDto;
 import shop.mtcoding.job.dto.apply.ApplyRespDto.ApplyListForEntRespDto;
 import shop.mtcoding.job.dto.apply.ApplyRespDto.ApplyListForUserRespDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
@@ -98,6 +100,18 @@ public class ApplyController {
         model.addAttribute("resumeList", resumeList);
 
         return "apply/applicantList";
+    }
+
+    @PutMapping("/apply/{id}")
+    public @ResponseBody ResponseEntity<?> updateResult(
+            @RequestBody UpdateApplicantResultReqDto updateApplicantResultReqDto, @PathVariable int id) {
+        Enterprise principalEnt = (Enterprise) session.getAttribute("principalEnt");
+        if (principalEnt == null) {
+            throw new CustomException("기업회원으로 로그인을 해주세요", HttpStatus.UNAUTHORIZED);
+        }
+
+        applyService.합격불합격(id, updateApplicantResultReqDto, principalEnt.getId());
+        return new ResponseEntity<>(new ResponseDto<>(1, "합격 불합격 처리 성공", null), HttpStatus.OK);
     }
 
 }
