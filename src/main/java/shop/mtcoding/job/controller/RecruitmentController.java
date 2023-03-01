@@ -28,6 +28,7 @@ import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
 import shop.mtcoding.job.model.resume.ResumeRepository;
+import shop.mtcoding.job.model.skill.RecruitmentSkillRepository;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.service.RecruitmentService;
 
@@ -36,6 +37,9 @@ public class RecruitmentController {
 
     @Autowired
     private RecruitmentPostRepository recruitmentPostRepository;
+
+    @Autowired
+    private RecruitmentSkillRepository recruitmentSkillRepository;
 
     @Autowired
     private RecruitmentService recruitmentService;
@@ -205,6 +209,7 @@ public class RecruitmentController {
     @GetMapping("recruitment/detail/{id}")
     public String recruitmentPostDetail(@PathVariable int id, Model model) {
         model.addAttribute("recruitmentPostDtos", recruitmentPostRepository.findByIdWithEnterpriseId(id));
+        model.addAttribute("recruitmentPostSkillDtos", recruitmentSkillRepository.findByRecruitmentId(id));
 
         User principal = (User) session.getAttribute("principal");
         if (principal != null) {

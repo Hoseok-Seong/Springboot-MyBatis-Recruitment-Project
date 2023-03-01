@@ -17,7 +17,12 @@
       select * from recruitment_skill_tb where id = #{id}  
    </select>
 
+   <select id="findByRecruitmentId" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$RecruitmentPostSkillRespDto">
+      select * from recruitment_skill_tb where recruitment_id  = #{recruitmentId}
+   </select>
+
    <delete id="deleteById">
       delete from recruitment_skill_tb where id = #{id}
    </delete>
+
 </mapper>

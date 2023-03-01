@@ -53,4 +53,11 @@ public class RecruitmentPostRespDto {
         private Timestamp createdAt;
     }
 
+    @Getter
+    @Setter
+    public static class RecruitmentPostSkillRespDto {
+        private int id;
+        private int recruitmentId;
+        private int skill;
+    }
 }
