@@ -41,9 +41,10 @@
                                 </div>
                                 <div class="card-footer d-flex justify-content-between">
                                     <div class="btn-group" role="group">
-                                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle"
+                                        <button id="btnGroupDrop1" ima type="button" class="btn "
                                             style="background-color: #fff; border-color: #fff; color: black;"
                                             data-bs-toggle="dropdown" aria-expanded="false">
+                                            <img src="images/icons8-menu-vertical-30.png" width="30" height="30">
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                             <li><a class="dropdown-item" data-bs-toggle="modal"
@@ -61,7 +62,7 @@
                                     </c:if>
                                 </div>
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-custom" data-bs-toggle="modal"
+                                <button type="button" class="btn resumeList-btn-custom" data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop${resume.id}">
                                     상세보기
                                 </button>
