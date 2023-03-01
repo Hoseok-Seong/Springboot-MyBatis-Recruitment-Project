@@ -155,6 +155,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <c:choose>
                                 <c:when test="${principalEnt.id == recruitmentPostDtos.enterpriseId}">
                                     <div class="card" style="width: 22rem;">
                                         <div class="card-body">
@@ -176,6 +177,7 @@
                                         <button type="button">삭제</button>
                                     </div>
                                 </c:when>
+                                </c:choose>
                             </c:when>
                         </c:choose>
                     </div>
