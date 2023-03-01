@@ -111,9 +111,6 @@
                                                                         style="width: 14rem; background-color: #f2f4f7">
                                                                         <div class="card-body">
                                                                             <div class="row">
-                                                                                <h5 class="card-title">${resume.id}</h5>
-                                                                            </div>
-                                                                            <div class="row">
                                                                                 <div class="col-9">
                                                                                     <p class="card-text">${resume.title}
                                                                                     </p>
@@ -224,7 +221,7 @@
                 if (selectedResumeId == null) {
                     alert("이력서를 선택해 주세요.")
                 } else {
-                    if (confirm(selectedResumeId + '번 이력서를 선택하셨습니다.\n이력서를 제출하시면 수정이 불가능합니다.\n정말로 제출하시겠습니까? ')) {
+                    if (confirm('이력서를 선택하셨습니다.\n이력서를 제출하시면 수정이 불가능합니다.\n정말로 제출하시겠습니까? ')) {
                         ApplyById(selectedResumeId);
                     }
                 }

@@ -22,8 +22,8 @@ import shop.mtcoding.job.dto.apply.ApplyRespDto.ApplyListForUserRespDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.apply.ApplyRepository;
-import shop.mtcoding.job.model.resume.Resume;
-import shop.mtcoding.job.model.resume.ResumeRepository;
+import shop.mtcoding.job.model.applyResume.ApplyResume;
+import shop.mtcoding.job.model.applyResume.ApplyResumeRepository;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.service.ApplyService;
 
@@ -39,7 +39,7 @@ public class ApplyController {
     private ApplyRepository applyRepository;
 
     @Autowired
-    private ResumeRepository resumeRepository;
+    private ApplyResumeRepository applyResumeRepository;
 
     @PostMapping("/apply/{id}")
     public @ResponseBody ResponseEntity<?> insertApply(@RequestBody InsertApplyReqDto insertApplyReqDto,
@@ -74,7 +74,8 @@ public class ApplyController {
                 principal.getId());
         model.addAttribute("applyLists", applyList);
 
-        List<Resume> resumeList = resumeRepository.findByUserId(principal.getId());
+        List<ApplyResume> resumeList = applyResumeRepository.findByUserId(principal.getId());
+        
         model.addAttribute("resumeList", resumeList);
 
         return "apply/applyListForUser";

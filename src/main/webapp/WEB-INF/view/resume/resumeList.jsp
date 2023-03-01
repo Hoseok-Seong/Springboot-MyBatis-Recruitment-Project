@@ -99,8 +99,8 @@
                                 <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">${principal.username}님의
-                                                ${resume.id}번 이력서</h5>
+                                            <h5 class="modal-title" id="staticBackdropLabel">
+                                                ${principal.username}</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -194,10 +194,10 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button onclick="updateByResume(${resume.id}, false)" type="button"
-                                                class="btn btn-primary">임시저장</button>
                                             <button onclick="updateByResume(${resume.id}, true)" type="button"
                                                 class="btn btn-primary">작성완료</button>
+                                            <button onclick="updateByResume(${resume.id}, false)" type="button"
+                                                class="btn btn-secondary">임시저장</button>
                                         </div>
                                     </div>
                                 </div>

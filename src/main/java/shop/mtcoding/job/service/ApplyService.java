@@ -9,11 +9,20 @@ import shop.mtcoding.job.dto.apply.ApplyReqDto.InsertApplyReqDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.model.apply.Apply;
 import shop.mtcoding.job.model.apply.ApplyRepository;
+import shop.mtcoding.job.model.applyResume.ApplyResumeRepository;
+import shop.mtcoding.job.model.resume.Resume;
+import shop.mtcoding.job.model.resume.ResumeRepository;
 
 @Service
 public class ApplyService {
     @Autowired
     private ApplyRepository applyRepository;
+
+    @Autowired
+    private ResumeRepository resumeRepository;
+
+    @Autowired
+    private ApplyResumeRepository applyResumeRepository;
 
     @Transactional
     public void 이력서제출(InsertApplyReqDto insertApplyReqDto, int userId) {
@@ -26,7 +35,21 @@ public class ApplyService {
         int result = applyRepository.insert(userId, insertApplyReqDto.getEnterpriseId(),
                 insertApplyReqDto.getRecruitmentPostId(), insertApplyReqDto.getSector(),
                 insertApplyReqDto.getResumeId(), insertApplyReqDto.getCreatedAt());
+
+        Resume resume = resumeRepository.findById(insertApplyReqDto.getResumeId());
+
+        int result2 = applyResumeRepository.insert(insertApplyReqDto.getRecruitmentPostId(), resume.getUserId(),
+                resume.getTitle(),
+                resume.getContent(), resume.getCareer(), resume.getEducation(), resume.getSkill(),
+                resume.getAward(), resume.getLanguage(), resume.getLink(), resume.getFile(), resume.getBirthdate(),
+                resume.getAddress(),
+                resume.isFinish());
+
         if (result != 1) {
+            throw new CustomApiException("이력서 제출 실패", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        if (result2 != 1) {
             throw new CustomApiException("이력서 제출 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

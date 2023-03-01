@@ -84,6 +84,7 @@ create table apply_tb(
 
 create table apply_resume_tb(
     id int auto_increment primary key,
+    recruitment_post_id int not null,
     user_id int not null,
     title longtext not null,
     content longtext not null,
@@ -96,5 +97,6 @@ create table apply_resume_tb(
     file longtext,
     birthdate longtext not null,
     address longtext not null,
+    finish boolean not null,
     created_at timestamp not null
 );

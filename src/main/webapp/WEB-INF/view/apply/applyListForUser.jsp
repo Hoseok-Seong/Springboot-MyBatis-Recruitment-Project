@@ -46,8 +46,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">
-                                                ${principal.username}님의
-                                                ${resumeList[applyList.resumeId-1].id}번 이력서</h5>
+                                                ${principal.username}님의 이력서</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
