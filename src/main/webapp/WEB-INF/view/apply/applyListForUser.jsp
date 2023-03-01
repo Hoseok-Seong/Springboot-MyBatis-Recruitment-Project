@@ -24,7 +24,7 @@
                                 </a>
                             </td>
                             <td>${applyList.sector}</td>
-                            <td data-bs-toggle="modal" data-bs-target="#staticBackdrop${resume.id}"
+                            <td data-bs-toggle="modal" data-bs-target="#staticBackdrop${applyList.resumeId}"
                                 style="cursor: pointer;">
                                 ${applyList.resumeId}
                             </td>
@@ -39,14 +39,14 @@
                                 상세보기
                             </button> -->
 
-                            <div class="modal fade" id="staticBackdrop${resume.id}" data-bs-backdrop="static"
+                            <div class="modal fade" id="staticBackdrop${applyList.resumeId}" data-bs-backdrop="static"
                                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">
-                                                ${resumeList[applyList.resumeId-1].userId}님의
+                                                ${principal.username}님의
                                                 ${resumeList[applyList.resumeId-1].id}번 이력서</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
