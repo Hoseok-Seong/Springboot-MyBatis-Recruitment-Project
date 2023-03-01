@@ -1,5 +1,7 @@
 package shop.mtcoding.job.controller;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +35,7 @@ public class UserController {
     }
 
     @PostMapping("/user/login")
-    public String userLogin(LoginUserReqDto loginUserReqDto) {
+    public String userLogin(LoginUserReqDto loginUserReqDto, String remember, HttpServletResponse response) {
         if (loginUserReqDto.getUsername() == null || loginUserReqDto.getUsername().isEmpty()) {
             throw new CustomException("아이디를 작성해주세요");
         }
@@ -51,6 +53,20 @@ public class UserController {
             throw new CustomException("존재하지 않는 아이디거나 비밀번호를 다시 확인해주시기 바랍니다");
         }
 
+        // 요청헤더 : Cookie
+        // 응답헤더 : Set-Cookie
+        if (remember == null) {
+            remember = "";
+        }
+        if (remember.equals("on")) {
+            Cookie cookie = new Cookie("remember", loginUserReqDto.getUsername());
+            response.addCookie(cookie);
+        } else {
+            Cookie cookie = new Cookie("remember", "");
+            cookie.setMaxAge(0);
+            response.addCookie(cookie);
+
+        }
         return "redirect:/";
     }
 

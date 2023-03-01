@@ -111,7 +111,7 @@
 
                                                     <tr class="text-center">
                                                         <!-- input의 크기는 class="form-control-lg" 로 늘린다. -->
-                                                        <td><input type="text" class="form-control-lg w-100"
+                                                        <td><input type="text" value="${remember}" class="form-control-lg w-100"
                                                                 name="username" placeholder="아이디"></td>
                                                     </tr>
 
@@ -122,7 +122,7 @@
                                                 </table>
                                                 <button type="submit" class="btn login-btn-custom btn-sm me-2"
                                                     style="float:right;">로그인</button>
-                                                <input class="ms-2" type="checkbox" value="">로그인 상태 유지<br><br><br>
+                                                <input class="ms-2" type="checkbox" name="remember">username 기억<br><br><br>
                                                 <div class="d-inline-flex justify-content-between">
                                                 </div>
                                             </form>
@@ -132,7 +132,7 @@
                                                 <table class="table table-borderless">
 
                                                     <tr class="text-center ">
-                                                        <td><input type="text" class="form-control-lg w-100"
+                                                        <td><input type="text" value="${remember}" class="form-control-lg w-100"
                                                                 name="enterpriseName" placeholder="아이디"></td>
                                                     </tr>
 
@@ -143,7 +143,7 @@
                                                 </table>
                                                 <button class="btn login-btn-custom btn-sm me-2"
                                                     style="float:right;">로그인</button>
-                                                <input class="ms-2" type="checkbox" value="">로그인 상태 유지<br><br><br>
+                                                <input class="ms-2" type="checkbox" name="remember">enterpriseName 기억<br><br><br>
                                             </form>
                                         </div>
                                     </div>
@@ -178,7 +178,7 @@
                             </div>
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="joinUser">
-                                    <form action="/user/join" method="post" onsubmit="return valid()">
+                                    <form id="signup-form" action="/user/join" method="post" onsubmit="return valid()">
                                         <table class="table table-borderless">
                                             <div class="text-center d-flex justify-content-end"><br>
                                                 <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
@@ -194,8 +194,8 @@
                                                         placeholder="비밀번호"></td>
                                             </tr>
                                             <tr class="text-center">
-                                                <td><input type="password" class="form-control-lg w-100"
-                                                        name="passwordcheck" placeholder="비밀번호 중복검사">
+                                                <td><input type="password" class="form-control-lg w-100" placeholder="비밀번호 중복검사"
+                                                        id="confirm-password" name="confirm-password" required >
                                                 </td>
                                             </tr>
                                             <tr class="text-center">
@@ -219,13 +219,13 @@
                                                 이용 동의, 광고성 정보 수신에 동의합니다.
                                             </tr>
                                             <br>
-                                            <button class="btn btn-custom btn-sm my-3 ms-3 me-4"
+                                            <button type="submit" class="btn btn-custom btn-sm my-3 ms-3 me-4"
                                                 style="float:right;">회원가입</button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="joinEnterprise">
-                                    <form action="/enterprise/join" method="post" onsubmit="return valid()">
+                                    <form id="signup-form" action="/enterprise/join" method="post" onsubmit="return valid()">
                                         <table class="table table-borderless">
                                             <div class="text-center d-flex justify-content-end"> <br>
                                                 <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
@@ -234,7 +234,7 @@
                                                             placeholder="아이디">
                                                         <button type="button"
                                                             class="btn btn-custom btn-sm col-2 my-2 me-3"
-                                                            onclick="sameCheck()" style="float:right;">중복확인</button>
+                                                            onclick="sameCheckEnt()" style="float:right;">중복확인</button>
                                                     </td>
                                             </div>
                                             <tr class="text-center">
@@ -243,7 +243,7 @@
                                             </tr>
                                             <tr class="text-center">
                                                 <td><input type="password" class="form-control-lg w-100"
-                                                        name="passwordCheck" placeholder="비밀번호 중복검사">
+                                                        id="confirm-password" name="confirm-password" placeholder="비밀번호 중복검사" required>
                                                 </td>
                                             </tr>
                                             <tr class="text-center">
@@ -293,7 +293,7 @@
                                             </tr>
                                         </div>
                                         <br>
-                                        <button class="btn btn-custom btn-sm m-1 my-3 ms-3 me-4"
+                                        <button type="submit" class="btn btn-custom btn-sm m-1 my-3 ms-3 me-4"
                                             style="float:right;">회원가입</button>
                                     </form>
                                 </div>
@@ -328,13 +328,38 @@
                         }).fail((err) => {
                         });
                     }
+                    function sameCheckEnt() {
+                        let enterpriseName = $("#enterpriseName").val();
+                        $.ajax({
+                            type: "get",
+                            url: "/enterprise/enterpriseNameSameCheckEnt?enterpriseName=" + enterpriseName
+                        }).done((res) => {
+                            //console.log(res);
+                            if (res.data === true) {
+                                alert(res.msg);
+                                submitCheck = true;
+                            } else {
+                                alert(res.msg);
+                                submitCheck = false;
+                            }
+                        }).fail((err) => {
+                        });
+                    }
                 </script>
                 
                 <script>
                     const form = document.querySelector('#signup-form');
                     form.addEventListener('submit', (event) => {
                         const agreeCheckbox = document.querySelector('#agree-checkbox');
-                        
+                        const passwordInput = document.querySelector('#password');
+                        const confirmPasswordInput = document.querySelector('#confirm-password');
+
+                        // 비밀번호와 비밀번호 확인이 일치하는지 확인
+                        if (passwordInput.value !== confirmPasswordInput.value) {
+                            event.preventDefault(); // 폼 제출 취소
+                            alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+                        }
+
                         // 개인정보 수집 동의 체크박스가 체크되었는지 확인
                         if (!agreeCheckbox.checked) {
                         event.preventDefault(); // 폼 제출 취소
@@ -342,3 +367,5 @@
                         }
                     });
                 </script>
+            
+                
