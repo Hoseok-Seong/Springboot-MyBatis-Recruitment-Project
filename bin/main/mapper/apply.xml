@@ -34,7 +34,7 @@
    </delete>
 
    <select id="findByUserId" resultType="shop.mtcoding.job.dto.apply.ApplyRespDto$ApplyListForUserRespDto">
-      SELECT a.recruitment_post_id, e.enterprise_name, r.title, a.sector, a.resume_id, a.created_at
+      SELECT a.recruitment_post_id, a.result, e.enterprise_name, r.title, a.sector, a.resume_id, a.created_at
       FROM apply_tb a
       JOIN recruitment_post_tb r
       ON a.enterprise_id = r.enterprise_id
@@ -44,7 +44,7 @@
    </select>
 
    <select id="findByEnterpriseId" resultType="shop.mtcoding.job.dto.apply.ApplyRespDto$ApplyListForEntRespDto">
-      select a.id, a.user_id, u.username, u.name, a.recruitment_post_id, e.enterprise_name, r.title, a.resume_id, a.created_at
+      select a.id, a.result, a.user_id, u.username, u.name, a.recruitment_post_id, e.enterprise_name, r.title, a.resume_id, a.created_at
       from apply_tb a
       join user_tb u
       on a.user_id = u.id

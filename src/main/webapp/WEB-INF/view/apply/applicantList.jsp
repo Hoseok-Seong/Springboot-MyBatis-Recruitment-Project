@@ -33,9 +33,25 @@
                                 <button class="btn btn-warning">이력서</button>
                             </td>
                             <td>${applyList.createdAtToString}</td>
-                            <td>
-                                <button class="btn btn-primary" disabled="disabled">결과</button>
-                            </td>
+                            <c:choose>
+                                <c:when test="${applyList.result == false}">
+                                    <td>
+                                        <button class="btn btn-danger" disabled="disabled">불합격</button>
+                                    </td>
+                                </c:when>
+
+                                <c:when test="${applyList.result == true}">
+                                    <td>
+                                        <button class="btn btn-success" disabled="disabled">합격</button>
+                                    </td>
+                                </c:when>
+
+                                <c:otherwise>
+                                    <td>
+                                        <button class="btn btn-primary" disabled="disabled">결과</button>
+                                    </td>
+                                </c:otherwise>
+                            </c:choose>
 
                             <!-- modal -->
                             <div class="modal fade" id="staticBackdrop${applyList.userId}" data-bs-backdrop="static"
@@ -161,13 +177,13 @@
         </div>
         <script>
             function confirmResult(name, applyId, result) {
-                if (confirm('한번 처리한 요청은 변경이 불가능합니다.\n' + name + '님의 지원서를 합격 처리하시겠습니까?')) {
+                if (confirm(name + '님의 지원서를 합격 처리하시겠습니까?')) {
                     save(applyId, result);
                 }
             }
 
             function confirmResult2(name, applyId, result) {
-                if (confirm('한번 처리한 요청은 변경이 불가능합니다.\n' + name + '님의 지원서를 불합격 처리하시겠습니까?')) {
+                if (confirm(name + '님의 지원서를 불합격 처리하시겠습니까?')) {
                     save(applyId, result);
                 }
             }

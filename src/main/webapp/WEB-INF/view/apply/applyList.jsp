@@ -32,7 +32,17 @@
                             <td>
                                 <button class="btn btn-warning"
                                     onclick="confirmDelete(${applyList.recruitmentPostId})">삭제</button>
-                                <button class="btn btn-primary" disabled="disabled">결과</button>
+                                <c:choose>
+                                    <c:when test="${applyList.result == false}">
+                                        <button class="btn btn-danger" disabled="disabled">불합격</button>
+                                    </c:when>
+                                    <c:when test="${applyList.result == true}">
+                                        <button class="btn btn-success" onclick="success()">합격</button>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <button class="btn btn-primary" disabled="disabled">결과</button>
+                                    </c:otherwise>
+                                </c:choose>
                             </td>
 
                             <!-- modal -->
@@ -164,6 +174,11 @@
                 }).fail((err) => { // 40X, 50X 일때
                     alert(err.responseJSON.msg);
                 });
+            }
+
+            function success() {
+                if (confirm('축하드립니다! 귀하는 서류전형에 합격하셨습니다.\n자세한 면접 일정은 이메일을 확인해주세요.')) {
+                }
             }
         </script>
         <%@ include file="../layout/footer.jsp" %>
