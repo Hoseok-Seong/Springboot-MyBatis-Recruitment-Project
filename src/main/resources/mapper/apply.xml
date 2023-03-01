@@ -40,7 +40,7 @@
    </select>
 
    <select id="findByEnterpriseId" resultType="shop.mtcoding.job.dto.apply.ApplyRespDto$ApplyListForEntRespDto">
-      select a.user_id, u.username, a.recruitment_post_id, e.enterprise_name, r.title, a.created_at
+      select a.user_id, u.username, u.name, a.recruitment_post_id, e.enterprise_name, r.title, a.created_at
       from apply_tb a
       join user_tb u
       on a.user_id = u.id

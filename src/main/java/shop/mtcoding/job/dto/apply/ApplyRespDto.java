@@ -28,6 +28,7 @@ public class ApplyRespDto {
     public static class ApplyListForEntRespDto {
         private Integer userId;
         private String username;
+        private String name;
         private Integer recruitmentPostId;
         private String enterpriseName;
         private String title;
