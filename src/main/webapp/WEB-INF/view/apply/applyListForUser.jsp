@@ -28,11 +28,11 @@
                                 style="cursor: pointer;">
                                 ${applyList.resumeId}
                             </td>
-                            <td>${applyList.createdAt}</td>
+                            <td>${applyList.createdAtToString}</td>
                             <td>
                                 <button class="btn btn-warning"
                                     onclick="confirmDelete(${applyList.recruitmentPostId})">삭제</button>
-                                <button class="btn btn-warning" disabled="disabled">결과</button>
+                                <button class="btn btn-primary" disabled="disabled">결과</button>
                             </td>
                             <!-- <button type="button" class="btn btn-custom" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop${resume.id}">

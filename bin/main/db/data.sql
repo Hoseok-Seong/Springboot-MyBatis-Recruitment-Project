@@ -110,7 +110,7 @@ values('2',
 false, 
 now()); 
 
-insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo, created_at) values(1,'프론트엔드 개발자','경력 3년이상','학력무관','면접 후 결정','스타트업','프론트엔드','강남구 삼성동 75-6 수당빌딩 4층 긴트','
+insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo, created_at) values(1,'프론트엔드 개발자','경력 3년이상','학력무관','면접 후 결정','스타트업','프론트엔드','강남구 삼성동 75-6 수당빌딩 4층','
 GINT 는 인류에게 가장 기본적이며 필수적인 산업인 농업, 그 중에서도 생산과정을 근본적으로<br>
 해결하기 위해 국내 최고 수준 오토모티브, ICT 전문가들이 모인 Ag-Tech 스타트업입니다. <br>
 기술신용평가에서 TI-2등급이라는 최고에 가까운 등급을 받은만큼 기술력, 시장성, 사업성, 경영역량에서도 인정받았습니다.<br>
@@ -611,7 +611,7 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 • 다이어리 지급</br>
 • 내일채움공제 지원</br>', '/images/notiplus_logo.png',now());
 
-insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo, created_at) values(10,'API Gateway Engineer','2년 이상의 네트워크 서버 개발 경력이 있으신 분 ','대졸이상(4년제)','3200','대기업','시스템, 네트워크관리자','성남 분당구 황새울로360번길 42 (서현동, 분당스퀘어)',
+insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo, created_at) values(10,'API Gateway Engineer','2년 이상의 네트워크 서버 개발 경력이 있으신 분 ','대졸이상(4년제)','3200','대기업','시스템, 네트워크관리자','성남 분당구 황새울로360번길 42',
 'LINE 앱에서 서버와 주고받는 모든 API를 가장 앞서서 처리하는 네트워크 게이트웨이를 개발하고 운영합니다.</br>
 </br>
 팀원 모두가 개발 및 운영에 참여하고 동료의 코드를 리뷰합니다. 동료의 원활한 리뷰를 위해 읽기 쉬운 코드, 테스트 및 문서 작성, 동료의 코드를 성실하게 리뷰해 주는 자세, 리뷰를 대하는 열린 태도와 커뮤니케이션 능력이 필요합니다.</br>
