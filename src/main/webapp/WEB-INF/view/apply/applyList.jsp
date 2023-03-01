@@ -34,11 +34,8 @@
                                     onclick="confirmDelete(${applyList.recruitmentPostId})">삭제</button>
                                 <button class="btn btn-primary" disabled="disabled">결과</button>
                             </td>
-                            <!-- <button type="button" class="btn btn-custom" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop${resume.id}">
-                                상세보기
-                            </button> -->
 
+                            <!-- modal -->
                             <div class="modal fade" id="staticBackdrop${applyList.resumeId}" data-bs-backdrop="static"
                                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                 aria-hidden="true">
@@ -144,13 +141,7 @@
                                     </div>
                                 </div>
                             </div>
-
-
                         </tr>
-                    </c:forEach>
-                    <c:forEach items="${resumeList}" var="resume" varStatus="status">
-                        <!-- Modal -->
-
                     </c:forEach>
                 </tbody>
             </table>

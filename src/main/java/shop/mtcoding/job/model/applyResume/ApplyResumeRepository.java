@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface ApplyResumeRepository {
     public int insert(@Param("recruitmentPostId") int recruitmentPostId, @Param("userId") int userId,
+            @Param("enterpriseId") int enterpriseId,
             @Param("title") String title,
             @Param("content") String content,
             @Param("career") String career,
@@ -18,5 +19,7 @@ public interface ApplyResumeRepository {
             @Param("birthdate") String birthdate, @Param("address") String address,
             @Param("finish") boolean finish);
 
-    public List<ApplyResume> findByUserId(int UserId);
+    public List<ApplyResume> findByUserId(int userId);
+
+    public List<ApplyResume> findByEnterpriseId(int enterpriseId);
 }

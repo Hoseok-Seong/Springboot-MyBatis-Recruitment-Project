@@ -86,6 +86,7 @@ create table apply_resume_tb(
     id int auto_increment primary key,
     recruitment_post_id int not null,
     user_id int not null,
+    enterprise_id int not null,
     title longtext not null,
     content longtext not null,
     career longtext not null,

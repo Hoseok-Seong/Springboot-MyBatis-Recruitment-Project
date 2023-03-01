@@ -39,6 +39,7 @@ public class ApplyService {
         Resume resume = resumeRepository.findById(insertApplyReqDto.getResumeId());
 
         int result2 = applyResumeRepository.insert(insertApplyReqDto.getRecruitmentPostId(), resume.getUserId(),
+                insertApplyReqDto.getEnterpriseId(),
                 resume.getTitle(),
                 resume.getContent(), resume.getCareer(), resume.getEducation(), resume.getSkill(),
                 resume.getAward(), resume.getLanguage(), resume.getLink(), resume.getFile(), resume.getBirthdate(),

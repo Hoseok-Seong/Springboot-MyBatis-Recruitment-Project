@@ -32,6 +32,7 @@ public class ApplyRespDto {
         private Integer recruitmentPostId;
         private String enterpriseName;
         private String title;
+        private Integer resumeId;
         private Timestamp createdAt;
 
         public String getCreatedAtToString() {

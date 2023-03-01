@@ -93,10 +93,9 @@ public class ApplyController {
         List<ApplyListForEntRespDto> applyList = applyRepository.findByEnterpriseId(principalEnt.getId());
         model.addAttribute("applyLists", applyList);
 
-        // List<ApplyResume> resumeList =
-        // applyResumeRepository.findByUserId(principal.getId());
+        List<ApplyResume> resumeList = applyResumeRepository.findByEnterpriseId(principalEnt.getId());
 
-        // model.addAttribute("resumeList", resumeList);
+        model.addAttribute("resumeList", resumeList);
 
         return "apply/applicantList";
     }

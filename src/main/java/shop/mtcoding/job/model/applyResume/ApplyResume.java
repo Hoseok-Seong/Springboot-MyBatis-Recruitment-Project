@@ -8,9 +8,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ApplyResume {
-    private int recruitmentPostId;
     private int id;
+    private int recruitmentPostId;
     private int userId;
+    private int enterpriseId;
     private String title;
     private String content;
     private String career;
