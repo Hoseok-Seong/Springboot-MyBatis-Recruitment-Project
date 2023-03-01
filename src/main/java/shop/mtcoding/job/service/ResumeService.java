@@ -60,11 +60,11 @@ public class ResumeService {
         }
         try {
             int result = resumeRepository.updateById(id, updateResumeReqDto.getTitle(),
-            updateResumeReqDto.getContent(),
+                    updateResumeReqDto.getContent(),
                     updateResumeReqDto.getCareer(), updateResumeReqDto.getSkill(), updateResumeReqDto.getAward(),
-            updateResumeReqDto.getAddress(), updateResumeReqDto.getBirthdate(),
+                    updateResumeReqDto.getAddress(), updateResumeReqDto.getBirthdate(),
                     updateResumeReqDto.getLink(), updateResumeReqDto.getEducation(), updateResumeReqDto.getFile(),
-                    updateResumeReqDto.getLanguage());
+                    updateResumeReqDto.getLanguage(), updateResumeReqDto.isFinish());
 
             if (result != 1) {
                 throw new CustomApiException("이력서 수정에 실패하였습니다.", HttpStatus.INTERNAL_SERVER_ERROR);

@@ -54,9 +54,9 @@
                                         <div class="modal-body justify-content-start">
                                             <div class="container-fluid">
                                                 <div class="container-fluid pt-4 ps-0" style="height: 450px;">
-                                                    <h1><input type="text" name="title" id="title" style="border: none;"
-                                                            value="${resumeList[applyList.resumeId-1].title}"
-                                                            placeholder="제목" readonly></h1>
+                                                    <input type="text" name="title" id="title" style="border: none;"
+                                                        value="${resumeList[applyList.resumeId-1].title}"
+                                                        class="form-control" placeholder="제목" readonly>
                                                     <br>
                                                     <br>
                                                     <br>
@@ -164,7 +164,7 @@
         </div>
         <script>
             function confirmDelete(recruitmentPostId) {
-                if (confirm('지원서를 삭제하시면 복구가 불가능합니다. 정말로 삭제하시겠습니까?')) {
+                if (confirm('지원서를 삭제하시면 복구가 불가능합니다.\n정말로 삭제하시겠습니까?')) {
                     deleteById(recruitmentPostId);
                 }
             }

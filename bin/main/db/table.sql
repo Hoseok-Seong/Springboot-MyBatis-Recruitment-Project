@@ -81,3 +81,20 @@ create table apply_tb(
     resume_id int not null,
     created_at timestamp not null
 );
+
+create table apply_resume_tb(
+    id int auto_increment primary key,
+    user_id int not null,
+    title longtext not null,
+    content longtext not null,
+    career longtext not null,
+    education longtext not null,
+    skill longtext not null,
+    award longtext not null,
+    language longtext not null,
+    link longtext not null,
+    file longtext,
+    birthdate longtext not null,
+    address longtext not null,
+    created_at timestamp not null
+);
