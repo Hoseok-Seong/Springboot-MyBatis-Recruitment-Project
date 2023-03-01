@@ -39,8 +39,15 @@
       WHERE user_id = #{userId}
    </select>
 
-   <select id="findByEnterpriseId" resultType="shop.mtcoding.job.model.apply.Apply">
-      select * from apply_tb where enterprise_id = #{enterprise_id} 
+   <select id="findByEnterpriseId" resultType="shop.mtcoding.job.dto.apply.ApplyRespDto$ApplyListForEntRespDto">
+      select a.user_id, u.username, a.recruitment_post_id, e.enterprise_name, r.title, a.created_at
+      from apply_tb a
+      join user_tb u
+      on a.user_id = u.id
+      left outer join enterprise_tb e
+      on a.enterprise_id = e.id
+      left outer join recruitment_post_tb r
+      on a.recruitment_post_id = r.id
+      where a.enterprise_id = #{enterpriseId}
    </select>
-
 </mapper>

@@ -182,14 +182,6 @@
                                                         style="height: 100px">${resume.link}</textarea>
                                                 </div>
                                                 <br>
-                                                <div class="mt-5">포트폴리오 파일</div>
-                                                <hr class="md-0">
-                                                <div class="mb-3">
-                                                    <label for="formFileMultiple" class="form-label">파일 첨부하기</label>
-                                                    <input class="form-control" type="file" name="file" id="file"
-                                                        multiple>
-                                                </div>
-                                                <br>
                                                 <hr class="md-0">
                                             </div>
                                         </div>

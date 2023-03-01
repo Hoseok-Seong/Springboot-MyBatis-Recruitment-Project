@@ -4,13 +4,11 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">기업명</th>
-                        <th scope="col">공고 번호</th>
-                        <th scope="col">제목</th>
-                        <th scope="col">분야</th>
-                        <th scope="col">이력서번호</th>
+                        <th scope="col">아이디</th>
+                        <th scope="col">이름</th>
+                        <th scope="col">이력서</th>
                         <th scope="col">지원일자</th>
-                        <th scope="col"></th>
+                        <th scope="col">결과</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -136,12 +134,6 @@
                                                     <textarea class="form-control" name="link" id="link"
                                                         style="height: 100px"
                                                         readonly>${resumeList[applyList.resumeId-1].link}</textarea>
-                                                </div>
-                                                <br>
-                                                <div class="mt-5">포트폴리오 파일</div>
-                                                <hr class="md-0">
-                                                <div class="mb-3">
-
                                                 </div>
                                                 <br>
                                                 <hr class="md-0">

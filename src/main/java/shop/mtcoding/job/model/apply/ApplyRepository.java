@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import shop.mtcoding.job.dto.apply.ApplyRespDto.ApplyListForEntRespDto;
 import shop.mtcoding.job.dto.apply.ApplyRespDto.ApplyListForUserRespDto;
 
 @Mapper
@@ -31,5 +32,5 @@ public interface ApplyRepository {
 
         public List<ApplyListForUserRespDto> findByUserId(int UserId);
 
-        public List<Apply> findByEnterpriseId(int enterpriseId);
+        public List<ApplyListForEntRespDto> findByEnterpriseId(int enterpriseId);
 }

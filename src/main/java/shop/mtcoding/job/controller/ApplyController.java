@@ -18,12 +18,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.apply.ApplyReqDto.InsertApplyReqDto;
+import shop.mtcoding.job.dto.apply.ApplyRespDto.ApplyListForEntRespDto;
 import shop.mtcoding.job.dto.apply.ApplyRespDto.ApplyListForUserRespDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.apply.ApplyRepository;
 import shop.mtcoding.job.model.applyResume.ApplyResume;
 import shop.mtcoding.job.model.applyResume.ApplyResumeRepository;
+import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.service.ApplyService;
 
@@ -75,10 +77,28 @@ public class ApplyController {
         model.addAttribute("applyLists", applyList);
 
         List<ApplyResume> resumeList = applyResumeRepository.findByUserId(principal.getId());
-        
+
         model.addAttribute("resumeList", resumeList);
 
-        return "apply/applyListForUser";
+        return "apply/applyList";
+    }
+
+    @GetMapping("/applicantList")
+    public String applicantList(Model model, ApplyListForEntRespDto applyListForEntRespDto) {
+        Enterprise principalEnt = (Enterprise) session.getAttribute("principalEnt");
+        if (principalEnt == null) {
+            throw new CustomException("기업회원으로 로그인을 해주세요", HttpStatus.UNAUTHORIZED);
+        }
+
+        List<ApplyListForEntRespDto> applyList = applyRepository.findByEnterpriseId(principalEnt.getId());
+        model.addAttribute("applyLists", applyList);
+
+        // List<ApplyResume> resumeList =
+        // applyResumeRepository.findByUserId(principal.getId());
+
+        // model.addAttribute("resumeList", resumeList);
+
+        return "apply/applicantList";
     }
 
 }

@@ -43,7 +43,7 @@
                                             <a class="nav-link text-dark" href="/recruitment/list">채용</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link text-dark" href="/recruitment/list">지원자 현황</a>
+                                            <a class="nav-link text-dark" href="/applicantList">지원자현황</a>
                                         </li>
                                     </c:when>
 
@@ -59,7 +59,7 @@
                                         </li>
                                     </c:otherwise>
                                 </c:choose>
-                                
+
                             </ul>
                             <ul class="navbar-nav col-5 justify-content-end">
                                 <a class="nav-link" href="#"><i class="bi bi-search"></i></a>

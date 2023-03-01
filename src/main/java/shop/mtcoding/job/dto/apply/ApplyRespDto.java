@@ -22,4 +22,19 @@ public class ApplyRespDto {
             return DateUtil.format(createdAt);
         }
     }
+
+    @Getter
+    @Setter
+    public static class ApplyListForEntRespDto {
+        private Integer userId;
+        private String username;
+        private Integer recruitmentPostId;
+        private String enterpriseName;
+        private String title;
+        private Timestamp createdAt;
+
+        public String getCreatedAtToString() {
+            return DateUtil.format(createdAt);
+        }
+    }
 }
