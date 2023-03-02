@@ -77,13 +77,12 @@
                             <dl>
                                 <dt>마감기한</dt>
                                 <dd>${recruitmentPostDtos.deadline}</dd>
-                                        <dd>
+                                <dd>
                                     <c:choose>
-                                        
-                                    <c:when test="${dDay < 0}"><p class="text-danger"><b>기간이 지났습니다</b></p></c:when>
-                                    <c:otherwise><dt>D-day</dt>D-${dDay}</c:otherwise>
+                                        <c:when test="${dDay < 0}"><p class="text-danger"><b>기간이 지났습니다</b></p></c:when>
+                                        <c:otherwise><dt>D-${dDay}</dt></c:otherwise>
                                     </c:choose>
-                                    </dd>
+                                </dd>
                             </dl>
                         </div>
                     </div>

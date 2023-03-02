@@ -25,6 +25,7 @@ import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.SaveRecruitmentPostReqDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.UpdateRecruitmentPostReqDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostDetailRespDto;
+import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostListRespDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostSearchRespDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
@@ -266,7 +267,14 @@ public class RecruitmentController {
 
     @GetMapping("recruitment/list")
     public String recruitmentPostList(Model model) {
-        model.addAttribute("Posts", recruitmentPostRepository.findByPost());
+        List<RecruitmentPostListRespDto> posts = recruitmentPostRepository.findByPost();
+        // d-day 계산
+        for (RecruitmentPostListRespDto post : posts) {
+            post.calculateDiffDays(); // D-Day 계산
+        }
+
+        model.addAttribute("Posts", posts);
+
         return "recruitment/list";
     }
 

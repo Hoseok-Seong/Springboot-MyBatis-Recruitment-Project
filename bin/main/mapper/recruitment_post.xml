@@ -51,7 +51,7 @@
    </delete>
 
    <select id="findByPost" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$RecruitmentPostListRespDto">
-      SELECT e.enterprise_name, r.title,  r.id, r.enterprise_logo, r.created_at
+      SELECT e.enterprise_name, r.title,  r.id, r.enterprise_logo,r.deadline, r.created_at
       FROM recruitment_post_tb r
       JOIN enterprise_tb e
       ON r.enterprise_id = e.id;
