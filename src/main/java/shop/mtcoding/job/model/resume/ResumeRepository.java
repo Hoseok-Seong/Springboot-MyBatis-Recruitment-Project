@@ -25,10 +25,9 @@ public interface ResumeRepository {
                         @Param("content") String content, @Param("career") String career, @Param("skill") String skill,
                         @Param("award") String award,
                         @Param("address") String address, @Param("birthdate") String birthdate,
-
                         @Param("link") String link,
                         @Param("education") String education, @Param("file") String file,
-                        @Param("language") String language);
+                        @Param("language") String language, @Param("finish") boolean finish);
 
         public int deleteById(int id);
 

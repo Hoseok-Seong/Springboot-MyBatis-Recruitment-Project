@@ -95,16 +95,6 @@
         <textarea class="form-control" name="link" id="link" style="height: 100px"></textarea>
       </div>
       <br>
-      <div class="mt-5">포트폴리오 파일</div>
-      <hr class="md-0">
-      <div style="background-color: aliceblue">
-        <p>&nbsp;&nbsp;• 자신이 가지고 있는 포트폴리오 파일이 있다면 첨부해주세요.</p>
-      </div>
-      <div class="mb-3">
-        <label for="formFileMultiple" class="form-label">파일 첨부하기</label>
-        <input class="form-control" type="file" name="file" id="file" multiple>
-      </div>
-      <br>
       <hr class="md-0">
       <div style="height: 80px;" class="justify-content-center">
         <script>

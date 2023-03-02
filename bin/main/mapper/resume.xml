@@ -9,7 +9,7 @@
     
    <update id="updateById">
       update resume_tb set title=#{title}, content=#{content}, career=#{career}, skill=#{skill}, award = #{award}, address = #{address}, 
-      birthdate = #{birthdate}, link = #{link}, education = #{education}, file = #{file}, language = #{language} where id = #{id}
+      birthdate = #{birthdate}, link = #{link}, education = #{education}, file = #{file}, language = #{language}, finish = #{finish} where id = #{id}
    </update>
 
    <select id="findAll" resultType="shop.mtcoding.job.model.resume.Resume">

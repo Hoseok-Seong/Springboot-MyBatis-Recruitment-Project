@@ -70,7 +70,7 @@
 
 
                     <div>
-                        <div>
+                        <div style="width: 95%;">
                             ${recruitmentPostDtos.content}
                         </div>
                     </div>
@@ -85,98 +85,129 @@
                 <div class="col-4">
                     <div class="d-flex justify-content-center py-3">
                         <c:choose>
-                            <c:when test="${principalEnt == null}">
-                                <div class="card" style="width: 22rem;">
-                                    <div class="card-body">
-                                        <br>
-                                        <h5 class="card-title">지원하기</h5>
-                                        <br>
-                                        <p class="card-text">지금 지원해보세요</p>
-                                        <button style="background-color: #36f;" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseExample" aria-expanded="false"
-                                            aria-controls="collapseExample">
-                                            이력서 찾아보기
-                                        </button>
-                                        <div class="collapse" id="collapseExample">
-                                            <div class="card card-body">
-                                                <c:choose>
-                                                    <c:when test="${principal == null}">
-                                                        로그인이 필요합니다
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <c:forEach items="${resumes}" var="resume">
-                                                            <div class="card"
-                                                                style="width: 14rem; background-color: #f2f4f7">
-                                                                <div class="card-body">
-                                                                    <div class="row">
-                                                                        <h5 class="card-title">${resume.id}</h5>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="col-9">
-                                                                            <p class="card-text">${resume.title}</p>
-                                                                        </div>
-                                                                        <div class="col-3">
-                                                                            <input class="form-check-input" type="radio"
-                                                                                name="chooseResume" id="chooseResume"
-                                                                                value=" ${resume.id}">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <br>
-                                                        </c:forEach>
-                                                        <div>
-                                                            <button type="button" onClick="confirmApply()">지원하기</button>
-                                                        </div>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </c:when>
-                            <c:when test="${principalEnt != null}">
-                                <div class="card" style="width: 22rem;">
-                                    <div class="card-body">
-                                        <br>
-                                        <h5 class="card-title">지원하기</h5>
-                                        <br>
-                                        <p class="card-text">지금 지원해보세요</p>
-                                        <button style="background-color: #36f;" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseExample" aria-expanded="false"
-                                            aria-controls="collapseExample">
-                                            이력서 찾아보기
-                                        </button>
-                                        <div class="collapse" id="collapseExample">
-                                            <div class="card card-body">
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <c:when test="${principalEnt.id == recruitmentPostDtos.enterpriseId}">
+                            <%-- 개인회원 인증 됐을 시 --%>
+                                <c:when test="${principal != null}">
                                     <div class="card" style="width: 22rem;">
                                         <div class="card-body">
                                             <br>
                                             <h5 class="card-title">지원하기</h5>
                                             <br>
                                             <p class="card-text">지금 지원해보세요</p>
-                                            <a href="/recruitment/${recruitmentPostDtos.id}/updateForm">수정</a>
-                                            <button type="button">삭제</button>
+                                            <button style="background-color: #36f;" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                                                aria-expanded="false" aria-controls="collapseExample">
+                                                이력서 찾아보기
+                                            </button>
                                             <div class="collapse" id="collapseExample">
                                                 <div class="card card-body">
-
+                                                    <c:choose>
+                                                        <%-- 유저 인증 안 됐을 시 --%>
+                                                            <c:when test="${principal == null}">
+                                                                로그인이 필요합니다
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <c:forEach items="${resumes}" var="resume">
+                                                                    <div class="card"
+                                                                        style="width: 14rem; background-color: #f2f4f7">
+                                                                        <div class="card-body">
+                                                                            <div class="row">
+                                                                                <div class="col-9">
+                                                                                    <p class="card-text">${resume.title}
+                                                                                    </p>
+                                                                                </div>
+                                                                                <div class="col-3">
+                                                                                    <input class="form-check-input"
+                                                                                        type="radio" name="chooseResume"
+                                                                                        id="chooseResume"
+                                                                                        value="${resume.id}">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                </c:forEach>
+                                                                <div>
+                                                                    <button type="button"
+                                                                        onClick="confirmApply()">지원하기</button>
+                                                                </div>
+                                                            </c:otherwise>
+                                                    </c:choose>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <a href="/recruitment/${recruitmentPostDtos.id}/updateForm">수정</a>
-                                        <button type="button">삭제</button>
-                                    </div>
                                 </c:when>
-                            </c:when>
+
+                                <%-- 기업회원 인증됐을 시 --%>
+                                    <c:when test="${principalEnt != null}">
+                                        <div class="col">
+                                            <div class="card" style="width: 22rem;">
+                                                <div class="card-body">
+                                                    <br>
+                                                    <h5 class="card-title">매칭 서비스</h5>
+                                                    <br>
+                                                    <p class="card-text">회사가 찾는 인재를 매칭해드려요</p>
+                                                    <button style="background-color: #36f;" type="button">
+                                                        매칭 서비스 사용하기
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <c:choose>
+                                                <%-- 자신이 쓴 공고일 경우 --%>
+                                                    <c:when
+                                                        test="${principalEnt.id == recruitmentPostDtos.enterpriseId}">
+                                                        <div class="card mt-5" style="width: 22rem;">
+                                                            <div class="card card-body">
+                                                                <button class="my_blue_button"
+                                                                    href="/recruitment/${recruitmentPostDtos.id}/updateForm">수정</button>
+                                                                <button class="my_gray_button"
+                                                                    href="/recruitment/${recruitmentPostDtos.id}/updateForm">삭제</button>
+                                                            </div>
+                                                        </div>
+                                                    </c:when>
+                                            </c:choose>
+                                        </div>
+                                    </c:when>
+
+                                    <%-- 아무 인증이 안됐을 경우--%>
+                                        <c:when test="${principal == null && principalEnt == null}">
+                                            <div class="col">
+                                                <div class="card" style="width: 22rem;">
+                                                    <div class="card-body">
+                                                        <br>
+                                                        <h5 class="card-title">지원하기</h5>
+                                                        <br>
+                                                        <p class="card-text">지금 지원해보세요</p>
+                                                        <button style="background-color: #36f;" type="button"
+                                                            data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                                                            aria-expanded="false" aria-controls="collapseExample">
+                                                            이력서 찾아보기
+                                                        </button>
+                                                        <div class="collapse" id="collapseExample">
+                                                            <div class="card card-body">
+                                                                <c:choose>
+                                                                    <%-- 유저 인증 안 됐을 시 --%>
+                                                                        <c:when test="${principal == null}">
+                                                                            로그인이 필요합니다
+                                                                        </c:when>
+                                                                </c:choose>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card mt-5" style="width: 22rem;">
+                                                    <div class="card-body">
+                                                        <br>
+                                                        <h5 class="card-title">매칭 서비스</h5>
+                                                        <br>
+                                                        <p class="card-text">회사가 찾는 인재를 매칭해드려요</p>
+                                                        <button style="background-color: #36f;" type="button">
+                                                            매칭 서비스 사용하기
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </c:when>
                         </c:choose>
                     </div>
                 </div>
@@ -190,7 +221,7 @@
                 if (selectedResumeId == null) {
                     alert("이력서를 선택해 주세요.")
                 } else {
-                    if (confirm(selectedResumeId + '번 이력서를 선택하셨습니다. \n 이력서를 제출하시면 수정이 불가능합니다. \n 정말로 제출하시겠습니까? ')) {
+                    if (confirm('이력서를 선택하셨습니다.\n이력서를 제출하시면 수정이 불가능합니다.\n정말로 제출하시겠습니까? ')) {
                         ApplyById(selectedResumeId);
                     }
                 }

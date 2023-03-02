@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.mtcoding.job.model.applyResume.ApplyResumeRepository">
+   <insert id="insert">
+      insert into apply_resume_tb(recruitment_post_id, user_id, enterprise_id, title, content, career, education, skill, award, language, link, file, birthdate, address, finish, created_at) 
+      values(#{recruitmentPostId}, #{userId}, #{enterpriseId}, #{title}, #{content}, #{career}, #{education}, #{skill}, #{award}, #{language}, #{link}, #{file}, #{birthdate}, #{address}, #{finish}, now()) 
+   </insert>
+
+   <select id="findByUserId" resultType="shop.mtcoding.job.model.applyResume.ApplyResume">
+      select * from apply_resume_tb where user_id = #{userId} 
+   </select>
+
+   <select id="findByEnterpriseId" resultType="shop.mtcoding.job.model.applyResume.ApplyResume">
+      select * from apply_resume_tb where enterprise_id = #{enterpriseId} 
+   </select>
+</mapper>

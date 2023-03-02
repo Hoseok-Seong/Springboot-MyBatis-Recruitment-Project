@@ -14,5 +14,6 @@ public class Apply {
     private int recruitmentPostId;
     private String sector;
     private int resumeId;
+    private Boolean result;
     private Timestamp createdAt;
 }

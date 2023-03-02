@@ -25,8 +25,37 @@
       select * from apply_tb where user_id = #{userId} and recruitment_post_id = #{recruitmentPostId}  
    </select>
 
+   <select id="findByIdWithEnterpriseId" resultType="shop.mtcoding.job.model.apply.Apply">
+      select * from apply_tb where id = #{id} and enterprise_id = #{enterpriseId}  
+   </select>
+
    <delete id="deleteByUserIdWithRecruitmentPostId">
       delete from apply_tb where user_id = #{userId} and recruitment_post_id = #{recruitmentPostId}  
    </delete>
 
+   <select id="findByUserId" resultType="shop.mtcoding.job.dto.apply.ApplyRespDto$ApplyListForUserRespDto">
+      SELECT a.recruitment_post_id, a.result, e.enterprise_name, r.title, a.sector, a.resume_id, a.created_at
+      FROM apply_tb a
+      JOIN recruitment_post_tb r
+      ON a.enterprise_id = r.enterprise_id
+      LEFT OUTER JOIN enterprise_tb e
+      ON a.enterprise_id = e.id
+      WHERE user_id = #{userId}
+   </select>
+
+   <select id="findByEnterpriseId" resultType="shop.mtcoding.job.dto.apply.ApplyRespDto$ApplyListForEntRespDto">
+      select a.id, a.result, a.user_id, u.username, u.name, a.recruitment_post_id, e.enterprise_name, r.title, a.resume_id, a.created_at
+      from apply_tb a
+      join user_tb u
+      on a.user_id = u.id
+      left outer join enterprise_tb e
+      on a.enterprise_id = e.id
+      left outer join recruitment_post_tb r
+      on a.recruitment_post_id = r.id
+      where a.enterprise_id = #{enterpriseId}
+   </select>
+
+   <update id="updateResultById">
+      update apply_tb set result = #{result} where id = #{id}
+   </update>
 </mapper>
