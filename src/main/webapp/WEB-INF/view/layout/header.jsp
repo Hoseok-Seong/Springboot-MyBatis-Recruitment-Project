@@ -137,7 +137,7 @@
                                                     </tr>
 
                                                     <tr class="text-center">
-                                                        <td><input type="password" class="form-control-lg w-100"
+                                                        <td><input type="password" class="form-control-lg w-100" 
                                                                 name="password" placeholder="비밀번호"></td>
                                                     </tr>
                                                 </table>
@@ -190,7 +190,7 @@
                                                     </td>
                                             </div>
                                             <tr class="text-center">
-                                                <td><input type="password" class="form-control-lg w-100" name="password"
+                                                <td><input type="password" class="form-control-lg w-100" id="password" name="password"
                                                         placeholder="비밀번호"></td>
                                             </tr>
                                             <tr class="text-center">
@@ -238,7 +238,7 @@
                                                     </td>
                                             </div>
                                             <tr class="text-center">
-                                                <td><input type="password" class="form-control-lg w-100" name="password"
+                                                <td><input type="password" class="form-control-lg w-100" name="password" id="password"
                                                         placeholder="비밀번호"></td>
                                             </tr>
                                             <tr class="text-center">
