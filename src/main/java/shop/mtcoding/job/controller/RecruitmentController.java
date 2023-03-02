@@ -1,8 +1,6 @@
 package shop.mtcoding.job.controller;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -120,6 +118,15 @@ public class RecruitmentController {
         }
         if (updateRecruitmentPostReqDto.getEnterpriseLogo() == null) {
             throw new CustomApiException("로고 사진을 선택해주세요");
+        }
+        if (updateRecruitmentPostReqDto.getDeadline() == null || updateRecruitmentPostReqDto.getDeadline().isEmpty()) {
+            throw new CustomApiException("마감기한을 설정해주세요");
+        }
+
+        LocalDate deadline = LocalDate.parse(updateRecruitmentPostReqDto.getDeadline());
+        LocalDate today = LocalDate.now();
+        if (deadline.isBefore(today)) {
+            throw new CustomApiException("과거는 선택 할 수 없습니다.");
         }
 
         recruitmentService.채용공고수정(id, updateRecruitmentPostReqDto, principalEnt.getId());

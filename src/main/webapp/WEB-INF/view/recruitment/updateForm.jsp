@@ -151,6 +151,10 @@
                                 </option>
                             </select>
                         </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">채용공고 마감기한</span>
+                            <input type="date" class="form-control" name="deadline" id="deadline" min="2000-01-01" required value="${recruitment.deadline}" />
+                        </div>
                     </div>
                 </div>
 
@@ -206,6 +210,7 @@
                     alert('파일을 선택해주세요.');
                     return;
                 }
+                formData.append('deadline', $('#deadline').val());
 
                 $.ajax({
                     type: 'put',
