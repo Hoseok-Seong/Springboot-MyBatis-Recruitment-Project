@@ -178,7 +178,7 @@ public class RecruitmentController {
         return new ResponseEntity<>(new ResponseDto<>(1, "채용공고 작성 성공", null), HttpStatus.CREATED);
     }
 
-    @GetMapping("recruitment/saveForm")
+    @GetMapping("/recruitment/saveForm")
     public String recruitmentSaveForm() {
         Enterprise principalEnt = (Enterprise) session.getAttribute("principalEnt");
         if (principalEnt == null) {
@@ -187,7 +187,7 @@ public class RecruitmentController {
         return "recruitment/saveForm";
     }
 
-    @GetMapping("recruitment/{id}/updateForm")
+    @GetMapping("/recruitment/{id}/updateForm")
     public String recruitmentUpdateForm(@PathVariable int id, Model model) {
         Enterprise principalEnt = (Enterprise) session.getAttribute("principalEnt");
         if (principalEnt == null) {
@@ -206,7 +206,7 @@ public class RecruitmentController {
         return "recruitment/updateForm";
     }
 
-    @GetMapping("recruitment/detail/{id}")
+    @GetMapping("/recruitment/detail/{id}")
     public String recruitmentPostDetail(@PathVariable int id, Model model) {
         model.addAttribute("recruitmentPostDtos", recruitmentPostRepository.findByIdWithEnterpriseId(id));
         model.addAttribute("recruitmentPostSkillDtos", recruitmentSkillRepository.findByRecruitmentId(id));
@@ -219,7 +219,7 @@ public class RecruitmentController {
         return "recruitment/detail";
     }
 
-    @GetMapping("recruitment/list")
+    @GetMapping("/recruitment/list")
     public String recruitmentPostList(Model model) {
         model.addAttribute("Posts", recruitmentPostRepository.findByPost());
         return "recruitment/list";
@@ -231,4 +231,12 @@ public class RecruitmentController {
         List<RecruitmentPostSearchRespDto> postPSList = recruitmentService.채용정보검색(recruitmentPostSearchRespDto);
         return new ResponseEntity<>(new ResponseDto<>(1, "검색 성공", postPSList), HttpStatus.OK);
     }
+
+    @PostMapping("/recruitment/category")
+    public ResponseEntity<?> category(@RequestBody RecruitmentPostSearchRespDto recruitmentPostSearchRespDto,
+            Model model) {
+        List<RecruitmentPostSearchRespDto> postPSList = recruitmentService.채용정보검색(recruitmentPostSearchRespDto);
+        return new ResponseEntity<>(new ResponseDto<>(1, "검색 성공", postPSList), HttpStatus.OK);
+    }
+
 }
