@@ -39,12 +39,10 @@
                                 </dd>
                             </dl>
                             <dl>
-                                <dt>
-                                    기술스택
-                                </dt>
+                                <dt>기술스택</dt>
                                 <dd>
                                     <c:forEach items="${recruitmentPostSkillDtos}" var="recruitmentPostSkillDto">
-                                        ${recruitmentPostSkillDto.skill}<br>
+                                        ${skillMap[recruitmentPostSkillDto.skill]}<br>
                                     </c:forEach>
                                 </dd>
                             </dl>
