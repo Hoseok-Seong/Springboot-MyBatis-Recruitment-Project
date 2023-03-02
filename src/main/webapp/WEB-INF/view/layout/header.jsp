@@ -67,30 +67,49 @@
                                     <c:when test="${not empty principal or not empty principalEnt}">
                                         <!-- 세션에 principal 또는 principalEnt 중 하나 이상이 존재하는 경우 -->
                                         <li class="nav-item">
-                                            <a class="nav-link text-dark" href=""><i class="bi bi-bell"></i></a>
+                                            <a class="nav-link text-dark" href=""><i class=" bi
+                                                bi-bell"></i></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="/logout"><img src="/images/profile.png" style="width: 35px;"
-                                                    class="rounded-circle" alt="Cinque Terre"></a>
-                                        </li>
-                                    </c:when>
+                                            <div class="dropdown">
+                                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                                    id="dropdownMenuLink" data-bs-toggle="dropdown"
+                                                    aria-expanded="false"
+                                                    style="background-color: transparent; border: none;">
+                                                    <img src="/images/profile.png" style="width: 35px;"
+                                                        class="rounded-circle" alt="Cinque Terre">
+                                                </a>
 
-                                    <c:otherwise>
-                                        <!-- 세션에 principal 또는 principalEnt가 존재하지 않는 경우 -->
-                                        <li class="nav-item">
-                                            <a class="nav-link text-dark" data-toggle="modal" data-target="#login"
-                                                style="cursor: pointer;">로그인</a>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" ">
+                                                    <li><a class=" dropdown-item" href="logout">로그아웃</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link text-dark" data-toggle="modal" data-target="#join"
-                                                style="cursor: pointer;">회원가입</a>
+                                        <li>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#update"
+                                                style="cursor: pointer;">회원수정</a>
                                         </li>
-                                    </c:otherwise>
-                                </c:choose>
                             </ul>
                         </div>
-                    </nav>
+
+                        </li>
+                        </c:when>
+
+                        <c:otherwise>
+                            <!-- 세션에 principal 또는 principalEnt가 존재하지 않는 경우 -->
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" data-toggle="modal" data-target="#login"
+                                    style="cursor: pointer;">로그인</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" data-toggle="modal" data-target="#join"
+                                    style="cursor: pointer;">회원가입</a>
+                            </li>
+                        </c:otherwise>
+                        </c:choose>
+                        </ul>
                 </div>
+                </nav>
+            </div>
             </div>
             <hr class="my-1">
             </header>
@@ -169,6 +188,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- The Modal -->
                 <div class="modal" id="join">
                     <div class="modal-dialog modal-dialog-centered">
@@ -400,3 +420,123 @@
                 </script>
                 
          
+                </script>
+
+
+
+
+
+                <div class="modal" id="update">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header ms-2">
+                                <h4 class="modal-title">회원수정</h4>
+                                <!-- Modal footer -->
+                                <button class="btn btn-custome" type="button" data-dismiss="modal">X</button>
+                            </div>
+                        <div class="tab-content">
+                            <c:choose>
+                                <c:when test="${not empty principal}">
+
+                                    <div class="tab-pane fade show active" id="updateUser">
+                                        <form action="/user/update" method="post">
+                                            <table class="table table-borderless">
+
+                                                <tr class="text-center">
+                                                    <td><input type="password" class="form-control-lg w-100"
+                                                            name="password" placeholder="비밀번호"></td>
+                                                </tr>
+                                                <tr class="text-center">
+                                                    <td><input type="password" class="form-control-lg w-100"
+                                                            name="passwordcheck" placeholder="비밀번호 중복검사">
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="text-center">
+                                                    <td><input type="text" class="form-control-lg w-100" name="email"
+                                                            placeholder="이메일" value="${principal.email}"></td>
+                                                </tr>
+                                                <div class="text-center">
+                                                    <td><input type="text" class="form-control-lg w-100" name="contact"
+                                                            placeholder="전화번호" value="${principal.contact}">
+                                                    </td>
+                                                </div>
+                                            </table>
+                                            <div class=" text-center">
+
+                                                <br>
+                                                <button class="btn btn-custom btn-sm my-3 ms-3 me-4"
+                                                    style="float:right;">회원정보수정</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </c:when>
+
+                                <c:otherwise>
+
+                                    <div class="tab-pane fade show active" id="updateEnterprise">
+                                        <form action="/enterprise/update" method="post">
+                                            <table class="table table-borderless">
+
+                                                <tr class="text-center">
+                                                    <td><input type="password" class="form-control-lg w-100"
+                                                            name="password" placeholder="비밀번호"></td>
+                                                </tr>
+                                                <tr class="text-center">
+                                                    <td><input type="password" class="form-control-lg w-100"
+                                                            name="passwordCheck" placeholder="비밀번호 중복검사">
+                                                    </td>
+                                                </tr>
+                                                <tr class="text-center">
+                                                    <td><input type="text" class="form-control-lg w-100" name="address"
+                                                            placeholder="주소" value="${principalEnt.address}"></td>
+                                                </tr>
+                                                <div class="text-center">
+                                                    <td><input type="text" class="form-control-lg w-100" name="contact"
+                                                            placeholder="전화번호" value="${principalEnt.contact}">
+                                                    </td>
+                                                </div>
+                                                <tr class="text-center">
+                                                    <td><input type="text" class="form-control-lg w-100" name="email"
+                                                            placeholder="이메일" value="${principalEnt.email}"></td>
+                                                </tr>
+                                            </table>
+                                            <div class="form-control-sm">
+                                                &nbsp;회사분류
+                                                <label for="exampleFormControlSelect1"></label>
+                                                <select class="form-control" id="exampleFormControlSelect1"
+                                                    name="sector">
+                                                    <option value="SI">SI</option>
+                                                    <option value="솔루션">솔루션</option>
+                                                    <option value="웹 에이젼시">웹 에이젼시</option>
+                                                    <option value="인력소싱">인력소싱</option>
+                                                    <option value="IT 대기업 계열사">IT 대기업 계열사</option>
+                                                    <option value="IT 스타트업">IT 스타트업</option>
+                                                    <option value="IT 서비">IT 서비스</option>
+                                                    <option value="IT 컨설팅 회사">IT 컨설팅 회사</option>
+                                                </select>
+                                            </div><br>
+
+                                            <div class="form-control-sm">
+                                                &nbsp;기업형태
+                                                <label for="exampleFormControlSelect1"></label>
+                                                <select class="form-control" id="exampleFormControlSelect1" name="size">
+                                                    <option value="스타트업">스타트업</option>
+                                                    <option value="중소기업">중소기업</option>
+                                                    <option value="중견기업">중견기업</option>
+                                                    <option value="대기업">대기업</option>
+                                                </select>
+                                            </div><br>
+
+                                            <br>
+                                            <button class="btn btn-custom btn-sm m-1 my-3 ms-3 me-4"
+                                                style="float:right;">회원정보수정</button>
+                                        </form>
+                                    </div>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+                    </div>
+                </div>
+                </div>

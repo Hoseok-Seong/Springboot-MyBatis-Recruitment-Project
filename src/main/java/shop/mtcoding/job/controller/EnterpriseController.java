@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.JoinEnterpriseReqDto;
 import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.LoginEnterpriseReqDto;
+import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.UpdateEnterpriseReqDto;
+import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.enterprise.EnterpriseRepository;
@@ -31,7 +34,8 @@ public class EnterpriseController {
     private HttpSession session;
 
     @PostMapping("/enterprise/login")
-    public String enterpriseLogin(LoginEnterpriseReqDto loginEnterpriseReqDto, String rememberEnt, HttpServletResponse response) {
+    public String enterpriseLogin(LoginEnterpriseReqDto loginEnterpriseReqDto, String rememberEnt,
+            HttpServletResponse response) {
         if (loginEnterpriseReqDto.getEnterpriseName() == null || loginEnterpriseReqDto.getEnterpriseName().isEmpty()) {
             throw new CustomException("아이디를 작성해주세요");
         }
@@ -106,6 +110,39 @@ public class EnterpriseController {
         } else {
             return new ResponseDto<>(1, "해당 아이디로 회원가입이 가능합니다.", true);
         }
+    }
+
+    @PostMapping("/enterprise/update")
+    public String enterpriseUpdate(UpdateEnterpriseReqDto updateEnterpriseReqDto) {
+
+        Enterprise principalEnt = (Enterprise) session.getAttribute("principalEnt");
+        if (principalEnt == null) {
+            throw new CustomApiException("로그인을 먼저 해주세요", HttpStatus.UNAUTHORIZED);
+        }
+
+        if (updateEnterpriseReqDto.getPassword() == null || updateEnterpriseReqDto.getPassword().isEmpty()) {
+            throw new CustomException("비밀번호를 작성해주세요");
+        }
+        if (updateEnterpriseReqDto.getAddress() == null || updateEnterpriseReqDto.getAddress().isEmpty()) {
+            throw new CustomException("주소를 작성해주세요");
+        }
+        if (updateEnterpriseReqDto.getEmail() == null || updateEnterpriseReqDto.getEmail().isEmpty()) {
+            throw new CustomException("email을 작성해주세요");
+        }
+        if (updateEnterpriseReqDto.getContact() == null || updateEnterpriseReqDto.getContact().isEmpty()) {
+            throw new CustomException("전화번호를 입력해주세요");
+        }
+        if (updateEnterpriseReqDto.getSector() == null || updateEnterpriseReqDto.getSector().isEmpty()) {
+            throw new CustomException("분야를 작성해주세요");
+        }
+        if (updateEnterpriseReqDto.getSize() == null || updateEnterpriseReqDto.getSize().isEmpty()) {
+            throw new CustomException("기업규모를 작성해주세요");
+        }
+
+        enterpriseService.기업정보수정하기(updateEnterpriseReqDto, principalEnt.getId());
+        session.invalidate();
+
+        return "redirect:/";
     }
 
 }
