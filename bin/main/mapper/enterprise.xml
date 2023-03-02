@@ -7,8 +7,8 @@
    </insert>
     
    <update id="updateById">
-      update enterprise_tb set enterprise_name = #{enterpriseName}, password = #{password}, address = #{address}, contact = #{contact}, 
-      email = #{email}, size = #{size} where id = #{id}
+      update enterprise_tb set  password = #{password}, salt = #{salt}, address = #{address}, contact = #{contact}, 
+      email = #{email}, size = #{size},sector=#{sector} where id = #{id}
    </update>
 
    <select id="findAll" resultType="shop.mtcoding.job.model.enterprise.Enterprise">

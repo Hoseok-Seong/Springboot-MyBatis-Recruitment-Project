@@ -7,7 +7,7 @@
    </insert>
     
    <update id="updateById">
-      update user_tb set username = #{username}, password=#{password}, name = #{name}, email = #{email}, contact = #{contact} where id = #{id}
+      update user_tb set password=#{password}, salt = #{salt}, email = #{email}, contact = #{contact} where id = #{id}
    </update>
 
    <select id="findAll" resultType="shop.mtcoding.job.model.user.User">

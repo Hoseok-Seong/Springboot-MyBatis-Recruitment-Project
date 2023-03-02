@@ -57,7 +57,7 @@
                         for (let i = 0; i < res.data.length; i++) {
                             let el =
                                 `<div class="col-sm-3 mb-3">
-                                       <a href="#" style="color: inherit; text-decoration: none;">
+                                       <a href="/recruitment/detail/`+res.data[i].id+`" style="color: inherit; text-decoration: none;">
                                              <div class="card jm_card h-100">
                                                  <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
                                                  <div class="card-body jm_card_body">
