@@ -79,7 +79,7 @@ create table apply_tb(
     recruitment_post_id int not null,
     sector varchar(100),
     resume_id int not null,
-    result boolean default null,
+    result boolean null,
     created_at timestamp not null
 );
 

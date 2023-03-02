@@ -16,7 +16,7 @@ public class ApplyRespDto {
         private String title;
         private String sector;
         private Integer resumeId;
-        private boolean result;
+        private Boolean result;
         private Timestamp createdAt;
 
         public String getCreatedAtToString() {
@@ -35,7 +35,7 @@ public class ApplyRespDto {
         private String enterpriseName;
         private String title;
         private Integer resumeId;
-        private boolean result;
+        private Boolean result;
         private Timestamp createdAt;
 
         public String getCreatedAtToString() {

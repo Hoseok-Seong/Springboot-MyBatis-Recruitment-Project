@@ -111,7 +111,7 @@ public class ApplyController {
         }
 
         applyService.합격불합격(id, updateApplicantResultReqDto, principalEnt.getId());
-        return new ResponseEntity<>(new ResponseDto<>(1, "합격 불합격 처리 성공", null), HttpStatus.OK);
+        return new ResponseEntity<>(new ResponseDto<>(1, "처리 성공", null), HttpStatus.OK);
     }
 
 }

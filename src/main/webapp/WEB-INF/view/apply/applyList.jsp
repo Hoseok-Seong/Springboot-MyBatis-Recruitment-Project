@@ -10,7 +10,7 @@
                         <th scope="col">분야</th>
                         <th scope="col">이력서번호</th>
                         <th scope="col">지원일자</th>
-                        <th scope="col"></th>
+                        <th scope="col">결과발표</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,15 +33,18 @@
                                 <button class="btn btn-warning"
                                     onclick="confirmDelete(${applyList.recruitmentPostId})">삭제</button>
                                 <c:choose>
-                                    <c:when test="${applyList.result == false}">
-                                        <button class="btn btn-danger" disabled="disabled">불합격</button>
+                                    <c:when test="${applyList.result == null}">
+                                        <button class="btn btn-primary" disabled="disabled">대기</button>
                                     </c:when>
+
+                                    <c:when test="${applyList.result == false}">
+                                        <button class="btn btn-danger" onclick="fail()">불합격</button>
+                                    </c:when>
+
                                     <c:when test="${applyList.result == true}">
                                         <button class="btn btn-success" onclick="success()">합격</button>
                                     </c:when>
-                                    <c:otherwise>
-                                        <button class="btn btn-primary" disabled="disabled">결과</button>
-                                    </c:otherwise>
+
                                 </c:choose>
                             </td>
 
@@ -60,7 +63,7 @@
                                         <div class="modal-body justify-content-start">
                                             <div class="container-fluid">
                                                 <div class="container-fluid pt-4 ps-0" style="height: 450px;">
-                                                    <input type="text" name="title" id="title" style="border: none;"
+                                                    <input type="text" name="title" style="border: none;"
                                                         value="${resumeList[applyList.resumeId-1].title}"
                                                         class="form-control" placeholder="제목" readonly>
                                                     <br>
@@ -69,7 +72,7 @@
                                                     <div>생년월일</div>
                                                     <hr class="md-0">
                                                     <div class="form-floating mb-3">
-                                                        <input name="birthdate" id="birthdate"
+                                                        <input name="birthdate"
                                                             value="${resumeList[applyList.resumeId-1].birthdate}"
                                                             required / readonly>
                                                     </div>
@@ -78,8 +81,7 @@
                                                     <div>주소</div>
                                                     <hr class="md-0">
                                                     <div class="form-floating mb-3">
-                                                        <input type="text" name="address" id="address"
-                                                            class="form-control" id="floatingInputValue"
+                                                        <input type="text" name="address" class="form-control"
                                                             value="${resumeList[applyList.resumeId-1].address}"
                                                             readonly>
                                                         <label for="floatingInput">주소를 입력해주세요 예시: 부산광역시 부산진구 양정동
@@ -92,23 +94,21 @@
                                                 <div>간단 소개글</div>
                                                 <hr class="md-0">
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" name="content" id="content"
-                                                        style="height: 100px"
+                                                    <textarea class="form-control" name="content" style="height: 100px"
                                                         readonly>${resumeList[applyList.resumeId-1].content}</textarea>
                                                 </div>
                                                 <br>
                                                 <div class="mt-5">경력</div>
                                                 <hr class="md-0">
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" name="career" id="career"
-                                                        style="height: 100px"
+                                                    <textarea class="form-control" name="career" style="height: 100px"
                                                         readonly>${resumeList[applyList.resumeId-1].career}</textarea>
                                                 </div>
                                                 <br>
                                                 <div class="mt-5">학력</div>
                                                 <hr class="md-0">
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" name="education" id="education"
+                                                    <textarea class="form-control" name="education"
                                                         style="height: 100px"
                                                         readonly>${resumeList[applyList.resumeId-1].education}</textarea>
                                                 </div>
@@ -116,32 +116,28 @@
                                                 <div class="mt-5">스킬</div>
                                                 <hr class="md-0">
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" name="skill" id="skill"
-                                                        style="height: 100px"
+                                                    <textarea class="form-control" name="skill" style="height: 100px"
                                                         readonly>${resumeList[applyList.resumeId-1].skill}</textarea>
                                                 </div>
                                                 <br>
                                                 <div class="mt-5">수상 및 기타</div>
                                                 <hr class="md-0">
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" name="award" id="award"
-                                                        style="height: 100px"
+                                                    <textarea class="form-control" name="award" style="height: 100px"
                                                         readonly>${resumeList[applyList.resumeId-1].award}</textarea>
                                                 </div>
                                                 <br>
                                                 <div class="mt-5">외국어</div>
                                                 <hr class="md-0">
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" name="language" id="language"
-                                                        style="height: 100px"
+                                                    <textarea class="form-control" name="language" style="height: 100px"
                                                         readonly>${resumeList[applyList.resumeId-1].language}</textarea>
                                                 </div>
                                                 <br>
                                                 <div class="mt-5">링크</div>
                                                 <hr class="md-0">
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" name="link" id="link"
-                                                        style="height: 100px"
+                                                    <textarea class="form-control" name="link" style="height: 100px"
                                                         readonly>${resumeList[applyList.resumeId-1].link}</textarea>
                                                 </div>
                                                 <br>
@@ -178,6 +174,11 @@
 
             function success() {
                 if (confirm('축하드립니다! 귀하는 서류전형에 합격하셨습니다.\n자세한 면접 일정은 이메일을 확인해주세요.')) {
+                }
+            }
+
+            function fail() {
+                if (confirm('귀하의 뛰어난 역량에도 불구하고,\n합격 소식을 전해드리지 못하게 되었습니다.\n다음 기회에 좀 더 좋은 인연으로 만나뵐 수 있기를 기대합니다.')) {
                 }
             }
         </script>
