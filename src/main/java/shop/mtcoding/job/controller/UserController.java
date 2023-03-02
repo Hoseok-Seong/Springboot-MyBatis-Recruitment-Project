@@ -3,6 +3,7 @@ package shop.mtcoding.job.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.user.UserReqDto.JoinUserReqDto;
 import shop.mtcoding.job.dto.user.UserReqDto.LoginUserReqDto;
+import shop.mtcoding.job.dto.user.UserReqDto.UpdateUserReqDto;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.model.user.UserRepository;
@@ -99,5 +101,32 @@ public class UserController {
         } else {
             return new ResponseDto<>(1, "해당 아이디로 회원가입이 가능합니다.", true);
         }
+    }
+
+    @GetMapping("/updateForm")
+    public String updateForm() {
+        return "user/updateForm";
+    }
+
+    @PostMapping("/user/update")
+    public String userUpdate(UpdateUserReqDto updateUserReqDto) {
+        User principal = (User) session.getAttribute("principal");
+        if (principal == null) {
+            throw new CustomException("회원 인증이 되지 않았습니다. 로그인을 해주세요.", HttpStatus.UNAUTHORIZED);
+        }
+
+        if (updateUserReqDto.getPassword() == null || updateUserReqDto.getPassword().isEmpty()) {
+            throw new CustomException("비밀번호를 작성해주세요");
+        }
+        if (updateUserReqDto.getEmail() == null || updateUserReqDto.getEmail().isEmpty()) {
+            throw new CustomException("email을 작성해주세요");
+        }
+        if (updateUserReqDto.getContact() == null || updateUserReqDto.getContact().isEmpty()) {
+            throw new CustomException("전화번호를 입력해주세요");
+        }
+
+        userService.유저회원정보수정하기(updateUserReqDto, principal.getId());
+
+        return "redirect:/";
     }
 }

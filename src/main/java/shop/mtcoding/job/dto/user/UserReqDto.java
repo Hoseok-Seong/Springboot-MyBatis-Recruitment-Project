@@ -23,4 +23,11 @@ public class UserReqDto {
         private String profile;
     }
 
+    @Setter
+    @Getter
+    public static class UpdateUserReqDto {
+        private String password;
+        private String email;
+        private String contact;
+    }
 }

@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import shop.mtcoding.job.dto.user.UserReqDto.JoinUserReqDto;
 import shop.mtcoding.job.dto.user.UserReqDto.LoginUserReqDto;
+import shop.mtcoding.job.dto.user.UserReqDto.UpdateUserReqDto;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.model.user.UserRepository;
@@ -53,6 +54,24 @@ public class UserService {
                     joinUserReqDto.getProfile());
             if (result != 1) {
                 throw new CustomException("회원가입이 실패하였습니다");
+            }
+        } catch (NoSuchAlgorithmException e) {
+            System.err.println("알고리즘을 찾을 수 없습니다: " + e.getMessage());
+        }
+    }
+
+    @Transactional
+    public void 유저회원정보수정하기(UpdateUserReqDto updateUserReqDto, int id) {
+
+        try {
+            String sha256Hash = Sha256Encoder.sha256(updateUserReqDto.getPassword());
+            String salt = SaltEncoder.salt();
+            int result = userRepository.updateById(id,
+                    sha256Hash + "_" + salt, salt,
+                    updateUserReqDto.getEmail(),
+                    updateUserReqDto.getContact());
+            if (result != 1) {
+                throw new CustomException("회원정보수정이 실패하였습니다");
             }
         } catch (NoSuchAlgorithmException e) {
             System.err.println("알고리즘을 찾을 수 없습니다: " + e.getMessage());
