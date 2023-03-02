@@ -23,6 +23,7 @@ public class RecruitmentPostReqDto {
         private String position;
         private String content;
         private List<String> skill;
+        private String deadline;
         private MultipartFile enterpriseLogo;
 
         public RecruitmentPost toModel(int enterpriseId, String enterpriseLogo) {
