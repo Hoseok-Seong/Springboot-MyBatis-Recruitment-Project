@@ -53,6 +53,7 @@ public class UserController {
             throw new CustomException("존재하지 않는 아이디거나 비밀번호를 다시 확인해주시기 바랍니다");
         }
 
+        // 4. 아이디 기억
         // 요청헤더 : Cookie
         // 응답헤더 : Set-Cookie
         if (remember == null) {

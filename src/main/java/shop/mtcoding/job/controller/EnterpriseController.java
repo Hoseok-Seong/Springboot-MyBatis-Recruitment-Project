@@ -1,5 +1,7 @@
 package shop.mtcoding.job.controller;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +31,7 @@ public class EnterpriseController {
     private HttpSession session;
 
     @PostMapping("/enterprise/login")
-    public String enterpriseLogin(LoginEnterpriseReqDto loginEnterpriseReqDto) {
+    public String enterpriseLogin(LoginEnterpriseReqDto loginEnterpriseReqDto, String rememberEnt, HttpServletResponse response) {
         if (loginEnterpriseReqDto.getEnterpriseName() == null || loginEnterpriseReqDto.getEnterpriseName().isEmpty()) {
             throw new CustomException("아이디를 작성해주세요");
         }
@@ -45,6 +47,19 @@ public class EnterpriseController {
         // 3. principal 유효성 검사
         if (session.getAttribute("principalEnt") == null) {
             throw new CustomException("존재하지 않는 아이디거나 비밀번호를 다시 확인해주시기 바랍니다");
+        }
+        // 4. 아이디 기억
+        if (rememberEnt == null) {
+            rememberEnt = "";
+        }
+        if (rememberEnt.equals("on")) {
+            Cookie cookie = new Cookie("rememberEnt", loginEnterpriseReqDto.getEnterpriseName());
+            response.addCookie(cookie);
+        } else {
+            Cookie cookie = new Cookie("rememberEnt", "");
+            cookie.setMaxAge(0);
+            response.addCookie(cookie);
+
         }
 
         return "redirect:/";

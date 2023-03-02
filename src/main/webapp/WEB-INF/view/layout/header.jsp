@@ -122,7 +122,7 @@
                                                 </table>
                                                 <button type="submit" class="btn login-btn-custom btn-sm me-2"
                                                     style="float:right;">로그인</button>
-                                                <input class="ms-2" type="checkbox" name="remember">username 기억<br><br><br>
+                                                <input class="ms-2" type="checkbox" name="remember"> username 기억<br><br><br>
                                                 <div class="d-inline-flex justify-content-between">
                                                 </div>
                                             </form>
@@ -143,7 +143,7 @@
                                                 </table>
                                                 <button class="btn login-btn-custom btn-sm me-2"
                                                     style="float:right;">로그인</button>
-                                                <input class="ms-2" type="checkbox" name="remember">enterpriseName 기억<br><br><br>
+                                                <input class="ms-2" type="checkbox" name="rememberEnt"> enterpriseName 기억<br><br><br>
                                             </form>
                                         </div>
                                     </div>
@@ -215,7 +215,7 @@
                                         <div class="text-center">
                                             <tr>
                                                 &nbsp;<input type="checkbox"
-                                                    aria-label="Checkbox for following text input" id="agree-checkbox" name="agree" required>> 필수 동의 항목 및 개인정보 수집 및
+                                                    aria-label="Checkbox for following text input" id="agree-checkbox" name="agree" required> 필수 동의 항목 및 개인정보 수집 및
                                                 이용 동의, 광고성 정보 수신에 동의합니다.
                                             </tr>
                                             <br>
@@ -287,7 +287,7 @@
                                         </div><br>
                                         <div class="text-center">
                                             <tr>
-                                                &nbsp;<input type="checkbox" aria-label="Checkbox for following text input" id="agree-checkbox" name="agree" required>> 
+                                                &nbsp;<input type="checkbox" aria-label="Checkbox for following text input" id="agree-checkbox" name="agree" required>
                                                 필수 동의 항목 및 개인정보 수집 및 이용 동의, 광고성 정보
                                                 수신에 동의합니다.
                                             </tr>
