@@ -249,20 +249,85 @@
                                                 </td>
                                             </div>
                                         </table>
-                                            <input type="checkbox" name="skill" value="1">Java
-                                            <input type="checkbox" name="skill" value="2">Html
-                                            <input type="checkbox" name="skill" value="3">JavaScript
-                                            <input type="checkbox" name="skill" value="4">VueJS
-                                            <input type="checkbox" name="skill" value="5">CSS
-                                            <input type="checkbox" name="skill" value="6">Node.js
-                                            <input type="checkbox" name="skill" value="7">React
-                                            <input type="checkbox" name="skill" value="8">ReactJS
-                                            <input type="checkbox" name="skill" value="9">Typescript
-                                            <input type="checkbox" name="skill" value="10">Zustand
-                                            <input type="checkbox" name="skill" value="11">AWS
+                                        <a class="btn btn-custom ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" 
+                                                                    aria-expanded="false" aria-controls="collapseExample">
+                                            사용 가능 스택
+                                        </a>
+                                        <div class="collapse" id="collapseExample">
+                                        <div class="card card-body">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="skill" value="1" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Java
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="skill" value="2" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Html
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="3" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            JavaScript
+                                        </label>
+                                        </div>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="4" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            VueJS
+                                        </label>
+                                        </div>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="5" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            CSS
+                                        </label>
+                                        </div>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="6" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Node.js
+                                        </label>
+                                        </div>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="7" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            React
+                                        </label>
+                                        </div>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="8" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            ReactJs
+                                        </label>
+                                        </div>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="9" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Typescript
+                                        </label>
+                                        </div>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="10" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Zustand
+                                        </label>
+                                        </div>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="11" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            AWS
+                                        </label>
+                                        </div>
+                                        
+                                        </div>
+                                        </div>
+                                            
 
                                         <div class="text-center">
-                                            <tr>
+                                            <tr><br>
                                                 &nbsp;<input type="checkbox"
                                                     aria-label="Checkbox for following text input" id="agree-checkbox" name="agree" required> 필수 동의 항목 및 개인정보 수집 및
                                                 이용 동의, 광고성 정보 수신에 동의합니다.
