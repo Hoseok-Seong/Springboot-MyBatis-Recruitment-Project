@@ -80,8 +80,8 @@
                                                         class="rounded-circle" alt="Cinque Terre">
                                                 </a>
 
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" ">
-                                                    <li><a class=" dropdown-item" href="logout">로그아웃</a>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                    <li><a class=" dropdown-item" href="/logout">로그아웃</a>
                                         </li>
                                         <li class="nav-item">
                                         <li>
