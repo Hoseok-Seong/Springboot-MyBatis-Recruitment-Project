@@ -1,5 +1,8 @@
 package shop.mtcoding.job.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.SaveRecruitmentPostReqDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.UpdateRecruitmentPostReqDto;
+import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostDetailRespDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostSearchRespDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
@@ -33,6 +37,7 @@ import shop.mtcoding.job.model.resume.ResumeRepository;
 import shop.mtcoding.job.model.skill.RecruitmentSkillRepository;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.service.RecruitmentService;
+import shop.mtcoding.job.util.DateUtil;
 
 @Controller
 public class RecruitmentController {
@@ -174,6 +179,15 @@ public class RecruitmentController {
         if (saveRecruitmentPostReqDto.getEnterpriseLogo() == null) {
             throw new CustomApiException("로고 사진을 선택해주세요");
         }
+        if (saveRecruitmentPostReqDto.getDeadline() == null || saveRecruitmentPostReqDto.getDeadline().isEmpty()) {
+            throw new CustomApiException("마감기한을 설정해주세요");
+        }
+
+        LocalDate deadline = LocalDate.parse(saveRecruitmentPostReqDto.getDeadline());
+        LocalDate today = LocalDate.now();
+        if (deadline.isBefore(today)) {
+            throw new CustomApiException("과거는 선택 할 수 없습니다.");
+        }
 
         recruitmentService.채용공고쓰기(saveRecruitmentPostReqDto, principalEnt.getId());
 
@@ -210,7 +224,14 @@ public class RecruitmentController {
 
     @GetMapping("recruitment/detail/{id}")
     public String recruitmentPostDetail(@PathVariable int id, Model model) {
-        model.addAttribute("recruitmentPostDtos", recruitmentPostRepository.findByIdWithEnterpriseId(id));
+        RecruitmentPostDetailRespDto recruitmentPostDto = recruitmentPostRepository.findByIdWithEnterpriseId(id);
+
+        // d-day 계산
+        long diffDays = DateUtil.deadline(recruitmentPostDto.getDeadline());
+
+        // view에 상세보기 넘겨주기
+        model.addAttribute("recruitmentPostDtos", recruitmentPostDto);
+        model.addAttribute("dDay", diffDays); // deadline
 
         // 스킬 매핑 정보를 저장한 Map 객체를 만들어서 Model 객체에 추가
         Map<Integer, String> skillMap = new HashMap<>();
@@ -226,7 +247,6 @@ public class RecruitmentController {
         skillMap.put(10, "Zustand");
         skillMap.put(11, "AWS");
         model.addAttribute("skillMap", skillMap);
-
         model.addAttribute("recruitmentPostSkillDtos", recruitmentSkillRepository.findByRecruitmentId(id));
 
         User principal = (User) session.getAttribute("principal");

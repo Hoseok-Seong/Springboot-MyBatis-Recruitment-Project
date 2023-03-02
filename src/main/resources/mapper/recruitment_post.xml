@@ -35,7 +35,8 @@
          recruitment_post_tb.position, 
          recruitment_post_tb.address, 
          recruitment_post_tb.content, 
-         recruitment_post_tb.enterprise_id, 
+         recruitment_post_tb.enterprise_id,
+         recruitment_post_tb.deadline,
          enterprise_tb.enterprise_name
       FROM 
          recruitment_post_tb 

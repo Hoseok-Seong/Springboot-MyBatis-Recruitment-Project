@@ -37,6 +37,7 @@ public class RecruitmentPostReqDto {
             recruitmentPost.setAddress(address);
             recruitmentPost.setPosition(position);
             recruitmentPost.setContent(content);
+            recruitmentPost.setDeadline(deadline);
             recruitmentPost.setEnterpriseLogo(enterpriseLogo);
             return recruitmentPost;
         }

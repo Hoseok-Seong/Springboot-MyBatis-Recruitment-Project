@@ -198,7 +198,7 @@ Great Inspiration to the NexT, 우리가 꿈꾸는 다음 세대를 위한 비�
 • 야근시 택시비를 지원해드립니다.<br>
 • 임신기간 근로시간 단축제를 시행하고 있습니다.<br>
 • 광교 본사 외 서울 오피스를 듀얼로 운영하고 있습니다.<br>
-', '/images/gint_logo.png','2023.01.01',now());
+', '/images/gint_logo.png','2023-03-03',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(2,'안드로이드 개발(2년 이상)','안드로이드 앱 개발 경력 2년 이상','학력무관','면접 후 결정','스타트업','안드로이드','영등포구 국회대로 50길 20','
 디데이를 나답게, 더데이비포입니다.<br>
@@ -246,7 +246,7 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 - 대기업급 건강검진<br>
 - 4대 보험<br>
 
-', '/images/the_day_before_logo.png','2023.01.01',now());
+', '/images/the_day_before_logo.png','2023-03-01',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(3,'인공지능 엔지니어','무관','컴퓨터 공학, 통계학, 수학, 물리학과 또는 연관된 학과의 학사 이상','임시급여3','스타트업','머신러닝 엔지니어','영등포구 국회대로 50길 20','
 • 에이인비는 인공지능 전문가와 바이오 전문가가 모인 항체 신약 개발 회사로 인공지능을 활용한 <br>
@@ -276,7 +276,7 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 • 건강검진<br>
 • 점심식대<br>
 • 그 외 다양한 복리후생 도입 검토 중입니다.<br>
-', '/images/AinB_logo.png','2023.01.01',now());
+', '/images/AinB_logo.png','2023-05-01',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(4,'빅데이터 엔지니어','무관','대졸','면접 후 결정','대기업','데이터 엔지니어','서울 중구 을지로 100','
 신한카드는 금융권 최초로 빅데이터센터를 설립하여 빅데이터 분야에 대한 투자를 아끼지 않고 있습니다.  국내에서 가장 많은 소비data와 고객 behavior data를 엔지니어링하여, 고객들에게 새로운 서비스와 상품, 경험으로 돌려드리는 여정을 함께하실 분을 찾습니다.<br>
@@ -303,7 +303,7 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 • 협의에 따라 정규직 또는 전문계약직(1년 이상)으로 신한카드에서 제공하는 모든 복지를 제공<br>
 • 주 40시간 근무제에 따라 PC off 운영 중<br>
 • 시차 출퇴근 형태의 유연근무제<br>
-', '/images/shinhancard_logo.png','2023.01.01',now());
+', '/images/shinhancard_logo.png','2023-05-01',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(5,'풀스택 임베디드 개발자','무관','학력무관','면접 후 결정','스타트업','임베디드개발자','구로디지털단지역 근처','
 육류외식업 자동화라는 혁신적인 기술을 통해 인건비 문제를 해결하고, 세상 모든 사람들에게 ‘완벽한 육식 경험을 제공’하기 위해 성장하고 있는 “피플즈리그 ”입니다.<br>
@@ -387,7 +387,7 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 • 식대: 월 20만원<br>
 <br>
 • 데스커 모션데스크 & 시디즈 T80<br>
-', '/images/peoplesleague_logo.png','2023.01.01',now());
+', '/images/peoplesleague_logo.png','2023-05-01',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(6,'백엔드_Django 개발 주니어 (1년 이상)','1년이상','학력무관','2800만원','인력소싱','프론트엔드','서울특별시 마포구 마포대로','
 포토카드 거래 시장을 혁신하는 플랫폼</br>
@@ -461,7 +461,7 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 </br>
 # 채용 절차</br>
 • 서류합격  ＞  1차 인터뷰(직무)  ＞  2차 인터뷰(컬쳐핏)  ＞  최종합격
-', '/images/poca_logo.png','2023.01.01',now());
+', '/images/poca_logo.png','2023-05-01',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(7,'[미니창고 다락] 인사 운영 매니저','신입','학력무관','면접 후 결정','스타트업','백엔드','서울전체, 서울 강서구',
 '[SECOND SYNDROME]</br>
@@ -545,7 +545,7 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 서류 전형 – 직무 인터뷰 – 컬쳐핏 인터뷰 – 처우 협의 - 채용 확정</br>
 </br>
 [제출 서류]</br> 
-- 이력서/경력기술서</br>', '/images/secondsyndrome_logo.png','2023.01.01',now());
+- 이력서/경력기술서</br>', '/images/secondsyndrome_logo.png','2023-05-01',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(8,'CS / CX 매니저','신입','대졸(4년 이상)','면접 후 결정','스타트업','소프트웨어','서울.한국',
 '버드코리아는 혁신적인 퍼스널모빌리티로 이동의 새로운 경험을 제공하는공유 모빌리티 기업입니다.</br>
@@ -586,7 +586,7 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 • 다양한 종류의 간식, 커피, 음료 제공</br>
 • 버드 전동킥보드 무제한 라이딩 지원</br>
 </br></br></br>
-• 2023년 3월 중 강남으로 사무실 이전 예정 (현재 여의도 위치)</br>', '/images/birdkorea_logo.png','2023.01.01',now());
+• 2023년 3월 중 강남으로 사무실 이전 예정 (현재 여의도 위치)</br>', '/images/birdkorea_logo.png','2023-05-01',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(9,'서비스기획자 담당자
 ','서비스기획경력 1년이상','학사이상','3000','서비스','안드로이드','서울특별시 강남구 테헤란로37길 7, 6~7층(역삼동, 조이타워)',
@@ -630,7 +630,7 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 • 사내 스낵코너 운영</br>
 • 회사 콘도 운영</br>
 • 다이어리 지급</br>
-• 내일채움공제 지원</br>', '/images/notiplus_logo.png','2023.01.01',now());
+• 내일채움공제 지원</br>', '/images/notiplus_logo.png','2023-05-01',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(10,'API Gateway Engineer','2년 이상의 네트워크 서버 개발 경력이 있으신 분 ','대졸이상(4년제)','3200','대기업','시스템, 네트워크관리자','성남 분당구 황새울로360번길 42',
 'LINE 앱에서 서버와 주고받는 모든 API를 가장 앞서서 처리하는 네트워크 게이트웨이를 개발하고 운영합니다.</br>
@@ -695,7 +695,7 @@ LINE Hybrid Work 2.0에 따라 근무 가능한 장소에서 근무</br>
 • 각종 경조사 지원, 휴양시설 운영, 직장 보육시설 등, 다양한 복리후생을 지원합니다. </br>
 • 최초 입사 후 2년 만근 시점, 최초 발생일 기준 이후 매 3년 마다 Refresh 휴가를 제공합니다. 기본 연차에 추가로 Refresh 휴가 10일 및 Refresh points를 지급해 드립니다.
 </br>
-이 외, 더 많은 혜택 및 복지가 여러분을 기다리고 있습니다. 입사 후 더 자세히 만나보세요!</br>', '/images/lineplus_logo.png','2023.01.01',now());
+이 외, 더 많은 혜택 및 복지가 여러분을 기다리고 있습니다. 입사 후 더 자세히 만나보세요!</br>', '/images/lineplus_logo.png','2023-05-01',now());
 
 insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('1', '1', '1', '스타트업', '1', now()); 
 insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('1', '2', '2', '스타트업', '2', now()); 

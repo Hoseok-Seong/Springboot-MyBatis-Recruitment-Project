@@ -21,6 +21,7 @@ public class RecruitmentPostRespDto {
         private String content;
         private String address;
         private String enterpriseName;
+        private String deadline;
         private Timestamp createdAt;
     }
 
