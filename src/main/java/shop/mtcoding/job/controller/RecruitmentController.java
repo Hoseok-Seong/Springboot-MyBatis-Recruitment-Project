@@ -65,7 +65,7 @@ public class RecruitmentController {
     }
 
     @PutMapping("/recruitment/{id}")
-    public @ResponseBody ResponseEntity<?> saveRecruitmentPost(@PathVariable int id,
+    public @ResponseBody ResponseEntity<?> updateRecruitmentPost(@PathVariable int id,
             @ModelAttribute UpdateRecruitmentPostReqDto updateRecruitmentPostReqDto) {
         Enterprise principalEnt = (Enterprise) session.getAttribute("principalEnt");
         if (principalEnt == null) {

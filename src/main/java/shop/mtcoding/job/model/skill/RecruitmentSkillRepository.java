@@ -21,4 +21,6 @@ public interface RecruitmentSkillRepository {
     public int updateById(RecruitmentSkill skill);
 
     public int deleteById(int id);
+
+    public int deleteByRecruitmentId(int recruitmentId);
 }

@@ -25,4 +25,7 @@
       delete from recruitment_skill_tb where id = #{id}
    </delete>
 
+   <delete id="deleteByRecruitmentId">
+      delete from recruitment_skill_tb where recruitment_id = #{recruitmentId}
+   </delete>
 </mapper>

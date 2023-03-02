@@ -73,6 +73,24 @@ public class RecruitmentService {
         if (result != 1) {
             throw new CustomApiException("채용공고 수정 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+
+        RecruitmentPost updatedPost = recruitmentPostRepository.findByEnterpriseLogo(uuidLogoName);
+        if (updatedPost == null) {
+            throw new CustomException("파일 경로를 찾을 수 없습니다.");
+        }
+
+        // 기존에 있던 기술스택 삭제
+        recruitmentSkillRepository.deleteByRecruitmentId(id);
+
+        // 새로운 기술스택 생성
+        updateRecruitmentPostReqDto.setId(updatedPost.getId());
+        for (String checkSkill : updateRecruitmentPostReqDto.getSkill()) {
+            result = recruitmentSkillRepository.insert(updateRecruitmentPostReqDto.getId(), checkSkill);
+            if (result != 1) {
+                throw new CustomException("채용공고 기술스택 생성 실패");
+            }
+        }
+
     }
 
     public void 채용공고삭제(int id, int enterpriseId) {
