@@ -122,7 +122,7 @@
                                                 </table>
                                                 <button type="submit" class="btn login-btn-custom btn-sm me-2"
                                                     style="float:right;">로그인</button>
-                                                <input class="ms-2" type="checkbox" name="remember"> username 기억<br><br><br>
+                                                <input class="ms-2" type="checkbox" name="remember"> 아이디 기억<br><br><br>
                                                 <div class="d-inline-flex justify-content-between">
                                                 </div>
                                             </form>
@@ -143,7 +143,7 @@
                                                 </table>
                                                 <button class="btn login-btn-custom btn-sm me-2"
                                                     style="float:right;">로그인</button>
-                                                <input class="ms-2" type="checkbox" name="rememberEnt"> enterpriseName 기억<br><br><br>
+                                                <input class="ms-2" type="checkbox" name="rememberEnt"> 아이디 기억<br><br><br>
                                             </form>
                                         </div>
                                     </div>
@@ -191,10 +191,10 @@
                                             </div>
                                             <tr class="text-center">
                                                 <td><input type="password" class="form-control-lg w-100" id="password" name="password"
-                                                        placeholder="비밀번호"></td>
+                                                        placeholder="비밀번호" required></td>
                                             </tr>
                                             <tr class="text-center">
-                                                <td><input type="password" class="form-control-lg w-100" placeholder="비밀번호 중복검사"
+                                                <td><input type="password" class="form-control-lg w-100" placeholder="비밀번호 확인"
                                                         id="confirm-password" name="confirm-password" required >
                                                 </td>
                                             </tr>
@@ -219,15 +219,15 @@
                                                 이용 동의, 광고성 정보 수신에 동의합니다.
                                             </tr>
                                             <br>
-                                            <button type="submit" class="btn btn-custom btn-sm my-3 ms-3 me-4"
+                                            <button type="submit" class="btn btn-custom btn-sm my-3 ms-3 me-4" onclick="passwordCheck"
                                                 style="float:right;">회원가입</button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="joinEnterprise">
-                                    <form id="signup-form" action="/enterprise/join" method="post" onsubmit="return valid()">
+                                    <form id="entsignup-form" action="/enterprise/join" method="post" onsubmit="return valid()">
                                         <table class="table table-borderless">
-                                            <div class="text-center d-flex justify-content-end"> <br>
+                                            <div class="text-center d-flex justify-content-end"><br>
                                                 <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
                                                     <td><input type="text" id="enterpriseName"
                                                             class="form-control-lg w-75 col-9" name="enterpriseName"
@@ -238,12 +238,12 @@
                                                     </td>
                                             </div>
                                             <tr class="text-center">
-                                                <td><input type="password" class="form-control-lg w-100" name="password" id="password"
-                                                        placeholder="비밀번호"></td>
+                                                <td><input type="password" class="form-control-lg w-100" id="entpassword" name="password"
+                                                        placeholder="비밀번호" required></td>
                                             </tr>
                                             <tr class="text-center">
-                                                <td><input type="password" class="form-control-lg w-100"
-                                                        id="confirm-password" name="confirm-password" placeholder="비밀번호 중복검사" required>
+                                                <td><input type="password" class="form-control-lg w-100" placeholder="비밀번호 확인"
+                                                        id="entconfirm-password" name="confirm-password" required >
                                                 </td>
                                             </tr>
                                             <tr class="text-center">
@@ -291,10 +291,10 @@
                                                 필수 동의 항목 및 개인정보 수집 및 이용 동의, 광고성 정보
                                                 수신에 동의합니다.
                                             </tr>
-                                        </div>
                                         <br>
-                                        <button type="submit" class="btn btn-custom btn-sm m-1 my-3 ms-3 me-4"
+                                        <button type="submit" class="btn btn-custom btn-sm m-1 my-3 ms-3 me-4" 
                                             style="float:right;">회원가입</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -346,26 +346,26 @@
                         });
                     }
                 </script>
-                
                 <script>
-                    const form = document.querySelector('#signup-form');
-                    form.addEventListener('submit', (event) => {
-                        const agreeCheckbox = document.querySelector('#agree-checkbox');
-                        const passwordInput = document.querySelector('#password');
-                        const confirmPasswordInput = document.querySelector('#confirm-password');
-
-                        // 비밀번호와 비밀번호 확인이 일치하는지 확인
-                        if (passwordInput.value !== confirmPasswordInput.value) {
-                            event.preventDefault(); // 폼 제출 취소
-                            alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
-                        }
-
-                        // 개인정보 수집 동의 체크박스가 체크되었는지 확인
-                        if (!agreeCheckbox.checked) {
-                        event.preventDefault(); // 폼 제출 취소
-                        alert('개인정보 수집에 동의해야 가입할 수 있습니다.');
-                        }
+                    var entform = document.getElementById("entsignup-form");
+                    var entpassword = document.getElementById("entpassword");
+                    var entconfirm_password = document.getElementById("entconfirm-password");
+                    entform.addEventListener("submit", function(event) {
+                    if (entpassword.value !== entconfirm_password.value) {
+                    alert("비밀번호와 비밀번호 확인이 일치 하지 않습니다.");
+                    event.preventDefault();
+                    }
+                     });
+                    var form = document.getElementById("signup-form");
+                    var password = document.getElementById("password");
+                    var confirm_password = document.getElementById("confirm-password");
+                    // const form = document.querySelector('#signup-form');
+                    form.addEventListener("submit", function(event) {
+                    if (password.value !== confirm_password.value) {
+                    alert("비밀번호와 비밀번호 확인이 일치 하지 않습니다.");
+                    event.preventDefault();
+                    }
                     });
                 </script>
-            
                 
+         
