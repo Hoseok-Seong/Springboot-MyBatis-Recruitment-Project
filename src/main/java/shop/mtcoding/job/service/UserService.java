@@ -64,8 +64,11 @@ public class UserService {
     public void 유저회원정보수정하기(UpdateUserReqDto updateUserReqDto, int id) {
 
         try {
+            User user = userRepository.findById(id);
+            String savedSalt = user.getSalt();
+
             String sha256Hash = Sha256Encoder.sha256(updateUserReqDto.getPassword());
-            String salt = SaltEncoder.salt();
+            String salt = savedSalt;
             int result = userRepository.updateById(id,
                     sha256Hash + "_" + salt, salt,
                     updateUserReqDto.getEmail(),

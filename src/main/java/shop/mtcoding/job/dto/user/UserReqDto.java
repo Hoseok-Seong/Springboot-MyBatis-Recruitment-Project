@@ -29,5 +29,6 @@ public class UserReqDto {
         private String password;
         private String email;
         private String contact;
+        private String salt;
     }
 }

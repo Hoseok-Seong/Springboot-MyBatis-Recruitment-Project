@@ -68,12 +68,13 @@ public class EnterpriseService {
 
     @Transactional
     public void 기업정보수정하기(UpdateEnterpriseReqDto updateEnterpriseReqDto, int id) {
-        // enterprise_name = #{enterpriseName}, password = #{password}, address =
-        // #{address}, contact = #{contact},
-        // email = #{email}, size = #{size}
+
         try {
+            Enterprise enterprise = enterpriseRepository.findById(id);
+            String savedSalt = enterprise.getSalt();
+
             String sha256Hash = Sha256Encoder.sha256(updateEnterpriseReqDto.getPassword());
-            String salt = SaltEncoder.salt();
+            String salt = savedSalt;
             int result = enterpriseRepository.updateById(id,
                     sha256Hash + "_" + salt,
                     salt,
@@ -81,7 +82,7 @@ public class EnterpriseService {
                     updateEnterpriseReqDto.getEmail(), updateEnterpriseReqDto.getSize(),
                     updateEnterpriseReqDto.getSector());
             if (result != 1) {
-                throw new CustomException("회원가입이 실패하였습니다");
+                throw new CustomException("회원정보수정이 실패하였습니다");
             }
         } catch (NoSuchAlgorithmException e) {
             System.err.println("알고리즘을 찾을 수 없습니다: " + e.getMessage());
