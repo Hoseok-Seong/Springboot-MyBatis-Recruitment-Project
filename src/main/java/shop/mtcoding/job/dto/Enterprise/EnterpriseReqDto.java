@@ -25,4 +25,17 @@ public class EnterpriseReqDto {
         private String size;
     }
 
+    @Setter
+    @Getter
+    public static class UpdateEnterpriseReqDto {
+        private String password;
+        private String salt;
+        private String address;
+        private String contact;
+        private String image;
+        private String email;
+        private String sector;
+        private String size;
+    }
+
 }

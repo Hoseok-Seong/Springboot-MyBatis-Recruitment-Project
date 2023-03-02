@@ -126,6 +126,7 @@ public class UserController {
         }
 
         userService.유저회원정보수정하기(updateUserReqDto, principal.getId());
+        session.invalidate();
 
         return "redirect:/";
     }

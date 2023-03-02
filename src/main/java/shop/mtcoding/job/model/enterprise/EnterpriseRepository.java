@@ -18,7 +18,13 @@ public interface EnterpriseRepository {
                         @Param("email") String email, @Param("size") String size,
                         @Param("sector") String sector);
 
-        public int updateById(Enterprise enterprise);
+        public int updateById(@Param("id") int id,
+                        @Param("password") String password,
+                        @Param("salt") String salt,
+                        @Param("address") String address,
+                        @Param("contact") String contact,
+                        @Param("email") String email, @Param("size") String size,
+                        @Param("sector") String sector);
 
         public int deleteById(int id);
 

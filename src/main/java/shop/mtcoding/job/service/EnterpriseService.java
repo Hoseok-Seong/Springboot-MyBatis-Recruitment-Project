@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.JoinEnterpriseReqDto;
 import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.LoginEnterpriseReqDto;
+import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.UpdateEnterpriseReqDto;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.enterprise.EnterpriseRepository;
@@ -57,6 +58,28 @@ public class EnterpriseService {
                     joinEnterpriseReqDto.getSector()
 
             );
+            if (result != 1) {
+                throw new CustomException("회원가입이 실패하였습니다");
+            }
+        } catch (NoSuchAlgorithmException e) {
+            System.err.println("알고리즘을 찾을 수 없습니다: " + e.getMessage());
+        }
+    }
+
+    @Transactional
+    public void 기업정보수정하기(UpdateEnterpriseReqDto updateEnterpriseReqDto, int id) {
+        // enterprise_name = #{enterpriseName}, password = #{password}, address =
+        // #{address}, contact = #{contact},
+        // email = #{email}, size = #{size}
+        try {
+            String sha256Hash = Sha256Encoder.sha256(updateEnterpriseReqDto.getPassword());
+            String salt = SaltEncoder.salt();
+            int result = enterpriseRepository.updateById(id,
+                    sha256Hash + "_" + salt,
+                    salt,
+                    updateEnterpriseReqDto.getAddress(), updateEnterpriseReqDto.getContact(),
+                    updateEnterpriseReqDto.getEmail(), updateEnterpriseReqDto.getSize(),
+                    updateEnterpriseReqDto.getSector());
             if (result != 1) {
                 throw new CustomException("회원가입이 실패하였습니다");
             }

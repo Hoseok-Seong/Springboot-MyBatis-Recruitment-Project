@@ -3,11 +3,14 @@ package shop.mtcoding.job.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.JoinEnterpriseReqDto;
 import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.LoginEnterpriseReqDto;
+import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.UpdateEnterpriseReqDto;
+import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.service.EnterpriseService;
@@ -69,6 +72,39 @@ public class EnterpriseController {
         }
 
         enterpriseService.기업가입하기(joinEnterpriseReqDto);
+
+        return "redirect:/";
+    }
+
+    @PostMapping("/enterprise/update")
+    public String enterpriseUpdate(UpdateEnterpriseReqDto updateEnterpriseReqDto) {
+
+        Enterprise principalEnt = (Enterprise) session.getAttribute("principalEnt");
+        if (principalEnt == null) {
+            throw new CustomApiException("로그인을 먼저 해주세요", HttpStatus.UNAUTHORIZED);
+        }
+
+        if (updateEnterpriseReqDto.getPassword() == null || updateEnterpriseReqDto.getPassword().isEmpty()) {
+            throw new CustomException("비밀번호를 작성해주세요");
+        }
+        if (updateEnterpriseReqDto.getAddress() == null || updateEnterpriseReqDto.getAddress().isEmpty()) {
+            throw new CustomException("주소를 작성해주세요");
+        }
+        if (updateEnterpriseReqDto.getEmail() == null || updateEnterpriseReqDto.getEmail().isEmpty()) {
+            throw new CustomException("email을 작성해주세요");
+        }
+        if (updateEnterpriseReqDto.getContact() == null || updateEnterpriseReqDto.getContact().isEmpty()) {
+            throw new CustomException("전화번호를 입력해주세요");
+        }
+        if (updateEnterpriseReqDto.getSector() == null || updateEnterpriseReqDto.getSector().isEmpty()) {
+            throw new CustomException("분야를 작성해주세요");
+        }
+        if (updateEnterpriseReqDto.getSize() == null || updateEnterpriseReqDto.getSize().isEmpty()) {
+            throw new CustomException("기업규모를 작성해주세요");
+        }
+
+        enterpriseService.기업정보수정하기(updateEnterpriseReqDto, principalEnt.getId());
+        session.invalidate();
 
         return "redirect:/";
     }
