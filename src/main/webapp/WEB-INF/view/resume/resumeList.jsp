@@ -46,51 +46,47 @@
                     <H4>최근문서</H4>
                 </div>
                 <br>
-
-                <div class="grid text-center d-inline-flex justify-content-between float-left flex-wrap ">
-                    <div class="card g-col-3 my-3" style="width: 18rem;">
-                        <a href="/resumeForm">이력서 등록</a>
-                    </div>
-                    <div class="card g-col-3 my-3" style="width: 18rem;">
-                        <div>
-                            <input type="file" name="" id="">
-                            <a href="#">파일 업로드</a>
-                        </div>
-                    </div>
-                    <c:forEach items="${resumeList}" var="resume" varStatus="status">
+                    <div class="text-center d-flex justify-content-between flex-wrap ">
                         <div class="card g-col-3 my-3" style="width: 18rem;">
-                            <div>
-                                <div class="card-body">
-                                    <h5 class="card-title my-text-ellipsis">${resume.title}</h5><br>
-                                    <p class="card-text my-text-ellipsis">${resume.content}</small></p>
-                                    <p class="card-text"><small class="text-muted">${resume.birthdate}</small></p>
+                            <a href="/resumeForm"><br>
+                            <img src="images/icons8-new-file-64.png" width="170" height="170"><br><br>이력서 등록</a>
+                        </div>
+                        <c:forEach items="${resumeList}" var="resume" varStatus="status">
+                            <div class="card g-col-3 my-3" style="width: 18rem;">
+                                <div>
+                                    <div class="card-body">
+                                        <h5 class="card-title my-text-ellipsis">${resume.title}</h5><br>
+                                        <p class="card-text my-text-ellipsis">${resume.content}</small></p>
+                                        <p class="card-text"><small class="text-muted">${resume.birthdate}</small></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between">
-                                <div class="btn-group" role="group">
-                                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle"
-                                        style="background-color: #fff; border-color: #fff; color: black;"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                        <li><a class="dropdown-item" data-bs-toggle="modal"
-                                                data-bs-target="#staticBackdrop${resume.id}">이력서 수정</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="confirmDelete(${resume.id})">이력서
-                                                삭제</a></li>
-                                    </ul>
+                                <div class="card-footer d-flex justify-content-between">
+                                    <div class="btn-group" role="group">
+                                        <button id="btnGroupDrop1" ima type="button" class="btn "
+                                            style="background-color: #fff; border-color: #fff; color: black;"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            <img src="images/icons8-menu-vertical-30.png" width="30" height="30">
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                            <li><a class="dropdown-item" data-bs-toggle="modal"
+                                                    data-bs-target="#staticBackdrop${resume.id}">이력서 수정</a></li>
+                                            <li><a class="dropdown-item" href="#"
+                                                    onclick="confirmDelete(${resume.id})">이력서
+                                                    삭제</a></li>
+                                        </ul>
+                                    </div>
+                                    <c:if test="${resume.finish == true}">
+                                        <small class="text-muted my-3 me-2">작업 완료</small>
+                                    </c:if>
+                                    <c:if test="${resume.finish == false}">
+                                        <small class="text-muted my-3 me-2">작업 중</small>
+                                    </c:if>
                                 </div>
-                                <c:if test="${resume.finish == true}">
-                                    <small class="text-muted my-3 me-2">작업 완료</small>
-                                </c:if>
-                                <c:if test="${resume.finish == false}">
-                                    <small class="text-muted my-3 me-2">작업 중</small>
-                                </c:if>
-                            </div>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-custom" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop${resume.id}">
-                                상세보기
-                            </button>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn resumeList-btn-custom" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop${resume.id}">
+                                    상세보기
+                                </button>
 
                             <!-- Modal -->
                             <div class="modal fade" id="staticBackdrop${resume.id}" data-bs-backdrop="static"

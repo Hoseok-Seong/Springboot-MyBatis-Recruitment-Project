@@ -1,15 +1,21 @@
 package shop.mtcoding.job.controller;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.JoinEnterpriseReqDto;
 import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.LoginEnterpriseReqDto;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
+import shop.mtcoding.job.model.enterprise.EnterpriseRepository;
 import shop.mtcoding.job.service.EnterpriseService;
 
 @Controller
@@ -19,10 +25,13 @@ public class EnterpriseController {
     private EnterpriseService enterpriseService;
 
     @Autowired
+    private EnterpriseRepository enterpriseRepository;
+
+    @Autowired
     private HttpSession session;
 
     @PostMapping("/enterprise/login")
-    public String enterpriseLogin(LoginEnterpriseReqDto loginEnterpriseReqDto) {
+    public String enterpriseLogin(LoginEnterpriseReqDto loginEnterpriseReqDto, String rememberEnt, HttpServletResponse response) {
         if (loginEnterpriseReqDto.getEnterpriseName() == null || loginEnterpriseReqDto.getEnterpriseName().isEmpty()) {
             throw new CustomException("아이디를 작성해주세요");
         }
@@ -38,6 +47,19 @@ public class EnterpriseController {
         // 3. principal 유효성 검사
         if (session.getAttribute("principalEnt") == null) {
             throw new CustomException("존재하지 않는 아이디거나 비밀번호를 다시 확인해주시기 바랍니다");
+        }
+        // 4. 아이디 기억
+        if (rememberEnt == null) {
+            rememberEnt = "";
+        }
+        if (rememberEnt.equals("on")) {
+            Cookie cookie = new Cookie("rememberEnt", loginEnterpriseReqDto.getEnterpriseName());
+            response.addCookie(cookie);
+        } else {
+            Cookie cookie = new Cookie("rememberEnt", "");
+            cookie.setMaxAge(0);
+            response.addCookie(cookie);
+
         }
 
         return "redirect:/";
@@ -71,6 +93,19 @@ public class EnterpriseController {
         enterpriseService.기업가입하기(joinEnterpriseReqDto);
 
         return "redirect:/";
+    }
+
+    @GetMapping("/enterprise/enterpriseNameSameCheckEnt")
+    public @ResponseBody ResponseDto<?> check(String enterpriseName, LoginEnterpriseReqDto loginEnterpriseReqDto) {
+        if (enterpriseName == null || enterpriseName.isEmpty()) {
+            return new ResponseDto<>(-1, "아이디가 입력되지 않았습니다.", null);
+        }
+        Enterprise sameeEnterprise = enterpriseRepository.findByName(loginEnterpriseReqDto.getEnterpriseName());
+        if (sameeEnterprise != null) {
+            return new ResponseDto<>(1, "동일한 아이디가 존재합니다.", false);
+        } else {
+            return new ResponseDto<>(1, "해당 아이디로 회원가입이 가능합니다.", true);
+        }
     }
 
 }

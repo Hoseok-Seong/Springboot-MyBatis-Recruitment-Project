@@ -219,6 +219,17 @@ a {
     border-radius: 10px
 }
 
+.resumeList-btn-custom {
+    /* 버튼 텍스트 색상 */
+    background-color: #ff7f00;
+    border-color: #fff;
+    color: #fff;
+    /* 버튼 텍스트 사이즈 */
+    margin: 0;
+    font-size: 14px;
+
+}
+
 .hh-btn-custom {
     /* 버튼 텍스트 색상 */
     background-color: #ff7f00;
