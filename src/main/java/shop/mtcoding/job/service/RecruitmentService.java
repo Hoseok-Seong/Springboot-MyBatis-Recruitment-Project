@@ -14,6 +14,7 @@ import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
+import shop.mtcoding.job.model.skill.RecruitmentSkillRepository;
 import shop.mtcoding.job.util.PathUtil;
 
 @Service
@@ -21,6 +22,9 @@ public class RecruitmentService {
 
     @Autowired
     private RecruitmentPostRepository recruitmentPostRepository;
+
+    @Autowired
+    private RecruitmentSkillRepository recruitmentSkillRepository;
 
     @Transactional
     public void 채용공고쓰기(SaveRecruitmentPostReqDto saveRecruitmentPostReqDto, int enterpriseId) {
@@ -34,6 +38,19 @@ public class RecruitmentService {
         int result = recruitmentPostRepository.insert(recruitmentPost);
         if (result != 1) {
             throw new CustomException("채용공고 작성 실패", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        RecruitmentPost savedPost = recruitmentPostRepository.findByEnterpriseLogo(uuidLogoName);
+        if (savedPost == null) {
+            throw new CustomException("파일 경로를 찾을 수 없습니다.");
+        }
+
+        saveRecruitmentPostReqDto.setId(savedPost.getId());
+        for (String checkSkill : saveRecruitmentPostReqDto.getSkill()) {
+            result = recruitmentSkillRepository.insert(saveRecruitmentPostReqDto.getId(), checkSkill);
+            if (result != 1) {
+                throw new CustomException("실패");
+            }
         }
     }
 
