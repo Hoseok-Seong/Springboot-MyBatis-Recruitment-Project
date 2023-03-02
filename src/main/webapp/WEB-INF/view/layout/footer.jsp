@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <footer>
+        <hr class="my-2">
         <div class="container-fluid" style="height: 150px; width: 65%">
             <nav class="navbar navbar-expand-sm">
                 <div class="collapse navbar-collapse my_nav" id="navbarSupportedContent">
@@ -39,14 +40,18 @@
                     </ul>
                 </div>
             </nav>
-            <hr class="my-1">
-            <div class="row">
+            <hr class="my-2">
+            <div class="row pt-2">
                 <div class="d-flex justify-content-center p-2">
                     부산광역시 부산진구 중앙대로 688 한준빌딩 3층
                 </div>
+                <br>
+                <br>
                 <div class="d-flex justify-content-center p-2">
                     051-912-1000
                 </div>
+                <br>
+                <br>
                 <div class="d-flex justify-content-center p-2">
                     © 5thlab, Inc.
                 </div>

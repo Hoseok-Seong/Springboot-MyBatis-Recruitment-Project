@@ -70,56 +70,6 @@ public class ResumeController {
             throw new CustomApiException("회원 인증이 실패했습니다", HttpStatus.UNAUTHORIZED);
         }
 
-        if (saveResumeReqDto.getTitle() == null ||
-                saveResumeReqDto.getTitle().isEmpty()) {
-            throw new CustomApiException("제목을 작성해주세요");
-        }
-
-        if (saveResumeReqDto.getBirthdate() == null ||
-                saveResumeReqDto.getBirthdate().isEmpty()) {
-            throw new CustomApiException("생년월일을 작성해주세요");
-        }
-
-        if (saveResumeReqDto.getAddress() == null ||
-                saveResumeReqDto.getAddress().isEmpty()) {
-            throw new CustomApiException("주소를 작성해주세요");
-        }
-
-        if (saveResumeReqDto.getContent() == null ||
-                saveResumeReqDto.getContent().isEmpty()) {
-            throw new CustomApiException("간단 소개글을 작성해주세요");
-        }
-
-        if (saveResumeReqDto.getCareer() == null ||
-                saveResumeReqDto.getCareer().isEmpty()) {
-            throw new CustomApiException("경력을 작성해주세요");
-        }
-
-        if (saveResumeReqDto.getEducation() == null ||
-                saveResumeReqDto.getEducation().isEmpty()) {
-            throw new CustomApiException("학력을 작성해주세요");
-        }
-
-        if (saveResumeReqDto.getSkill() == null ||
-                saveResumeReqDto.getSkill().isEmpty()) {
-            throw new CustomApiException("스킬을 작성해주세요");
-        }
-
-        if (saveResumeReqDto.getAward() == null ||
-                saveResumeReqDto.getAward().isEmpty()) {
-            throw new CustomApiException("수상내역을 작성해주세요");
-        }
-
-        if (saveResumeReqDto.getLanguage() == null ||
-                saveResumeReqDto.getLanguage().isEmpty()) {
-            throw new CustomApiException("외국어 능력을 작성해주세요");
-        }
-
-        if (saveResumeReqDto.getLink() == null ||
-                saveResumeReqDto.getLink().isEmpty()) {
-            throw new CustomApiException("링크를 작성해주세요");
-        }
-
         resumeService.이력서쓰기(saveResumeReqDto, principal.getId());
 
         return new ResponseEntity<>(new ResponseDto<>(1, "이력서 쓰기 성공", null), HttpStatus.CREATED);
@@ -147,7 +97,7 @@ public class ResumeController {
             @RequestBody UpdateResumeReqDto updateResumeReqDto) throws Exception {
         User principal = (User) session.getAttribute("principal");
         if (principal == null) {
-            throw new CustomApiException("회원 인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
+            throw new CustomApiException("회원 인증이 실패했습니다", HttpStatus.UNAUTHORIZED);
         }
 
         resumeService.이력서수정(id, updateResumeReqDto, principal.getId());

@@ -1,31 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
-        <div class="container my-3">
-            <div class="d-inline-flex justify-content-left text-center">
-                <div class="text-on-img">
-                    <div class="hh-background-wrap">
-                        <div class="hh-content">
-                            <span>
-                                <h1>합격을 부르는 이력서</h1>
-                            </span>
-                            <span>
-                                <h2>
-                                    <h2>
-                            </span>
-                            <div class="d-flex justify-content-center text-center m-4">
-                                <span><b><a class="btn hh-btn-custom btn-lg m-3" href="/resumeList" role="button">이력서
-                                            관리</a></span>
-                                <span><b><a class="btn hh-btn-custom btn-lg m-3" href="/resumeForm" role="button">이력서
-                                            작성</a></span>
-                            </div>
-                        </div>
+        <div class="container-fluid my_main_banner pt-4">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/images/이력서배너2.webp" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/이력서배너3.webp" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/이력서배너4.webp" class="d-block w-100" alt="...">
                     </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <div class="d-flex justify-content-center text-center mt-5">
-                <div class="col-lg-8 col-lg-6">
-                    <h1>저희 이력서의 장점은 이렇습니다.</h1>
-                </div>
+        </div>
+        <div class="container">
+            <div class="d-flex justify-content-center text-center">
+            <span><b><a class="btn hh-btn-custom btn-lg m-3" href="/resumeList" role="button">이력서 관리</a></span>
+            <span><b><a class="btn hh-btn-custom btn-lg m-3" href="/resumeForm" role="button">이력서 작성</a></span>
             </div>
             <div class="grid text-center d-inline-flex justify-content-between float-left flex-wrap">
                 <div class="card g-col-6 my-5 m-3" style="width: 525px; height: 400px; background-color: #f1f7fe;">

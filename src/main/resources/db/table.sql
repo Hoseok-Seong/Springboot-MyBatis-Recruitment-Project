@@ -76,8 +76,29 @@ create table apply_tb(
     id int auto_increment primary key,
     user_id int not null,
     enterprise_id int not null,
-    recruitment_post_id int not null unique,
+    recruitment_post_id int not null,
     sector varchar(100),
     resume_id int not null,
+    result boolean null,
+    created_at timestamp not null
+);
+
+create table apply_resume_tb(
+    id int auto_increment primary key,
+    recruitment_post_id int not null,
+    user_id int not null,
+    enterprise_id int not null,
+    title longtext not null,
+    content longtext not null,
+    career longtext not null,
+    education longtext not null,
+    skill longtext not null,
+    award longtext not null,
+    language longtext not null,
+    link longtext not null,
+    file longtext,
+    birthdate longtext not null,
+    address longtext not null,
+    finish boolean not null,
     created_at timestamp not null
 );

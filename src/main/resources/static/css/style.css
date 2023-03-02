@@ -74,9 +74,8 @@ button {
 }
 
 .my_main_banner {
+    width: 1300px;
     height: 400px;
-    width: 100%;
-
 }
 
 .my_sub1_banner {
@@ -181,8 +180,8 @@ a {
 }
 
 .hh-background-wrap {
-    background-image: url('https://img.freepik.com/free-photo/business-women-signature-at-document_1388-90.jpg');
-    background-size: 1200px 500px;
+    background-image: url("/images/이력서배너.png");
+    background-size: 1200px 280px;
     width: 1200px;
     height: 300px;
     display: flex;

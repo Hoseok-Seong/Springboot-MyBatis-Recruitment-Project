@@ -13,14 +13,14 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="/images/temp_banner1.jpg" class="d-block w-100" alt="...">
+                        <img src="/images/메인배너1.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="/images/temp_banner2.jpg" class="d-block w-100" alt="...">
+                        <img src="/images/메인배너2.png" class="d-block w-100" alt="...">
 
                     </div>
                     <div class="carousel-item">
-                        <img src="/images/temp_banner3.jpg" class="d-block w-100" alt="...">
+                        <img src="/images/메인배너3.png" class="d-block w-100" alt="...">
 
                     </div>
                 </div>
