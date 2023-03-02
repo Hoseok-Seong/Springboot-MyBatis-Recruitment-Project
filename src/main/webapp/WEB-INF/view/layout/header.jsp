@@ -229,6 +229,18 @@
                                                 </td>
                                             </div>
                                         </table>
+                                            <input type="checkbox" name="skill" value="1">Java
+                                            <input type="checkbox" name="skill" value="2">Html
+                                            <input type="checkbox" name="skill" value="3">JavaScript
+                                            <input type="checkbox" name="skill" value="4">VueJS
+                                            <input type="checkbox" name="skill" value="5">CSS
+                                            <input type="checkbox" name="skill" value="6">Node.js
+                                            <input type="checkbox" name="skill" value="7">React
+                                            <input type="checkbox" name="skill" value="8">ReactJS
+                                            <input type="checkbox" name="skill" value="9">Typescript
+                                            <input type="checkbox" name="skill" value="10">Zustand
+                                            <input type="checkbox" name="skill" value="11">AWS
+
                                         <div class="text-center">
                                             <tr>
                                                 &nbsp;<input type="checkbox"
@@ -302,6 +314,8 @@
                                                 <option value="대기업">대기업</option>
                                             </select>
                                         </div><br>
+                                        
+
                                         <div class="text-center">
                                             <tr>
                                                 &nbsp;<input type="checkbox" aria-label="Checkbox for following text input" id="agree-checkbox" name="agree" required>

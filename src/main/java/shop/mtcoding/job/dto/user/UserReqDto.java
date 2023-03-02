@@ -14,6 +14,7 @@ public class UserReqDto {
     @Setter
     @Getter
     public static class JoinUserReqDto {
+        private int id;
         private String username;
         private String password;
         private String salt;

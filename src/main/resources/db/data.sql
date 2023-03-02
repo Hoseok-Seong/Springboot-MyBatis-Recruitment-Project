@@ -12,6 +12,54 @@ insert into enterprise_tb(enterprise_name, password, salt, address, contact, ema
 insert into enterprise_tb(enterprise_name, password, salt, address, contact, email, sector, size, created_at) values('노티플러스', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b_{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2', '{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2', '영식', '1', '1', '1', '1', now());
 insert into enterprise_tb(enterprise_name, password, salt, address, contact, email, sector, size, created_at) values('라인플러스', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b_{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2', '{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2', '영식', '1', '1', '1', '1', now());
 
+insert into user_skill_tb(user_id, skill) values(1, 1);
+insert into user_skill_tb(user_id, skill) values(1, 2);
+insert into user_skill_tb(user_id, skill) values(2, 3);
+insert into user_skill_tb(user_id, skill) values(1, 4);
+insert into user_skill_tb(user_id, skill) values(2, 5);
+insert into user_skill_tb(user_id, skill) values(1, 6);
+insert into user_skill_tb(user_id, skill) values(1, 7);
+insert into user_skill_tb(user_id, skill) values(1, 8);
+insert into user_skill_tb(user_id, skill) values(2, 8);
+
+insert into recruitment_skill_tb(recruitment_id, skill ) values(1, 2);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(1, 5);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(1, 6);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(2, 1);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(2, 2);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(2, 7);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(2, 8);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(2, 10);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(2, 11);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(3, 1);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(3, 6);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(3, 9);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(3, 11);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(4, 2);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(4, 6);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(4, 8);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(4, 11);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(5, 1);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(5, 4);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(5, 8);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(6, 3);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(6, 4);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(7, 7);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(7, 8);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(7, 11);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(8, 1);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(8, 3);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(8, 4);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(8, 9);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(9, 2);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(9, 5);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(9, 9);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(9, 11);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(10, 7);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(10, 8);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(10, 9);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(10, 11);
+
 insert into resume_tb(user_id, title, content, career, education, skill, award, language, link, file, birthdate, address, finish, created_at)  
 values('1', 
 '개발 친화적 커뮤니케이션으로 주간 개발 목표 달성률 50%P 향상', 
@@ -150,16 +198,6 @@ Great Inspiration to the NexT, 우리가 꿈꾸는 다음 세대를 위한 비�
 • 야근시 택시비를 지원해드립니다.<br>
 • 임신기간 근로시간 단축제를 시행하고 있습니다.<br>
 • 광교 본사 외 서울 오피스를 듀얼로 운영하고 있습니다.<br>
-<br>
-<b>기술스택 ・ 툴</b><br>
-Java<br>
-Perl<br>
-Python<br>
-C<br>
-C++<br>
-CAN<br>
-Embedded Linux<br>
-AUTOSAR<br>
 ', '/images/gint_logo.png',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo, created_at) values(2,'안드로이드 개발(2년 이상)','안드로이드 앱 개발 경력 2년 이상','학력무관','면접 후 결정','스타트업','안드로이드','영등포구 국회대로 50길 20','
@@ -207,16 +245,7 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 - 업무 성과에 따른 인센티브 넉넉히<br>
 - 대기업급 건강검진<br>
 - 4대 보험<br>
-<br>
-<b>기술스택 ・ 툴</b><br>
-Git<br>
-Android<br>
-Firebase<br>
-iOS<br>
-Java<br>
-Kotlin<br>
-Swift<br>
-AWS<br>
+
 ', '/images/the_day_before_logo.png',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo, created_at) values(3,'인공지능 엔지니어','무관','컴퓨터 공학, 통계학, 수학, 물리학과 또는 연관된 학과의 학사 이상','임시급여3','스타트업','머신러닝 엔지니어','영등포구 국회대로 50길 20','
@@ -247,11 +276,6 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 • 건강검진<br>
 • 점심식대<br>
 • 그 외 다양한 복리후생 도입 검토 중입니다.<br>
-<br>
-<b>기술스택 ・ 툴</b><br>
-Github<br>
-Pytorch<br>
-Python<br>
 ', '/images/AinB_logo.png',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo, created_at) values(4,'빅데이터 엔지니어','무관','대졸','면접 후 결정','대기업','데이터 엔지니어','서울 중구 을지로 100','
@@ -363,9 +387,6 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 • 식대: 월 20만원<br>
 <br>
 • 데스커 모션데스크 & 시디즈 T80<br>
-<br>
-<b>기술스택 ・ 툴</b><br>
-C / C++<br>
 ', '/images/peoplesleague_logo.png',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo, created_at) values(6,'백엔드_Django 개발 주니어 (1년 이상)','1년이상','학력무관','2800만원','인력소싱','프론트엔드','서울특별시 마포구 마포대로','

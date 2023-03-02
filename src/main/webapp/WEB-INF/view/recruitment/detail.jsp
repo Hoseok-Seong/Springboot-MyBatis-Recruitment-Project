@@ -38,6 +38,16 @@
                                     ${recruitmentPostDtos.sector}
                                 </dd>
                             </dl>
+                            <dl>
+                                <dt>
+                                    기술스택
+                                </dt>
+                                <dd>
+                                    <c:forEach items="${recruitmentPostSkillDtos}" var="recruitmentPostSkillDto">
+                                        ${recruitmentPostSkillDto.skill}<br>
+                                    </c:forEach>
+                                </dd>
+                            </dl>
                         </div>
 
                         <div class="border border-end-0 border-start-0 pt-3" style=" width: 48%;">

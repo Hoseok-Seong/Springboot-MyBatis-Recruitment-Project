@@ -14,6 +14,8 @@ public interface RecruitmentPostRepository {
 
         public RecruitmentPost findById(int id);
 
+        public RecruitmentPost findByEnterpriseLogo(String enterpriseLogo);
+
         public RecruitmentPostDetailRespDto findByIdWithEnterpriseId(int id);
 
         public int insert(RecruitmentPost recruitmentPost);
