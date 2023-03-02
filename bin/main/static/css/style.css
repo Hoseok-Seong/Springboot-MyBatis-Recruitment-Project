@@ -251,6 +251,7 @@ a {
 :root {
     accent-color: #ff7f00;
 }
-.hh-root {
-    accent-color: #ff7f00;
+.form-check-input:checked {
+    background-color: #ff7f00;
+    border-color: #ff7f00;
 }

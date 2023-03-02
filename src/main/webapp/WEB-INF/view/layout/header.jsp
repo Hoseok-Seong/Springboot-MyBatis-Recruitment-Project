@@ -219,16 +219,16 @@
                                         <div class="collapse" id="collapseExample">
                                         <div class="card card-body">
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="skill" value="1" id="flexCheckDefault hh-root">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Java
-                                        </label>
+                                            <input class="form-check-input" type="checkbox" name="skill" value="1" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Java
+                                            </label>
                                         </div>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="skill" value="2" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Html
-                                        </label>
+                                            <input class="form-check-input" type="checkbox" name="skill" value="2" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Html
+                                            </label>
                                         </div>
                                         <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="skill" value="3" id="flexCheckDefault">
