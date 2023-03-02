@@ -7,7 +7,7 @@
    </insert>
     
    <update id="updateById">
-      update enterprise_tb set  password = #{password}, address = #{address}, contact = #{contact}, 
+      update enterprise_tb set  password = #{password}, salt = #{salt}, address = #{address}, contact = #{contact}, 
       email = #{email}, size = #{size},sector=#{sector} where id = #{id}
    </update>
 

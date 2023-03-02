@@ -65,10 +65,10 @@ public class UserService {
 
         try {
             User user = userRepository.findById(id);
-            String savedSalt = user.getSalt();
+            // String savedSalt = user.getSalt();
 
             String sha256Hash = Sha256Encoder.sha256(updateUserReqDto.getPassword());
-            String salt = savedSalt;
+            String salt = SaltEncoder.salt();
             int result = userRepository.updateById(id,
                     sha256Hash + "_" + salt, salt,
                     updateUserReqDto.getEmail(),
