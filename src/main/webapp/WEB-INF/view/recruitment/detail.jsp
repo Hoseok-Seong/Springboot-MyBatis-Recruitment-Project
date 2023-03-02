@@ -169,9 +169,9 @@
                                                         <div class="card mt-5" style="width: 22rem;">
                                                             <div class="card card-body">
                                                                 <button class="my_blue_button"
-                                                                    href="/recruitment/${recruitmentPostDtos.id}/updateForm">수정</button>
+                                                                    onclick="location.href='/recruitment/${recruitmentPostDtos.id}/updateForm'">수정</button>
                                                                 <button class="my_gray_button"
-                                                                    href="/recruitment/${recruitmentPostDtos.id}/updateForm">삭제</button>
+                                                                    onClick="confirmDelete(${recruitmentPostDtos.id})">삭제</button>
                                                             </div>
                                                         </div>
                                                     </c:when>
@@ -252,6 +252,24 @@
                         "Content-Type": "application/json; charset=utf-8"
                     },
                     dataType: "json" // default : 응답의 MIMETYPE으로 유추함.
+                }).done((res) => { // 20X 일때
+                    alert(res.msg);
+                    location.href = "/recruitment/list";
+                }).fail((err) => { // 40X, 50X 일때
+                    alert(err.responseJSON.msg);
+                });
+            }
+
+            function confirmDelete(recruitmentPostId) {
+                if (confirm('채용공고를 삭제하시면 복구가 불가능합니다. 정말로 삭제하시겠습니까?')) {
+                    deleteById(recruitmentPostId);
+                }
+            }
+            function deleteById(recruitmentPostId){
+                $.ajax({
+                    type: "delete",
+                    url: '/recruitment/'+recruitmentPostId,
+                    dataType: "json"
                 }).done((res) => { // 20X 일때
                     alert(res.msg);
                     location.href = "/recruitment/list";
