@@ -61,7 +61,7 @@ create table bookmark_tb(
     id int auto_increment primary key,
     user_id int not null unique,
     enterprise_id int not null unique,    
-    count int not null,
+    count int,
     created_at timestamp not null
 );
 

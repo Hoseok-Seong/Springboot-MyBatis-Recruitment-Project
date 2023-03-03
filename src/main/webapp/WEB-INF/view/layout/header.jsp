@@ -163,12 +163,12 @@
                                                     <tr class="text-center">
                                                         <!-- input의 크기는 class="form-control-lg" 로 늘린다. -->
                                                         <td><input type="text" value="${remember}" class="form-control-lg w-100"
-                                                               id="username" name="username" placeholder="아이디"></td>
+                                                               id="usernameCheck" name="username" placeholder="아이디"></td>
                                                     </tr>
 
                                                     <tr class="text-center">
                                                         <td><input type="password" class="form-control-lg w-100"
-                                                               id="password" name="password" placeholder="비밀번호"></td>
+                                                               id="passwordCheck" name="password" placeholder="비밀번호"></td>
                                                     </tr>
                                                 </table>
                                                 <button type="submit" class="btn login-btn-custom btn-sm me-2" onclick="userLogin()"
@@ -187,7 +187,7 @@
 
                                                     <tr class="text-center">
                                                         <td><input type="password" class="form-control-lg w-100" 
-                                                            id="entpassword" name="password" placeholder="비밀번호"></td>
+                                                            id="enterpassword" name="password" placeholder="비밀번호"></td>
                                                     </tr>
                                                 </table>
                                                 <button type="submit" class="btn login-btn-custom btn-sm me-2" onclick="enterpriseLogin()"
@@ -268,68 +268,68 @@
                                         <div class="collapse" id="collapseExample">
                                         <div class="card card-body">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="skill" value="1" id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">
+                                            <input class="form-check-input" type="checkbox" name="skill" value="1" id="flexCheckDefault1">
+                                            <label class="form-check-label" for="flexCheckDefault1">
                                                 Java
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="skill" value="2" id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">
+                                            <input class="form-check-input" type="checkbox" name="skill" value="2" id="flexCheckDefault2">
+                                            <label class="form-check-label" for="flexCheckDefault2">
                                                 Html
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="skill" value="3" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="3" id="flexCheckDefault3">
+                                        <label class="form-check-label" for="flexCheckDefault3">
                                             JavaScript
                                         </label>
                                         </div>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="skill" value="4" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="4" id="flexCheckDefault4">
+                                        <label class="form-check-label" for="flexCheckDefault4">
                                             VueJS
                                         </label>
                                         </div>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="skill" value="5" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="5" id="flexCheckDefault5">
+                                        <label class="form-check-label" for="flexCheckDefault5">
                                             CSS
                                         </label>
                                         </div>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="skill" value="6" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="6" id="flexCheckDefault6">
+                                        <label class="form-check-label" for="flexCheckDefault6">
                                             Node.js
                                         </label>
                                         </div>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="skill" value="7" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="7" id="flexCheckDefault7">
+                                        <label class="form-check-label" for="flexCheckDefault7">
                                             React
                                         </label>
                                         </div>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="skill" value="8" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="8" id="flexCheckDefault8">
+                                        <label class="form-check-label" for="flexCheckDefault8">
                                             ReactJs
                                         </label>
                                         </div>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="skill" value="9" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="9" id="flexCheckDefault9">
+                                        <label class="form-check-label" for="flexCheckDefault9">
                                             Typescript
                                         </label>
                                         </div>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="skill" value="10" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="10" id="flexCheckDefault10">
+                                        <label class="form-check-label" for="flexCheckDefault10">
                                             Zustand
                                         </label>
                                         </div>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="skill" value="11" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" name="skill" value="11" id="flexCheckDefault11">
+                                        <label class="form-check-label" for="flexCheckDefault11">
                                             AWS
                                         </label>
                                         </div>
@@ -341,7 +341,7 @@
                                         <div class="text-center">
                                             <tr><br>
                                                 &nbsp;<input type="checkbox"
-                                                    aria-label="Checkbox for following text input" id="agree-checkbox" name="agree" required> 필수 동의 항목 및 개인정보 수집 및
+                                                    aria-label="Checkbox for following text input" name="agree" required> 필수 동의 항목 및 개인정보 수집 및
                                                 이용 동의, 광고성 정보 수신에 동의합니다.
                                             </tr>
                                             <br>
@@ -355,7 +355,7 @@
                                         <table class="table table-borderless">
                                             <div class="text-center d-flex justify-content-end"><br>
                                                 <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
-                                                    <td><input type="text" id="enterpriseName"
+                                                    <td><input type="text" id="enterpriseNameCheck"
                                                             class="form-control-lg w-75 col-9" name="enterpriseName"
                                                             placeholder="아이디">
                                                         <button type="button"
@@ -388,8 +388,8 @@
                                         </table>
                                         <div class="form-control-sm">
                                             &nbsp;회사분류
-                                            <label for="exampleFormControlSelect1"></label>
-                                            <select class="form-control" id="exampleFormControlSelect1" name="sector">
+                                            <label for="exampleFormControlSelect4"></label>
+                                            <select class="form-control" id="exampleFormControlSelect4" name="sector">
                                                 <option value="SI">SI</option>
                                                 <option value="솔루션">솔루션</option>
                                                 <option value="웹 에이젼시">웹 에이젼시</option>
@@ -403,8 +403,8 @@
 
                                         <div class="form-control-sm">
                                             &nbsp;기업형태
-                                            <label for="exampleFormControlSelect1"></label>
-                                            <select class="form-control" id="exampleFormControlSelect1" name="size">
+                                            <label for="exampleFormControlSelect3"></label>
+                                            <select class="form-control" id="exampleFormControlSelect3" name="size">
                                                 <option value="스타트업">스타트업</option>
                                                 <option value="중소기업">중소기업</option>
                                                 <option value="중견기업">중견기업</option>
@@ -415,7 +415,7 @@
 
                                         <div class="text-center">
                                             <tr>
-                                                &nbsp;<input type="checkbox" aria-label="Checkbox for following text input" id="agree-checkbox" name="agree" required>
+                                                &nbsp;<input type="checkbox" aria-label="Checkbox for following text input" name="agree" required>
                                                 필수 동의 항목 및 개인정보 수집 및 이용 동의, 광고성 정보
                                                 수신에 동의합니다.
                                             </tr>
@@ -457,7 +457,7 @@
                         });
                     }
                     function sameCheckEnt() {
-                        let enterpriseName = $("#enterpriseName").val();
+                        let enterpriseName = $("#enterpriseNameCheck").val();
                         $.ajax({
                             type: "get",
                             url: "/enterprise/enterpriseNameSameCheckEnt?enterpriseName=" + enterpriseName
@@ -500,7 +500,7 @@
                     function enterpriseLogin() {
                         let data = {
                             enterpriseName: $("#enterpriseName").val(),
-                            password: $("#entpassword").val(),
+                            password: $("#enterpassword").val(),
                         };
                         $.ajax({
                             type: "post",
@@ -519,8 +519,8 @@
                 <script>
                     function userLogin() {
                         let data = {
-                            username: $("#username").val(),
-                            password: $("#password").val(),
+                            username: $("#usernameCheck").val(),
+                            password: $("#passwordCheck").val(),
                         };
                         $.ajax({
                             type: "post",
@@ -634,8 +634,8 @@
 
                                             <div class="form-control-sm">
                                                 &nbsp;기업형태
-                                                <label for="exampleFormControlSelect1"></label>
-                                                <select class="form-control" id="exampleFormControlSelect1" name="size">
+                                                <label for="exampleFormControlSelect2"></label>
+                                                <select class="form-control" id="exampleFormControlSelect2" name="size">
                                                     <option value="스타트업">스타트업</option>
                                                     <option value="중소기업">중소기업</option>
                                                     <option value="중견기업">중견기업</option>

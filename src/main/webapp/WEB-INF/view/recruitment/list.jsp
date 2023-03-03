@@ -213,7 +213,7 @@ h1 {
                             <i class="bi-currency-dollar"></i> 채용보상금 1,000,000원</p>
                         </div>
                     </div>
-                      <img id="image1" src="/images/북마크화이트.png" onclick="bookmark(${post.enterpriseId})">
+                      <img id="image1" src="/images/북마크화이트.png" onclick="bookmark('${post.enterpriseId}')">
 
             </div>
             </c:forEach>
@@ -225,23 +225,43 @@ h1 {
             
         </div>
                 <script>
-                              function bookmark(id) {
-                                $.ajax({
-                                type: "post",
-                                url:  "/detail/"+id+"/bookmark",
-                                dataType: "json",
-                                })
-                                .done((res) => { 
-                                    alert(res.msg);
-                                    location.reload();
-                                })
-                                .fail((err) => { 
-                                    alert(err.responseJSON.msg);
-                                });
-                                      }
-                            </script>
-                        <script>
-        
+                function bookmark(id) {
+                    let data = {
+                            enterpriseId: id,
+                        };
+                    $.ajax({
+                    type: "post",
+                    url:  "/detail/"+id+"/bookmark",
+                    data: JSON.stringify(data),
+                    contentType: 'application/json; charset=UTF-8',
+                    dataType: "json"
+                    })
+                    .done((res) => { 
+                        alert(res.msg);
+                        location.reload();
+                    })
+                    .fail((err) => { 
+                        alert(err.responseJSON.msg);
+                    });
+                        }
+                        
+                </script>
+                <script>
+                function deleteById(resumeId) {
+                $.ajax({
+                    type: "delete",
+                    url: "/book/" + resumeId,
+                    dataType: "json"
+                }).done((res) => { // 20X 일때
+                    alert(res.msg);
+                    location.href = "/resumeList";
+                }).fail((err) => { // 40X, 50X 일때
+                    alert(err.responseJSON.msg);
+                });
+            }
+                </script>
+                    
+                    <script>
             function search() {
                 let data = {
                     searchString: $("#search").val()

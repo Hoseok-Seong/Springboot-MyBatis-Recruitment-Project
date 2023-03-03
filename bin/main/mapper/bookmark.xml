@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop.mtcoding.job.model.bookmark.BookmarkRepository">
     <insert id="insert">
-      insert into bookmark_tb(user_id, enterprise_id, created_at) values(#{userId}, #{enterpriseId},  now()) 
+      insert into bookmark_tb(user_id, enterprise_id, created_at) values(#{userId}, #{enterpriseId}, now()) 
    </insert>
     
    <update id="updateById">
