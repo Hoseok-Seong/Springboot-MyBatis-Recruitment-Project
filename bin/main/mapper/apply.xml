@@ -37,10 +37,10 @@
       select a.recruitment_post_id, a.result, e.enterprise_name, r.title, a.sector, a.resume_id, a.created_at
       from apply_tb a
       join recruitment_post_tb r
-      on a.enterprise_id = r.enterprise_id
+      on a.recruitment_post_id = r.id
       left OUTER JOIN enterprise_tb e
       on a.enterprise_id = e.id
-      where user_id = #{userId}
+      where a.user_id = #{userId}
    </select>
 
    <select id="findByEnterpriseId" resultType="shop.mtcoding.job.dto.apply.ApplyRespDto$ApplyListForEntRespDto">
