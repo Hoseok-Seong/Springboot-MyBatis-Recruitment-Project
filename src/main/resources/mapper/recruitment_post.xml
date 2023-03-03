@@ -65,4 +65,14 @@
       where r.title like CONCAT('%',#{searchString},'%');
    </select>
 
+   <select id="findByCategory" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$RecruitmentPostCategoryRespDto">
+      SELECT e.enterprise_name, r.id, r.title, r.enterprise_logo, r.created_at 
+      FROM recruitment_post_tb r
+      JOIN enterprise_tb e on r.enterprise_id = e.id 
+      WHERE (r.career LIKE CONCAT('%', #{career},'%') OR r.career IS NULL)
+      AND (r.education LIKE CONCAT('%', #{education}, '%') OR r.education IS NULL)
+      AND (r.sector LIKE CONCAT('%', #{sector}, '%') OR r.sector IS NULL)
+      AND (r.position LIKE CONCAT('%', #{position}, '%') OR r.position IS NULL)
+      AND (r.skill LIKE CONCAT('%', #{skill}, '%') OR r.skill IS NULL);
+   </select>
 </mapper>

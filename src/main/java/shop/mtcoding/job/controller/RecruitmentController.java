@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.SaveRecruitmentPostReqDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostReqDto.UpdateRecruitmentPostReqDto;
+import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostCategoryRespDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostDetailRespDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostListRespDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostSearchRespDto;
@@ -202,7 +203,7 @@ public class RecruitmentController {
         return new ResponseEntity<>(new ResponseDto<>(1, "채용공고 작성 성공", null), HttpStatus.CREATED);
     }
 
-    @GetMapping("recruitment/saveForm")
+    @GetMapping("/recruitment/saveForm")
     public String recruitmentSaveForm() {
         Enterprise principalEnt = (Enterprise) session.getAttribute("principalEnt");
         if (principalEnt == null) {
@@ -211,7 +212,7 @@ public class RecruitmentController {
         return "recruitment/saveForm";
     }
 
-    @GetMapping("recruitment/{id}/updateForm")
+    @GetMapping("/recruitment/{id}/updateForm")
     public String recruitmentUpdateForm(@PathVariable int id, Model model) {
         Enterprise principalEnt = (Enterprise) session.getAttribute("principalEnt");
         if (principalEnt == null) {
@@ -230,7 +231,7 @@ public class RecruitmentController {
         return "recruitment/updateForm";
     }
 
-    @GetMapping("recruitment/detail/{id}")
+    @GetMapping("/recruitment/detail/{id}")
     public String recruitmentPostDetail(@PathVariable int id, Model model) {
         RecruitmentPostDetailRespDto recruitmentPostDto = recruitmentPostRepository.findByIdWithEnterpriseId(id);
 
@@ -265,7 +266,7 @@ public class RecruitmentController {
         return "recruitment/detail";
     }
 
-    @GetMapping("recruitment/list")
+    @GetMapping("/recruitment/list")
     public String recruitmentPostList(Model model) {
         List<RecruitmentPostListRespDto> posts = recruitmentPostRepository.findByPost();
         // d-day 계산
@@ -284,4 +285,12 @@ public class RecruitmentController {
         List<RecruitmentPostSearchRespDto> postPSList = recruitmentService.채용정보검색(recruitmentPostSearchRespDto);
         return new ResponseEntity<>(new ResponseDto<>(1, "검색 성공", postPSList), HttpStatus.OK);
     }
+
+    @PostMapping("/recruitment/category")
+    public ResponseEntity<?> category(@RequestBody RecruitmentPostCategoryRespDto recruitmentPostCategoryRespDto,
+            Model model) {
+        List<RecruitmentPostCategoryRespDto> postPSList = recruitmentService.카테고리검색(recruitmentPostCategoryRespDto);
+        return new ResponseEntity<>(new ResponseDto<>(1, "검색 성공", postPSList), HttpStatus.OK);
+    }
+
 }

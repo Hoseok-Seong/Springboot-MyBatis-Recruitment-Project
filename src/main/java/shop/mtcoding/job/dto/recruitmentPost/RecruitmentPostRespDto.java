@@ -68,4 +68,19 @@ public class RecruitmentPostRespDto {
         private int recruitmentId;
         private int skill;
     }
+
+    @Getter
+    @Setter
+    public static class RecruitmentPostCategoryRespDto {
+        private Integer id;
+        private String title;
+        private String enterpriseName;
+        private String enterpriseLogo;
+        private String career;
+        private String education;
+        private String sector;
+        private String position;
+        private String skill;
+        private Timestamp createdAt;
+    }
 }
