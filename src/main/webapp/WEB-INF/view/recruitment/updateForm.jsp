@@ -61,51 +61,32 @@
                         </div>
                         <div class="d-flex justify-content-between">
                             <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="1">Java
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="2">Html
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="3">JavaScript
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="4">VueJS
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="5">CSS
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="6">Node.js
-                                </label>
-                                <br>
+                                <c:forEach begin="1" end="6" var="i">
+                                    <c:set var="checked" value="false" />
+                                    <c:forEach items="${recruitmentPostSkillDtos}" var="recruitmentPostSkillDto">
+                                        <c:if test="${recruitmentPostSkillDto.skill == i}">
+                                            <c:set var="checked" value="true" />
+                                        </c:if>
+                                    </c:forEach>
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" name="skill" value="${i}" ${checked ? "checked" : ""}>${skillMap[i]}<br>
+                                        </label>
+                                        <br>
+                                </c:forEach>
                             </div>
                             <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="7">React
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="8">ReactJS
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="9">Typescript
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="10">Zustand
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="11">AWS
-                                </label>
+                                <c:forEach begin="7" end="11" var="i">
+                                    <c:set var="checked" value="false" />
+                                    <c:forEach items="${recruitmentPostSkillDtos}" var="recruitmentPostSkillDto">
+                                        <c:if test="${recruitmentPostSkillDto.skill == i}">
+                                            <c:set var="checked" value="true" />
+                                        </c:if>
+                                    </c:forEach>
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" name="skill" value="${i}" ${checked ? "checked" : ""}>${skillMap[i]}
+                                        </label>
+                                        <br>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>

@@ -227,6 +227,22 @@ public class RecruitmentController {
 
         model.addAttribute("recruitment", recruitmentPS);
 
+        // 스킬 매핑 정보를 저장한 Map 객체를 만들어서 Model 객체에 추가
+        Map<Integer, String> skillMap = new HashMap<>();
+        skillMap.put(1, "Java");
+        skillMap.put(2, "HTML");
+        skillMap.put(3, "JavaScript");
+        skillMap.put(4, "VueJS");
+        skillMap.put(5, "CSS");
+        skillMap.put(6, "Node.js");
+        skillMap.put(7, "React");
+        skillMap.put(8, "ReactJS");
+        skillMap.put(9, "Typescript");
+        skillMap.put(10, "Zustand");
+        skillMap.put(11, "AWS");
+        model.addAttribute("skillMap", skillMap);
+        model.addAttribute("recruitmentPostSkillDtos", recruitmentSkillRepository.findByRecruitmentId(id));
+
         return "recruitment/updateForm";
     }
 

@@ -64,7 +64,7 @@
                                 </label>
                                 <br>
                                 <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="2">Html
+                                    <input type="checkbox" class="form-check-input" name="skill" value="2">HTML
                                 </label>
                                 <br>
                                 <label class="form-check-label">

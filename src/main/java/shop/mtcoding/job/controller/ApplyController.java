@@ -22,6 +22,7 @@ import shop.mtcoding.job.dto.apply.ApplyReqDto.InsertApplyReqDto;
 import shop.mtcoding.job.dto.apply.ApplyReqDto.UpdateApplicantResultReqDto;
 import shop.mtcoding.job.dto.apply.ApplyRespDto.ApplyListForEntRespDto;
 import shop.mtcoding.job.dto.apply.ApplyRespDto.ApplyListForUserRespDto;
+import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostDetailRespDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.apply.ApplyRepository;
@@ -31,6 +32,7 @@ import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.service.ApplyService;
+import shop.mtcoding.job.util.DateUtil;
 
 @Controller
 public class ApplyController {
