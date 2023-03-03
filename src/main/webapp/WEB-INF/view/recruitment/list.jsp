@@ -18,7 +18,7 @@ h1 {
 }
 
 .jm_card {
-  height: 430px;
+  height: 480px;
   border-radius: 0.5rem;
   box-shadow: 0px 5px 10px #ced4da;
   overflow: hidden;
@@ -151,22 +151,23 @@ h1 {
                 <div class="col">
                 <select id="skill" class="form-select" aria-label="Default select example">
                 <option selected disabled>기술스택</option>
-                <option value="Java">Java</option>
-                <option value="Html">Html</option>
-                <option value="JavaScript">JavaScript</option>
-                <option value="VueJS">VueJS</option>
-                <option value="CSS">CSS</option>
-                <option value="Node.Js">Node.Js</option>
-                <option value="React">React</option>
-                <option value="ReactJS">ReactJS</option>
-                <option value="Typescript">Typescript</option>
-                <option value="Zustand">Zustand</option>
-                <option value="AWS">AWS</option>
+                <option value="1">Java</option>
+                <option value="2">Html</option>
+                <option value="3">JavaScript</option>
+                <option value="4">VueJS</option>
+                <option value="5">CSS</option>
+                <option value="6">Node.Js</option>
+                <option value="7">React</option>
+                <option value="8">ReactJS</option>
+                <option value="9">Typescript</option>
+                <option value="10">Zustand</option>
+                <option value="11">AWS</option>
                 </select>
                 </div>
             </div>
             <div class="row justify-content-center align-items-center py-3" style="background-color: whitesmoke;">
                 <div class="col-6 text-center">
+                    <button type="submit" class="btn btn-secondary" onclick="reloadPage()">초기화</button>
                     <button type="submit" class="btn btn-primary" onclick="category()">선택한 조건으로 검색</button>
                 </div>
             </div>
@@ -190,35 +191,37 @@ h1 {
                             <div class="card jm_card">
                             <img src="${post.enterpriseLogo}" class="card-img-top jm_card_img_top">
                         </a>
-
-                    </div>
-                    <div class="card-body jm_card_body"><br>
+                    <div class="card-body jm_card_body "><br>
                         <div class="jm_company_name">
+                                    <div class="card-body">
                             <c:choose>
                                 <c:when test="${post.diffDays < 0}">
-                                    <dt class="text-danger" style="font-size: smaller;">기간이 지났습니다</dt>
-                                </c:when>
-                                <c:otherwise>
-                                    <dt style="font-size: smaller;">D-${post.diffDays}</dt>
-                                </c:otherwise>
-                            </c:choose>
-                        </div>
-                        <div class="jm_company_name my-text-ellipsis">${post.title}</div>
-                        <div class="jm_company_title my-text-ellipsis">${post.enterpriseName}</div>
-                        <div class="jm_company_title my-text-ellipsis">
-                            <i class="bi-geo-alt"></i>서울, 부산
-
-                        </div>
-                        <div class="jm_company_title my-text-ellipsis">
-                            <i class="bi-currency-dollar"></i> 채용보상금 1,000,000원</p>
+                                        <dt class="text-danger" style="font-size: smaller;">기간이 지났습니다</dt>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <dt style="font-size: smaller;">D-${post.diffDays}</dt>
+                                    </c:otherwise>
+                                    </c:choose>
+                                        <div class="jm_company_name my-text-ellipsis">${post.title}</div>
+                                        <div class="jm_company_title my-text-ellipsis">${post.enterpriseName}</div>
+                                        <div class="jm_company_title my-text-ellipsis">
+                                            <i class="bi-geo-alt"></i>서울, 부산
+                                            <div class="jm_company_title my-text-ellipsis">
+                                                <i class="bi-currency-dollar"></i> 채용보상금 1,000,000원</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
                         </div>
                     </div>
-                </div>
-            </div>
             </c:forEach>
         </div>
 
         <script>
+            function reloadPage() {
+                location.reload();
+            }
             function search() {
                 let data = {
                     searchString: $("#search").val()
@@ -257,11 +260,6 @@ h1 {
             }
 
             function category() {
-                console.log($("#career").val())
-                console.log($("#education").val())
-                console.log($("#sector").val())
-                console.log($("#position").val())
-                console.log($("#skill").val())
                 let data = {
                     career: $("#career").val(),
                     education: $("#education").val(),
