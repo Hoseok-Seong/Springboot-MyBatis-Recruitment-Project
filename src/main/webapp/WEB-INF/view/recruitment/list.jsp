@@ -213,12 +213,35 @@ h1 {
                             <i class="bi-currency-dollar"></i> 채용보상금 1,000,000원</p>
                         </div>
                     </div>
-                </div>
+                      <img id="image1" src="/images/북마크화이트.png" onclick="bookmark(${post.enterpriseId})">
+
             </div>
             </c:forEach>
         </div>
 
-        <script>
+        
+                </div>
+            </div>
+            
+        </div>
+                <script>
+                              function bookmark(id) {
+                                $.ajax({
+                                type: "post",
+                                url:  "/detail/"+id+"/bookmark",
+                                dataType: "json",
+                                })
+                                .done((res) => { 
+                                    alert(res.msg);
+                                    location.reload();
+                                })
+                                .fail((err) => { 
+                                    alert(err.responseJSON.msg);
+                                });
+                                      }
+                            </script>
+                        <script>
+        
             function search() {
                 let data = {
                     searchString: $("#search").val()
