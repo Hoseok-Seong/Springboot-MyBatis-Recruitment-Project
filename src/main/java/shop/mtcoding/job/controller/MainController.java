@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostListRespDto;
 import shop.mtcoding.job.dto.user.UserMatchingDto;
+import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.model.user.UserRepository;
 
@@ -18,6 +20,9 @@ public class MainController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RecruitmentPostRepository recruitmentPostRepository;
 
     @Autowired
     private HttpSession session;
@@ -29,6 +34,14 @@ public class MainController {
             List<UserMatchingDto> userMatchingDto = userRepository.userMatching(principal.getId());
             model.addAttribute("userMatching", userMatchingDto);
         }
+
+        List<RecruitmentPostListRespDto> posts = recruitmentPostRepository.findByPost();
+        // d-day 계산
+        for (RecruitmentPostListRespDto post : posts) {
+            post.calculateDiffDays(); // D-Day 계산
+        }
+
+        model.addAttribute("Posts", posts);
         return "/main/main";
     }
 }

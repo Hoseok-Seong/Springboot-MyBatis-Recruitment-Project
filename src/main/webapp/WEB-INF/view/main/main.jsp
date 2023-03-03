@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
 <style>
-/* .container-fluid {
-max-width: 1300px;
-} */
 
 .btn-secondary {
 background-color: #ff7f00;
@@ -14,20 +11,9 @@ border-color: #ff7f00;
 background-color: #ff7f00;
 border-color: #ff7f00;
 }
-/* card 조절 */
-/* .card {
-    margin-bottom: 20px;
-    background-color: #f8f9fa;
-    border: none;
-} */
-
-/* .card-body {
-    padding: 1rem;
-}
- */
 
 .jm_card {
-  height: 400px;
+  height: 480px;
   border-radius: 0.5rem;
   box-shadow: 0px 5px 10px #ced4da;
   overflow: hidden;
@@ -103,9 +89,9 @@ border-color: #ff7f00;
         </div>
 
         <%-- 박스부 --%>
-            <div class="container-fluid" style="max-width: 1300px;">
+            <div class="container-fluid" style="width: 65%">
                 <c:if test="${principal.id != null}">
-                    <div class="d-flex justify-content mt-3">
+                    <div class="d-flex justify-content">
                         <div class="">
                             <button type="button" class="btn btn-secondary" data-bs-toggle="collapse"
                                 data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -114,10 +100,6 @@ border-color: #ff7f00;
                             </button>
                         </div>
                     </div>
-                    <div class="collapse mt-5" id="collapseExample">
-                         매칭 서비스에 대한 내용 
-                    </div>
-                    </p>
                 </c:if>
                 <div class="collapse mt-5" id="collapseExample">
                     <div class="card card-body">
@@ -131,7 +113,7 @@ border-color: #ff7f00;
                                             <img src="${user.enterpriseLogo}" class="card-img-top jm_card_img_top">
                                         </a>
                                             <div class="card-body jm_card_body">
-                                                <h5 class="jm_company_name">${user.title}</h5>
+                                                <h5 class="jm_company_name my-text-ellipsis">${user.title}</h5>
                                                 <h6 class="jm_company_title my-text-ellipsis">${user.enterpriseName}</h6>
                                                 <p class="jm_company_title my-text-ellipsis"><i class="bi-geo-alt"></i> 서울,
                                                     부산</p>
@@ -142,104 +124,47 @@ border-color: #ff7f00;
                                     </div>
                                 </c:forEach>
                             </div>
-                        </div><br><br>
+                        </div>
                     </div>
                 </div>
-                <br><br>
+                <br>
+            </div>
+            <div class="container jm_container" style="width: 65%">
                 <h2>채용광고</h2>
-                <div class="d-inline-flex justify-content-between flex-wrap">
-                    <div class="g-col-3 my-3" style="width: 18rem;">
-                        <a href="/recruitment/detail/1" style="color: inherit; text-decoration: none;">
-                            <div class="card jm_card">
-                                <img src="/images/AinB_logo.png" class="card-img-top jm_card_img_top">
-                            <div class="jm_card_body"><br>
-                                <div class="jm_company_title my-text-ellipsis">
-                                    <h4>Java 개발자</h4>
-                                </div>
-                                <div class="jm_company_name my-text-ellipsis">
-                                    <h5>AinB</h5>
+                    <div class="row" id="emptyBox">
+                        <c:forEach items="${Posts}" var="post">
+                            <div class="col-sm-3 mb-3">
+                                <a href="/recruitment/detail/${post.id}" style="color: inherit; text-decoration: none;">
+                                    <div class="card jm_card">
+                                    <img src="${post.enterpriseLogo}" class="card-img-top jm_card_img_top">
+                                </a>
+                            <div class="card-body jm_card_body "><br>
+                                <div class="jm_company_name">
+                                            <div class="card-body">
+                                    <c:choose>
+                                            <c:when test="${post.diffDays < 0}">
+                                                <dt class="text-danger" style="font-size: smaller;">기간이 지났습니다</dt>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <dt style="font-size: smaller;">D-${post.diffDays}</dt>
+                                            </c:otherwise>
+                                    </c:choose>
+                                                <div class="jm_company_name my-text-ellipsis">${post.title}</div>
+                                                <div class="jm_company_title my-text-ellipsis">${post.enterpriseName}</div>
+                                                <div class="jm_company_title my-text-ellipsis">
+                                                    <i class="bi-geo-alt"></i>서울, 부산
+                                                    <div class="jm_company_title my-text-ellipsis">
+                                                        <i class="bi-currency-dollar"></i> 채용보상금 1,000,000원</p>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                </div>
+                                            </div>
                                 </div>
                             </div>
-                            </div>
-                        </a>
+                        </c:forEach>
                     </div>
-                    <div class="g-col-3 my-3" style="width: 18rem;">
-                        <a href="/recruitment/detail/2" style="color: inherit; text-decoration: none;">
-                            <div class="card jm_card">
-                                <img src="/images/birdkorea_logo.png" class="card-img-top jm_card_img_top">
-                            <div class="jm_card_body"><br>
-                                <div class="jm_company_title my-text-ellipsis">
-                                    <h4>프론트엔드 개발자</h4>
-                                </div>
-                                <div class="jm_company_name my-text-ellipsis">
-                                    <h5>birdkorea</h5>
-                                </div>
-                            </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="g-col-3 my-3" style="width: 18rem;">
-                        <a href="/recruitment/detail/3" style="color: inherit; text-decoration: none;">
-                            <div class="card jm_card">
-                                <img src="/images/gint_logo.png" class="card-img-top jm_card_img_top">
-                            <div class="jm_card_body"><br>
-                                <div class="jm_company_title my-text-ellipsis">
-                                    <h4>IOS 개발자</h4>
-                                </div>
-                                <div class="jm_company_name my-text-ellipsis">
-                                    <h5>Gint</h5>
-                                </div>
-                            </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="g-col-3 my-3" style="width: 18rem;">
-                        <a href="/recruitment/detail/4" style="color: inherit; text-decoration: none;">
-                            <div class="card jm_card">
-                                <img src="/images/notiplus_logo.png" class="card-img-top jm_card_img_top">
-                            <div class="jm_card_body"><br>
-                                <div class="jm_company_title my-text-ellipsis">
-                                    <h4>Flutter 개발자</h4>
-                                </div>
-                                <div class="jm_company_name my-text-ellipsis">
-                                    <h5>notiplus</h5>
-                                </div>
-                            </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="g-col-3 my-3" style="width: 18rem;">
-                        <a href="/recruitment/detail/5" style="color: inherit; text-decoration: none;">
-                            <div class="card jm_card">
-                                <img src="/images/poca_logo.png" class="card-img-top jm_card_img_top">
-                            <div class="jm_card_body"><br>
-                                <div class="jm_company_title my-text-ellipsis">
-                                    <h4>풀스택 개발자</h4>
-                                </div>
-                                <div class="jm_company_name my-text-ellipsis">
-                                    <h5>Poca</h5>
-                                </div>
-                            </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="g-col-3 my-3" style="width: 18rem;">
-                        <a href="/recruitment/detail/6" style="color: inherit; text-decoration: none;">
-                            <div class="card jm_card">
-                                <img src="/images/secondsyndrome_logo.png" class="card-img-top jm_card_img_top">
-                            <div class="jm_card_body"><br>
-                                <div class="jm_company_title my-text-ellipsis">
-                                    <h4>스프링 개발자</h4>
-                                </div>
-                                <div class="jm_company_name my-text-ellipsis">
-                                    <h5>Secondsyndrome</h5>
-                                </div>
-                            </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
             </div>
-            </div>
-            </div>
+            <br>
+            <br>
             <%@ include file="../layout/footer.jsp" %>

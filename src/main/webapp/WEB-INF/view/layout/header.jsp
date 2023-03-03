@@ -53,7 +53,7 @@
                                         </li>
                                         <c:choose>
                                            <c:when test="${principal != null}">
-                                           <li class="nav-item">
+                                        <li class="nav-item">
                                             <a class="nav-link text-dark" href="/resumeList">이력서</a>
                                         </li>
                                         <li class="nav-item">
@@ -70,14 +70,13 @@
                                         </li>
                                            </c:otherwise>
                                         </c:choose>
-                                        
-                                        
                                     </c:otherwise>
                                 </c:choose>
-
                             </ul>
                             <ul class="navbar-nav col-5 justify-content-end">
+                                <li class="nav-item">
                                 <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
+                                </li>
                                 <c:choose>
                                     <c:when test="${not empty principal or not empty principalEnt}">
                                         <!-- 세션에 principal 또는 principalEnt 중 하나 이상이 존재하는 경우 -->
@@ -85,51 +84,48 @@
                                             <a class="nav-link text-dark" href=""><i class=" bi
                                                 bi-bell"></i></a>
                                         </li>
+
                                         <li class="nav-item">
                                             <div class="dropdown">
                                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                                     id="dropdownMenuLink" data-bs-toggle="dropdown"
                                                     aria-expanded="false"
                                                     style="background-color: transparent; border: none;">
-                                                    <img src="/images/profile.png" style="width: 35px;"
+                                                    <img src="/images/profile.png" style="width: 25px;"
                                                         class="rounded-circle" alt="Cinque Terre">
                                                 </a>
 
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class=" dropdown-item" href="/logout">로그아웃</a>
+                                                    <li>
+                                                    <a class="dropdown-item" href="/logout">로그아웃</a>
+                                                    </li>
+                                                    <li>
+                                                    <a class="dropdown-item" data-toggle="modal" data-target="#update"
+                                                        style="cursor: pointer;">회원수정</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </c:when>
 
+                                    <c:otherwise>
+                                        <!-- 세션에 principal 또는 principalEnt가 존재하지 않는 경우 -->
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" data-toggle="modal" data-target="#login"
+                                                style="cursor: pointer;">로그인</a>
                                         </li>
                                         <li class="nav-item">
-                                        <li>
-                                            <a class="dropdown-item" data-toggle="modal" data-target="#update"
-                                                style="cursor: pointer;">회원수정</a>
+                                            <a class="nav-link text-dark" data-toggle="modal" data-target="#join"
+                                                style="cursor: pointer;">회원가입</a>
                                         </li>
+                                    </c:otherwise>
+                                </c:choose>
                             </ul>
                         </div>
-
-                        </li>
-                        </c:when>
-
-                        <c:otherwise>
-                            <!-- 세션에 principal 또는 principalEnt가 존재하지 않는 경우 -->
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" data-toggle="modal" data-target="#login"
-                                    style="cursor: pointer;">로그인</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" data-toggle="modal" data-target="#join"
-                                    style="cursor: pointer;">회원가입</a>
-                            </li>
-                        </c:otherwise>
-                        </c:choose>
-                        </ul>
+                    </nav>
                 </div>
-                </nav>
-            </div>
             </div>
             <hr class="my-1">
-            </header>
-
 
             <%-- 회원가입 Modal --%>
                 <!-- The Modal -->

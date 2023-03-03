@@ -36,7 +36,6 @@
   background-color: #ff7f00;
   color: white;
   padding: 10px 20px;
-  border-radius: 25px;
   transition: background-color 0.3s ease;
   margin-top: 10px;
 }
@@ -78,10 +77,6 @@
         </div>
         <div class="container-fluid">
             <div class="container-fluid" style="width: 65%;">
-                <div class="d-flex justify-content-between mt-3">
-                    <H4>최근문서</H4>
-                </div>
-                <br>
                     <div class="text-center d-flex justify-content-between flex-wrap ">
                         <div class="card g-col-3 my-3" style="width: 18rem;">
                             <a href="/resumeForm"><br>

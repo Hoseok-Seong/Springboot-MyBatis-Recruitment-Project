@@ -75,7 +75,7 @@ button {
 
 .my_main_banner {
     width: 1300px;
-    height: 400px;
+    height: 350px;
 }
 
 .my_sub1_banner {
@@ -103,7 +103,6 @@ a {
 }
 
 .container {
-
     margin: 0px auto;
     /* border: solid red; */
     /* display: flex; */
@@ -258,10 +257,43 @@ a {
     background-color: #f7f8fa;
 }
 
-:root {
+.root {
     accent-color: #ff7f00;
 }
+
 .form-check-input:checked {
     background-color: #ff7f00;
     border-color: #ff7f00;
+}
+
+/* 카드 스타일링 */
+.jm_container {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: 0px 5px 10px #ced4da;
+  }
+  
+.jm_card {
+height: 480px;
+border-radius: 0.5rem;
+box-shadow: 0px 5px 10px #ced4da;
+overflow: hidden;
+transition: transform 0.3s ease;
+}
+
+/* 카드 움직이는 친구 */
+.jm_card:hover {
+transform: translateY(-10px);
+}
+
+.jm_company_name {
+font-size: 1.2rem;
+font-weight: bold;
+margin-bottom: 0.5rem;
+}
+
+.jm_company_title {
+font-size: 1rem;
+margin-bottom: 0.2rem;
 }

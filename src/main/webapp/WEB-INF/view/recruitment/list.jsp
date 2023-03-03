@@ -9,53 +9,12 @@ h1 {
   color: #343a40;
 }
 
-/* 카드 스타일링 */
-.jm_container {
-  background-color: white;
-  border-radius: 0.5rem;
-  padding: 2rem;
-  box-shadow: 0px 5px 10px #ced4da;
-}
-
-.jm_card {
-  height: 480px;
-  border-radius: 0.5rem;
-  box-shadow: 0px 5px 10px #ced4da;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-/* 카드 움직이는 친구 */
-.jm_card:hover {
-  transform: translateY(-10px);
-}
-
-/* 크기가 다 같다면 진짜 이쁘게 만들어 주는 친구 */
-/* .jm_card_img_top {
-  height: 10rem;
-  object-fit: cover;
-} */
-
-
-.jm_company_name {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.jm_company_title {
-  font-size: 1rem;
-  margin-bottom: 0.2rem;
-}
 .my-text-ellipsis {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     max-width: 100%;
 }
-
-
-
     </style>
         <!-- 게시판부분 -->
         <div class="container-fluid" style="width: 65%">
