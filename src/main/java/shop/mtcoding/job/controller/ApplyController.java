@@ -28,6 +28,7 @@ import shop.mtcoding.job.model.apply.ApplyRepository;
 import shop.mtcoding.job.model.applyResume.ApplyResume;
 import shop.mtcoding.job.model.applyResume.ApplyResumeRepository;
 import shop.mtcoding.job.model.enterprise.Enterprise;
+import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.service.ApplyService;
 
@@ -45,6 +46,9 @@ public class ApplyController {
     @Autowired
     private ApplyResumeRepository applyResumeRepository;
 
+    @Autowired
+    private RecruitmentPostRepository recruitmentPostRepository;
+
     @PostMapping("/apply/{id}")
     public @ResponseBody ResponseEntity<?> insertApply(@RequestBody InsertApplyReqDto insertApplyReqDto,
             @PathVariable int id) {
@@ -52,6 +56,16 @@ public class ApplyController {
         if (principal == null) {
             throw new CustomApiException("회원 인증이 실패했습니다", HttpStatus.UNAUTHORIZED);
         }
+
+        RecruitmentPostDetailRespDto recruitmentPostDto = recruitmentPostRepository.findByIdWithEnterpriseId(id);
+
+        // d-day 계산
+        long diffDays = DateUtil.deadline(recruitmentPostDto.getDeadline());
+
+        if (diffDays < 0) {
+            throw new CustomApiException("채용공고 제출기간이 지났습니다", HttpStatus.UNAUTHORIZED);
+        }
+
         applyService.이력서제출(insertApplyReqDto, principal.getId());
         return new ResponseEntity<>(new ResponseDto<>(1, "이력서 제출 성공", null), HttpStatus.CREATED);
     }
