@@ -114,7 +114,8 @@ public class UserController {
     }
 
     @GetMapping("/user/usernameSameCheck")
-    public @ResponseBody ResponseDto<?> check(String username, JoinUserReqDto joinUserReqDto) {
+    public @ResponseBody ResponseDto<?> check(String username, 
+            JoinUserReqDto joinUserReqDto) {
         if (username == null || username.isEmpty()) {
             return new ResponseDto<>(-1, "아이디가 입력되지 않았습니다.", null);
         }

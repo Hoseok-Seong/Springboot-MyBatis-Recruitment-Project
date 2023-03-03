@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.job.dto.ResponseDto;
@@ -102,7 +103,8 @@ public class EnterpriseController {
     }
 
     @GetMapping("/enterprise/enterpriseNameSameCheckEnt")
-    public @ResponseBody ResponseDto<?> check(String enterpriseName, LoginEnterpriseReqDto loginEnterpriseReqDto) {
+    public @ResponseBody ResponseDto<?> check(
+            @RequestParam String enterpriseName, @RequestBody LoginEnterpriseReqDto loginEnterpriseReqDto) {
         if (enterpriseName == null || enterpriseName.isEmpty()) {
             return new ResponseDto<>(-1, "아이디가 입력되지 않았습니다.", null);
         }

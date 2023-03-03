@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
 <style>
-/* .container-fluid {
-max-width: 1300px;
-} */
 
 .btn-secondary {
 background-color: #ff7f00;
@@ -15,16 +12,6 @@ background-color: #ff7f00;
 border-color: #ff7f00;
 }
 /* card 조절 */
-/* .card {
-    margin-bottom: 20px;
-    background-color: #f8f9fa;
-    border: none;
-} */
-
-/* .card-body {
-    padding: 1rem;
-}
- */
 
 .jm_card {
   height: 400px;
