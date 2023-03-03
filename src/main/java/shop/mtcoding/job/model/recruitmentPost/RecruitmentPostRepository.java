@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostCategoryRespDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostDetailRespDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostListRespDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostSearchRespDto;;
@@ -28,4 +29,7 @@ public interface RecruitmentPostRepository {
 
         public List<RecruitmentPostSearchRespDto> findByTitleOrContent(
                         RecruitmentPostSearchRespDto recruitmentPostSearchRespDto);
+
+        public List<RecruitmentPostCategoryRespDto> findByCategory(
+                        RecruitmentPostCategoryRespDto recruitmentPostCategoryRespDto);
 }

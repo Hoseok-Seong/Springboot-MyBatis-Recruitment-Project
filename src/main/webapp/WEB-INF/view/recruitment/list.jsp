@@ -48,69 +48,69 @@
         <div class="container-fluid" style="width: 65%">
             <div class="row py-3">
                 <div class="col">
-                <select class="form-select" aria-label="Default select example">
-                <option selected>신입/경력</option>
-                <option value="1">신입</option>
-                <option value="2">경력</option>
-                <option value="3">무관</option>
+                <select id="career" class="form-select" aria-label="Default select example">
+                <option selected disabled>신입/경력</option>
+                <option value="신입">신입</option>
+                <option value="경력">경력</option>
+                <option value="무관">무관</option>
                 </select>
                 </div>
                 <div class="col">
-                <select class="form-select" aria-label="Default select example">
-                <option selected>학력사항</option>
-                <option value="1">대졸 이상</option>
-                <option value="2">고졸 이상</option>
-                <option value="3">학력 무관</option>
+                <select id="education" class="form-select" aria-label="Default select example">
+                <option selected disabled>학력사항</option>
+                <option value="대졸이상">대졸이상</option>
+                <option value="고졸이상">고졸이상</option>
+                <option value="학력무관">학력무관</option>
                 </select>
                 </div>
                 <div class="col">
-                <select class="form-select" aria-label="Default select example">
-                <option selected>분야</option>
-                <option value="1">si</option>
-                <option value="2">웹에이전시</option>
-                <option value="3">인력소싱</option>
-                <option value="3">대기업</option>
-                <option value="3">스타트업</option>
-                <option value="3">서비스</option>
-                <option value="3">컨설팅</option>
+                <select id="sector" class="form-select" aria-label="Default select example">
+                <option selected disabled>분야</option>
+                <option value="si">si</option>
+                <option value="웹에이전시">웹에이전시</option>
+                <option value="인력소싱">인력소싱</option>
+                <option value="대기업">대기업</option>
+                <option value="스타트업">스타트업</option>
+                <option value="서비스">서비스</option>
+                <option value="컨설팅">컨설팅</option>
                 </select>
                 </div>
                 <div class="col">
-                <select class="form-select" aria-label="Default select example">
-                <option selected>직무</option>
-                <option value="1">프론트엔드</option>
-                <option value="2">백엔드</option>
-                <option value="3">소프트웨어</option>
-                <option value="3">안드로이드</option>
-                <option value="3">IOS</option>
-                <option value="3">시스템, 네트워크 관리자</option>
-                <option value="3">머신러닝 엔지니어</option>
-                <option value="3">데이터 엔지니어</option>
-                <option value="3">빅데이터 엔지니어</option>
-                <option value="3">보안 엔지니어</option>
-                <option value="3">임베디드개발자</option>
+                <select id="position" class="form-select" aria-label="Default select example">
+                <option selected disabled>직무</option>
+                <option value="프론트엔드">프론트엔드</option>
+                <option value="백엔드">백엔드</option>
+                <option value="소프트웨어">소프트웨어</option>
+                <option value="안드로이드">안드로이드</option>
+                <option value="IOS">IOS</option>
+                <option value="네트워크관리자">네트워크관리자</option>
+                <option value="머신러닝엔지니어">머신러닝엔지니어</option>
+                <option value="데이터엔지니어">데이터엔지니어</option>
+                <option value="빅데이터엔지니어">빅데이터엔지니어</option>
+                <option value="보안엔지니어">보안엔지니어</option>
+                <option value="임베디드개발자">임베디드개발자</option>
                 </select>
                 </div>
                 <div class="col">
-                <select class="form-select" aria-label="Default select example">
-                <option selected>기술스택</option>
-                <option value="1">Java</option>
-                <option value="2">Html</option>
-                <option value="3">JavaScript</option>
-                <option value="3">VueJS</option>
-                <option value="3">CSS</option>
-                <option value="3">Node.Js</option>
-                <option value="3">React</option>
-                <option value="3">ReactJS</option>
-                <option value="3">Typescript</option>
-                <option value="3">Zustand</option>
-                <option value="3">AWS</option>
+                <select id="skill" class="form-select" aria-label="Default select example">
+                <option selected disabled>기술스택</option>
+                <option value="Java">Java</option>
+                <option value="Html">Html</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="VueJS">VueJS</option>
+                <option value="CSS">CSS</option>
+                <option value="Node.Js">Node.Js</option>
+                <option value="React">React</option>
+                <option value="ReactJS">ReactJS</option>
+                <option value="Typescript">Typescript</option>
+                <option value="Zustand">Zustand</option>
+                <option value="AWS">AWS</option>
                 </select>
                 </div>
             </div>
             <div class="row justify-content-center align-items-center py-3" style="background-color: whitesmoke;">
                 <div class="col-6 text-center">
-                    <button type="submit" class="btn btn-primary" onclick="search()">선택한 조건으로 검색</button>
+                    <button type="submit" class="btn btn-primary" onclick="category()">선택한 조건으로 검색</button>
                 </div>
             </div>
             <div class="row justify-content-end align-items-center py-3">
@@ -166,6 +166,52 @@
                 $.ajax({
                     type: "post",
                     url: "/recruitment/search",
+                    contentType: "application/json;charset=UTF-8",
+                    data: JSON.stringify(data),
+                    dataType: "json"
+                })
+                    .done((res) => {
+                        console.log(res.data);
+                        $("#emptyBox").empty();
+                        for (let i = 0; i < res.data.length; i++) {
+                            let el =
+                                `<div class="col-sm-3 mb-3">
+                                       <a href="/recruitment/detail/`+res.data[i].id+`" style="color: inherit; text-decoration: none;">
+                                             <div class="card jm_card h-100">
+                                                 <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
+                                                 <div class="card-body jm_card_body">
+                                                     <div class="jm_company_name">`+ res.data[i].title + `</div>
+                                                     <div class="jm_company_title">`+ res.data[i].enterpriseName + `</div>
+                                                 </div>
+                                             </div>
+                                         </a>
+                                     </div>`
+                            $("#emptyBox").append(el);
+                        }
+
+                        alert(res.msg);
+                    })
+                    .fail((err) => {
+                        alert(err.responseJSON.msg);
+                    })
+            }
+
+            function category() {
+                console.log($("#career").val())
+                console.log($("#education").val())
+                console.log($("#sector").val())
+                console.log($("#position").val())
+                console.log($("#skill").val())
+                let data = {
+                    career: $("#career").val(),
+                    education: $("#education").val(),
+                    sector: $("#sector").val(),
+                    position: $("#position").val(),
+                    skill: $("#skill").val()
+                };
+                $.ajax({
+                    type: "post",
+                    url: "/recruitment/category",
                     contentType: "application/json;charset=UTF-8",
                     data: JSON.stringify(data),
                     dataType: "json"
