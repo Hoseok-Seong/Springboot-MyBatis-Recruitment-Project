@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import shop.mtcoding.job.dto.enterprise.EnterMatchingDto;
+
 @Mapper
 public interface EnterpriseRepository {
         public List<Enterprise> findAll();
@@ -34,4 +36,6 @@ public interface EnterpriseRepository {
 
         public Enterprise findByEnterprisenameAndPassword(@Param("enterpriseName") String enterpriseName,
                         @Param("password") String password);
+
+        public List<EnterMatchingDto> enterpriseMatching(int id);                
 }

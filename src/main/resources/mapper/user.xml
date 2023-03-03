@@ -34,7 +34,7 @@
       select * from user_tb where username = #{username}  
    </select>
 
-   <select id="userMatching" resultType="shop.mtcoding.job.dto.user.UserMatchingDto">
+   <select id="userMatching" resultType="shop.mtcoding.job.dto.enterprise.EnterMatchingDto">
       select distinct u.id, enterprise_name, r.enterprise_logo, r.title
       from user_tb u
       left join user_skill_tb us

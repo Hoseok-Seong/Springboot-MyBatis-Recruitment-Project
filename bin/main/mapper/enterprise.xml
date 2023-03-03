@@ -34,4 +34,16 @@
    <select id="findByEnterprisenameAndPassword" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
       select * from enterprise_tb where enterprise_name = #{enterpriseName} and password = #{password}         
    </select>
+
+   <select id="enterpriseMatching" resultType="shop.mtcoding.job.dto.user.UserMatchingDto">
+       select e.id, u.username, u.email, r.birthdate
+      from enterprise_tb e
+      join recruitment_post_tb rt on e.id = rt.enterprise_id
+      join recruitment_skill_tb rs on rs.recruitment_id = rt.id
+      join user_skill_tb us on us.skill = rs.skill
+      join user_tb u on u.id = us.user_id
+      join resume_tb r on r.user_id = u.id
+      group by e.id,u.username
+      having e.id = #{id} 
+    </select>
 </mapper>
