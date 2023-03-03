@@ -28,4 +28,13 @@ public enum Skill {
         int skillCode = skill.getCode(); // enum 값을 코드 값으로 변환
         return skillCode;
     }
+
+    public static Skill valueOf(int code) {
+        for (Skill skill : values()) {
+            if (skill.code == code) {
+                return skill;
+            }
+        }
+        throw new IllegalArgumentException("Invalid value: " + code);
+    }
 }

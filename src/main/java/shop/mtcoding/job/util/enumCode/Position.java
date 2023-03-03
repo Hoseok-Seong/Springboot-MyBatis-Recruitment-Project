@@ -28,4 +28,13 @@ public enum Position {
         int positionCode = position.getCode(); // enum 값을 코드 값으로 변환
         return positionCode;
     }
+
+    public static Position valueOf(int code) {
+        for (Position position : values()) {
+            if (position.code == code) {
+                return position;
+            }
+        }
+        throw new IllegalArgumentException("Invalid value: " + code);
+    }
 }

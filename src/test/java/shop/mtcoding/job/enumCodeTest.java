@@ -14,5 +14,11 @@ public class enumCodeTest {
 
         System.out.println(Career.enumCode(data));
         Career.enumCode(data);
+
+        int value = 1;
+
+        Career.valueOf(value);
+        System.out.println(Career.valueOf(value));
+
     }
 }

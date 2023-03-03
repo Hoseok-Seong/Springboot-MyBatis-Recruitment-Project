@@ -20,4 +20,13 @@ public enum Education {
         int educationCode = education.getCode(); // enum 값을 코드 값으로 변환
         return educationCode;
     }
+
+    public static Education valueOf(int code) {
+        for (Education education : values()) {
+            if (education.code == code) {
+                return education;
+            }
+        }
+        throw new IllegalArgumentException("Invalid value: " + code);
+    }
 }

@@ -24,4 +24,13 @@ public enum Sector {
         int sectorCode = sector.getCode(); // enum 값을 코드 값으로 변환
         return sectorCode;
     }
+
+    public static Sector valueOf(int code) {
+        for (Sector sector : values()) {
+            if (sector.code == code) {
+                return sector;
+            }
+        }
+        throw new IllegalArgumentException("Invalid value: " + code);
+    }
 }

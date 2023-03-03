@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import lombok.Getter;
 import lombok.Setter;
 import shop.mtcoding.job.util.DateUtil;
+import shop.mtcoding.job.util.enumCode.Sector;
 
 public class ApplyRespDto {
     @Getter
@@ -14,7 +15,7 @@ public class ApplyRespDto {
         private Integer recruitmentPostId;
         private String enterpriseName;
         private String title;
-        private String sector;
+        private Sector sector;
         private Integer resumeId;
         private Boolean result;
         private Timestamp createdAt;

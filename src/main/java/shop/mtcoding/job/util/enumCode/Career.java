@@ -20,4 +20,14 @@ public enum Career {
         int careerCode = career.getCode(); // enum 값을 코드 값으로 변환
         return careerCode;
     }
+
+    public static Career valueOf(int code) {
+        for (Career career : values()) {
+            if (career.code == code) {
+                return career;
+            }
+        }
+        throw new IllegalArgumentException("Invalid value: " + code);
+    }
+
 }

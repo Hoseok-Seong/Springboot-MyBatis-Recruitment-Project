@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import lombok.Getter;
 import lombok.Setter;
 import shop.mtcoding.job.util.DateUtil;
+import shop.mtcoding.job.util.enumCode.Sector;
 
 public class ApplyReqDto {
     @Setter
@@ -12,7 +13,7 @@ public class ApplyReqDto {
     public static class InsertApplyReqDto {
         private int enterpriseId;
         private int recruitmentPostId;
-        private String sector;
+        private Sector sector;
         private int resumeId;
         private Timestamp createdAt;
 
