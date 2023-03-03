@@ -12,7 +12,7 @@ public class RecruitmentPostRespDto {
     @Getter
     public static class RecruitmentPostDetailRespDto {
         private Integer id;
-        private String enterpriseId;
+        private Integer enterpriseId;
         private String title;
         private String career;
         private String education;

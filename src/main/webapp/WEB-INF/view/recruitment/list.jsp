@@ -213,7 +213,15 @@ h1 {
                             <i class="bi-currency-dollar"></i> 채용보상금 1,000,000원</p>
                         </div>
                     </div>
+                    <c:choose>
+                       <c:when test="${bookMarkDto != null}">
+                      <img id="image1" src="/images/북마크블랙.png" onclick="bookmark('${post.enterpriseId}')">
+                       </c:when>
+                    
+                       <c:otherwise>
                       <img id="image1" src="/images/북마크화이트.png" onclick="bookmark('${post.enterpriseId}')">
+                       </c:otherwise>
+                    </c:choose>
 
             </div>
             </c:forEach>

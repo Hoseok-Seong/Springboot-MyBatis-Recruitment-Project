@@ -10,7 +10,6 @@ import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.model.bookmark.Bookmark;
 import shop.mtcoding.job.model.bookmark.BookmarkRepository;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
-import shop.mtcoding.job.model.resume.Resume;
 
 @Service
 @RequiredArgsConstructor
@@ -21,13 +20,12 @@ public class BookmarkService {
     private final RecruitmentPostRepository recruitmentPostRepository;
 
     public void 북마크하기(int enterpriseId, int principalId) {
-        Bookmark bookmarkTemp = new Bookmark(enterpriseId, principalId);
 
-        if (bookmarkRepository.findByBoardIdAndUserId(bookmarkTemp) != null) {
+        if (bookmarkRepository.findByEnterpriseIdAndUserId(enterpriseId,principalId) != null) {
             throw new CustomApiException("이미 좋아요한 게시물 입니다");
         }
         try {
-            bookmarkRepository.insert(enterpriseId, principalId);
+            bookmarkRepository.insert(principalId,enterpriseId);
         } catch (Exception e) {
             throw new CustomApiException("서버 오류 : 좋아요 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }

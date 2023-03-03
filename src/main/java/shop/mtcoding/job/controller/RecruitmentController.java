@@ -30,6 +30,7 @@ import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentP
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostSearchRespDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
+import shop.mtcoding.job.model.bookmark.BookmarkRepository;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
@@ -56,6 +57,9 @@ public class RecruitmentController {
 
     @Autowired
     private ResumeRepository resumeRepository;
+
+    @Autowired
+    private BookmarkRepository bookmarkRepository;
 
     @DeleteMapping("/recruitment/{id}")
     public @ResponseBody ResponseEntity<?> delete(@PathVariable int id) {
@@ -240,7 +244,7 @@ public class RecruitmentController {
     @GetMapping("/recruitment/detail/{id}")
     public String recruitmentPostDetail(@PathVariable int id, Model model) {
         RecruitmentPostDetailRespDto recruitmentPostDto = recruitmentPostRepository.findByIdWithEnterpriseId(id);
-
+        
         // d-day 계산
         long diffDays = DateUtil.deadline(recruitmentPostDto.getDeadline());
 
@@ -267,6 +271,7 @@ public class RecruitmentController {
         User principal = (User) session.getAttribute("principal");
         if (principal != null) {
             model.addAttribute("resumes", resumeRepository.findByUserId(principal.getId()));
+            model.addAttribute("bookMarkDto", bookmarkRepository.findByEnterpriseIdAndUserId(recruitmentPostDto.getEnterpriseId(), principal.getId()));
         }
 
         return "recruitment/detail";
