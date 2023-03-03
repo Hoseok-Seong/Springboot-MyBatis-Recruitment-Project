@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository">
    <insert id="insert">
-      insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content,enterprise_logo, created_at) 
-      values(#{enterpriseId},#{title},#{career},#{education},#{pay},#{sector},#{position},#{address},#{content},#{enterpriseLogo},now());
+      insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content,enterprise_logo,deadline, created_at) 
+      values(#{enterpriseId},#{title},#{career},#{education},#{pay},#{sector},#{position},#{address},#{content},#{enterpriseLogo},#{deadline},now());
    </insert>
 
    <update id="updateById">
       update recruitment_post_tb 
-      set enterprise_id = #{enterpriseId}, title=#{title}, career = #{career}, education = #{education}, pay = #{pay}, sector = #{sector}, position = #{position}, address = #{address}, content = #{content} , enterprise_logo =#{enterpriseLogo}
+      set enterprise_id = #{enterpriseId}, title=#{title}, career = #{career}, education = #{education}, pay = #{pay}, sector = #{sector}, position = #{position}, address = #{address}, content = #{content} , enterprise_logo =#{enterpriseLogo}, deadline = #{deadline}
       where id = #{id}
    </update>
 
@@ -35,7 +35,8 @@
          recruitment_post_tb.position, 
          recruitment_post_tb.address, 
          recruitment_post_tb.content, 
-         recruitment_post_tb.enterprise_id, 
+         recruitment_post_tb.enterprise_id,
+         recruitment_post_tb.deadline,
          enterprise_tb.enterprise_name
       FROM 
          recruitment_post_tb 
@@ -50,7 +51,7 @@
    </delete>
 
    <select id="findByPost" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$RecruitmentPostListRespDto">
-      SELECT e.enterprise_name, r.title,  r.id, r.enterprise_logo, r.created_at
+      SELECT e.enterprise_name, r.title,  r.id, r.enterprise_logo,r.deadline, r.created_at
       FROM recruitment_post_tb r
       JOIN enterprise_tb e
       ON r.enterprise_id = e.id;

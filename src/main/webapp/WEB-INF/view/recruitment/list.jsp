@@ -81,11 +81,24 @@ h1 {
                             <div class="card jm_card">
                             <img src="${post.enterpriseLogo}" class="card-img-top jm_card_img_top">
                         </a>
+
+                    </div>
                     <div class="card-body jm_card_body"><br>
+                        <div class="jm_company_name">
+                            <c:choose>
+                                <c:when test="${post.diffDays < 0}">
+                                    <dt class="text-danger" style="font-size: smaller;">기간이 지났습니다</dt>
+                                </c:when>
+                                <c:otherwise>
+                                    <dt style="font-size: smaller;">D-${post.diffDays}</dt>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
                         <div class="jm_company_name my-text-ellipsis">${post.title}</div>
                         <div class="jm_company_title my-text-ellipsis">${post.enterpriseName}</div>
                         <div class="jm_company_title my-text-ellipsis">
                             <i class="bi-geo-alt"></i>서울, 부산
+
                         </div>
                         <div class="jm_company_title my-text-ellipsis">
                             <i class="bi-currency-dollar"></i> 채용보상금 1,000,000원</p>

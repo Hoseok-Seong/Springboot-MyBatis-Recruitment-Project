@@ -54,6 +54,60 @@
                                     <option value="컨설팅" ${recruitment.sector=='컨설팅' ? 'selected' : '' }>컨설팅</option>
                                 </select>
                         </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div style="width: 100%;">
+                                <span class="input-group-text">기술스택</span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="skill" value="1">Java
+                                </label>
+                                <br>
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="skill" value="2">Html
+                                </label>
+                                <br>
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="skill" value="3">JavaScript
+                                </label>
+                                <br>
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="skill" value="4">VueJS
+                                </label>
+                                <br>
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="skill" value="5">CSS
+                                </label>
+                                <br>
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="skill" value="6">Node.js
+                                </label>
+                                <br>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="skill" value="7">React
+                                </label>
+                                <br>
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="skill" value="8">ReactJS
+                                </label>
+                                <br>
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="skill" value="9">Typescript
+                                </label>
+                                <br>
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="skill" value="10">Zustand
+                                </label>
+                                <br>
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="skill" value="11">AWS
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <div class="border border-end-0 border-start-0 pt-3" style=" width: 47%;">
                         <div class="input-group mb-3">
@@ -97,6 +151,10 @@
                                 </option>
                             </select>
                         </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">채용공고 마감기한</span>
+                            <input type="date" class="form-control" name="deadline" id="deadline" min="2000-01-01" required value="${recruitment.deadline}" />
+                        </div>
                     </div>
                 </div>
 
@@ -134,6 +192,12 @@
                 formData.append('position', $('#position').val());
                 formData.append('address', $('#address').val());
 
+                // 체크된 기술스택 값을 배열로 가져와서 FormData 객체에 추가
+                var skill = $('input[name="skill"]:checked').map(function () {
+                    return $(this).val();
+                }).get();
+                formData.append('skill', skill);
+
                 var enterpriseLogoFile = $('#enterpriseLogo')[0].files[0];
                 if (enterpriseLogoFile) {
                     // 파일 유형 체크
@@ -146,6 +210,7 @@
                     alert('파일을 선택해주세요.');
                     return;
                 }
+                formData.append('deadline', $('#deadline').val());
 
                 $.ajax({
                     type: 'put',

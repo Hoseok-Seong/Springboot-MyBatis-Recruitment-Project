@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import lombok.Getter;
 import lombok.Setter;
+import shop.mtcoding.job.util.DateUtil;
 
 public class RecruitmentPostRespDto {
 
@@ -21,6 +22,7 @@ public class RecruitmentPostRespDto {
         private String content;
         private String address;
         private String enterpriseName;
+        private String deadline;
         private Timestamp createdAt;
     }
 
@@ -39,7 +41,13 @@ public class RecruitmentPostRespDto {
         private String address;
         private String enterpriseLogo;
         private String enterpriseName;
+        private String deadline;
+        private long diffDays;
         private Timestamp createdAt;
+
+        public void calculateDiffDays() { // D-Day 계산하는 메서드 추가
+            diffDays = DateUtil.deadline(deadline);
+        }
     }
 
     @Getter
