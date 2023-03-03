@@ -248,7 +248,7 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 
 ', '/images/the_day_before_logo.png','2023-03-01',now());
 
-insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(3,'인공지능 엔지니어','무관','대졸이상','임시급여3','스타트업','머신러닝엔지니어','영등포구 국회대로 50길 20','
+insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(3,'인공지능 엔지니어','무관','대졸이상','면접 후 결정','스타트업','머신러닝엔지니어','영등포구 국회대로 50길 20','
 • 에이인비는 인공지능 전문가와 바이오 전문가가 모인 항체 신약 개발 회사로 인공지능을 활용한 <br>
    항체 설계로 환자에게 빠르게 제공하는 Just-in-time 신약 개발을 목표로 하고 있습니다.<br>
 <br>
@@ -630,7 +630,7 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 • 사내 스낵코너 운영</br>
 • 회사 콘도 운영</br>
 • 다이어리 지급</br>
-• 내일채움공제 지원</br>', '/images/notiplus_logo.png','2023-05-01',now());
+• 내일채움공제 지원</br>', '/images/notiplus_logo.png','2023-03-01',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(10,'API Gateway Engineer','경력','대졸이상','3200','대기업','네트워크관리자','성남 분당구 황새울로360번길 42',
 'LINE 앱에서 서버와 주고받는 모든 API를 가장 앞서서 처리하는 네트워크 게이트웨이를 개발하고 운영합니다.</br>

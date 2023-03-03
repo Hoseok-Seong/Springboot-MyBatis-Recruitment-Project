@@ -20,39 +20,33 @@
                     <div class="border border-end-0 border-start-0 pt-3" style="width: 47%;">
                         <div class="input-group mb-3">
                             <span class="input-group-text">경력</span>
-                            <input type="text" class="form-control" list="career_list" placeholder="경력을 입력해주세요"
-                                name="career" id="career" value="${recruitment.career}">
-                            <datalist id="career_list">
-                                <option value="신입">
-                                <option value="경력">
-                                <option value="무관">
-                            </datalist>
+                            <%-- 선택되어있었던 값이 수정할때 미리 선택되어있게 value값에 조건을 걸음 --%>
+                            <select class="form-select" aria-label="Default select example" name="career" id="career">
+                                <option value="무관" ${recruitment.career=='무관' ? 'selected' : '' }>무관</option>
+                                <option value="신입" ${recruitment.career=='신입' ? 'selected' : '' }>신입</option>
+                                <option value="경력" ${recruitment.career=='경력' ? 'selected' : '' }>경력</option>
+                            </select>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">학력</span>
-                            <input type="text" class="form-control" list="education_list" placeholder="학력을 입력해주세요"
-                                name="education" id="education" value="${recruitment.education}">
-                            <datalist id="education_list">
-                                <option value="학력무관">
-                                <option value="고졸">
-                                <option value="초대졸">
-                                <option value="대졸">
-                            </datalist>
+                            <select class="form-select" aria-label="Default select example" name="education" id="education">
+                                <option value="학력무관" ${recruitment.education=='학력무관' ? 'selected' : '' }>학력무관</option>
+                                <option value="고졸이상" ${recruitment.education=='고졸이상' ? 'selected' : '' }>고졸이상</option>
+                                <option value="초대졸이상" ${recruitment.education=='초대졸이상' ? 'selected' : '' }>초대졸이상</option>
+                                <option value="대졸이상" ${recruitment.education=='대졸이상' ? 'selected' : '' }>대졸이상</option>
+                            </select>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">기업형태</span>
-                            <%-- 선택되어있었던 값이 수정할때 미리 선택되어있게 value값에 조건을 걸음 --%>
-                                <select class="form-select" aria-label="Default select example" name="sector"
-                                    id="sector">
-                                    <option value="Si" ${recruitment.sector=='Si' ? 'selected' : '' }>Si</option>
-                                    <option value="웹에이전시" ${recruitment.sector=='웹에이전시' ? 'selected' : '' }>웹에이전시
-                                    </option>
-                                    <option value="인력소싱" ${recruitment.sector=='인력소싱' ? 'selected' : '' }>인력소싱</option>
-                                    <option value="대기업" ${recruitment.sector=='대기업' ? 'selected' : '' }>대기업</option>
-                                    <option value="스타트업" ${recruitment.sector=='스타트업' ? 'selected' : '' }>스타트업</option>
-                                    <option value="서비스" ${recruitment.sector=='서비스' ? 'selected' : '' }>서비스</option>
-                                    <option value="컨설팅" ${recruitment.sector=='컨설팅' ? 'selected' : '' }>컨설팅</option>
-                                </select>
+                            <select class="form-select" aria-label="Default select example" name="sector"id="sector">
+                                <option value="Si" ${recruitment.sector=='Si' ? 'selected' : '' }>Si</option>
+                                <option value="웹에이전시" ${recruitment.sector=='웹에이전시' ? 'selected' : '' }>웹에이전시</option>
+                                <option value="인력소싱" ${recruitment.sector=='인력소싱' ? 'selected' : '' }>인력소싱</option>
+                                <option value="대기업" ${recruitment.sector=='대기업' ? 'selected' : '' }>대기업</option>
+                                <option value="스타트업" ${recruitment.sector=='스타트업' ? 'selected' : '' }>스타트업</option>
+                                <option value="서비스" ${recruitment.sector=='서비스' ? 'selected' : '' }>서비스</option>
+                                <option value="컨설팅" ${recruitment.sector=='컨설팅' ? 'selected' : '' }>컨설팅</option>
+                            </select>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <div style="width: 100%;">
@@ -61,51 +55,32 @@
                         </div>
                         <div class="d-flex justify-content-between">
                             <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="1">Java
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="2">Html
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="3">JavaScript
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="4">VueJS
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="5">CSS
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="6">Node.js
-                                </label>
-                                <br>
+                                <c:forEach begin="1" end="6" var="i">
+                                    <c:set var="checked" value="false" />
+                                    <c:forEach items="${recruitmentPostSkillDtos}" var="recruitmentPostSkillDto">
+                                        <c:if test="${recruitmentPostSkillDto.skill == i}">
+                                            <c:set var="checked" value="true" />
+                                        </c:if>
+                                    </c:forEach>
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" name="skill" value="${i}" ${checked ? "checked" : ""}>${skillMap[i]}<br>
+                                        </label>
+                                        <br>
+                                </c:forEach>
                             </div>
                             <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="7">React
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="8">ReactJS
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="9">Typescript
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="10">Zustand
-                                </label>
-                                <br>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="11">AWS
-                                </label>
+                                <c:forEach begin="7" end="11" var="i">
+                                    <c:set var="checked" value="false" />
+                                    <c:forEach items="${recruitmentPostSkillDtos}" var="recruitmentPostSkillDto">
+                                        <c:if test="${recruitmentPostSkillDto.skill == i}">
+                                            <c:set var="checked" value="true" />
+                                        </c:if>
+                                    </c:forEach>
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" name="skill" value="${i}" ${checked ? "checked" : ""}>${skillMap[i]}
+                                        </label>
+                                        <br>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>
@@ -137,18 +112,12 @@
                                 <option value="소프트웨어" ${recruitment.position=='소프트웨어' ? 'selected' : '' }>소프트웨어</option>
                                 <option value="안드로이드" ${recruitment.position=='안드로이드' ? 'selected' : '' }>안드로이드</option>
                                 <option value="IOS" ${recruitment.position=='IOS' ? 'selected' : '' }>IOS</option>
-                                <option value="시스템, 네트워크 관리자" ${recruitment.position=='시스템, 네트워크 관리자' ? 'selected' : ''
-                                    }>시스템, 네트워크 관리자</option>
-                                <option value="머신러닝 엔지니어" ${recruitment.position=='머신러닝 엔지니어' ? 'selected' : '' }>머신러닝
-                                    엔지니어</option>
-                                <option value="데이터 엔지니어" ${recruitment.position=='데이터 엔지니어' ? 'selected' : '' }>데이터 엔지니어
-                                </option>
-                                <option value="빅데이터 엔지니어" ${recruitment.position=='빅데이터 엔지니어' ? 'selected' : '' }>빅데이터
-                                    엔지니어</option>
-                                <option value="보안 엔지니어" ${recruitment.position=='보안 엔지니어' ? 'selected' : '' }>보안 엔지니어
-                                </option>
-                                <option value="임베디드개발자" ${recruitment.position=='임베디드개발자' ? 'selected' : '' }>임베디드개발자
-                                </option>
+                                <option value="시스템,네트워크관리자" ${recruitment.position=='시스템,네트워크관리자' ? 'selected' : ''}>시스템,네트워크관리자</option>
+                                <option value="머신러닝엔지니어" ${recruitment.position=='머신러닝엔지니어' ? 'selected' : '' }>머신러닝엔지니어</option>
+                                <option value="데이터엔지니어" ${recruitment.position=='데이터 엔지니어' ? 'selected' : '' }>데이터엔지니어</option>
+                                <option value="빅데이터엔지니어" ${recruitment.position=='빅데이터 엔지니어' ? 'selected' : '' }>빅데이터엔지니어</option>
+                                <option value="보안엔지니어" ${recruitment.position=='보안 엔지니어' ? 'selected' : '' }>보안엔지니어</option>
+                                <option value="임베디드개발자" ${recruitment.position=='임베디드개발자' ? 'selected' : '' }>임베디드개발자</option>
                             </select>
                         </div>
                         <div class="input-group mb-3">
