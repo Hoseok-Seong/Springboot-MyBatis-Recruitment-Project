@@ -13,8 +13,8 @@
       select * from user_skill_tb
    </select>
 
-   <select id="findById" resultType="shop.mtcoding.job.model.skill.UserSkill">
-      select * from user_skill_tb where id = #{id}  
+   <select id="findByUserId" resultType="shop.mtcoding.job.model.skill.UserSkill">
+      select * from user_skill_tb where user_id = #{userId}  
    </select>
 
    <delete id="deleteById">

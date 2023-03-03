@@ -10,7 +10,7 @@ public interface UserSkillRepository {
 
     public List<UserSkill> findAll();
 
-    public UserSkill findById(int id);
+    public List<UserSkill> findByUserId(int userId);
 
     public int insert(@Param("userId") int userId, @Param("skill") String skill);
 
