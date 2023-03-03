@@ -81,18 +81,13 @@ public class RecruitmentController {
         if (updateRecruitmentPostReqDto.getTitle().length() > 100) {
             throw new CustomApiException("제목의 길이가 100자 이하여야 합니다");
         }
-        if (updateRecruitmentPostReqDto.getCareer() == null || updateRecruitmentPostReqDto.getCareer().isEmpty()) {
-            throw new CustomApiException("경력란을 작성해주세요");
+        if (updateRecruitmentPostReqDto.getCareer() == null || updateRecruitmentPostReqDto.getCareer().isEmpty()
+                || updateRecruitmentPostReqDto.getCareer().equals("Open this select menu")) {
+            throw new CustomApiException("경력을 선택해주세요");
         }
-        if (updateRecruitmentPostReqDto.getCareer().length() > 100) {
-            throw new CustomApiException("경력의 길이가 100자 이하여야 합니다");
-        }
-        if (updateRecruitmentPostReqDto.getEducation() == null
-                || updateRecruitmentPostReqDto.getEducation().isEmpty()) {
-            throw new CustomApiException("학력란을 작성해주세요");
-        }
-        if (updateRecruitmentPostReqDto.getEducation().length() > 100) {
-            throw new CustomApiException("학력의 길이가 100자 이하여야 합니다");
+        if (updateRecruitmentPostReqDto.getEducation() == null || updateRecruitmentPostReqDto.getEducation().isEmpty()
+                || updateRecruitmentPostReqDto.getEducation().equals("Open this select menu")) {
+            throw new CustomApiException("학력를 선택해주세요");
         }
         if (updateRecruitmentPostReqDto.getPay() == null || updateRecruitmentPostReqDto.getPay().isEmpty()) {
             throw new CustomApiException("급여란을 작성해주세요");
@@ -148,18 +143,13 @@ public class RecruitmentController {
         if (saveRecruitmentPostReqDto.getTitle().length() > 100) {
             throw new CustomApiException("제목의 길이가 100자 이하여야 합니다");
         }
-        if (saveRecruitmentPostReqDto.getCareer() == null || saveRecruitmentPostReqDto.getCareer().isEmpty()) {
-            throw new CustomApiException("경력란을 작성해주세요");
+        if (saveRecruitmentPostReqDto.getCareer() == null || saveRecruitmentPostReqDto.getCareer().isEmpty()
+                || saveRecruitmentPostReqDto.getCareer().equals("Open this select menu")) {
+            throw new CustomApiException("경력을 선택해주세요");
         }
-        if (saveRecruitmentPostReqDto.getCareer().length() > 100) {
-            throw new CustomApiException("경력의 길이가 100자 이하여야 합니다");
-        }
-        if (saveRecruitmentPostReqDto.getEducation() == null
-                || saveRecruitmentPostReqDto.getEducation().isEmpty()) {
-            throw new CustomApiException("학력란을 작성해주세요");
-        }
-        if (saveRecruitmentPostReqDto.getEducation().length() > 100) {
-            throw new CustomApiException("학력의 길이가 100자 이하여야 합니다");
+        if (saveRecruitmentPostReqDto.getEducation() == null || saveRecruitmentPostReqDto.getEducation().isEmpty()
+                || saveRecruitmentPostReqDto.getEducation().equals("Open this select menu")) {
+            throw new CustomApiException("학력를 선택해주세요");
         }
         if (saveRecruitmentPostReqDto.getPay() == null || saveRecruitmentPostReqDto.getPay().isEmpty()) {
             throw new CustomApiException("급여란을 작성해주세요");
