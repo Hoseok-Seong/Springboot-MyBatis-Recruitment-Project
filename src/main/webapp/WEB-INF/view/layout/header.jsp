@@ -51,12 +51,27 @@
                                         <li class="nav-item">
                                             <a class="nav-link text-dark" href="/recruitment/list">채용</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link text-dark" href="/resumeMain">이력서</a>
+                                        <c:choose>
+                                           <c:when test="${principal != null}">
+                                           <li class="nav-item">
+                                            <a class="nav-link text-dark" href="/resumeList">이력서</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link text-dark" href="/applyList">지원현황</a>
                                         </li>
+                                           </c:when>
+                                        
+                                           <c:otherwise>
+                                           <li class="nav-item">
+                                            <a class="nav-link text-dark" href="/resumeList" data-toggle="modal" data-target="#login">이력서</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" href="/applyList" data-toggle="modal" data-target="#login">지원현황</a>
+                                        </li>
+                                           </c:otherwise>
+                                        </c:choose>
+                                        
+                                        
                                     </c:otherwise>
                                 </c:choose>
 
@@ -80,7 +95,7 @@
                                                         class="rounded-circle" alt="Cinque Terre">
                                                 </a>
 
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" ">
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                     <li><a class=" dropdown-item" href="logout">로그아웃</a>
                                         </li>
                                         <li class="nav-item">
@@ -142,45 +157,41 @@
                                     </ul>
                                     <div class="tab-content ">
                                         <div class="tab-pane fade show active" id="loginUser">
-                                            <form action="/user/login" method="post">
                                                 <table class="table table-borderless">
 
                                                     <tr class="text-center">
                                                         <!-- input의 크기는 class="form-control-lg" 로 늘린다. -->
                                                         <td><input type="text" value="${remember}" class="form-control-lg w-100"
-                                                                name="username" placeholder="아이디"></td>
+                                                               id="username" name="username" placeholder="아이디"></td>
                                                     </tr>
 
                                                     <tr class="text-center">
                                                         <td><input type="password" class="form-control-lg w-100"
-                                                                name="password" placeholder="비밀번호"></td>
+                                                               id="password" name="password" placeholder="비밀번호"></td>
                                                     </tr>
                                                 </table>
-                                                <button type="submit" class="btn login-btn-custom btn-sm me-2"
+                                                <button type="submit" class="btn login-btn-custom btn-sm me-2" onclick="userLogin()"
                                                     style="float:right;">로그인</button>
                                                 <input class="ms-2" type="checkbox" name="remember"> 아이디 기억<br><br><br>
                                                 <div class="d-inline-flex justify-content-between">
                                                 </div>
-                                            </form>
                                         </div>
                                         <div class="tab-pane fade" id="loginEnterprise">
-                                            <form action="/enterprise/login" method="post">
                                                 <table class="table table-borderless">
 
                                                     <tr class="text-center ">
                                                         <td><input type="text" value="${remember}" class="form-control-lg w-100"
-                                                                name="enterpriseName" placeholder="아이디"></td>
+                                                              id="enterpriseName" name="enterpriseName" placeholder="아이디"></td>
                                                     </tr>
 
                                                     <tr class="text-center">
                                                         <td><input type="password" class="form-control-lg w-100" 
-                                                                name="password" placeholder="비밀번호"></td>
+                                                            id="entpassword" name="password" placeholder="비밀번호"></td>
                                                     </tr>
                                                 </table>
-                                                <button class="btn login-btn-custom btn-sm me-2"
+                                                <button type="submit" class="btn login-btn-custom btn-sm me-2" onclick="enterpriseLogin()"
                                                     style="float:right;">로그인</button>
                                                 <input class="ms-2" type="checkbox" name="rememberEnt"> 아이디 기억<br><br><br>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -397,6 +408,7 @@
                         });
                     }
                 </script>
+                
                 <script>
                     var entform = document.getElementById("entsignup-form");
                     var entpassword = document.getElementById("entpassword");
@@ -418,10 +430,46 @@
                     }
                     });
                 </script>
-                
-         
+                <script>
+                    function enterpriseLogin() {
+                        let data = {
+                            enterpriseName: $("#enterpriseName").val(),
+                            password: $("#entpassword").val(),
+                        };
+                        $.ajax({
+                            type: "post",
+                            url: "/enterprise/login",
+                            data: JSON.stringify(data),
+                            contentType: 'application/json;charset=UTF-8',
+                            dataType: "json"  // default : 응답의 mime 타입으로 유추함
+                        }).done((res) => {    // 20x 일때
+                            location.reload();
+                        }).fail((err) => {    // 40x , 50x 일때
+                            alert(err.responseJSON.msg);
+                        });
+                    }
                 </script>
 
+                <script>
+                    function userLogin() {
+                        let data = {
+                            username: $("#username").val(),
+                            password: $("#password").val(),
+                        };
+                        $.ajax({
+                            type: "post",
+                            url: "/user/login",
+                            data: JSON.stringify(data),
+                            contentType: 'application/json;charset=UTF-8',
+                            dataType: "json"  // default : 응답의 mime 타입으로 유추함
+                        }).done((res) => {    // 20x 일때
+                            location.reload();
+                        }).fail((err) => {    // 40x , 50x 일때
+                            alert(err.responseJSON.msg);
+                        });
+                    }
+                </script>
+                
 
 
 

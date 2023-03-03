@@ -33,6 +33,6 @@ public interface UserRepository {
 
         public User findByUsername(String username);
 
-        public UserMatchingDto userMatching(int id);
+        public List<UserMatchingDto> userMatching(int id);
 
 }

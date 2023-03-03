@@ -9,4 +9,5 @@ public class UserMatchingDto {
     private int userId;
     private String enterpriseName;
     private String enterpriseLogo;
+    private String title;
 }
