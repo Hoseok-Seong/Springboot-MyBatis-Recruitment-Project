@@ -20,24 +20,22 @@
                     <div class="border border-end-0 border-start-0 pt-3" style="width: 47%;">
                         <div class="input-group mb-3">
                             <span class="input-group-text">경력</span>
-                            <input type="text" class="form-control" list="career_list" placeholder="경력을 입력해주세요"
-                                name="career" id="career" vlaue="신입">
-                            <datalist id="career_list">
-                                <option value="신입">
-                                <option value="경력">
-                                <option value="무관">
-                            </datalist>
+                            <select class="form-select" aria-label="Default select example" name="career" id="career">
+                                <option selected>Open this select menu</option>
+                                <option value="무관">무관</option>
+                                <option value="신입">신입</option>
+                                <option value="경력">경력</option>
+                            </select>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">학력</span>
-                            <input type="text" class="form-control" list="education_list" placeholder="학력을 입력해주세요"
-                                name="education" id="education" vlaue="학력무관">
-                            <datalist id="education_list">
-                                <option value="학력무관">
-                                <option value="고졸">
-                                <option value="초대졸">
-                                <option value="대졸">
-                            </datalist>
+                            <select class="form-select" aria-label="Default select example" name="education" id="education">
+                                <option selected>Open this select menu</option>
+                                <option value="학력무관">학력무관</option>
+                                <option value="고졸이상">고졸이상</option>
+                                <option value="초대졸이상">초대졸이상</option>
+                                <option value="대졸이상">대졸이상</option>
+                            </select>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">기업형태</span>
@@ -64,7 +62,7 @@
                                 </label>
                                 <br>
                                 <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="skill" value="2">Html
+                                    <input type="checkbox" class="form-check-input" name="skill" value="2">HTML
                                 </label>
                                 <br>
                                 <label class="form-check-label">
@@ -137,11 +135,11 @@
                                 <option value="소프트웨어">소프트웨어</option>
                                 <option value="안드로이드">안드로이드</option>
                                 <option value="IOS">IOS</option>
-                                <option value="시스템, 네트워크 관리자">시스템, 네트워크 관리자</option>
-                                <option value="머신러닝 엔지니어">머신러닝 엔지니어</option>
-                                <option value="데이터 엔지니어">데이터 엔지니어</option>
-                                <option value="빅데이터 엔지니어">빅데이터 엔지니어</option>
-                                <option value="보안 엔지니어">보안 엔지니어</option>
+                                <option value="시스템,네트워크관리자">시스템,네트워크관리자</option>
+                                <option value="머신러닝엔지니어">머신러닝엔지니어</option>
+                                <option value="데이터엔지니어">데이터엔지니어</option>
+                                <option value="빅데이터엔지니어">빅데이터엔지니어</option>
+                                <option value="보안엔지니어">보안엔지니어</option>
                                 <option value="임베디드개발자">임베디드개발자</option>
                             </select>
                         </div>
