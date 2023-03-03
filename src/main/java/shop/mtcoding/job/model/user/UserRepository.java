@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import shop.mtcoding.job.dto.user.UserMatchingDto;
+
 @Mapper
 public interface UserRepository {
         public List<User> findAll();
@@ -30,5 +32,7 @@ public interface UserRepository {
         public User findByName(String username);
 
         public User findByUsername(String username);
+
+        public List<UserMatchingDto> userMatching(int id);
 
 }

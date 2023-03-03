@@ -47,20 +47,20 @@
                         <img src="/images/resume_01.png" alt="">
                     </div>
                 </div>
-                <div class="card g-col-6 my-5 m-3" style="width: 525px; height: 400px; background-color: #f1f1fe;">
-                    <div class="card-body">
-                        <h3 class="card-title">완성도를 높여주는 이력서 코칭</h3><br>
-                        <p class="card-text">이력서 코칭*으로 서류 합격률 30% UP</small></p>
-                        <p class="card-text"><small class="text-muted">*일부 직군에서는 사용 제한, 추후 확대 예정.</small></p>
-                        <img src="/images/resume_02.png" alt="">
-                    </div>
-                </div>
                 <div class="card g-col-6 my-5 m-3" style="width: 525px; height: 400px; background-color: #f3f8ee;">
                     <div class="card-body">
                         <h3 class="card-title">기업 추천 서비스 개발!</h3><br>
                         <p class="card-text">이력서만 등록을 해주시면 </small></p>
                         <p class="card-text">채용담당자가 직접 면접을 제안합니다.</small></p>
                         <img src="/images/resume_03.png" alt="">
+                    </div>
+                </div>
+                <div class="card g-col-6 my-5 m-3" style="width: 525px; height: 400px; background-color: #f1f1fe;">
+                    <div class="card-body">
+                        <h3 class="card-title">완성도를 높여주는 이력서 코칭</h3><br>
+                        <p class="card-text">이력서 코칭*으로 서류 합격률 30% UP</small></p>
+                        <p class="card-text"><small class="text-muted">*일부 직군에서는 사용 제한, 추후 확대 예정.</small></p>
+                        <img src="/images/resume_02.png" alt="">
                     </div>
                 </div>
                 <div class="card g-col-6 my-5 m-3" style="width: 525px; height: 400px; background-color: #ecf8fb;">

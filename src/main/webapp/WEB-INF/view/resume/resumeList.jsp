@@ -1,5 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
+    <style>
+/* 채용페이지 버튼 스타일 */
+.btn.hh-btn-custom {
+  border: none;
+  background-color: #ff7f00;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #4d4d4d;
+  margin-bottom: 5px;
+}
+.card-footer {
+  background-color: #f9f9f9;
+  border-top: none;
+}
+
+.resumeList-btn-custom {
+  border: none;
+  background-color: #ff7f00;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+
+    </style>
         <div class="container-fluid my_main_banner pt-4">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
@@ -34,13 +77,6 @@
             </div>
         </div>
         <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="d-flex justify-content-center text-center">
-                    <span><b><a class="btn hh-btn-custom btn-lg m-3" href="/recruitment/list"
-                                role="button">채용페이지</a></span>
-                </div>
-            </div>
-            <br>
             <div class="container-fluid" style="width: 65%;">
                 <div class="d-flex justify-content-between mt-3">
                     <H4>최근문서</H4>

@@ -1,5 +1,62 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
+    <style>
+
+/* 제목 스타일링 */
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #343a40;
+}
+
+/* 카드 스타일링 */
+.jm_container {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0px 5px 10px #ced4da;
+}
+
+.jm_card {
+  height: 430px;
+  border-radius: 0.5rem;
+  box-shadow: 0px 5px 10px #ced4da;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+/* 카드 움직이는 친구 */
+.jm_card:hover {
+  transform: translateY(-10px);
+}
+
+/* 크기가 다 같다면 진짜 이쁘게 만들어 주는 친구 */
+/* .jm_card_img_top {
+  height: 10rem;
+  object-fit: cover;
+} */
+
+
+.jm_company_name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.jm_company_title {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+.my-text-ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+
+
+    </style>
         <!-- 게시판부분 -->
         <div class="container-fluid" style="width: 65%">
             <div class="row py-1">
@@ -131,10 +188,11 @@
                     <div class="col-sm-3 mb-3">
                         <a href="/recruitment/detail/${post.id}" style="color: inherit; text-decoration: none;">
                             <div class="card jm_card">
-                                <img src="${post.enterpriseLogo}" class="card-img-top jm_card_img_top">
+                            <img src="${post.enterpriseLogo}" class="card-img-top jm_card_img_top">
                         </a>
+
                     </div>
-                    <div class="card-body jm_card_body">
+                    <div class="card-body jm_card_body"><br>
                         <div class="jm_company_name">
                             <c:choose>
                                 <c:when test="${post.diffDays < 0}">
@@ -145,15 +203,17 @@
                                 </c:otherwise>
                             </c:choose>
                         </div>
-                        <div class="jm_company_name">${post.title}</div>
-                        <div class="jm_company_title">${post.enterpriseName}</div>
-                        <div class="jm_company_title">
-                            <h6>서울, 부산</h6>
+                        <div class="jm_company_name my-text-ellipsis">${post.title}</div>
+                        <div class="jm_company_title my-text-ellipsis">${post.enterpriseName}</div>
+                        <div class="jm_company_title my-text-ellipsis">
+                            <i class="bi-geo-alt"></i>서울, 부산
+
                         </div>
-                        <div class="jm_company_title">
-                            <h6>채용보상금 1,000,000원</h6>
+                        <div class="jm_company_title my-text-ellipsis">
+                            <i class="bi-currency-dollar"></i> 채용보상금 1,000,000원</p>
                         </div>
                     </div>
+                </div>
             </div>
             </c:forEach>
         </div>
@@ -242,5 +302,5 @@
                     })
             }
         </script>
-        </div>
+        </div><br><br><br>
         <%@ include file="../layout/footer.jsp" %>
