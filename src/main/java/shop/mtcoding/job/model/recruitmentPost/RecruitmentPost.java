@@ -19,5 +19,6 @@ public class RecruitmentPost {
     private String address;
     private String content;
     private String enterpriseLogo;
+    private String deadline;
     private Timestamp createdAt;
 }

@@ -23,6 +23,7 @@ public class RecruitmentPostReqDto {
         private String position;
         private String content;
         private List<String> skill;
+        private String deadline;
         private MultipartFile enterpriseLogo;
 
         public RecruitmentPost toModel(int enterpriseId, String enterpriseLogo) {
@@ -36,6 +37,7 @@ public class RecruitmentPostReqDto {
             recruitmentPost.setAddress(address);
             recruitmentPost.setPosition(position);
             recruitmentPost.setContent(content);
+            recruitmentPost.setDeadline(deadline);
             recruitmentPost.setEnterpriseLogo(enterpriseLogo);
             return recruitmentPost;
         }
@@ -44,6 +46,7 @@ public class RecruitmentPostReqDto {
     @Setter
     @Getter
     public static class UpdateRecruitmentPostReqDto {
+        private int id;
         private String title;
         private String career;
         private String education;
@@ -52,6 +55,8 @@ public class RecruitmentPostReqDto {
         private String address;
         private String position;
         private String content;
+        private List<String> skill;
+        private String deadline;
         private MultipartFile enterpriseLogo;
 
         public RecruitmentPost toModel(int id, int enterpriseId, String enterpriseLogo) {
@@ -66,6 +71,7 @@ public class RecruitmentPostReqDto {
             recruitmentPost.setAddress(address);
             recruitmentPost.setPosition(position);
             recruitmentPost.setContent(content);
+            recruitmentPost.setDeadline(deadline);
             recruitmentPost.setEnterpriseLogo(enterpriseLogo);
             return recruitmentPost;
         }

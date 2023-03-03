@@ -35,6 +35,7 @@ create table recruitment_post_tb(
     address varchar(100) not null,
     content longtext not null,
     enterprise_logo varchar(100),
+    deadline varchar(100),
     created_at timestamp not null
 );
 
