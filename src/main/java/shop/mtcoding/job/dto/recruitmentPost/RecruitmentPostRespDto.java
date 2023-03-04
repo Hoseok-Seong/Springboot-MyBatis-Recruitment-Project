@@ -55,7 +55,9 @@ public class RecruitmentPostRespDto {
     public static class RecruitmentPostSearchRespDto {
         private Integer id;
         private String title;
+        private String address;
         private String enterpriseName;
+        private String position;
         private String enterpriseLogo;
         private String searchString;
         private Timestamp createdAt;
@@ -74,6 +76,7 @@ public class RecruitmentPostRespDto {
     public static class RecruitmentPostCategoryRespDto {
         private Integer id;
         private String title;
+        private String address;
         private String enterpriseName;
         private String enterpriseLogo;
         private String career;

@@ -57,15 +57,16 @@
    </select>
 
    <select id="findByTitleOrContent" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$RecruitmentPostListRespDto">
-      select e.enterprise_name, r.id, r.title, r.enterprise_logo, r.created_at 
+      select e.enterprise_name, r.id, r.address, r.position, r.title, r.enterprise_logo, r.created_at 
       from recruitment_post_tb r
       JOIN enterprise_tb e 
       on r.enterprise_id = e.id 
-      where r.title like CONCAT('%',#{searchString},'%');
+      where r.title like CONCAT('%',#{searchString},'%')
+      or r.content like CONCAT('%',#{searchString},'%');
    </select>
 
    <select id="findByCategory" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$RecruitmentPostCategoryRespDto">
-      SELECT distinct e.enterprise_name, r.id, r.title, r.enterprise_logo, r.created_at 
+      SELECT distinct e.enterprise_name, r.id, r.address, r.position, r.title, r.enterprise_logo, r.created_at 
       FROM recruitment_post_tb r
       JOIN enterprise_tb e on r.enterprise_id = e.id 
       Join RECRUITMENT_SKILL_TB rs on rs.recruitment_id = r.id

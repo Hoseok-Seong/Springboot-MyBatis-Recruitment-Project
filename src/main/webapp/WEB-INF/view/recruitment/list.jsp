@@ -136,7 +136,7 @@
             </div>
             <div class="row justify-content-end align-items-center py-3">
                 <div class="col-4 text-center">
-                    <input type="text" class="form-control" id="search" placeholder="검색어를 입력하세요">
+                    <input type="text" class="form-control" id="search" placeholder="제목이나 내용으로 검색이 가능합니다">
                 </div>
                 <div class="col-auto text-end px-0">
                     <button type="submit" class="btn btn-primary" onclick="search()">검색</button>
@@ -203,15 +203,30 @@
                             let el =
                                 `<div class="col-sm-3 mb-3">
                                        <a href="/recruitment/detail/`+ res.data[i].id + `" style="color: inherit; text-decoration: none;">
-                                             <div class="card jm_card h-100">
+                                             <div class="card jm_card">
                                                  <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
-                                                 <div class="card-body jm_card_body">
-                                                     <div class="jm_company_name">`+ res.data[i].title + `</div>
-                                                     <div class="jm_company_title">`+ res.data[i].enterpriseName + `</div>
-                                                 </div>
-                                             </div>
-                                         </a>
-                                     </div>`
+                                                </a>
+                                                 <div class="card-body jm_card_body"><br>
+                                                     <div class="jm_company_name">
+                                                        <div class="card-body">
+                                                            <div class="jm_company_name my-text-ellipsis">`
+                                + res.data[i].title +
+                                `</div >
+                                                            <div class="jm_company_title my-text-ellipsis">`
+                                + res.data[i].enterpriseName +
+                                `</div >
+                                                            <div class="jm_company_title my-text-ellipsis">
+                                                                    <i class="bi-geo-alt"></i>`
+                                + res.data[i].address +
+                                `</div>
+                                                            <div class="jm_company_title my-text-ellipsis">
+                                                                    <i class="bi bi-person-workspace"></i>`
+                                + res.data[i].position +
+                                `</div>
+                                                        </div>
+                                                 </div >
+                                             </div >
+                                     </div > `
                             $("#emptyBox").append(el);
                         }
 
@@ -244,15 +259,30 @@
                             let el =
                                 `<div class="col-sm-3 mb-3">
                                        <a href="/recruitment/detail/`+ res.data[i].id + `" style="color: inherit; text-decoration: none;">
-                                             <div class="card jm_card h-100">
+                                             <div class="card jm_card">
                                                  <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
-                                                 <div class="card-body jm_card_body">
-                                                     <div class="jm_company_name">`+ res.data[i].title + `</div>
-                                                     <div class="jm_company_title">`+ res.data[i].enterpriseName + `</div>
-                                                 </div>
-                                             </div>
-                                         </a>
-                                     </div>`
+                                                </a>
+                                                 <div class="card-body jm_card_body"><br>
+                                                     <div class="jm_company_name">
+                                                        <div class="card-body">
+                                                            <div class="jm_company_name my-text-ellipsis">`
+                                + res.data[i].title +
+                                `</div >
+                                                            <div class="jm_company_title my-text-ellipsis">`
+                                + res.data[i].enterpriseName +
+                                `</div >
+                                                            <div class="jm_company_title my-text-ellipsis">
+                                                                    <i class="bi-geo-alt"></i>`
+                                + res.data[i].address +
+                                `</div>
+                                                            <div class="jm_company_title my-text-ellipsis">
+                                                                    <i class="bi bi-person-workspace"></i>`
+                                + res.data[i].position +
+                                `</div>
+                                                        </div>
+                                                 </div >
+                                             </div >
+                                     </div > `
                             $("#emptyBox").append(el);
                         }
 
