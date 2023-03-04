@@ -18,6 +18,9 @@
    <select id="findById" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
       select * from enterprise_tb where id = #{id}  
    </select>
+   <select id="findByUserId" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
+      select * from enterprise_tb where id = #{id}  
+   </select>
 
    <delete id="deleteById">
       delete from enterprise_tb where id = #{id}

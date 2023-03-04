@@ -8,6 +8,16 @@
                         ${recruitmentPostDtos.enterpriseName}
                     </div>
 
+                    <c:choose>
+                        <c:when test="${bookmarkDto == null}">
+                        <i id="bookmark" class="fa-regular fa-bookmark my-xl my-cursor" value="${bookmarkDto.id}" onclick="bookmarkOrCancle()"></i>
+                        </c:when>
+                        
+                        <c:otherwise>
+                       <i id="bookmark" class="fa-solid fa-bookmark my-xl my-cursor" value="${bookmarkDto.id}" onclick="bookmarkOrCancle()"> </i> 
+                        </c:otherwise>
+                        </c:choose>
+
                     <div>
                         <h2><b>${recruitmentPostDtos.title}</b></h2>
                     </div>
@@ -287,4 +297,54 @@
                 });
             }
         </script>
+
+        <script>
+    // location reload 사용하면 간단하게 해결이 가능하다.
+        function bookmarkOrCancle() {
+            let id = $("#bookmark").attr("value");
+            let enterpriseId = $("#enterpriseId").val();
+        
+            console.log(id);
+            console.log(enterpriseId);
+             if (id === "" || id === "undefined"){
+               
+                // 좋아요로 통신 요청 (POST)
+                let data = {
+                    enterpriseId : enterpriseId
+                }
+                $.ajax({
+                    type: "post",
+                    url: "/bookmark",
+                    data: JSON.stringify(data),
+                    contentType: 'application/json;charset=UTF-8',
+                    dataType: "json"
+                }).done((res) => {
+                    console.log(res);
+                    alert(res.msg);
+                    $("#bookmark").attr("value",res.data);
+                    $("#bookmark").addClass("fa-solid");
+                    $("#bookmark").removeClass("fa-regular");
+                }).fail((err) => {
+                    alert(err.msg);
+                });
+                } else {
+                
+                // 좋아요 취소로 통신 요청 (DELETE)
+                
+                $.ajax({
+                    type: "delete",
+                    url: "/bookmark/"+id,
+                    dataType: "json"
+                }).done((res) => {
+                    $("#bookmark").attr("value","");
+                    $("#bookmark").removeClass("fa-solid");
+                    $("#bookmark").addClass("fa-regular");
+                    alert(res.msg);
+                }).fail((err) => {
+                    alert(err.msg);
+                    console.log(err);
+                });
+            }
+        }
+         </script>
         <%@ include file="../layout/footer.jsp" %>

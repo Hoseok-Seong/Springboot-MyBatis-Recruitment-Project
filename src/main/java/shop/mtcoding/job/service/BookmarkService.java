@@ -19,26 +19,37 @@ public class BookmarkService {
 
     private final RecruitmentPostRepository recruitmentPostRepository;
 
-    public void 북마크하기(int enterpriseId, int principalId) {
+    @Transactional
+    public int 북마크하기(int enterpriseId, int userId) {
 
-        if (bookmarkRepository.findByEnterpriseIdAndUserId(enterpriseId,principalId) != null) {
-            throw new CustomApiException("이미 좋아요한 게시물 입니다");
-        }
-        try {
-            bookmarkRepository.insert(principalId,enterpriseId);
-        } catch (Exception e) {
-            throw new CustomApiException("서버 오류 : 좋아요 실패", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        // if (bookmarkRepository.findByEnterpriseIdAndUserId(enterpriseId, userId) !=
+        // null) {
+        // throw new CustomApiException("이미 북마크한 공고 입니다");
+        // }
+
+        Bookmark bookmark = new Bookmark();
+        bookmark.setEnterpriseId(enterpriseId);
+        bookmark.setUserId(userId);
+        bookmarkRepository.insert(bookmark);
+        // bookmark = bookmarkRepository.save(bookmark);
+        System.out.println("test: " + bookmark.getId());
+        return bookmark.getId();
+
     }
 
     @Transactional
     public void 북마크삭제(int id, int userId) {
         Bookmark bookmartPS = bookmarkRepository.findById(id);
         // 제어권이 없으므로 try, catch
-        try {
-            bookmarkRepository.deleteById(id);
-        } catch (Exception e) {
-            throw new CustomApiException("서버에 일시적인 문제가 발생했습니다", HttpStatus.INTERNAL_SERVER_ERROR);
+        if (bookmartPS == null) {
+            throw new CustomApiException("북마크 내역이 존재하지 않습니다.");
+        }
+        if (bookmartPS.getUserId() != userId) {
+            throw new CustomApiException("유저의 북마크 내역이 존재하지 않습니다.", HttpStatus.FORBIDDEN);
+        }
+        int result = bookmarkRepository.deleteById(id);
+        if (result != 1) {
+            throw new CustomApiException("서버 에러", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

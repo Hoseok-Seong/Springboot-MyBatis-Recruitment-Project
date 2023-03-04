@@ -57,6 +57,8 @@ h1 {
 
 
     </style>
+
+   
         <!-- 게시판부분 -->
         <div class="container-fluid" style="width: 65%">
             <div class="row py-1">
@@ -190,7 +192,6 @@ h1 {
                             <div class="card jm_card">
                             <img src="${post.enterpriseLogo}" class="card-img-top jm_card_img_top">
                         </a>
-
                     </div>
                     <div class="card-body jm_card_body"><br>
                         <div class="jm_company_name">
@@ -213,109 +214,114 @@ h1 {
                             <i class="bi-currency-dollar"></i> 채용보상금 1,000,000원</p>
                         </div>
                     </div>
-                    <c:choose>
-                       <c:when test="${bookMarks != null}">
-                      <img id="image1" src="/images/북마크블랙.png" onclick="bookmark('${post.enterpriseId}',this)">
-                       </c:when>
-                    
-                       <c:otherwise>
-                      <img id="image1" src="/images/북마크화이트.png" onclick="bookmark('${post.enterpriseId}',this)">
-                       </c:otherwise>
-                    </c:choose>
-
-            </div>
-            </c:forEach>
-        </div>
-
-        
-                </div>
-            </div>
-            
-        </div>
-                <script>
-                function bookmark(id, image) {
-  let data = {
-    enterpriseId: id,
-  };
-  $.ajax({
-    type: "post",
-    url: "/detail/" + id + "/bookmark",
-    data: JSON.stringify(data),
-    contentType: "application/json; charset=UTF-8",
-    dataType: "json",
-  })
-    .done((res) => {
-      alert(res.msg);
-      // 북마크가 되어있는 이미지를 클릭한 경우
-      if (image.src.includes("북마크블랙")) {
-        // 북마크가 되어있지 않은 이미지로 변경
-        image.src = "/images/북마크화이트.png";
-      }
-      // 북마크가 되어있지 않은 이미지를 클릭한 경우
-      else {
-        // 북마크가 되어있는 이미지로 변경
-        image.src = "/images/북마크블랙.png";
-      }
-    })
-    .fail((err) => {
-      alert(err.responseJSON.msg);
-    });
-}
-
+                        <%-- <c:choose>
+                        <c:when test="${bookmarks != null}">
+                        <img id="image1" src="/images/북마크블랙.png" onclick="deleteBookmark('${post.enterpriseId}',this)">
+                        </c:when>
                         
-                </script>
-                <script>
-                function deleteById(resumeId) {
-                $.ajax({
-                    type: "delete",
-                    url: "/book/" + resumeId,
-                    dataType: "json"
-                }).done((res) => { // 20X 일때
-                    alert(res.msg);
-                    location.href = "/resumeList";
-                }).fail((err) => { // 40X, 50X 일때
-                    alert(err.responseJSON.msg);
-                });
-            }
-                </script>
-                    
-                    <script>
-            function search() {
+                        <c:otherwise>
+                        <img id="image1" src="/images/북마크화이트.png" onclick="bookmark('${post.enterpriseId}',this)">
+                        </c:otherwise>
+                        </c:choose> --%>
+                        <c:choose>
+                        <c:when test="${bookmarks == null}">
+                        <i id="bookmark" class="fa-regular fa-bookmark my-xl my-cursor" value="" onclick="bookmarkOrCancle()"></i>
+                        </c:when>
+                        
+                        <c:otherwise>
+                       <i id="bookmark" class="fa-solid fa-bookmark my-xl my-cursor" value="${bookmarks.id}" onclick="bookmarkOrCancle()"> </i> 
+                        </c:otherwise>
+                        </c:choose>
+                 </div>
+                </c:forEach>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <script>
+    // location reload 사용하면 간단하게 해결이 가능하다.
+        function bookmarkOrCancle() {
+            let id = $("#bookmark").attr("value");
+            let enterpriseId = $("#staticBackdrop${post.id}");
+            console.log(id);
+            console.log(enterpriseId);
+            if (id == "") {
+               
+                // 좋아요로 통신 요청 (POST)
                 let data = {
-                    searchString: $("#search").val()
-                };
+                    enterpriseId : enterpriseId
+                }
                 $.ajax({
                     type: "post",
-                    url: "/recruitment/search",
-                    contentType: "application/json;charset=UTF-8",
+                    url: "/bookmark",
                     data: JSON.stringify(data),
+                    contentType: 'application/json;charset=UTF-8',
                     dataType: "json"
-                })
-                    .done((res) => {
-                        console.log(res.data);
-                        $("#emptyBox").empty();
-                        for (let i = 0; i < res.data.length; i++) {
-                            let el =
-                                `<div class="col-sm-3 mb-3">
-                                       <a href="/recruitment/detail/`+res.data[i].id+`" style="color: inherit; text-decoration: none;">
-                                             <div class="card jm_card h-100">
-                                                 <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
-                                                 <div class="card-body jm_card_body">
-                                                     <div class="jm_company_name">`+ res.data[i].title + `</div>
-                                                     <div class="jm_company_title">`+ res.data[i].enterpriseName + `</div>
-                                                 </div>
-                                             </div>
-                                         </a>
-                                     </div>`
-                            $("#emptyBox").append(el);
-                        }
-
-                        alert(res.msg);
-                    })
-                    .fail((err) => {
-                        alert(err.responseJSON.msg);
-                    })
+                }).done((res) => {
+                    $("#bookmark").attr("value",res.data);
+                    $("#bookmark").addClass("fa-solid");
+                    $("#bookmark").removeClass("fa-regular");
+                }).fail((err) => {
+                    
+                });
+                } else {
+                
+                // 좋아요 취소로 통신 요청 (DELETE)
+                
+                $.ajax({
+                    type: "delete",
+                    url: "/bookmark/"+id,
+                    dataType: "json"
+                }).done((res) => {
+                    $("#bookmark").attr("value","");
+                    $("#bookmark").removeClass("fa-solid");
+                    $("#bookmark").addClass("fa-regular");
+                }).fail((err) => {
+                    alert(err.msg);
+                    console.log(err);
+                });
             }
+        }
+   
+                    
+                <script>
+                    function search() {
+                    let data = {
+                        searchString: $("#search").val()
+                    };
+                    $.ajax({
+                        type: "post",
+                        url: "/recruitment/search",
+                        contentType: "application/json;charset=UTF-8",
+                        data: JSON.stringify(data),
+                        dataType: "json"
+                    })
+                        .done((res) => {
+                            console.log(res.data);
+                            $("#emptyBox").empty();
+                            for (let i = 0; i < res.data.length; i++) {
+                                let el =
+                                    `<div class="col-sm-3 mb-3">
+                                        <a href="/recruitment/detail/`+res.data[i].id+`" style="color: inherit; text-decoration: none;">
+                                                <div class="card jm_card h-100">
+                                                    <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
+                                                    <div class="card-body jm_card_body">
+                                                        <div class="jm_company_name">`+ res.data[i].title + `</div>
+                                                        <div class="jm_company_title">`+ res.data[i].enterpriseName + `</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>`
+                                $("#emptyBox").append(el);
+                            }
+
+                            alert(res.msg);
+                        })
+                        .fail((err) => {
+                            alert(err.responseJSON.msg);
+                        })
+                }
 
             function category() {
                 console.log($("#career").val())

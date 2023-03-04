@@ -11,13 +11,15 @@ public interface BookmarkRepository {
 
         public Bookmark findById(int id);
 
-        public int insert(@Param("userId") int userId, @Param("enterpriseId") int enterpriseId);
+        public int insert(Bookmark bookmark);
 
         public int updateById(Bookmark bookmark);
 
         public int deleteById(int id);
 
-        public Bookmark findByEnterpriseIdAndUserId(@Param("enterpriseId") int enterpriseId, @Param("userId") int userId);
+        public Bookmark findByEnterpriseIdAndUserId(@Param("enterpriseId") int enterpriseId,
+                        @Param("userId") int userId);
 
         public List<Bookmark> findByBoardId(int enterpriseId);
+
 }
