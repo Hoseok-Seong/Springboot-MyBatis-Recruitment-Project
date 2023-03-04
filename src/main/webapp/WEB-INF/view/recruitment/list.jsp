@@ -1,28 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
-    <style>
+        <style>
+            /* 제목 스타일링 */
+            h1 {
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: #343a40;
+            }
 
-/* 제목 스타일링 */
-h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #343a40;
-}
-
-.my-text-ellipsis {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 100%;
-}
-    </style>
+            .my-text-ellipsis {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                max-width: 100%;
+            }
+        </style>
         <!-- 게시판부분 -->
         <div class="container-fluid" style="width: 65%">
             <div class="row py-1">
                 <div class="col">
                     <div class="card">
                         <div class="card-body text-center">
-                            <img src="/images/career.png" class="card-img-top" alt="..." style="width: 50px; height: 50px;">
+                            <img src="/images/career.png" class="card-img-top" alt="..."
+                                style="width: 50px; height: 50px;">
                             <h5 class="card-title pt-2">경력</h5>
                         </div>
                     </div>
@@ -30,7 +30,8 @@ h1 {
                 <div class="col">
                     <div class="card">
                         <div class="card-body text-center">
-                            <img src="/images/education.png" class="card-img-top" alt="..." style="width: 50px; height: 50px;">
+                            <img src="/images/education.png" class="card-img-top" alt="..."
+                                style="width: 50px; height: 50px;">
                             <h5 class="card-title pt-2">교육</h5>
                         </div>
                     </div>
@@ -38,7 +39,8 @@ h1 {
                 <div class="col">
                     <div class="card">
                         <div class="card-body text-center">
-                            <img src="/images/sector.png" class="card-img-top" alt="..." style="width: 50px; height: 50px;">
+                            <img src="/images/sector.png" class="card-img-top" alt="..."
+                                style="width: 50px; height: 50px;">
                             <h5 class="card-title pt-2">분야</h5>
                         </div>
                     </div>
@@ -46,7 +48,8 @@ h1 {
                 <div class="col">
                     <div class="card">
                         <div class="card-body text-center">
-                            <img src="/images/position.png" class="card-img-top" alt="..." style="width: 50px; height: 50px;">
+                            <img src="/images/position.png" class="card-img-top" alt="..."
+                                style="width: 50px; height: 50px;">
                             <h5 class="card-title pt-2">직무</h5>
                         </div>
                     </div>
@@ -54,74 +57,75 @@ h1 {
                 <div class="col">
                     <div class="card">
                         <div class="card-body text-center">
-                            <img src="/images/tech.png" class="card-img-top" alt="..." style="width: 50px; height: 50px;">
+                            <img src="/images/tech.png" class="card-img-top" alt="..."
+                                style="width: 50px; height: 50px;">
                             <h5 class="card-title pt-2">기술스택</h5>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>
         <div class="container-fluid" style="width: 65%">
             <div class="row py-3">
                 <div class="col">
-                <select id="career" class="form-select" aria-label="Default select example">
-                <option selected disabled>신입/경력</option>
-                <option value="신입">신입</option>
-                <option value="경력">경력</option>
-                <option value="무관">무관</option>
-                </select>
+                    <select id="career" class="form-select" aria-label="Default select example">
+                        <option selected disabled>신입/경력</option>
+                        <option value="신입">신입</option>
+                        <option value="경력">경력</option>
+                        <option value="무관">무관</option>
+                    </select>
                 </div>
                 <div class="col">
-                <select id="education" class="form-select" aria-label="Default select example">
-                <option selected disabled>학력사항</option>
-                <option value="대졸이상">대졸이상</option>
-                <option value="고졸이상">고졸이상</option>
-                <option value="학력무관">학력무관</option>
-                </select>
+                    <select id="education" class="form-select" aria-label="Default select example">
+                        <option selected disabled>학력사항</option>
+                        <option value="대졸이상">대졸이상</option>
+                        <option value="고졸이상">고졸이상</option>
+                        <option value="학력무관">학력무관</option>
+                    </select>
                 </div>
                 <div class="col">
-                <select id="sector" class="form-select" aria-label="Default select example">
-                <option selected disabled>분야</option>
-                <option value="si">si</option>
-                <option value="웹에이전시">웹에이전시</option>
-                <option value="인력소싱">인력소싱</option>
-                <option value="대기업">대기업</option>
-                <option value="스타트업">스타트업</option>
-                <option value="서비스">서비스</option>
-                <option value="컨설팅">컨설팅</option>
-                </select>
+                    <select id="sector" class="form-select" aria-label="Default select example">
+                        <option selected disabled>분야</option>
+                        <option value="si">si</option>
+                        <option value="웹에이전시">웹에이전시</option>
+                        <option value="인력소싱">인력소싱</option>
+                        <option value="대기업">대기업</option>
+                        <option value="스타트업">스타트업</option>
+                        <option value="서비스">서비스</option>
+                        <option value="컨설팅">컨설팅</option>
+                    </select>
                 </div>
                 <div class="col">
-                <select id="position" class="form-select" aria-label="Default select example">
-                <option selected disabled>직무</option>
-                <option value="프론트엔드">프론트엔드</option>
-                <option value="백엔드">백엔드</option>
-                <option value="소프트웨어">소프트웨어</option>
-                <option value="안드로이드">안드로이드</option>
-                <option value="IOS">IOS</option>
-                <option value="네트워크관리자">네트워크관리자</option>
-                <option value="머신러닝엔지니어">머신러닝엔지니어</option>
-                <option value="데이터엔지니어">데이터엔지니어</option>
-                <option value="빅데이터엔지니어">빅데이터엔지니어</option>
-                <option value="보안엔지니어">보안엔지니어</option>
-                <option value="임베디드개발자">임베디드개발자</option>
-                </select>
+                    <select id="position" class="form-select" aria-label="Default select example">
+                        <option selected disabled>직무</option>
+                        <option value="프론트엔드">프론트엔드</option>
+                        <option value="백엔드">백엔드</option>
+                        <option value="소프트웨어">소프트웨어</option>
+                        <option value="안드로이드">안드로이드</option>
+                        <option value="IOS">IOS</option>
+                        <option value="네트워크관리자">네트워크관리자</option>
+                        <option value="머신러닝엔지니어">머신러닝엔지니어</option>
+                        <option value="데이터엔지니어">데이터엔지니어</option>
+                        <option value="빅데이터엔지니어">빅데이터엔지니어</option>
+                        <option value="보안엔지니어">보안엔지니어</option>
+                        <option value="임베디드개발자">임베디드개발자</option>
+                    </select>
                 </div>
                 <div class="col">
-                <select id="skill" class="form-select" aria-label="Default select example">
-                <option selected disabled>기술스택</option>
-                <option value="1">Java</option>
-                <option value="2">Html</option>
-                <option value="3">JavaScript</option>
-                <option value="4">VueJS</option>
-                <option value="5">CSS</option>
-                <option value="6">Node.Js</option>
-                <option value="7">React</option>
-                <option value="8">ReactJS</option>
-                <option value="9">Typescript</option>
-                <option value="10">Zustand</option>
-                <option value="11">AWS</option>
-                </select>
+                    <select id="skill" class="form-select" aria-label="Default select example">
+                        <option selected disabled>기술스택</option>
+                        <option value="1">Java</option>
+                        <option value="2">Html</option>
+                        <option value="3">JavaScript</option>
+                        <option value="4">VueJS</option>
+                        <option value="5">CSS</option>
+                        <option value="6">Node.Js</option>
+                        <option value="7">React</option>
+                        <option value="8">ReactJS</option>
+                        <option value="9">Typescript</option>
+                        <option value="10">Zustand</option>
+                        <option value="11">AWS</option>
+                    </select>
                 </div>
             </div>
             <div class="row justify-content-center align-items-center py-3" style="background-color: whitesmoke;">
@@ -148,32 +152,32 @@ h1 {
                     <div class="col-sm-3 mb-3">
                         <a href="/recruitment/detail/${post.id}" style="color: inherit; text-decoration: none;">
                             <div class="card jm_card">
-                            <img src="${post.enterpriseLogo}" class="card-img-top jm_card_img_top">
+                                <img src="${post.enterpriseLogo}" class="card-img-top jm_card_img_top">
                         </a>
-                    <div class="card-body jm_card_body "><br>
-                        <div class="jm_company_name">
-                                    <div class="card-body">
-                            <c:choose>
-                                <c:when test="${post.diffDays < 0}">
-                                        <dt class="text-danger" style="font-size: smaller;">기간이 지났습니다</dt>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <dt style="font-size: smaller;">D-${post.diffDays}</dt>
-                                    </c:otherwise>
+                        <div class="card-body jm_card_body "><br>
+                            <div class="jm_company_name">
+                                <div class="card-body">
+                                    <c:choose>
+                                        <c:when test="${post.diffDays < 0}">
+                                            <dt class="text-danger" style="font-size: smaller;">기간이 지났습니다</dt>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <dt style="font-size: smaller;">D-${post.diffDays}</dt>
+                                        </c:otherwise>
                                     </c:choose>
-                                        <div class="jm_company_name my-text-ellipsis">${post.title}</div>
-                                        <div class="jm_company_title my-text-ellipsis">${post.enterpriseName}</div>
-                                        <div class="jm_company_title my-text-ellipsis">
-                                            <i class="bi-geo-alt"></i>서울, 부산
-                                            <div class="jm_company_title my-text-ellipsis">
-                                                <i class="bi-currency-dollar"></i> 채용보상금 1,000,000원</p>
-                                            </div>
-                                        </div>
+                                    <div class="jm_company_name my-text-ellipsis">${post.title}</div>
+                                    <div class="jm_company_title my-text-ellipsis">${post.enterpriseName}</div>
+                                    <div class="jm_company_title my-text-ellipsis">
+                                        <i class="bi-geo-alt"></i>${post.address}
+                                    </div>
+                                    <div class="jm_company_title my-text-ellipsis">
+                                        <i class="bi bi-person-workspace"></i>${post.position}
                                     </div>
                                 </div>
-                                </div>
+                            </div>
                         </div>
                     </div>
+            </div>
             </c:forEach>
         </div>
 
@@ -198,7 +202,7 @@ h1 {
                         for (let i = 0; i < res.data.length; i++) {
                             let el =
                                 `<div class="col-sm-3 mb-3">
-                                       <a href="/recruitment/detail/`+res.data[i].id+`" style="color: inherit; text-decoration: none;">
+                                       <a href="/recruitment/detail/`+ res.data[i].id + `" style="color: inherit; text-decoration: none;">
                                              <div class="card jm_card h-100">
                                                  <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
                                                  <div class="card-body jm_card_body">
@@ -239,7 +243,7 @@ h1 {
                         for (let i = 0; i < res.data.length; i++) {
                             let el =
                                 `<div class="col-sm-3 mb-3">
-                                       <a href="/recruitment/detail/`+res.data[i].id+`" style="color: inherit; text-decoration: none;">
+                                       <a href="/recruitment/detail/`+ res.data[i].id + `" style="color: inherit; text-decoration: none;">
                                              <div class="card jm_card h-100">
                                                  <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
                                                  <div class="card-body jm_card_body">

@@ -47,9 +47,6 @@
                                             <li class="nav-item">
                                                 <a class="nav-link text-dark" href="/recruitment/list">채용</a>
                                             </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link text-dark" href="/applicantList">지원자현황</a>
-                                            </li>
                                         </c:when>
 
                                         <c:otherwise>
@@ -61,19 +58,12 @@
                                                     <li class="nav-item">
                                                         <a class="nav-link text-dark" href="/resumeList">이력서</a>
                                                     </li>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link text-dark" href="/applyList">지원현황</a>
-                                                    </li>
                                                 </c:when>
 
                                                 <c:otherwise>
                                                     <li class="nav-item">
                                                         <a class="nav-link text-dark" href="/resumeList"
                                                             data-toggle="modal" data-target="#login">이력서</a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link text-dark" href="/applyList"
-                                                            data-toggle="modal" data-target="#login">지원현황</a>
                                                     </li>
                                                 </c:otherwise>
                                             </c:choose>

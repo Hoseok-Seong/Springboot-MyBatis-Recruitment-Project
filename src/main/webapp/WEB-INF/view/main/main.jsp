@@ -89,46 +89,6 @@
         </div>
 
         <%-- 박스부 --%>
-            <div class="container-fluid" style="width: 65%">
-                <c:if test="${principal.id != null}">
-                    <div class="d-flex justify-content">
-                        <div class="">
-                            <button type="button" class="btn btn-secondary" data-bs-toggle="collapse"
-                                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                <h2>매칭 서비스!</h2>
-                                기업에서 당신의 기술을 원하고 있습니다.
-                            </button>
-                        </div>
-                    </div>
-                </c:if>
-                <div class="collapse mt-5" id="collapseExample">
-                    <div class="card card-body">
-                        <div class="d-flex justify-content-between flex-wrap ">
-                            <div class="row" id="emptyBox">
-                                <c:forEach items="${userMatching}" var="user">
-                                    <div class="col-sm-3 mb-3">
-                                        <a href="/recruitment/detail/${user.userId}"
-                                            style="color: inherit; text-decoration: none;">
-                                            <div class="card jm_card pe-3">
-                                                <img src="${user.enterpriseLogo}" class="card-img-top jm_card_img_top">
-                                        </a>
-                                        <div class="card-body jm_card_body">
-                                            <h5 class="jm_company_name my-text-ellipsis">${user.title}</h5>
-                                            <h6 class="jm_company_title my-text-ellipsis">${user.enterpriseName}</h6>
-                                            <p class="jm_company_title my-text-ellipsis"><i class="bi-geo-alt"></i> 서울,
-                                                부산</p>
-                                            <p class="jm_company_title my-text-ellipsis"><i
-                                                    class="bi-currency-dollar"></i> 채용보상금 1,000,000원</p>
-                                        </div>
-                                    </div>
-                            </div>
-                            </c:forEach>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
-            </div>
             <div class="container jm_container" style="width: 65%">
                 <h2>채용광고</h2>
                 <div class="row" id="emptyBox">
@@ -152,10 +112,10 @@
                                         <div class="jm_company_name my-text-ellipsis">${post.title}</div>
                                         <div class="jm_company_title my-text-ellipsis">${post.enterpriseName}</div>
                                         <div class="jm_company_title my-text-ellipsis">
-                                            <i class="bi-geo-alt"></i>서울, 부산
-                                            <div class="jm_company_title my-text-ellipsis">
-                                                <i class="bi-currency-dollar"></i> 채용보상금 1,000,000원</p>
-                                            </div>
+                                            <i class="bi-geo-alt"></i>${post.address}
+                                        </div>
+                                        <div class="jm_company_title my-text-ellipsis">
+                                            <i class="bi bi-person-workspace"></i>${post.position}
                                         </div>
                                     </div>
                                 </div>

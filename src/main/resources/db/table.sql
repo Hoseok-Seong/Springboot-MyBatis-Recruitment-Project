@@ -65,14 +65,6 @@ create table bookmark_tb(
     created_at timestamp not null
 );
 
-create table like_tb(
-    id int auto_increment primary key,
-    user_id int not null unique,
-    recruitment_id int not null unique,    
-    count int not null,
-    created_at timestamp not null
-);
-
 create table apply_tb(
     id int auto_increment primary key,
     user_id int not null,
