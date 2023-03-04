@@ -76,7 +76,6 @@
                                     <tr>
                                         <th scope="col">기업명</th>
                                         <th scope="col">공고</th>
-                                        <th scope="col">기술스택</th>
                                         <th scope="col">마감</th>
                                     </tr>
                                 </thead>
@@ -87,9 +86,6 @@
                                             </td>
                                             <td scope="col"><a href="/recruitment/detail/${user.recruitmentId}"
                                                     style="color: inherit; text-decoration: none;">${user.title}</a>
-                                            </td>
-                                            <td scope="col">
-                                                자바
                                             </td>
                                             <c:choose>
                                                 <c:when test="${Posts[user.recruitmentId].diffDays < 0}">

@@ -30,6 +30,7 @@
                             <h3>지원자 수 :
                                 <c:out value="${fn:length(applyLists)}" />
                             </h3>
+                            <br>
                             <button type="button" class="btn btn-outline-info btn-lg" onclick="location.href='
                                 /recruitment/list'">채용공고 보러가기
                             </button>
@@ -42,7 +43,7 @@
                             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <div class="navbar-nav">
                                     <h3>
-                                        <a class="nav-link active" aria-current="page" href="/myapplicant">지원현황</a>
+                                        <a class="nav-link active" aria-current="page" href="/myapplicant">지원자현황</a>
                                     </h3>
                                     <h3>
                                         <a class="nav-link" href="/myrecommend">인재추천</a>
@@ -53,8 +54,9 @@
                     </nav>
                     <div class="card">
                         <div class="card-body text-center">
+                            <br>
                             <h5>
-                                ${applyLists[0].enterpriseName}님이 작성한 채용공고의 지원자 목록입니다
+                                ${principalEnt.enterpriseName}님이 작성한 채용공고의 지원자 목록입니다
                             </h5>
                             <br>
                             <table class="table table-hover">
@@ -237,6 +239,7 @@
                 </div>
             </div>
         </div>
+        <br>
         <script>
             function confirmResult(name, applyId, result) {
                 if (confirm(name + '님의 지원서를 합격 처리하시겠습니까?')) {

@@ -21,26 +21,15 @@
                         <div class="card-body text-center">
                             <img src="/images/user.png" class="card-img-top" alt="..."
                                 style="width: 100px; height: 100px;">
-                            <h5 class="card-title pt-2">${principal.name}</h5>
-                            <h5 class="card-title pt-2">${principal.email}</h5>
-                            <h5 class="card-title pt-2">${principal.contact}</h5>
+                            <h5 class="card-title pt-2">${principalEnt.enterpriseName}</h5>
+                            <h5 class="card-title pt-2">${principalEnt.address}</h5>
+                            <h5 class="card-title pt-2">${principalEnt.email}</h5>
+                            <h5 class="card-title pt-2">${principalEnt.contact}</h5>
+                            <h5 class="card-title pt-2">${principalEnt.size}</h5>
                             <br>
-                            <h4>나의 매칭기업 :
-                                <c:out value="${fn:length(userMatching)}" />
-                            </h4>
-                            <br>
-                            <button class="btn btn-outline-info btn-lg" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                나의 기술스택
-                            </button>
-                            <br>
-                            <c:forEach items="${userSkillDtos}" var="userSkillDto">
-                                <div class="collapse" id="collapseExample">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">${skillMap[userSkillDto.skill]}</li>
-                                    </ul>
-                                </div>
-                            </c:forEach>
+                            <h3>내가 찾는 인재 :
+                                <c:out value="${fn:length(enterpriseMatching)}" />
+                            </h3>
                             <br>
                             <button type="button" class="btn btn-outline-info btn-lg"
                                 onclick="window.location.href = '/recruitment/list';">채용공고 보러가기
@@ -54,13 +43,10 @@
                             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <div class="navbar-nav">
                                     <h3>
-                                        <a class="nav-link" href="/myapply">지원현황</a>
+                                        <a class="nav-link" href="/myapplicant">지원자현황</a>
                                     </h3>
                                     <h3>
-                                        <a class="nav-link active" aria-current="page" href="/mymatching">추천서비스</a>
-                                    </h3>
-                                    <h3>
-                                        <a class="nav-link" href="/mybookmark">북마크</a>
+                                        <a class="nav-link active" aria-current="page" href="/myrecommend">인재추천</a>
                                     </h3>
                                 </div>
                             </div>
@@ -70,38 +56,33 @@
                         <div class="card-body">
                             <table class="table table-hover">
                                 <br>
-                                <h3><img src="images/company.png" alt="">회원님의 기술스택과 일치하는 기업입니다</h3>
+                                <h3><img src="images/applicant.png" alt="">회원님이 찾는 기술스택을 보유한 지원자입니다</h3>
                                 <br>
                                 <thead class="table-light">
                                     <tr>
-                                        <th scope="col">기업명</th>
-                                        <th scope="col">공고</th>
-                                        <th scope="col">기술스택</th>
-                                        <th scope="col">마감</th>
+                                        <th scope="col">아이디</th>
+                                        <th scope="col">이름</th>
+                                        <th scope="col">생년월일</th>
+                                        <th scope="col">연락처</th>
+                                        <th scope="col">이메일</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${userMatching}" var="user">
+                                    <c:forEach items="${enterpriseMatching}" var="user">
                                         <tr>
-                                            <td scope="col">${user.enterpriseName}
+                                            <td scope="col">${user.username}
                                             </td>
-                                            <td scope="col"><a href="/recruitment/detail/${user.recruitmentId}"
-                                                    style="color: inherit; text-decoration: none;">${user.title}</a>
+                                            <td scope="col">${user.name}
                                             </td>
                                             <td scope="col">
-                                                자바
+                                                ${user.birthdate}
                                             </td>
-                                            <c:choose>
-                                                <c:when test="${Posts[user.recruitmentId].diffDays < 0}">
-                                                    <td scope="col">
-                                                        기간 만료
-                                                    </td>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <td scope="col">D-${Posts[user.recruitmentId].diffDays}
-                                                    </td>
-                                                </c:otherwise>
-                                            </c:choose>
+                                            <td scope="col">
+                                                ${user.contact}
+                                            </td>
+                                            <td scope="col">
+                                                ${user.email}
+                                            </td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
@@ -113,4 +94,5 @@
         </div>
         </div>
         </div>
+        <br>
         <%@ include file="../layout/footer.jsp" %>

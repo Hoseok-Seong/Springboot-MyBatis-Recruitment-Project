@@ -28,6 +28,7 @@
                             <h3>지원횟수 :
                                 <c:out value="${fn:length(applyLists)}" />
                             </h3>
+                            <br>
                             <button type="button" class="btn btn-outline-info btn-lg"
                                 onclick="window.location.href = '/recruitment/list';">채용공고 보러가기
                             </button>
