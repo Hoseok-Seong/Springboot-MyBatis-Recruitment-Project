@@ -87,7 +87,7 @@
                                             <td>${applyList.createdAtToString}</td>
                                             <td>
                                                 <c:choose>
-                                                    <c:when test="${Posts[applyList.recruitmentPostId].diffDays < 0}">
+                                                    <c:when test="${Posts[applyList.recruitmentPostId-1].diffDays < 0}">
                                                         <button class="btn btn-warning disabled">만료
                                                         </button>
                                                     </c:when>

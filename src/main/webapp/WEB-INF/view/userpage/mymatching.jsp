@@ -88,13 +88,13 @@
                                                     style="color: inherit; text-decoration: none;">${user.title}</a>
                                             </td>
                                             <c:choose>
-                                                <c:when test="${Posts[user.recruitmentId].diffDays < 0}">
+                                                <c:when test="${Posts[user.recruitmentId-1].diffDays < 0}">
                                                     <td scope="col">
                                                         기간 만료
                                                     </td>
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <td scope="col">D-${Posts[user.recruitmentId].diffDays}
+                                                    <td scope="col">D-${Posts[user.recruitmentId-1].diffDays}
                                                     </td>
                                                 </c:otherwise>
                                             </c:choose>
