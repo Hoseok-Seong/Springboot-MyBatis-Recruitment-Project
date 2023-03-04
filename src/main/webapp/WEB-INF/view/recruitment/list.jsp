@@ -197,7 +197,6 @@
                     dataType: "json"
                 })
                     .done((res) => {
-                        console.log(res.data);
                         $("#emptyBox").empty();
                         for (let i = 0; i < res.data.length; i++) {
                             let el =
@@ -253,7 +252,6 @@
                     dataType: "json"
                 })
                     .done((res) => {
-                        console.log(res.data);
                         $("#emptyBox").empty();
                         for (let i = 0; i < res.data.length; i++) {
                             let el =

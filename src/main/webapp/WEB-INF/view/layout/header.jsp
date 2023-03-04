@@ -78,10 +78,10 @@
                                     <c:choose>
                                         <c:when test="${not empty principal or not empty principalEnt}">
                                             <!-- 세션에 principal 또는 principalEnt 중 하나 이상이 존재하는 경우 -->
-                                            <li class="nav-item">
+                                            <!-- <li class="nav-item">
                                                 <a class="nav-link text-dark" href=""><i class=" bi
                                                 bi-bell"></i></a>
-                                            </li>
+                                            </li> -->
                                             <li class="nav-item">
                                                 <div class="dropdown">
                                                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
