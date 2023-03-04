@@ -1,55 +1,55 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
-<style>
+        <style>
+            .btn-secondary {
+                background-color: #ff7f00;
+                border-color: #ff7f00;
+            }
 
-.btn-secondary {
-background-color: #ff7f00;
-border-color: #ff7f00;
-}
+            .btn-secondary:hover {
+                background-color: #ff7f00;
+                border-color: #ff7f00;
+            }
 
-.btn-secondary:hover {
-background-color: #ff7f00;
-border-color: #ff7f00;
-}
+            .jm_card {
+                height: 480px;
+                border-radius: 0.5rem;
+                box-shadow: 0px 5px 10px #ced4da;
+                overflow: hidden;
+                transition: transform 0.3s ease;
+            }
 
-.jm_card {
-  height: 480px;
-  border-radius: 0.5rem;
-  box-shadow: 0px 5px 10px #ced4da;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-.jm_container {
-  background-color: white;
-  border-radius: 0.5rem;
-  padding: 2rem;
-  box-shadow: 0px 5px 10px #ced4da;
-}
+            .jm_container {
+                background-color: white;
+                border-radius: 0.5rem;
+                padding: 2rem;
+                box-shadow: 0px 5px 10px #ced4da;
+            }
 
 
-.jm_card:hover {
-    transform: translateY(-10px);
-}   
-/* 카드 제외 폰트 */
-.jm_company_name {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
+            .jm_card:hover {
+                transform: translateY(-10px);
+            }
 
-.jm_company_title {
-  font-size: 1rem;
-  margin-bottom: 0.2rem;
-}
+            /* 카드 제외 폰트 */
+            .jm_company_name {
+                font-size: 1.2rem;
+                font-weight: bold;
+                margin-bottom: 0.5rem;
+            }
 
-.my-text-ellipsis {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 100%;
-}
+            .jm_company_title {
+                font-size: 1rem;
+                margin-bottom: 0.2rem;
+            }
 
-</style>
+            .my-text-ellipsis {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                max-width: 100%;
+            }
+        </style>
 
         <div class="container-fluid my_main_banner pt-4">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -109,61 +109,61 @@ border-color: #ff7f00;
                                     <div class="col-sm-3 mb-3">
                                         <a href="/recruitment/detail/${user.userId}"
                                             style="color: inherit; text-decoration: none;">
-                                        <div class="card jm_card pe-3">
-                                            <img src="${user.enterpriseLogo}" class="card-img-top jm_card_img_top">
+                                            <div class="card jm_card pe-3">
+                                                <img src="${user.enterpriseLogo}" class="card-img-top jm_card_img_top">
                                         </a>
-                                            <div class="card-body jm_card_body">
-                                                <h5 class="jm_company_name my-text-ellipsis">${user.title}</h5>
-                                                <h6 class="jm_company_title my-text-ellipsis">${user.enterpriseName}</h6>
-                                                <p class="jm_company_title my-text-ellipsis"><i class="bi-geo-alt"></i> 서울,
-                                                    부산</p>
-                                                <p class="jm_company_title my-text-ellipsis"><i
-                                                        class="bi-currency-dollar"></i> 채용보상금 1,000,000원</p>
-                                            </div>
+                                        <div class="card-body jm_card_body">
+                                            <h5 class="jm_company_name my-text-ellipsis">${user.title}</h5>
+                                            <h6 class="jm_company_title my-text-ellipsis">${user.enterpriseName}</h6>
+                                            <p class="jm_company_title my-text-ellipsis"><i class="bi-geo-alt"></i> 서울,
+                                                부산</p>
+                                            <p class="jm_company_title my-text-ellipsis"><i
+                                                    class="bi-currency-dollar"></i> 채용보상금 1,000,000원</p>
                                         </div>
                                     </div>
-                                </c:forEach>
                             </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
-                <br>
+            </div>
+            <br>
             </div>
             <div class="container jm_container" style="width: 65%">
                 <h2>채용광고</h2>
-                    <div class="row" id="emptyBox">
-                        <c:forEach items="${Posts}" var="post">
-                            <div class="col-sm-3 mb-3">
-                                <a href="/recruitment/detail/${post.id}" style="color: inherit; text-decoration: none;">
-                                    <div class="card jm_card">
+                <div class="row" id="emptyBox">
+                    <c:forEach items="${Posts}" var="post">
+                        <div class="col-sm-3 mb-3">
+                            <a href="/recruitment/detail/${post.id}" style="color: inherit; text-decoration: none;">
+                                <div class="card jm_card">
                                     <img src="${post.enterpriseLogo}" class="card-img-top jm_card_img_top">
-                                </a>
+                            </a>
                             <div class="card-body jm_card_body "><br>
                                 <div class="jm_company_name">
-                                            <div class="card-body">
-                                    <c:choose>
+                                    <div class="card-body">
+                                        <c:choose>
                                             <c:when test="${post.diffDays < 0}">
                                                 <dt class="text-danger" style="font-size: smaller;">기간이 지났습니다</dt>
                                             </c:when>
                                             <c:otherwise>
                                                 <dt style="font-size: smaller;">D-${post.diffDays}</dt>
                                             </c:otherwise>
-                                    </c:choose>
-                                                <div class="jm_company_name my-text-ellipsis">${post.title}</div>
-                                                <div class="jm_company_title my-text-ellipsis">${post.enterpriseName}</div>
-                                                <div class="jm_company_title my-text-ellipsis">
-                                                    <i class="bi-geo-alt"></i>서울, 부산
-                                                    <div class="jm_company_title my-text-ellipsis">
-                                                        <i class="bi-currency-dollar"></i> 채용보상금 1,000,000원</p>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                                </div>
+                                        </c:choose>
+                                        <div class="jm_company_name my-text-ellipsis">${post.title}</div>
+                                        <div class="jm_company_title my-text-ellipsis">${post.enterpriseName}</div>
+                                        <div class="jm_company_title my-text-ellipsis">
+                                            <i class="bi-geo-alt"></i>서울, 부산
+                                            <div class="jm_company_title my-text-ellipsis">
+                                                <i class="bi-currency-dollar"></i> 채용보상금 1,000,000원</p>
                                             </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </c:forEach>
-                    </div>
+                        </div>
+                </div>
+                </c:forEach>
+            </div>
             </div>
             <br>
             <br>

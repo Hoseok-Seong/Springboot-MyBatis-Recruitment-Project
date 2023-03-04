@@ -47,7 +47,6 @@
 
    <delete id="deleteById">
       delete from recruitment_post_tb where id = #{id}
-
    </delete>
 
    <select id="findByPost" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$RecruitmentPostListRespDto">

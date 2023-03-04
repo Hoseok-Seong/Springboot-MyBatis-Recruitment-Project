@@ -1,4 +1,4 @@
-package shop.mtcoding.job.model.skill;
+package shop.mtcoding.job.model.recruitmentSkill;
 
 import java.util.List;
 
@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostSkillRespDto;
+import shop.mtcoding.job.dto.recruitmentSkill.EnterpriseMatchingDto;
 
 @Mapper
 public interface RecruitmentSkillRepository {
@@ -23,4 +24,6 @@ public interface RecruitmentSkillRepository {
     public int deleteById(int id);
 
     public int deleteByRecruitmentId(int recruitmentId);
+
+    public List<EnterpriseMatchingDto> enterpriseMatching(int id);
 }

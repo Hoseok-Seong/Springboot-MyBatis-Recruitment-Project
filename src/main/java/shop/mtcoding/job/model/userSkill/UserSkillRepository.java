@@ -1,9 +1,11 @@
-package shop.mtcoding.job.model.skill;
+package shop.mtcoding.job.model.userSkill;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+
+import shop.mtcoding.job.dto.userSkill.UserMatchingDto;
 
 @Mapper
 public interface UserSkillRepository {
@@ -17,4 +19,8 @@ public interface UserSkillRepository {
     public int updateById(UserSkill skill);
 
     public int deleteById(int id);
+
+    public List<UserMatchingDto> userMatching(int id);
+
+    public List<UserSkill> findByUserId(int userId);
 }

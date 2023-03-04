@@ -1,6 +1,4 @@
-package shop.mtcoding.job.model.skill;
-
-import java.util.List;
+package shop.mtcoding.job.model.userSkill;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,5 +8,5 @@ import lombok.Setter;
 public class UserSkill {
     private int id;
     private int userId;
-    private List<String> skill;
+    private int skill;
 }

@@ -12,9 +12,9 @@ import shop.mtcoding.job.dto.user.UserReqDto.JoinUserReqDto;
 import shop.mtcoding.job.dto.user.UserReqDto.LoginUserReqDto;
 import shop.mtcoding.job.dto.user.UserReqDto.UpdateUserReqDto;
 import shop.mtcoding.job.handler.exception.CustomException;
-import shop.mtcoding.job.model.skill.UserSkillRepository;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.model.user.UserRepository;
+import shop.mtcoding.job.model.userSkill.UserSkillRepository;
 import shop.mtcoding.job.util.SaltEncoder;
 import shop.mtcoding.job.util.Sha256Encoder;
 

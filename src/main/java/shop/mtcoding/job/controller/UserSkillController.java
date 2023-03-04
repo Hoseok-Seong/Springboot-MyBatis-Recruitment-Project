@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import shop.mtcoding.job.handler.exception.CustomException;
-import shop.mtcoding.job.model.skill.UserSkillRepository;
+import shop.mtcoding.job.model.userSkill.UserSkillRepository;
 
 @Controller
 public class UserSkillController {
-    
+
     @Autowired
     private UserSkillRepository userSkillRepository;
 

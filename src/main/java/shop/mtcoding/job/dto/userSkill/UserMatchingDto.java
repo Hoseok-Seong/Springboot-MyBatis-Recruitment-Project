@@ -1,4 +1,4 @@
-package shop.mtcoding.job.dto.user;
+package shop.mtcoding.job.dto.userSkill;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,4 +10,5 @@ public class UserMatchingDto {
     private String enterpriseName;
     private String enterpriseLogo;
     private String title;
+    private int recruitmentId;
 }

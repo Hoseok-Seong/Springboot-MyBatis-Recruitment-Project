@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostListRespDto;
-import shop.mtcoding.job.dto.user.UserMatchingDto;
+import shop.mtcoding.job.dto.userSkill.UserMatchingDto;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.model.user.UserRepository;
@@ -30,10 +30,6 @@ public class MainController {
     @GetMapping({ "/", "/main" })
     public String main(Model model) {
         User principal = (User) session.getAttribute("principal");
-        if (principal != null) {
-            List<UserMatchingDto> userMatchingDto = userRepository.userMatching(principal.getId());
-            model.addAttribute("userMatching", userMatchingDto);
-        }
 
         List<RecruitmentPostListRespDto> posts = recruitmentPostRepository.findByPost();
         // d-day 계산

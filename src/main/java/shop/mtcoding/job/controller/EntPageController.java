@@ -1,6 +1,8 @@
 package shop.mtcoding.job.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,16 +13,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import shop.mtcoding.job.dto.apply.ApplyRespDto.ApplyListForEntRespDto;
-import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostListRespDto;
-import shop.mtcoding.job.dto.user.UserMatchingDto;
+import shop.mtcoding.job.dto.recruitmentSkill.EnterpriseMatchingDto;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.apply.ApplyRepository;
 import shop.mtcoding.job.model.applyResume.ApplyResume;
 import shop.mtcoding.job.model.applyResume.ApplyResumeRepository;
 import shop.mtcoding.job.model.enterprise.Enterprise;
-import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
-import shop.mtcoding.job.model.user.User;
-import shop.mtcoding.job.model.user.UserRepository;
+import shop.mtcoding.job.model.recruitmentSkill.RecruitmentSkillRepository;
 
 @Controller
 public class EntPageController {
@@ -34,10 +33,7 @@ public class EntPageController {
     private ApplyResumeRepository applyResumeRepository;
 
     @Autowired
-    private RecruitmentPostRepository recruitmentPostRepository;
-
-    @Autowired
-    private UserRepository userRepository;
+    private RecruitmentSkillRepository recruitmentSkillRepository;
 
     @GetMapping("/myapplicant")
     public String mypage(Model model) {
@@ -58,6 +54,32 @@ public class EntPageController {
 
     @GetMapping("/myrecommend")
     public String mymatching(Model model) {
+        Enterprise principalEnt = (Enterprise) session.getAttribute("principalEnt");
+        if (principalEnt == null) {
+            throw new CustomException("기업회원으로 로그인을 해주세요", HttpStatus.UNAUTHORIZED);
+        }
+
+        if (principalEnt != null) {
+            List<EnterpriseMatchingDto> enterpriseMatchingDto = recruitmentSkillRepository
+                    .enterpriseMatching(principalEnt.getId());
+
+            model.addAttribute("enterpriseMatching", enterpriseMatchingDto);
+        }
+
+        Map<Integer, String> skillMap = new HashMap<>();
+        skillMap.put(1, "Java");
+        skillMap.put(2, "HTML");
+        skillMap.put(3, "JavaScript");
+        skillMap.put(4, "VueJS");
+        skillMap.put(5, "CSS");
+        skillMap.put(6, "Node.js");
+        skillMap.put(7, "React");
+        skillMap.put(8, "ReactJS");
+        skillMap.put(9, "Typescript");
+        skillMap.put(10, "Zustand");
+        skillMap.put(11, "AWS");
+        model.addAttribute("skillMap", skillMap);
+
         return "entpage/myrecommend";
     }
 }

@@ -1,4 +1,4 @@
-package shop.mtcoding.job.model.skill;
+package shop.mtcoding.job.model.recruitmentSkill;
 
 import java.util.List;
 

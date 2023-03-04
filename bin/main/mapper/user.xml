@@ -33,18 +33,4 @@
    <select id="findByName" resultType="shop.mtcoding.job.model.user.User">
       select * from user_tb where username = #{username}  
    </select>
-
-   <select id="userMatching" resultType="shop.mtcoding.job.dto.user.UserMatchingDto">
-      select distinct u.id, enterprise_name, r.enterprise_logo, r.title
-      from user_tb u
-      left join user_skill_tb us
-      on u.id = us.user_id
-      left join recruitment_skill_tb rs
-      on us.skill=rs.skill
-      join recruitment_post_tb r
-      on r.id=rs.recruitment_id
-      left join enterprise_tb e
-      on e.id = r.enterprise_id
-      where u.id = #{id};
-    </select>
 </mapper>

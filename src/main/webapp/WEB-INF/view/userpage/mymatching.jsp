@@ -25,11 +25,25 @@
                             <h5 class="card-title pt-2">${principal.email}</h5>
                             <h5 class="card-title pt-2">${principal.contact}</h5>
                             <br>
-                            <h3>지원횟수 :
-                                <c:out value="${fn:length(applyLists)}" />
-                            </h3>
-                            <button type="button" class="btn btn-outline-info btn-lg" onclick="location.href='
-                                /recruitment/list'">채용공고 보러가기
+                            <h4>나의 매칭기업 :
+                                <c:out value="${fn:length(userMatching)}" />
+                            </h4>
+                            <br>
+                            <button class="btn btn-outline-info btn-lg" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                나의 기술스택
+                            </button>
+                            <br>
+                            <c:forEach items="${userSkillDtos}" var="userSkillDto">
+                                <div class="collapse" id="collapseExample">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">${skillMap[userSkillDto.skill]}</li>
+                                    </ul>
+                                </div>
+                            </c:forEach>
+                            <br>
+                            <button type="button" class="btn btn-outline-info btn-lg"
+                                onclick="window.location.href = '/recruitment/list';">채용공고 보러가기
                             </button>
                         </div>
                     </div>
@@ -55,11 +69,15 @@
                     <div class="card">
                         <div class="card-body">
                             <table class="table table-hover">
+                                <br>
+                                <h3><img src="images/company.png" alt="">회원님의 기술스택과 일치하는 기업입니다</h3>
+                                <br>
                                 <thead class="table-light">
                                     <tr>
-                                        <th scope="col">공고</th>
                                         <th scope="col">기업명</th>
+                                        <th scope="col">공고</th>
                                         <th scope="col">기술스택</th>
+                                        <th scope="col">마감</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -67,11 +85,23 @@
                                         <tr>
                                             <td scope="col">${user.enterpriseName}
                                             </td>
-                                            <td scope="col"><a href="/recruitment/detail/${user.userId}"
+                                            <td scope="col"><a href="/recruitment/detail/${user.recruitmentId}"
                                                     style="color: inherit; text-decoration: none;">${user.title}</a>
                                             </td>
-                                            <td scope="col">${user.enterpriseName}
+                                            <td scope="col">
+                                                자바
                                             </td>
+                                            <c:choose>
+                                                <c:when test="${Posts[user.recruitmentId].diffDays < 0}">
+                                                    <td scope="col">
+                                                        기간 만료
+                                                    </td>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <td scope="col">D-${Posts[user.recruitmentId].diffDays}
+                                                    </td>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
