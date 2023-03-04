@@ -234,6 +234,7 @@
             </div>
         </div>
         </div>
+        <br>
         <script>
             function confirmDelete(recruitmentPostId) {
                 if (confirm('지원서를 삭제하시면 복구가 불가능합니다.\n정말로 삭제하시겠습니까?')) {
