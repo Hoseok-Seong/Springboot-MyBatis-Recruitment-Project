@@ -30,6 +30,7 @@ import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentP
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostSearchRespDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
+import shop.mtcoding.job.model.bookmark.Bookmark;
 import shop.mtcoding.job.model.bookmark.BookmarkRepository;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;
@@ -271,7 +272,7 @@ public class RecruitmentController {
         User principal = (User) session.getAttribute("principal");
         if (principal != null) {
             model.addAttribute("resumes", resumeRepository.findByUserId(principal.getId()));
-            model.addAttribute("bookMarkDto", bookmarkRepository.findByEnterpriseIdAndUserId(recruitmentPostDto.getEnterpriseId(), principal.getId()));
+            
         }
 
         return "recruitment/detail";
@@ -279,13 +280,22 @@ public class RecruitmentController {
 
     @GetMapping("/recruitment/list")
     public String recruitmentPostList(Model model) {
+        User principal = (User) session.getAttribute("principal");
+        if (principal != null) {
+            // model.addAttribute("bookmarks", bookmarkRepository.findByEnterpriseIdAndUserId( , principal.getId()));
+        }
+
         List<RecruitmentPostListRespDto> posts = recruitmentPostRepository.findByPost();
+        // List<Bookmark> bookmarks = bookmarkRepository.findByEnterpriseIdAndUserId(, principal.getId());
+        
+        
         // d-day 계산
         for (RecruitmentPostListRespDto post : posts) {
             post.calculateDiffDays(); // D-Day 계산
         }
 
         model.addAttribute("Posts", posts);
+        // model.addAttribute("bookmarks", bookmarks);
 
         return "recruitment/list";
     }

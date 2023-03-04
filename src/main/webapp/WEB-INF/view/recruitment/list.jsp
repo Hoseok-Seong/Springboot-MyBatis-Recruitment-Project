@@ -214,12 +214,12 @@ h1 {
                         </div>
                     </div>
                     <c:choose>
-                       <c:when test="${bookMarkDto != null}">
-                      <img id="image1" src="/images/북마크블랙.png" onclick="bookmark('${post.enterpriseId}')">
+                       <c:when test="${bookMarks != null}">
+                      <img id="image1" src="/images/북마크블랙.png" onclick="bookmark('${post.enterpriseId}',this)">
                        </c:when>
                     
                        <c:otherwise>
-                      <img id="image1" src="/images/북마크화이트.png" onclick="bookmark('${post.enterpriseId}')">
+                      <img id="image1" src="/images/북마크화이트.png" onclick="bookmark('${post.enterpriseId}',this)">
                        </c:otherwise>
                     </c:choose>
 
@@ -233,25 +233,35 @@ h1 {
             
         </div>
                 <script>
-                function bookmark(id) {
-                    let data = {
-                            enterpriseId: id,
-                        };
-                    $.ajax({
-                    type: "post",
-                    url:  "/detail/"+id+"/bookmark",
-                    data: JSON.stringify(data),
-                    contentType: 'application/json; charset=UTF-8',
-                    dataType: "json"
-                    })
-                    .done((res) => { 
-                        alert(res.msg);
-                        location.reload();
-                    })
-                    .fail((err) => { 
-                        alert(err.responseJSON.msg);
-                    });
-                        }
+                function bookmark(id, image) {
+  let data = {
+    enterpriseId: id,
+  };
+  $.ajax({
+    type: "post",
+    url: "/detail/" + id + "/bookmark",
+    data: JSON.stringify(data),
+    contentType: "application/json; charset=UTF-8",
+    dataType: "json",
+  })
+    .done((res) => {
+      alert(res.msg);
+      // 북마크가 되어있는 이미지를 클릭한 경우
+      if (image.src.includes("북마크블랙")) {
+        // 북마크가 되어있지 않은 이미지로 변경
+        image.src = "/images/북마크화이트.png";
+      }
+      // 북마크가 되어있지 않은 이미지를 클릭한 경우
+      else {
+        // 북마크가 되어있는 이미지로 변경
+        image.src = "/images/북마크블랙.png";
+      }
+    })
+    .fail((err) => {
+      alert(err.responseJSON.msg);
+    });
+}
+
                         
                 </script>
                 <script>

@@ -35,8 +35,7 @@ public class BookmarkController {
         if (principal == null) {
             throw new CustomApiException("로그인이 필요합니다", HttpStatus.UNAUTHORIZED);
         }
-        System.out.println("test1 : " + enterpriseId);
-        System.out.println("test2 : " + principal.getId());
+      
         bookmarkService.북마크하기(enterpriseId, principal.getId());
 
         return new ResponseEntity<>(new ResponseDto<>(1, "북마크 성공", null), HttpStatus.OK);

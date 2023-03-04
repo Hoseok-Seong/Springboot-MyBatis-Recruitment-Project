@@ -56,6 +56,7 @@
       JOIN enterprise_tb e
       ON r.enterprise_id = e.id;
    </select>
+   
 
    <select id="findByTitleOrContent" resultType="shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto$RecruitmentPostListRespDto">
       select e.enterprise_name, r.id, r.title, r.enterprise_logo, r.created_at 

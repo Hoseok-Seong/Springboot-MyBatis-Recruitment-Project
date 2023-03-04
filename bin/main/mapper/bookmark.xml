@@ -24,6 +24,7 @@
    <select id="findByEnterpriseIdAndUserId" resultType="shop.mtcoding.job.model.bookmark.Bookmark">
       select * from bookmark_tb where enterprise_id = #{enterpriseId} and user_id = #{userId}
    </select>
+   
    <select id="findByBoardId" resultType="shop.mtcoding.job.model.bookmark.Bookmark">
       select * from bookmark_tb where enterprise_id = #{enterpriseId}
    </select>
