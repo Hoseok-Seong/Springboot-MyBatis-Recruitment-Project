@@ -12,9 +12,9 @@ import shop.mtcoding.job.dto.user.UserReqDto.JoinUserReqDto;
 import shop.mtcoding.job.dto.user.UserReqDto.LoginUserReqDto;
 import shop.mtcoding.job.dto.user.UserReqDto.UpdateUserReqDto;
 import shop.mtcoding.job.handler.exception.CustomException;
-import shop.mtcoding.job.model.skill.UserSkillRepository;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.model.user.UserRepository;
+import shop.mtcoding.job.model.userSkill.UserSkillRepository;
 import shop.mtcoding.job.util.SaltEncoder;
 import shop.mtcoding.job.util.Sha256Encoder;
 
@@ -80,9 +80,6 @@ public class UserService {
     public void 유저회원정보수정하기(UpdateUserReqDto updateUserReqDto, int id) {
 
         try {
-            User user = userRepository.findById(id);
-            // String savedSalt = user.getSalt();
-
             String sha256Hash = Sha256Encoder.sha256(updateUserReqDto.getPassword());
             String salt = SaltEncoder.salt();
             int result = userRepository.updateById(id,

@@ -15,7 +15,7 @@ import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
-import shop.mtcoding.job.model.skill.RecruitmentSkillRepository;
+import shop.mtcoding.job.model.recruitmentSkill.RecruitmentSkillRepository;
 import shop.mtcoding.job.util.PathUtil;
 
 @Service
