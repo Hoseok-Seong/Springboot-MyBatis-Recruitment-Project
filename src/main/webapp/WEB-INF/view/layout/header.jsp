@@ -196,7 +196,7 @@
                                                 </table>
                                                 <button type="submit" class="btn login-btn-custom btn-sm me-2"
                                                     onclick="userLogin()" style="float:right;">로그인</button>
-                                                <input class="ms-2" type="checkbox" name="remember"> 아이디 기억<br><br><br>
+                                                <input class="ms-2" type="checkbox" name="remember"> 아이디 기억<br><br>
                                                 <div class="d-inline-flex justify-content-between">
                                                 </div>
                                             </div>
