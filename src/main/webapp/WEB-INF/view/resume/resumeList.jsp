@@ -77,9 +77,11 @@
         <div class="container-fluid">
             <div class="container-fluid" style="width: 65%;">
                 <div class="text-center d-flex justify-content-between flex-wrap ">
-                    <div class="card g-col-3 my-3" style="width: 18rem;">
+                    <div class="card g-col-3 my-3 text-center" style="width: 18rem;">
                         <a href="/resumeForm"><br>
-                            <img src="images/icons8-new-file-64.png" width="170" height="170"><br><br>이력서 등록</a>
+                            <img src="images/resume.png" width="150" height="150"><br><br>
+                            <h4>이력서 등록</h4>
+                        </a>
                     </div>
                     <c:forEach items="${resumeList}" var="resume" varStatus="status">
                         <div class="card g-col-3 my-3" style="width: 18rem;">

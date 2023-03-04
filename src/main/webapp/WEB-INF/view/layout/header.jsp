@@ -623,19 +623,19 @@
                                                                     name="email" placeholder="이메일"
                                                                     value="${principal.email}"></td>
                                                         </tr>
-                                                        <div class="text-center">
+                                                        <tr class="text-center">
                                                             <td><input type="text" class="form-control-lg w-100"
                                                                     name="contact" placeholder="전화번호"
                                                                     value="${principal.contact}">
                                                             </td>
-                                                        </div>
+                                                        </tr>
+                                                        <tr class=" text-center">
+                                                            <td>
+                                                                <button class="btn btn-custom btn-sm my-3 ms-3 me-4"
+                                                                    style="float:right;">회원정보수정</button>
+                                                            </td>
+                                                        </tr>
                                                     </table>
-                                                    <div class=" text-center">
-
-                                                        <br>
-                                                        <button class="btn btn-custom btn-sm my-3 ms-3 me-4"
-                                                            style="float:right;">회원정보수정</button>
-                                                    </div>
                                                 </form>
                                             </div>
                                         </c:when>
