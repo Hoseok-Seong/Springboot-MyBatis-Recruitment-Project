@@ -47,7 +47,7 @@ public class RecruitmentService {
         }
 
         saveRecruitmentPostReqDto.setId(savedPost.getId());
-        for (String checkSkill : saveRecruitmentPostReqDto.getSkill()) {
+        for (Integer checkSkill : saveRecruitmentPostReqDto.getSkill()) {
             result = recruitmentSkillRepository.insert(saveRecruitmentPostReqDto.getId(), checkSkill);
             if (result != 1) {
                 throw new CustomException("실패");
@@ -85,7 +85,7 @@ public class RecruitmentService {
 
         // 새로운 기술스택 생성
         updateRecruitmentPostReqDto.setId(updatedPost.getId());
-        for (String checkSkill : updateRecruitmentPostReqDto.getSkill()) {
+        for (Integer checkSkill : updateRecruitmentPostReqDto.getSkill()) {
             result = recruitmentSkillRepository.insert(updateRecruitmentPostReqDto.getId(), checkSkill);
             if (result != 1) {
                 throw new CustomException("채용공고 기술스택 생성 실패");

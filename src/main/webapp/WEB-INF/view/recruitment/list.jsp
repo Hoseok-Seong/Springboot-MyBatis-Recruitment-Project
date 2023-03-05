@@ -159,12 +159,30 @@
                                 <div class="card-body">
                                     <c:choose>
                                         <c:when test="${post.diffDays < 0}">
-                                            <dt class="text-danger" style="font-size: smaller;">기간이 지났습니다</dt>
+                                                <dt class="badge rounded-pill text-bg-danger" style="font-size: 12px;"><b>기간이 지났습니다</b></dt>
+                                        </c:when>
+                                        <c:when test="${post.diffDays == 0}">
+                                                <dt class="badge rounded-pill text-bg-warning" style="font-size: 12px;"><b>D-DAY</b></dt>
+                                        </c:when>
+                                        <c:when test="${post.diffDays > 0 && post.diffDays <= 7}">
+                                                <dt class="badge rounded-pill text-bg-warning" style="font-size: 12px;">${post.diffDays}일 남았습니다</dt>
                                         </c:when>
                                         <c:otherwise>
-                                            <dt style="font-size: smaller;">D-${post.diffDays}</dt>
+                                                <dt class="badge rounded-pill text-bg-success" style="font-size: 12px;">${post.diffDays}일 남았습니다</dt>
                                         </c:otherwise>
                                     </c:choose>
+
+                                    <%-- <c:choose>
+                                        <c:when test="${post.diffDays < 0}">
+                                            <dt class="text-danger" style="font-size: smaller;"><b>기간이 지났습니다</b></dt>
+                                        </c:when>
+                                        <c:when test="${post.diffDays >= 0 && post.diffDays <= 7}">
+                                            <dt class="text-warning" style="font-size: smaller;"><b>D-${post.diffDays}</b></dt>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <dt class="text-success" style="font-size: smaller;"><b>D-${post.diffDays}</b></dt>
+                                        </c:otherwise>
+                                    </c:choose> --%>
                                     <div class="jm_company_name my-text-ellipsis">${post.title}</div>
                                     <div class="jm_company_title my-text-ellipsis">${post.enterpriseName}</div>
                                     <div class="jm_company_title my-text-ellipsis">

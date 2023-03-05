@@ -11,6 +11,7 @@ insert into enterprise_tb(enterprise_name, password, salt, address, contact, ema
 insert into enterprise_tb(enterprise_name, password, salt, address, contact, email, sector, size, created_at) values('버드코리아', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b_{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2', '{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2', '서울.한국', '010-7763-4370', '1', '스타트업', '스타트업', now());
 insert into enterprise_tb(enterprise_name, password, salt, address, contact, email, sector, size, created_at) values('노티플러스', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b_{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2', '{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2', '서울특별시 강남구 테헤란로37길 7, 6~7층(역삼동, 조이타워)', '010-7763-4370', 'company@nate.com', '서비스', '스타트업', now());
 insert into enterprise_tb(enterprise_name, password, salt, address, contact, email, sector, size, created_at) values('라인플러스', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b_{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2', '{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2', '성남 분당구 황새울로360번길 42', '010-7763-4370', 'company@nate.com', '대기업', '대기업', now());
+insert into enterprise_tb(enterprise_name, password, salt, address, contact, email, sector, size, created_at) values('퓨렌스', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b_{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2', '{bcrypt}$2a$10$uLIFxpUFWGOwfwSqYoLrv.kLTV.0QbaNCBcQS6DTOTrVa2eurwRu2', '성남 분당구 황새울로360번길 42', '010-7763-4370', 'company@nate.com', '대기업', '대기업', now());
 
 insert into user_skill_tb(user_id, skill) values(1, 1);
 insert into user_skill_tb(user_id, skill) values(1, 2);
@@ -59,6 +60,9 @@ insert into recruitment_skill_tb(recruitment_id, skill ) values(10, 7);
 insert into recruitment_skill_tb(recruitment_id, skill ) values(10, 8);
 insert into recruitment_skill_tb(recruitment_id, skill ) values(10, 9);
 insert into recruitment_skill_tb(recruitment_id, skill ) values(10, 11);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(11, 11);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(11, 11);
+insert into recruitment_skill_tb(recruitment_id, skill ) values(11, 11);
 
 insert into resume_tb(user_id, title, content, career, education, skill, award, language, link, file, birthdate, address, finish, created_at)  
 values('1', 
@@ -162,6 +166,7 @@ false,
 now()); 
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(1,'프론트엔드 개발자','경력','학력무관','면접 후 결정','스타트업','프론트엔드','강남구 삼성동 75-6 수당빌딩 4층','
+<img src="/images/gint_post.png"></br>
 GINT 는 인류에게 가장 기본적이며 필수적인 산업인 농업, 그 중에서도 생산과정을 근본적으로<br>
 해결하기 위해 국내 최고 수준 오토모티브, ICT 전문가들이 모인 Ag-Tech 스타트업입니다. <br>
 기술신용평가에서 TI-2등급이라는 최고에 가까운 등급을 받은만큼 기술력, 시장성, 사업성, 경영역량에서도 인정받았습니다.<br>
@@ -201,9 +206,10 @@ Great Inspiration to the NexT, 우리가 꿈꾸는 다음 세대를 위한 비�
 • 야근시 택시비를 지원해드립니다.<br>
 • 임신기간 근로시간 단축제를 시행하고 있습니다.<br>
 • 광교 본사 외 서울 오피스를 듀얼로 운영하고 있습니다.<br>
-', '/images/gint_logo.png','2023-03-03',now());
+', '/images/gint_logo.png','2023-03-01',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(2,'안드로이드 개발(2년 이상)','경력','학력무관','면접 후 결정','스타트업','안드로이드','영등포구 국회대로 50길 20','
+<img src="/images/the_day_before.png"></br>
 디데이를 나답게, 더데이비포입니다.<br>
 <br>
 더데이비포는 국내 최초로 제작된 디데이 앱 `더데이비포`를 시작으로 `더커플`, `메모위젯` 등을 운영하고 있습니다. 모든 서비스가 한국 뿐 아니라 일본, 대만, 멕시코 등 많은 글로벌 유저들에게 사랑받고 있습니다.<br>
@@ -249,7 +255,7 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 - 대기업급 건강검진<br>
 - 4대 보험<br>
 
-', '/images/the_day_before_logo.png','2023-03-01',now());
+', '/images/the_day_before_logo.png','2023-03-03',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(3,'인공지능 엔지니어','무관','대졸이상','면접 후 결정','스타트업','머신러닝엔지니어','영등포구 국회대로 50길 20','
 • 에이인비는 인공지능 전문가와 바이오 전문가가 모인 항체 신약 개발 회사로 인공지능을 활용한 <br>
@@ -279,7 +285,7 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 • 건강검진<br>
 • 점심식대<br>
 • 그 외 다양한 복리후생 도입 검토 중입니다.<br>
-', '/images/AinB_logo.png','2023-05-01',now());
+', '/images/AinB_logo.png','2023-03-09',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(4,'빅데이터 엔지니어','무관','대졸이상','면접 후 결정','대기업','데이터엔지니어','서울 중구 을지로 100','
 신한카드는 금융권 최초로 빅데이터센터를 설립하여 빅데이터 분야에 대한 투자를 아끼지 않고 있습니다.  국내에서 가장 많은 소비data와 고객 behavior data를 엔지니어링하여, 고객들에게 새로운 서비스와 상품, 경험으로 돌려드리는 여정을 함께하실 분을 찾습니다.<br>
@@ -306,7 +312,7 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 • 협의에 따라 정규직 또는 전문계약직(1년 이상)으로 신한카드에서 제공하는 모든 복지를 제공<br>
 • 주 40시간 근무제에 따라 PC off 운영 중<br>
 • 시차 출퇴근 형태의 유연근무제<br>
-', '/images/shinhancard_logo.png','2023-05-01',now());
+', '/images/shinhancard_logo.png','2023-03-10',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(5,'풀스택 임베디드 개발자','무관','학력무관','면접 후 결정','스타트업','임베디드개발자','구로디지털단지역 근처','
 육류외식업 자동화라는 혁신적인 기술을 통해 인건비 문제를 해결하고, 세상 모든 사람들에게 ‘완벽한 육식 경험을 제공’하기 위해 성장하고 있는 “피플즈리그 ”입니다.<br>
@@ -390,7 +396,7 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 • 식대: 월 20만원<br>
 <br>
 • 데스커 모션데스크 & 시디즈 T80<br>
-', '/images/peoplesleague_logo.png','2023-05-01',now());
+', '/images/peoplesleague_logo.png','2023-03-15',now());
 
 insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(6,'백엔드_Django 개발 주니어 (1년 이상)','경력','학력무관','2800만원','인력소싱','프론트엔드','서울특별시 마포구 마포대로','
 포토카드 거래 시장을 혁신하는 플랫폼</br>
@@ -464,136 +470,18 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 </br>
 # 채용 절차</br>
 • 서류합격  ＞  1차 인터뷰(직무)  ＞  2차 인터뷰(컬쳐핏)  ＞  최종합격
-', '/images/poca_logo.png','2023-05-01',now());
+', '/images/poca_logo.png','2023-03-27',now());
 
-insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(7,'[미니창고 다락] 인사 운영 매니저','신입','학력무관','면접 후 결정','스타트업','백엔드','서울전체, 서울 강서구',
-'[SECOND SYNDROME]</br>
-</br>
-"HYPERSPACE LIFE COMPANY"</br>
-</br>
-세컨신드롬은 초공간기술로 우리 주거생활을 조금 더 자유롭게 바꾸고자 합니다.</br>
-</br>
-오르기만 하는 집세에 우리는 매번 살 집을 찾아 헤매이고 고민합니다. 집에서 머무는 시간이 늘고 집에서 하는 활동도 많아졌는데, 쾌적하고 넓은 집에서 이사 좀 안 가고 편안하게 살 순 없을까요? 방 한칸, 공간 한평이 필요해졌을 때 갑자기 큰집으로 이사를 간다는 건 너무나 힘든 일이죠!</br>
-</br>
-세컨신드롬은 초공간기술을 적용한 ＜미니창고 다락＞으로 유연한 주거생활을 추구하고 더 많은 사람들이 부동산으로부터 자유로워질 수 있는 세상을 꿈꿉니다. 좁은 집이어도 넓게 사는 방법, 이사를 다니지 않아도 쾌적하게 살 수 있는 방법을 찾는 것이 우리의 미션이랍니다. </br>
-</br>
-이러한 도전은 170억원의 투자금액을 유치하며 카카오벤처스, KTB네트워크와 같은 투자자들과 함께 하고 있습니다. 우리 삶을 변화시킬 보관물류 솔루션 ＜미니창고 다락＞, 그 가슴 뛰는 여정에 함께 하실 멤버분들을 기다려요! </br>
-</br>
-</br>
-#세컨신드롬의 핵심가치를 공유합니다!!</br>
-</br>
-하나, 고객중심 문제해결</br>
-둘, 개척자의 사명감 </br>
-셋, 빠른 실행과 배움</br>
-넷, 하나로서의 팀  (One Team)</br>
-다섯, 일과 삶의 조화  (Work and life harmony)</br>
-</br></br>
+insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(7,'[미니창고 다락] 인사 운영 매니저','신입','학력무관','면접 후 결정','스타트업','백엔드','서울전체, 서울 강서구','
+<img src="/images/second_syndrome.png"></br>
+', '/images/secondsyndrome_logo.png','2023-04-27',now());
 
-#세컨신드롬이 달성해온 여정이에요!</br>
-</br>
-▷ 누적투자 170억원 유치</br>
-▷ 국내 유일 무인화 개인창고 솔루션 운영</br>
-▷ 소비자만족지수 5년 연속 1위</br>
-▷ 55개 이상의 미니창고 사이트 운영 (국내 1위)</br>
-▷ 국내 최초 프리미엄 보관이사 서비스 런칭</br>
-▷ 글로벌 보관 인증 획득 (SSAA)</br>
-▷ 중소벤처기업부 예비유니콘 후보</br>
-▷ 국토교통부 우수 물류창고 선정</br>
-▷ 2021 서울시 공유기업 선정</br>
-▷ 2021 강남구 일자리 창출 우수기업 선정</br>
-▷ 2022 올해의 서비스 브랜드 파워 1위 (셀프 스토리지 부문)</br>
-▷ 2022 KT와 무인창고 운영 시스템 개발</br>
-▷ 2022 미니창고 다락, 파트너 투자모델 & 크라우드 투자 상품 출시</br>
-▷ 2022 미니창고 다락, 물품 보관 서비스 `보관복지부` 인수</br>
-</br>
-<b>주요업무</b></br>
-- 4대보험, 원천세, 연말정산 등 Payroll 전반에 대한 실무 수행</br>
-- 신규입사자 온보딩 프로세스 운영</br>
-- 복리후생 제도 관리 및 개선</br>
-- 연차 등을 포함한 구성원 근태 관리</br>
-- 인사 관련 정부지원사업 운영</br>
-- 기타 총무 업무 지원</br>
-</br>
-<b>자격요건</b></br>
-- 안정적인 Payroll 운영 경험을 5년 이상 보유하신 분</br>
-- 인사 운영 전반에 대한 경험과 지식을 보유하신 분</br>
-- 주도적으로 업무를 진행하시는 분</br>
-- 정확하고 원활한 커뮤니케이션 역량을 가지고 문제해결 능력을 보유하신 분</br>
-- 기존의 방식만을 고수하기 보다는 더 나은 우리만의 방법을 지속적으로 찾으려는 분</br>
-</br>
-<b>우대사항</b></br>
-- 성장하는 스타트업 경험이 있으신 분</br>
-- HR 관련 데이터를 바탕으로 이슈를 파악하고 빠른 개선을 도출 할 수 있는 분</br>
-- 채용 브랜딩 경험이 있으신 분</br>
-- 인하우스 리크루터로서 채용 업무 경험이 있으신 분</br>
-</br>
-<b>혜택 및 복지</b></br>
-[다락팀 복지]</br>
-• 오전 8시 ~ 오전 10시 시차출퇴근제(유연근무제) 운영</br>
-• 점심식대 월 20만원 복지카드로 지원</br>
-• 미니창고 다락 이용 지원</br>
-• 자기개발 : 직무관련 교육 무제한 지원(강의, 세미나, 도서 등)</br>
-• 업무 특성에 최적화된 하이퀄리티 장비/라이센스 지원</br>
-• 건강검진 연1회</br>
-• 자유로운 휴가 사용</br>
-• 명절 상품권 지급</br>
-• 생일 반차 지원</br>
-• 경조사 지원</br>
-• 퇴근 교통비 지원</br>
-• 팀 운영비 지원</br>
-• 리프레시 휴가 및 포상금(3년/5년/10년)</br>
-</br></br>
+insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(8,'CS / CX 매니저','신입','대졸이상','면접 후 결정','스타트업','소프트웨어','서울.한국','
+<img src="/images/bird_korea.png"></br>
+', '/images/birdkorea_logo.png','2023-05-01',now());
 
-[채용 절차]</br>
-서류 전형 – 직무 인터뷰 – 컬쳐핏 인터뷰 – 처우 협의 - 채용 확정</br>
-</br>
-[제출 서류]</br> 
-- 이력서/경력기술서</br>', '/images/secondsyndrome_logo.png','2023-05-01',now());
-
-insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(8,'CS / CX 매니저','신입','대졸이상','면접 후 결정','스타트업','소프트웨어','서울.한국',
-'버드코리아는 혁신적인 퍼스널모빌리티로 이동의 새로운 경험을 제공하는공유 모빌리티 기업입니다.</br>
-2021년 8월 서울 강남 지역과 수도권을 중심으로 킥보드 공유 서비스를 시작하였으며, 현재 운영 중인 버드 기기는 압도적인 주행 성능과 승차감으로 두터운 매니아 층을 확보하고 있습니다.</br>
-</br>
-주요업무</br>
-• 고객관리</br>
-   - 고객 커뮤니케이션 응대</br>
-   - 고객 경험(CX) 관리를 위한 응대 프로세스 개선</br>
-   - 고객응대 시스템 A부터 Z까지 관리</br>
-</br>
-• 업무지원</br>
-   - 운영 업무 지원</br>
-   - 보험 및 GR 관련 업무</br>
-   - 자사 앱 서비스 모니터링</br>
-</br>
-* 고객 보다 유관 부서와의 커뮤니케이션이 더 많고 중요한 직무입니다.</br>
-</br>
-<b>자격요건</b></br>
-• 내 / 외부 커뮤니케이션 능력이 우수하신 분</br>
-• 고객서비스 분야의 다양한 업무 멀티 태스킹 경험</br>
-• 스스로 문제를 찾고, 유연한 사고를 기반으로 해결해 나갈 수 있는 분</br>
-</br>
-<b>우대사항</b></br>
-• 1년 이상의 CS/CX 실무 경험이 있는 분</br>
-• 모빌리티(자동차, 자전거, 킥보드 등) 분야에서 CS/CX 관련 경험이 있으신 분</br>
-• 고객 의견(VOC) 분석을 통한 니즈 파악, 문제 개선 경험이 있는 분</br>
-• 고객, 유관 부서와의 커뮤니케이션이 원활하고 의견을 조율하실 수 있는 분</br>
-• 실시간 이슈에 대응하는 유연한 업무 처리 능력과 업무를 꼼꼼하게 처리하는 습관을 가지신 분</br>
-• 당황하지 않고 차분하게 고객 문의 응대 및 문제 해결할 수 있는 분</br>
-• 스타트업의 특성을 이해하고 있으며 업무 분담에 유연성을 가지고 있는 분</br>
-• 깊은 고민과 빠른 실행으로 지속적인 개선을 만들어 나가는 분</br>
-</br>
-<b>혜택 및 복지</b></br>
-• 자유로운 휴가(연차, 반차 등) 사용</br>
-• 매년 리프레시 휴가 3일 제공</br>
-• 매년 종합 건강검진 지원</br>
-• 다양한 종류의 간식, 커피, 음료 제공</br>
-• 버드 전동킥보드 무제한 라이딩 지원</br>
-</br></br></br>
-• 2023년 3월 중 강남으로 사무실 이전 예정 (현재 여의도 위치)</br>', '/images/birdkorea_logo.png','2023-05-01',now());
-
-insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(9,'서비스기획자 담당자
-','경력','대졸이상','3000','서비스','안드로이드','서울특별시 강남구 테헤란로37길 7, 6~7층(역삼동, 조이타워)',
-'노티플러스는 2017년 4월 설립되어 뉴스, 미디어, 동영상 등 다양한 장르의 콘텐츠에 인공지능 기술을 활용하여 양질의 콘텐츠를 모바일 환경에서 보다 빠르고, 편리하게 즐길수 있는 플랫폼 개발 및 신규 콘텐츠 유통망을 개척/분석하는 AI미디어테크 플랫폼 운영을 주요사업으로 영위하고 있습니다.</br>
+insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(9,'서비스기획자 담당자','경력','대졸이상','3000','서비스','안드로이드','서울특별시 강남구 테헤란로37길 7, 6~7층(역삼동, 조이타워)','
+노티플러스는 2017년 4월 설립되어 뉴스, 미디어, 동영상 등 다양한 장르의 콘텐츠에 인공지능 기술을 활용하여 양질의 콘텐츠를 모바일 환경에서 보다 빠르고, 편리하게 즐길수 있는 플랫폼 개발 및 신규 콘텐츠 유통망을 개척/분석하는 AI미디어테크 플랫폼 운영을 주요사업으로 영위하고 있습니다.</br>
 </br>
 즉, 노티플러스는 언론사, 기업형 콘텐츠 제작사, 개인 크리에이터로부터 기사 및 콘텐츠를 공급받아 머신러닝 기반의 AI기술을 접목해 콘텐츠를 수집, 분류, 예측 후 사용자에게 최적의 콘텐츠를 추천하고 있습니다. 이와 관련하여 노티플러스는 제휴매체에 콘텐츠를 공급하는 서비스인 ‘뉴스픽 B2B’를 시작으로 개인화추천에 최적화된 자체 ‘뉴스픽(픽)’ 앱과 인플루언서 콘텐츠 배포 플랫폼인 ‘뉴스픽파트너스’를 운영하고 있습니다.</br>
 </br>
@@ -633,10 +521,10 @@ insert into recruitment_post_tb(enterprise_id, title, career, education, pay, se
 • 사내 스낵코너 운영</br>
 • 회사 콘도 운영</br>
 • 다이어리 지급</br>
-• 내일채움공제 지원</br>', '/images/notiplus_logo.png','2023-03-01',now());
+• 내일채움공제 지원</br>', '/images/notiplus_logo.png','2023-05-01',now());
 
-insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(10,'API Gateway Engineer','경력','대졸이상','3200','대기업','네트워크관리자','성남 분당구 황새울로360번길 42',
-'LINE 앱에서 서버와 주고받는 모든 API를 가장 앞서서 처리하는 네트워크 게이트웨이를 개발하고 운영합니다.</br>
+insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(10,'API Gateway Engineer','경력','대졸이상','3200','대기업','시스템, 네트워크관리자','성남 분당구 황새울로360번길 42','
+LINE 앱에서 서버와 주고받는 모든 API를 가장 앞서서 처리하는 네트워크 게이트웨이를 개발하고 운영합니다.</br>
 </br>
 팀원 모두가 개발 및 운영에 참여하고 동료의 코드를 리뷰합니다. 동료의 원활한 리뷰를 위해 읽기 쉬운 코드, 테스트 및 문서 작성, 동료의 코드를 성실하게 리뷰해 주는 자세, 리뷰를 대하는 열린 태도와 커뮤니케이션 능력이 필요합니다.</br>
 </br>
@@ -698,7 +586,10 @@ LINE Hybrid Work 2.0에 따라 근무 가능한 장소에서 근무</br>
 • 각종 경조사 지원, 휴양시설 운영, 직장 보육시설 등, 다양한 복리후생을 지원합니다. </br>
 • 최초 입사 후 2년 만근 시점, 최초 발생일 기준 이후 매 3년 마다 Refresh 휴가를 제공합니다. 기본 연차에 추가로 Refresh 휴가 10일 및 Refresh points를 지급해 드립니다.
 </br>
-이 외, 더 많은 혜택 및 복지가 여러분을 기다리고 있습니다. 입사 후 더 자세히 만나보세요!</br>', '/images/lineplus_logo.png','2023-05-01',now());
+이 외, 더 많은 혜택 및 복지가 여러분을 기다리고 있습니다. 입사 후 더 자세히 만나보세요!</br>', '/images/lineplus_logo.png','2023-04-12',now());
+insert into recruitment_post_tb(enterprise_id, title, career, education, pay, sector, position, address, content, enterprise_logo,deadline, created_at) values(11,'API Gateway Engineer','무관','고졸이상','면접 후 결정','서비스','시스템,네트워크관리자','서울 금천구','
+<img src="/images/furence.png"></br>
+', '/images/furence_logo.png','2023-04-22',now());
 
 insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('1', '1', '1', '스타트업', '1', now()); 
 insert into apply_tb(user_id, enterprise_id, recruitment_post_id, sector, resume_id, created_at) values('1', '2', '2', '스타트업', '2', now()); 

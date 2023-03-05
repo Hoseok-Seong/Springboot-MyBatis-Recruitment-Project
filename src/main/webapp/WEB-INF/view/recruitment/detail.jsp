@@ -1,15 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ include file="../layout/header.jsp" %>
+
+        <style>
+            .dt {}
+
+            span.badge {
+                font-size: 13px;
+            }
+        </style>
+
         <div class="container my-5 p-0" style="width: 60%;">
             <div class="row">
                 <!-- 채용공고 시작 -->
                 <div class="col-8">
-                    <div>
-                        ${recruitmentPostDtos.enterpriseName}
-                    </div>
 
                     <div>
-                        <h2><b>${recruitmentPostDtos.title}</b></h2>
+                        <h1><b>${recruitmentPostDtos.title}</b></h1>
+                    </div>
+                    <div>
+                        <h5><b>${recruitmentPostDtos.enterpriseName}</b></h5>
                     </div>
 
                     <div class="d-flex justify-content-between pb-3">
@@ -19,7 +28,8 @@
                                     경력
                                 </dt>
                                 <dd>
-                                    ${recruitmentPostDtos.career}
+                                    <span
+                                        class="badge rounded-pill text-bg-primary">${recruitmentPostDtos.career}</span>
                                 </dd>
                             </dl>
                             <dl>
@@ -27,7 +37,8 @@
                                     학력
                                 </dt>
                                 <dd>
-                                    ${recruitmentPostDtos.education}
+                                    <span
+                                        class="badge rounded-pill text-bg-primary">${recruitmentPostDtos.education}</span>
                                 </dd>
                             </dl>
                             <dl>
@@ -35,14 +46,16 @@
                                     기업형태
                                 </dt>
                                 <dd>
-                                    ${recruitmentPostDtos.sector}
+                                    <span
+                                        class="badge rounded-pill text-bg-primary">${recruitmentPostDtos.sector}</span>
                                 </dd>
                             </dl>
                             <dl>
                                 <dt>기술스택</dt>
                                 <dd>
                                     <c:forEach items="${recruitmentPostSkillDtos}" var="recruitmentPostSkillDto">
-                                        ${skillMap[recruitmentPostSkillDto.skill]}<br>
+                                        <span
+                                            class="badge rounded-pill text-bg-primary">${skillMap[recruitmentPostSkillDto.skill]}</span>
                                     </c:forEach>
                                 </dd>
                             </dl>
@@ -54,36 +67,70 @@
                                     급여
                                 </dt>
                                 <dd>
-                                    ${recruitmentPostDtos.pay}
+                                    <span class="badge rounded-pill text-bg-primary">${recruitmentPostDtos.pay}</span>
                                 </dd>
+                                <%-- <dd>
+                                    <span class='text-primary'>${recruitmentPostDtos.pay}</span>
+                                    </dd> --%>
                             </dl>
                             <dl>
                                 <dt>
                                     근무지역
                                 </dt>
                                 <dd>
-                                    ${recruitmentPostDtos.address}
+                                    <span
+                                        class="badge rounded-pill text-bg-primary">${recruitmentPostDtos.address}</span>
                                 </dd>
+                                <%-- <dd>
+                                    <span class='text-primary'>${recruitmentPostDtos.address}</span>
+                                    </dd> --%>
                             </dl>
                             <dl>
                                 <dt>
                                     희망포지션
                                 </dt>
                                 <dd>
-                                    ${recruitmentPostDtos.position}
+                                    <span
+                                        class="badge rounded-pill text-bg-primary">${recruitmentPostDtos.position}</span>
                                 </dd>
                             </dl>
                             <dl>
-                            <dl>
-                                <dt>마감기한</dt>
-                                <dd>${recruitmentPostDtos.deadline}</dd>
-                                <dd>
+                                <dl>
+                                    <dt>
+                                        마감기한
+                                    </dt>
                                     <c:choose>
-                                        <c:when test="${dDay < 0}"><p class="text-danger"><b>기간이 지났습니다</b></p></c:when>
-                                        <c:otherwise><dt>D-${dDay}</dt></c:otherwise>
+                                        <c:when test="${dDay < 0}">
+                                            <dd>
+                                                <span
+                                                    class="badge rounded-pill text-bg-danger">${recruitmentPostDtos.deadline}</span><br>
+                                                <span class="badge rounded-pill text-bg-danger"><b>기간이 지났습니다</b></span>
+                                            </dd>
+                                        </c:when>
+                                        <c:when test="${dDay == 0}">
+                                            <dd>
+                                                <span
+                                                    class="badge rounded-pill text-bg-warning">${recruitmentPostDtos.deadline}</span><br>
+                                                <span class="badge rounded-pill text-bg-warning"><b>D-DAY</b></span>
+                                            </dd>
+                                        </c:when>
+                                        <c:when test="${dDay > 0 && dDay <= 7}">
+                                            <dd>
+                                                <span
+                                                    class="badge rounded-pill text-bg-warning">${recruitmentPostDtos.deadline}</span><br>
+                                                <span class="badge rounded-pill text-bg-warning">${dDay}일 남았습니다</span>
+                                            </dd>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <dd>
+                                                <span
+                                                    class="badge rounded-pill text-bg-success">${recruitmentPostDtos.deadline}</span><br>
+                                                <span class="badge rounded-pill text-bg-success">${dDay}일 남았습니다</span>
+                                            </dd>
+                                        </c:otherwise>
                                     </c:choose>
-                                </dd>
-                            </dl>
+                                </dl>
+
                         </div>
                     </div>
 
@@ -274,10 +321,10 @@
                     deleteById(recruitmentPostId);
                 }
             }
-            function deleteById(recruitmentPostId){
+            function deleteById(recruitmentPostId) {
                 $.ajax({
                     type: "delete",
-                    url: '/recruitment/'+recruitmentPostId,
+                    url: '/recruitment/' + recruitmentPostId,
                     dataType: "json"
                 }).done((res) => { // 20X 일때
                     alert(res.msg);

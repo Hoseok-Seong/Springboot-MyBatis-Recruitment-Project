@@ -10,5 +10,5 @@ import lombok.Setter;
 public class RecruitmentSkill {
     private int id;
     private int recruitmentId;
-    private List<String> skill;
+    private List<Integer> skill;
 }
