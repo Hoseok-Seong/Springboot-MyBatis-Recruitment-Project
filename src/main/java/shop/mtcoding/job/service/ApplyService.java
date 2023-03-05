@@ -44,7 +44,7 @@ public class ApplyService {
                 insertApplyReqDto.getEnterpriseId(),
                 resume.getTitle(),
                 resume.getContent(), resume.getCareer(), resume.getEducation(), resume.getSkill(),
-                resume.getAward(), resume.getLanguage(), resume.getLink(), resume.getFile(), resume.getBirthdate(),
+                resume.getAward(), resume.getLanguage(), resume.getLink(), resume.getBirthdate(),
                 resume.getAddress(),
                 resume.isFinish());
 

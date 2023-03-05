@@ -15,7 +15,6 @@ public interface ApplyResumeRepository {
             @Param("education") String education, @Param("skill") String skill,
             @Param("award") String award, @Param("language") String language,
             @Param("link") String link,
-            @Param("file") String file,
             @Param("birthdate") String birthdate, @Param("address") String address,
             @Param("finish") boolean finish);
 

@@ -17,7 +17,6 @@ public class ResumeReqDto {
         private String award;
         private String language;
         private String link;
-        private String file;
         private String birthdate;
         private String address;
         private boolean finish;
@@ -35,7 +34,6 @@ public class ResumeReqDto {
         private String award;
         private String language;
         private String link;
-        private String file;
         private String birthdate;
         private String address;
         private boolean finish;
