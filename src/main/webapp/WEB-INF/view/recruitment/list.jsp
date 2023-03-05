@@ -208,6 +208,14 @@
                                                  <div class="card-body jm_card_body"><br>
                                                      <div class="jm_company_name">
                                                         <div class="card-body">
+                                                            <c:choose>
+                                        <c:when test="` + res.data[i].diffDays < 0 + `">
+                                            <dt class="text-danger" style="font-size: smaller;">기간이 지났습니다</dt>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <dt style="font-size: smaller;">D-`+ res.data[i].diffDays + `</dt>
+                                        </c:otherwise>
+                                    </c:choose>
                                                             <div class="jm_company_name my-text-ellipsis">`
                                 + res.data[i].title +
                                 `</div >

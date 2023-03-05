@@ -60,7 +60,13 @@ public class RecruitmentPostRespDto {
         private String position;
         private String enterpriseLogo;
         private String searchString;
+        private String deadline;
+        private long diffDays;
         private Timestamp createdAt;
+
+        public void calculateDiffDays() { // D-Day 계산하는 메서드 추가
+            diffDays = DateUtil.deadline(deadline);
+        }
     }
 
     @Getter
@@ -84,6 +90,12 @@ public class RecruitmentPostRespDto {
         private String sector;
         private String position;
         private String skill;
+        private String deadline;
+        private long diffDays;
         private Timestamp createdAt;
+
+        public void calculateDiffDays() { // D-Day 계산하는 메서드 추가
+            diffDays = DateUtil.deadline(deadline);
+        }
     }
 }

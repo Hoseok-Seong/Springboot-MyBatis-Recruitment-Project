@@ -47,6 +47,9 @@
                                             <li class="nav-item">
                                                 <a class="nav-link text-dark" href="/recruitment/list">채용</a>
                                             </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" href="/myapplicant">마이페이지</a>
+                                            </li>
                                         </c:when>
 
                                         <c:otherwise>
@@ -57,6 +60,9 @@
                                                 <c:when test="${principal != null}">
                                                     <li class="nav-item">
                                                         <a class="nav-link text-dark" href="/resumeList">이력서</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link text-dark" href="/myapply">마이페이지</a>
                                                     </li>
                                                 </c:when>
 

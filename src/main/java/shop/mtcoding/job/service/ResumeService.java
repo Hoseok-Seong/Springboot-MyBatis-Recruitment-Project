@@ -63,7 +63,7 @@ public class ResumeService {
                     updateResumeReqDto.getContent(),
                     updateResumeReqDto.getCareer(), updateResumeReqDto.getSkill(), updateResumeReqDto.getAward(),
                     updateResumeReqDto.getAddress(), updateResumeReqDto.getBirthdate(),
-                    updateResumeReqDto.getLink(), updateResumeReqDto.getEducation(), updateResumeReqDto.getFile(),
+                    updateResumeReqDto.getLink(), updateResumeReqDto.getEducation(),
                     updateResumeReqDto.getLanguage(), updateResumeReqDto.isFinish());
 
             if (result != 1) {
