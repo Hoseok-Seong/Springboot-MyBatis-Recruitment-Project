@@ -15,10 +15,10 @@
                         <div >
                         <c:choose>
                             <c:when test="${bookmarkDto == null}">
-                                <i id="bookmark" class="fa-regular fa-bookmark my-xl my-cursor" style="width:50px; height:50px; line-height:50px;" value="${bookmarkDto.id}" onclick="bookmarkOrCancle()"></i>
+                                <div id="bookmark" class="fa-regular fa-bookmark fa-2x my-xl my-cursor w-100 h-100" value="${bookmarkDto.id}" onclick="bookmarkOrCancle()"></div>
                             </c:when>
                             <c:otherwise>
-                                <i id="bookmark" class="fa-solid fa-bookmark my-xl my-cursor" style="width:50px; height:50px; line-height:50px;" value="${bookmarkDto.id}" onclick="bookmarkOrCancle()"></i>
+                                <div id="bookmark" class="fa-solid fa-bookmark fa-2x my-xl my-cursor w-100 h-100" value="${bookmarkDto.id}" onclick="bookmarkOrCancle()" style="font-size: 24px;"></div>
                             </c:otherwise>
                         </c:choose>
 
