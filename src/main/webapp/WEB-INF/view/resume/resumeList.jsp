@@ -76,15 +76,15 @@
         </div>
         <div class="container-fluid">
             <div class="container-fluid" style="width: 65%;">
-                <div class="text-center d-flex justify-content-between flex-wrap ">
-                    <div class="card g-col-3 my-3 text-center" style="width: 18rem;">
+                <div class="text-center d-flex justify-content-start flex-wrap">
+                    <div class="card g-col-3 my-3 text-center mx-1" style="width: 17rem;">
                         <a href="/resumeForm"><br>
                             <img src="images/resume.png" width="150" height="150"><br><br>
                             <h4>이력서 등록</h4>
                         </a>
                     </div>
                     <c:forEach items="${resumeList}" var="resume" varStatus="status">
-                        <div class="card g-col-3 my-3" style="width: 18rem;">
+                        <div class="card g-col-3 my-3 mx-1" style="width: 17rem; height: 16.4rem; position: relative;">
                             <div>
                                 <div class="card-body">
                                     <h5 class="card-title my-text-ellipsis">${resume.title}</h5><br>
@@ -92,9 +92,10 @@
                                     <p class="card-text"><small class="text-muted">${resume.birthdate}</small></p>
                                 </div>
                             </div>
-                            <div class="card-footer d-flex justify-content-between">
+                            <div class="card-footer d-flex justify-content-between"
+                                style="position: absolute; bottom: 16%; width: 100%;">
                                 <div class="btn-group" role="group">
-                                    <button id="btnGroupDrop1" ima type="button" class="btn "
+                                    <button id="btnGroupDrop1" class="btn "
                                         style="background-color: #fff; border-color: #fff; color: black;"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="images/icons8-menu-vertical-30.png" width="30" height="30">
@@ -113,11 +114,12 @@
                                     <small class="text-muted my-3 me-2">작업 중</small>
                                 </c:if>
                             </div>
-                            <!-- Button trigger modal -->
                             <button type="button" class="btn resumeList-btn-custom" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop${resume.id}">
+                                data-bs-target="#staticBackdrop${resume.id}"
+                                style="position: absolute; bottom: 0; width: 100%;">
                                 상세보기
                             </button>
+                            <!-- Button trigger modal -->
 
                             <!-- Modal -->
                             <div class="modal fade" id="staticBackdrop${resume.id}" data-bs-backdrop="static"

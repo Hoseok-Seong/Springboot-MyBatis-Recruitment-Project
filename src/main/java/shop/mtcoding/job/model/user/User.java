@@ -1,5 +1,6 @@
 package shop.mtcoding.job.model.user;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import lombok.Getter;
@@ -7,7 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class User {
+public class User implements Serializable {
     private int id;
     private String username;
     private String password;
@@ -15,6 +16,5 @@ public class User {
     private String name;
     private String email;
     private String contact;
-    private String profile;
     private Timestamp createdAt;
 }

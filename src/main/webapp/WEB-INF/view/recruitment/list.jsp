@@ -199,8 +199,9 @@
                     .done((res) => {
                         $("#emptyBox").empty();
                         for (let i = 0; i < res.data.length; i++) {
-                            let el =
-                                `<div class="col-sm-3 mb-3">
+                            if (res.data[i].diffDays < 0) {
+                                let el =
+                                    `<div class="col-sm-3 mb-3">
                                        <a href="/recruitment/detail/`+ res.data[i].id + `" style="color: inherit; text-decoration: none;">
                                              <div class="card jm_card">
                                                  <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
@@ -208,27 +209,59 @@
                                                  <div class="card-body jm_card_body"><br>
                                                      <div class="jm_company_name">
                                                         <div class="card-body">
+                                            <dt class="text-danger" style="font-size: smaller;">기간이 지났습니다</dt>
                                                             <div class="jm_company_name my-text-ellipsis">`
-                                + res.data[i].title +
-                                `</div >
+                                    + res.data[i].title +
+                                    `</div >
                                                             <div class="jm_company_title my-text-ellipsis">`
-                                + res.data[i].enterpriseName +
-                                `</div >
+                                    + res.data[i].enterpriseName +
+                                    `</div >
                                                             <div class="jm_company_title my-text-ellipsis">
                                                                     <i class="bi-geo-alt"></i>`
-                                + res.data[i].address +
-                                `</div>
+                                    + res.data[i].address +
+                                    `</div>
                                                             <div class="jm_company_title my-text-ellipsis">
                                                                     <i class="bi bi-person-workspace"></i>`
-                                + res.data[i].position +
-                                `</div>
+                                    + res.data[i].position +
+                                    `</div>
                                                         </div>
                                                  </div >
                                              </div >
                                      </div > `
-                            $("#emptyBox").append(el);
+                                $("#emptyBox").append(el);
+                            }
+                            else {
+                                let el =
+                                    `<div class="col-sm-3 mb-3">
+                                       <a href="/recruitment/detail/`+ res.data[i].id + `" style="color: inherit; text-decoration: none;">
+                                             <div class="card jm_card">
+                                                 <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
+                                                </a>
+                                                 <div class="card-body jm_card_body"><br>
+                                                     <div class="jm_company_name">
+                                                        <div class="card-body">
+                                            <dt style="font-size: smaller;">D-`+ res.data[i].diffDays + `</dt>
+                                                            <div class="jm_company_name my-text-ellipsis">`
+                                    + res.data[i].title +
+                                    `</div >
+                                                            <div class="jm_company_title my-text-ellipsis">`
+                                    + res.data[i].enterpriseName +
+                                    `</div >
+                                                            <div class="jm_company_title my-text-ellipsis">
+                                                                    <i class="bi-geo-alt"></i>`
+                                    + res.data[i].address +
+                                    `</div>
+                                                            <div class="jm_company_title my-text-ellipsis">
+                                                                    <i class="bi bi-person-workspace"></i>`
+                                    + res.data[i].position +
+                                    `</div>
+                                                        </div>
+                                                 </div >
+                                             </div >
+                                     </div > `
+                                $("#emptyBox").append(el);
+                            }
                         }
-
                         alert(res.msg);
                     })
                     .fail((err) => {
@@ -254,8 +287,9 @@
                     .done((res) => {
                         $("#emptyBox").empty();
                         for (let i = 0; i < res.data.length; i++) {
-                            let el =
-                                `<div class="col-sm-3 mb-3">
+                            if (res.data[i].diffDays < 0) {
+                                let el =
+                                    `<div class="col-sm-3 mb-3">
                                        <a href="/recruitment/detail/`+ res.data[i].id + `" style="color: inherit; text-decoration: none;">
                                              <div class="card jm_card">
                                                  <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
@@ -263,27 +297,59 @@
                                                  <div class="card-body jm_card_body"><br>
                                                      <div class="jm_company_name">
                                                         <div class="card-body">
+                                            <dt class="text-danger" style="font-size: smaller;">기간이 지났습니다</dt>
                                                             <div class="jm_company_name my-text-ellipsis">`
-                                + res.data[i].title +
-                                `</div >
+                                    + res.data[i].title +
+                                    `</div >
                                                             <div class="jm_company_title my-text-ellipsis">`
-                                + res.data[i].enterpriseName +
-                                `</div >
+                                    + res.data[i].enterpriseName +
+                                    `</div >
                                                             <div class="jm_company_title my-text-ellipsis">
                                                                     <i class="bi-geo-alt"></i>`
-                                + res.data[i].address +
-                                `</div>
+                                    + res.data[i].address +
+                                    `</div>
                                                             <div class="jm_company_title my-text-ellipsis">
                                                                     <i class="bi bi-person-workspace"></i>`
-                                + res.data[i].position +
-                                `</div>
+                                    + res.data[i].position +
+                                    `</div>
                                                         </div>
                                                  </div >
                                              </div >
                                      </div > `
-                            $("#emptyBox").append(el);
+                                $("#emptyBox").append(el);
+                            }
+                            else {
+                                let el =
+                                    `<div class="col-sm-3 mb-3">
+                                       <a href="/recruitment/detail/`+ res.data[i].id + `" style="color: inherit; text-decoration: none;">
+                                             <div class="card jm_card">
+                                                 <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
+                                                </a>
+                                                 <div class="card-body jm_card_body"><br>
+                                                     <div class="jm_company_name">
+                                                        <div class="card-body">
+                                            <dt style="font-size: smaller;">D-`+ res.data[i].diffDays + `</dt>
+                                                            <div class="jm_company_name my-text-ellipsis">`
+                                    + res.data[i].title +
+                                    `</div >
+                                                            <div class="jm_company_title my-text-ellipsis">`
+                                    + res.data[i].enterpriseName +
+                                    `</div >
+                                                            <div class="jm_company_title my-text-ellipsis">
+                                                                    <i class="bi-geo-alt"></i>`
+                                    + res.data[i].address +
+                                    `</div>
+                                                            <div class="jm_company_title my-text-ellipsis">
+                                                                    <i class="bi bi-person-workspace"></i>`
+                                    + res.data[i].position +
+                                    `</div>
+                                                        </div>
+                                                 </div >
+                                             </div >
+                                     </div > `
+                                $("#emptyBox").append(el);
+                            }
                         }
-
                         alert(res.msg);
                     })
                     .fail((err) => {

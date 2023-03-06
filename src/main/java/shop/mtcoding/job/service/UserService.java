@@ -55,8 +55,7 @@ public class UserService {
             String sha256Hash = Sha256Encoder.sha256(joinUserReqDto.getPassword());
             String salt = SaltEncoder.salt();
             int result = userRepository.insert(joinUserReqDto.getUsername(), sha256Hash + "_" + salt, salt,
-                    joinUserReqDto.getName(), joinUserReqDto.getEmail(), joinUserReqDto.getContact(),
-                    joinUserReqDto.getProfile());
+                    joinUserReqDto.getName(), joinUserReqDto.getEmail(), joinUserReqDto.getContact());
             if (result != 1) {
                 throw new CustomException("회원가입이 실패하였습니다");
             }

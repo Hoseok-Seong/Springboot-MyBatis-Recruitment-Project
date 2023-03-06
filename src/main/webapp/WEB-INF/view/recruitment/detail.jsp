@@ -74,16 +74,20 @@
                                 </dd>
                             </dl>
                             <dl>
-                            <dl>
-                                <dt>마감기한</dt>
-                                <dd>${recruitmentPostDtos.deadline}</dd>
-                                <dd>
-                                    <c:choose>
-                                        <c:when test="${dDay < 0}"><p class="text-danger"><b>기간이 지났습니다</b></p></c:when>
-                                        <c:otherwise><dt>D-${dDay}</dt></c:otherwise>
+                                <dl>
+                                    <dt>마감기한</dt>
+                                    <dd>${recruitmentPostDtos.deadline}</dd>
+                                    <dd>
+                                        <c:choose>
+                                            <c:when test="${dDay < 0}">
+                                                <p class="text-danger"><b>기간이 지났습니다</b></p>
+                                            </c:when>
+                                            <c:otherwise>
+                                    <dt>D-${dDay}</dt>
+                                    </c:otherwise>
                                     </c:choose>
-                                </dd>
-                            </dl>
+                                    </dd>
+                                </dl>
                         </div>
                     </div>
 
@@ -160,26 +164,31 @@
                                 <%-- 기업회원 인증됐을 시 --%>
                                     <c:when test="${principalEnt != null}">
                                         <div class="col">
-                                            <div class="card" style="width: 22rem;">
-                                                <div class="card-body">
-                                                    <br>
-                                                    <h5 class="card-title">매칭 서비스</h5>
-                                                    <br>
-                                                    <p class="card-text">회사가 찾는 인재를 매칭해드려요</p>
-                                                    <button style="background-color: #36f;" type="button">
-                                                        매칭 서비스 사용하기
-                                                    </button>
-                                                </div>
-                                            </div>
+                                            <c:choose>
+                                                <c:when test="${principalEnt != null}">
+                                                    <div class="card" style="width: 22rem;">
+                                                        <div class="card-body">
+                                                            <br>
+                                                            <h5 class="card-title">매칭 서비스</h5>
+                                                            <br>
+                                                            <p class="card-text">회사가 찾는 인재를 매칭해드려요</p>
+                                                            <button style="background-color: #36f;" type="button"
+                                                                onclick="location.href='/myrecommend'">
+                                                                매칭 서비스 사용하기
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </c:when>
+                                            </c:choose>
                                             <c:choose>
                                                 <%-- 자신이 쓴 공고일 경우 --%>
                                                     <c:when
                                                         test="${principalEnt.id == recruitmentPostDtos.enterpriseId}">
-                                                        <div class="card mt-5" style="width: 22rem;">
+                                                        <div class="card mt-3" style="width: 22rem;">
                                                             <div class="card card-body">
-                                                                <button class="my_blue_button"
+                                                                <button type="button" class="btn btn-primary"
                                                                     onclick="location.href='/recruitment/${recruitmentPostDtos.id}/updateForm'">수정</button>
-                                                                <button class="my_gray_button"
+                                                                <button type="button" class="btn btn-secondary"
                                                                     onClick="confirmDelete(${recruitmentPostDtos.id})">삭제</button>
                                                             </div>
                                                         </div>
@@ -212,17 +221,6 @@
                                                                 </c:choose>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card mt-5" style="width: 22rem;">
-                                                    <div class="card-body">
-                                                        <br>
-                                                        <h5 class="card-title">매칭 서비스</h5>
-                                                        <br>
-                                                        <p class="card-text">회사가 찾는 인재를 매칭해드려요</p>
-                                                        <button style="background-color: #36f;" type="button">
-                                                            매칭 서비스 사용하기
-                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -274,10 +272,10 @@
                     deleteById(recruitmentPostId);
                 }
             }
-            function deleteById(recruitmentPostId){
+            function deleteById(recruitmentPostId) {
                 $.ajax({
                     type: "delete",
-                    url: '/recruitment/'+recruitmentPostId,
+                    url: '/recruitment/' + recruitmentPostId,
                     dataType: "json"
                 }).done((res) => { // 20X 일때
                     alert(res.msg);

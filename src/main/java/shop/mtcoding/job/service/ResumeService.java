@@ -23,7 +23,7 @@ public class ResumeService {
         int result = resumeRepository.insert(userId, saveResumeReqDto.getTitle(), saveResumeReqDto.getContent(),
                 saveResumeReqDto.getCareer(), saveResumeReqDto.getEducation(), saveResumeReqDto.getSkill(),
                 saveResumeReqDto.getAward(), saveResumeReqDto.getLanguage(), saveResumeReqDto.getLink(),
-                saveResumeReqDto.getFile(), saveResumeReqDto.getBirthdate(), saveResumeReqDto.getAddress(),
+                saveResumeReqDto.getBirthdate(), saveResumeReqDto.getAddress(),
                 saveResumeReqDto.isFinish());
         if (result != 1) {
             throw new CustomApiException("이력서 작성이 실패하였습니다", HttpStatus.INTERNAL_SERVER_ERROR);
@@ -63,7 +63,7 @@ public class ResumeService {
                     updateResumeReqDto.getContent(),
                     updateResumeReqDto.getCareer(), updateResumeReqDto.getSkill(), updateResumeReqDto.getAward(),
                     updateResumeReqDto.getAddress(), updateResumeReqDto.getBirthdate(),
-                    updateResumeReqDto.getLink(), updateResumeReqDto.getEducation(), updateResumeReqDto.getFile(),
+                    updateResumeReqDto.getLink(), updateResumeReqDto.getEducation(),
                     updateResumeReqDto.getLanguage(), updateResumeReqDto.isFinish());
 
             if (result != 1) {

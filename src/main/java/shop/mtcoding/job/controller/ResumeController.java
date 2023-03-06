@@ -58,11 +58,6 @@ public class ResumeController {
         return "resume/resumeForm";
     }
 
-    // @GetMapping("/resumeMain")
-    // public String resumeMain() {
-    //     return "resume/main";
-    // }
-
     @PostMapping("/resume")
     public @ResponseBody ResponseEntity<?> save(@RequestBody SaveResumeReqDto saveResumeReqDto) {
         User principal = (User) session.getAttribute("principal");

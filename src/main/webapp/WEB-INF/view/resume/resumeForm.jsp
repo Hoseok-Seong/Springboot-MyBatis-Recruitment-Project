@@ -95,7 +95,6 @@
         <textarea class="form-control" name="link" id="link" style="height: 100px"></textarea>
       </div>
       <br>
-      <hr class="md-0">
       <div style="height: 80px;" class="justify-content-center">
         <script>
           function save(result) {

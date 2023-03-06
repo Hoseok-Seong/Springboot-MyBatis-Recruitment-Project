@@ -289,6 +289,12 @@ public class RecruitmentController {
     public ResponseEntity<?> searchList(@RequestBody RecruitmentPostSearchRespDto recruitmentPostSearchRespDto,
             Model model) {
         List<RecruitmentPostSearchRespDto> postPSList = recruitmentService.채용정보검색(recruitmentPostSearchRespDto);
+
+        // d-day 계산
+        for (RecruitmentPostSearchRespDto post : postPSList) {
+            post.calculateDiffDays(); // D-Day 계산
+        }
+
         return new ResponseEntity<>(new ResponseDto<>(1, "검색 성공", postPSList), HttpStatus.OK);
     }
 
@@ -296,6 +302,12 @@ public class RecruitmentController {
     public ResponseEntity<?> category(@RequestBody RecruitmentPostCategoryRespDto recruitmentPostCategoryRespDto,
             Model model) {
         List<RecruitmentPostCategoryRespDto> postPSList = recruitmentService.카테고리검색(recruitmentPostCategoryRespDto);
+
+        // d-day 계산
+        for (RecruitmentPostCategoryRespDto post : postPSList) {
+            post.calculateDiffDays(); // D-Day 계산
+        }
+
         return new ResponseEntity<>(new ResponseDto<>(1, "검색 성공", postPSList), HttpStatus.OK);
     }
 
