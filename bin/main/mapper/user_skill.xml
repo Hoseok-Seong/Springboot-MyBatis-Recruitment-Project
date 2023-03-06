@@ -21,6 +21,10 @@
       delete from user_skill_tb where id = #{id}
    </delete>
 
+   <delete id="deleteByUserId">
+      delete from user_skill_tb where user_id = #{userId}
+   </delete>
+
    <select id="userMatching" resultType="shop.mtcoding.job.dto.userSkill.UserMatchingDto">
       select distinct u.id as user_id, enterprise_name, r.enterprise_logo, r.title, r.id as recruitment_id
       from user_tb u

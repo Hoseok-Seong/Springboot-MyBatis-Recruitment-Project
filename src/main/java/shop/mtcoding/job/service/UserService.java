@@ -76,7 +76,7 @@ public class UserService {
     }
 
     @Transactional
-    public void 유저회원정보수정하기(UpdateUserReqDto updateUserReqDto, int id) {
+    public void 유저회원정보수정하기(UpdateUserReqDto updateUserReqDto, int id, @RequestParam List<String> skill) {
 
         try {
             String sha256Hash = Sha256Encoder.sha256(updateUserReqDto.getPassword());
@@ -90,6 +90,17 @@ public class UserService {
             }
         } catch (NoSuchAlgorithmException e) {
             System.err.println("알고리즘을 찾을 수 없습니다: " + e.getMessage());
+        }
+        userSkillRepository.deleteByUserId(id);
+        try {
+            for (String checkSkill : skill) {
+                int result = userSkillRepository.insert(id, checkSkill);
+                if (result != 1) {
+                    throw new CustomException("실패");
+                }
+            }
+        } catch (Exception e) {
+            throw new CustomException("skill insert 실패");
         }
     }
 }
