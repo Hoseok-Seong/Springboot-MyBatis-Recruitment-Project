@@ -20,6 +20,7 @@ import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.user.UserReqDto.JoinUserReqDto;
 import shop.mtcoding.job.dto.user.UserReqDto.LoginUserReqDto;
 import shop.mtcoding.job.dto.user.UserReqDto.UpdateUserReqDto;
+import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.model.user.UserRepository;
@@ -43,12 +44,12 @@ public class UserController {
 
     @PostMapping("/user/login")
     public @ResponseBody ResponseEntity<?> userLogin(
-            @RequestBody  LoginUserReqDto loginUserReqDto, String remember, HttpServletResponse response) {
+            @RequestBody LoginUserReqDto loginUserReqDto, String remember, HttpServletResponse response) {
         if (loginUserReqDto.getUsername() == null || loginUserReqDto.getUsername().isEmpty()) {
-            throw new CustomException("아이디를 작성해주세요");
+            throw new CustomApiException("아이디를 작성해주세요");
         }
         if (loginUserReqDto.getPassword() == null || loginUserReqDto.getPassword().isEmpty()) {
-            throw new CustomException("비밀번호를 작성해주세요");
+            throw new CustomApiException("비밀번호를 작성해주세요");
         }
         // 1. 로그인하기 service
         User principal = userService.유저로그인하기(loginUserReqDto);
@@ -58,7 +59,7 @@ public class UserController {
 
         // 3. principal 유효성 검사
         if (session.getAttribute("principal") == null) {
-            throw new CustomException("존재하지 않는 아이디거나 비밀번호를 다시 확인해주시기 바랍니다");
+            throw new CustomApiException("존재하지 않는 아이디거나 비밀번호를 다시 확인해주시기 바랍니다");
         }
 
         // 4. 아이디 기억

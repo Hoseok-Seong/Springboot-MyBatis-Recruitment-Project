@@ -38,4 +38,6 @@ public interface ApplyRepository {
         public List<ApplyListForEntRespDto> findByEnterpriseId(int enterpriseId);
 
         public int updateResultById(@Param("id") int id, @Param("result") Boolean result);
+
+        public Boolean findResult(@Param("id") int id);
 }

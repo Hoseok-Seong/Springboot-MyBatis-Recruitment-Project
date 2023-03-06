@@ -58,4 +58,8 @@
    <update id="updateResultById">
       update apply_tb set result = #{result} where id = #{id}
    </update>
+
+   <select id="findResult" resultType="boolean">
+      select result from apply_tb where id = #{id}
+   </select>
 </mapper>

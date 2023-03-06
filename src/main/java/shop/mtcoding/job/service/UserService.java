@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import shop.mtcoding.job.dto.user.UserReqDto.JoinUserReqDto;
 import shop.mtcoding.job.dto.user.UserReqDto.LoginUserReqDto;
 import shop.mtcoding.job.dto.user.UserReqDto.UpdateUserReqDto;
+import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.model.user.UserRepository;
@@ -30,7 +31,7 @@ public class UserService {
         try {
             String salt = userRepository.findSaltByUsername(loginUserReqDto.getUsername());
             if (salt == null) {
-                throw new CustomException("아이디가 존재하지 않습니다");
+                throw new CustomApiException("아이디가 존재하지 않습니다");
             }
             String sha256Hash = Sha256Encoder.sha256(loginUserReqDto.getPassword());
             User principal = userRepository.findByUsernameAndPassword(loginUserReqDto.getUsername(),
@@ -86,7 +87,7 @@ public class UserService {
                     updateUserReqDto.getEmail(),
                     updateUserReqDto.getContact());
             if (result != 1) {
-                throw new CustomException("회원정보수정이 실패하였습니다");
+                throw new CustomApiException("회원정보수정이 실패하였습니다");
             }
         } catch (NoSuchAlgorithmException e) {
             System.err.println("알고리즘을 찾을 수 없습니다: " + e.getMessage());

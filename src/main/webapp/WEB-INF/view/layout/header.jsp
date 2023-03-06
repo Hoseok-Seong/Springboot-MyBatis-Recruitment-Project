@@ -557,7 +557,6 @@
                                 dataType: "json"  // default : 응답의 mime 타입으로 유추함
                             }).done((res) => {    // 20x 일때
                                 location.reload();
-                                sessionStorage.setItem("username", username);
                             }).fail((err) => {    // 40x , 50x 일때
                                 alert(err.responseJSON.msg);
                             });
@@ -712,22 +711,16 @@
                         </div>
                     </div>
                     <script>
-                        let url = "http://localhost:8080/notify";
-
                         $(document).ready(function() {
 
-                            if (sessionStorage.getItem("username") != null) {
-                                let id = sessionStorage.getItem("username");
-                                let eventSource = new EventSource(url + "?username=" + username);
-
-                                eventSource.addEventListener("resultNotify", function(event) {
-                                    let message = event.data;
-                                    alert(message);
-                                })
-
-                                eventSource.addEventListener("error", function(event) {
-                                    eventSource.close()
-                                })
-                            }
+                        if (sessionStorage.getItem("username") != null) {
+                            const eventSource = new EventSource('/notify');
+                            eventSource.onmessage = function(event) {
+                                const data = event.data;
+                                console.log('Received event: ' + data);
+                                alert(data);
+                                eventSource.close();
+                            };
+                        }
                         })
                     </script>
