@@ -171,18 +171,6 @@
                                                 <dt class="badge rounded-pill text-bg-success" style="font-size: 12px;">${post.diffDays}일 남았습니다</dt>
                                         </c:otherwise>
                                     </c:choose>
-
-                                    <%-- <c:choose>
-                                        <c:when test="${post.diffDays < 0}">
-                                            <dt class="text-danger" style="font-size: smaller;"><b>기간이 지났습니다</b></dt>
-                                        </c:when>
-                                        <c:when test="${post.diffDays >= 0 && post.diffDays <= 7}">
-                                            <dt class="text-warning" style="font-size: smaller;"><b>D-${post.diffDays}</b></dt>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <dt class="text-success" style="font-size: smaller;"><b>D-${post.diffDays}</b></dt>
-                                        </c:otherwise>
-                                    </c:choose> --%>
                                     <div class="jm_company_name my-text-ellipsis">${post.title}</div>
                                     <div class="jm_company_title my-text-ellipsis">${post.enterpriseName}</div>
                                     <div class="jm_company_title my-text-ellipsis">
@@ -227,7 +215,7 @@
                                                  <div class="card-body jm_card_body"><br>
                                                      <div class="jm_company_name">
                                                         <div class="card-body">
-                                            <dt class="text-danger" style="font-size: smaller;">기간이 지났습니다</dt>
+                                            <dt class="badge rounded-pill text-bg-danger" style="font-size: 12px;"><b>기간이 지났습니다</b></dt>
                                                             <div class="jm_company_name my-text-ellipsis">`
                                     + res.data[i].title +
                                     `</div >
@@ -247,8 +235,7 @@
                                              </div >
                                      </div > `
                                 $("#emptyBox").append(el);
-                            }
-                            else {
+                            } if (res.data[i].diffDays == 0) {
                                 let el =
                                     `<div class="col-sm-3 mb-3">
                                        <a href="/recruitment/detail/`+ res.data[i].id + `" style="color: inherit; text-decoration: none;">
@@ -258,7 +245,67 @@
                                                  <div class="card-body jm_card_body"><br>
                                                      <div class="jm_company_name">
                                                         <div class="card-body">
-                                            <dt style="font-size: smaller;">D-`+ res.data[i].diffDays + `</dt>
+                                            <dt class="badge rounded-pill text-bg-warning" style="font-size: 12px;"><b>D-DAY</b></dt>
+                                                            <div class="jm_company_name my-text-ellipsis">`
+                                    + res.data[i].title +
+                                    `</div >
+                                                            <div class="jm_company_title my-text-ellipsis">`
+                                    + res.data[i].enterpriseName +
+                                    `</div >
+                                                            <div class="jm_company_title my-text-ellipsis">
+                                                                    <i class="bi-geo-alt"></i>`
+                                    + res.data[i].address +
+                                    `</div>
+                                                            <div class="jm_company_title my-text-ellipsis">
+                                                                    <i class="bi bi-person-workspace"></i>`
+                                    + res.data[i].position +
+                                    `</div>
+                                                        </div>
+                                                 </div >
+                                             </div >
+                                     </div > `
+                                $("#emptyBox").append(el);
+                            } if (res.data[i].diffDays > 0 && res.data[i].diffDays <=7) {
+                                let el =
+                                    `<div class="col-sm-3 mb-3">
+                                       <a href="/recruitment/detail/`+ res.data[i].id + `" style="color: inherit; text-decoration: none;">
+                                             <div class="card jm_card">
+                                                 <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
+                                                </a>
+                                                 <div class="card-body jm_card_body"><br>
+                                                     <div class="jm_company_name">
+                                                        <div class="card-body">
+                                            <dt class="badge rounded-pill text-bg-warning" style="font-size: 12px;">` + res.data[i].diffDays + `일 남았습니다</dt>
+                                                            <div class="jm_company_name my-text-ellipsis">`
+                                    + res.data[i].title +
+                                    `</div >
+                                                            <div class="jm_company_title my-text-ellipsis">`
+                                    + res.data[i].enterpriseName +
+                                    `</div >
+                                                            <div class="jm_company_title my-text-ellipsis">
+                                                                    <i class="bi-geo-alt"></i>`
+                                    + res.data[i].address +
+                                    `</div>
+                                                            <div class="jm_company_title my-text-ellipsis">
+                                                                    <i class="bi bi-person-workspace"></i>`
+                                    + res.data[i].position +
+                                    `</div>
+                                                        </div>
+                                                 </div >
+                                             </div >
+                                     </div > `
+                                $("#emptyBox").append(el);
+                            } if (res.data[i].diffDays > 7){
+                                let el =
+                                    `<div class="col-sm-3 mb-3">
+                                       <a href="/recruitment/detail/`+ res.data[i].id + `" style="color: inherit; text-decoration: none;">
+                                             <div class="card jm_card">
+                                                 <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
+                                                </a>
+                                                 <div class="card-body jm_card_body"><br>
+                                                     <div class="jm_company_name">
+                                                        <div class="card-body">
+                                            <dt class="badge rounded-pill text-bg-success" style="font-size: 12px;">` + res.data[i].diffDays + `일 남았습니다</dt>
                                                             <div class="jm_company_name my-text-ellipsis">`
                                     + res.data[i].title +
                                     `</div >
@@ -315,7 +362,7 @@
                                                  <div class="card-body jm_card_body"><br>
                                                      <div class="jm_company_name">
                                                         <div class="card-body">
-                                            <dt class="text-danger" style="font-size: smaller;">기간이 지났습니다</dt>
+                                            <dt class="badge rounded-pill text-bg-danger" style="font-size: 12px;"><b>기간이 지났습니다</b></dt>
                                                             <div class="jm_company_name my-text-ellipsis">`
                                     + res.data[i].title +
                                     `</div >
@@ -335,8 +382,7 @@
                                              </div >
                                      </div > `
                                 $("#emptyBox").append(el);
-                            }
-                            else {
+                            } if (res.data[i].diffDays == 0) {
                                 let el =
                                     `<div class="col-sm-3 mb-3">
                                        <a href="/recruitment/detail/`+ res.data[i].id + `" style="color: inherit; text-decoration: none;">
@@ -346,7 +392,67 @@
                                                  <div class="card-body jm_card_body"><br>
                                                      <div class="jm_company_name">
                                                         <div class="card-body">
-                                            <dt style="font-size: smaller;">D-`+ res.data[i].diffDays + `</dt>
+                                            <dt class="badge rounded-pill text-bg-warning" style="font-size: 12px;"><b>D-DAY</b></dt>
+                                                            <div class="jm_company_name my-text-ellipsis">`
+                                    + res.data[i].title +
+                                    `</div >
+                                                            <div class="jm_company_title my-text-ellipsis">`
+                                    + res.data[i].enterpriseName +
+                                    `</div >
+                                                            <div class="jm_company_title my-text-ellipsis">
+                                                                    <i class="bi-geo-alt"></i>`
+                                    + res.data[i].address +
+                                    `</div>
+                                                            <div class="jm_company_title my-text-ellipsis">
+                                                                    <i class="bi bi-person-workspace"></i>`
+                                    + res.data[i].position +
+                                    `</div>
+                                                        </div>
+                                                 </div >
+                                             </div >
+                                     </div > `
+                                $("#emptyBox").append(el);
+                            } if (res.data[i].diffDays > 0 && res.data[i].diffDays <=7) {
+                                let el =
+                                    `<div class="col-sm-3 mb-3">
+                                       <a href="/recruitment/detail/`+ res.data[i].id + `" style="color: inherit; text-decoration: none;">
+                                             <div class="card jm_card">
+                                                 <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
+                                                </a>
+                                                 <div class="card-body jm_card_body"><br>
+                                                     <div class="jm_company_name">
+                                                        <div class="card-body">
+                                            <dt class="badge rounded-pill text-bg-warning" style="font-size: 12px;">` + res.data[i].diffDays + `일 남았습니다</dt>
+                                                            <div class="jm_company_name my-text-ellipsis">`
+                                    + res.data[i].title +
+                                    `</div >
+                                                            <div class="jm_company_title my-text-ellipsis">`
+                                    + res.data[i].enterpriseName +
+                                    `</div >
+                                                            <div class="jm_company_title my-text-ellipsis">
+                                                                    <i class="bi-geo-alt"></i>`
+                                    + res.data[i].address +
+                                    `</div>
+                                                            <div class="jm_company_title my-text-ellipsis">
+                                                                    <i class="bi bi-person-workspace"></i>`
+                                    + res.data[i].position +
+                                    `</div>
+                                                        </div>
+                                                 </div >
+                                             </div >
+                                     </div > `
+                                $("#emptyBox").append(el);
+                            } if (res.data[i].diffDays > 7){
+                                let el =
+                                    `<div class="col-sm-3 mb-3">
+                                       <a href="/recruitment/detail/`+ res.data[i].id + `" style="color: inherit; text-decoration: none;">
+                                             <div class="card jm_card">
+                                                 <img src=`+ res.data[i].enterpriseLogo + ` class="card-img-top jm_card_img_top">
+                                                </a>
+                                                 <div class="card-body jm_card_body"><br>
+                                                     <div class="jm_company_name">
+                                                        <div class="card-body">
+                                            <dt class="badge rounded-pill text-bg-success" style="font-size: 12px;">` + res.data[i].diffDays + `일 남았습니다</dt>
                                                             <div class="jm_company_name my-text-ellipsis">`
                                     + res.data[i].title +
                                     `</div >
