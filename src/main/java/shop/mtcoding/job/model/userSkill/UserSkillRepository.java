@@ -20,6 +20,8 @@ public interface UserSkillRepository {
 
     public int deleteById(int id);
 
+    public int deleteByUserId(int userId);
+
     public List<UserMatchingDto> userMatching(int id);
 
     public List<UserSkill> findByUserId(int userId);
