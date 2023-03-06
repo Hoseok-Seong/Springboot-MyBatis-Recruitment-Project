@@ -8,18 +8,21 @@
                         ${recruitmentPostDtos.enterpriseName}
                     </div>
 
-                    <c:choose>
-                        <c:when test="${bookmarkDto == null}">
-                        <i id="bookmark" class="fa-regular fa-bookmark my-xl my-cursor" value="${bookmarkDto.id}" onclick="bookmarkOrCancle()"></i>
-                        </c:when>
-                        
-                        <c:otherwise>
-                       <i id="bookmark" class="fa-solid fa-bookmark my-xl my-cursor" value="${bookmarkDto.id}" onclick="bookmarkOrCancle()"> </i> 
-                        </c:otherwise>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                        <h2><b>${recruitmentPostDtos.title}</b>
+                        </div>
+                        <div >
+                        <c:choose>
+                            <c:when test="${bookmarkDto == null}">
+                                <i id="bookmark" class="fa-regular fa-bookmark my-xl my-cursor" style="width:50px; height:50px; line-height:50px;" value="${bookmarkDto.id}" onclick="bookmarkOrCancle()"></i>
+                            </c:when>
+                            <c:otherwise>
+                                <i id="bookmark" class="fa-solid fa-bookmark my-xl my-cursor" style="width:50px; height:50px; line-height:50px;" value="${bookmarkDto.id}" onclick="bookmarkOrCancle()"></i>
+                            </c:otherwise>
                         </c:choose>
 
-                    <div>
-                        <h2><b>${recruitmentPostDtos.title}</b></h2>
+                        </div>
                     </div>
 
                     <div class="d-flex justify-content-between pb-3">

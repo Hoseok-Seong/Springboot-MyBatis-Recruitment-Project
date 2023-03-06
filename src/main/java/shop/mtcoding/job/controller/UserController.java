@@ -43,7 +43,7 @@ public class UserController {
 
     @PostMapping("/user/login")
     public @ResponseBody ResponseEntity<?> userLogin(
-            @RequestBody  LoginUserReqDto loginUserReqDto, String remember, HttpServletResponse response) {
+            @RequestBody LoginUserReqDto loginUserReqDto, String remember, HttpServletResponse response) {
         if (loginUserReqDto.getUsername() == null || loginUserReqDto.getUsername().isEmpty()) {
             throw new CustomException("아이디를 작성해주세요");
         }
@@ -91,7 +91,7 @@ public class UserController {
     }
 
     @PostMapping("/user/join")
-    public String userJoin(JoinUserReqDto joinUserReqDto, @RequestParam List<String> skill) {
+    public String userJoin(JoinUserReqDto joinUserReqDto, @RequestParam(required = false) List<String> skill) {
         if (joinUserReqDto.getUsername() == null || joinUserReqDto.getUsername().isEmpty()) {
             throw new CustomException("아이디를 작성해주세요");
         }
@@ -107,7 +107,6 @@ public class UserController {
         if (joinUserReqDto.getContact() == null || joinUserReqDto.getContact().isEmpty()) {
             throw new CustomException("전화번호를 입력해주세요");
         }
-
         userService.유저가입하기(joinUserReqDto, skill);
 
         return "redirect:/";

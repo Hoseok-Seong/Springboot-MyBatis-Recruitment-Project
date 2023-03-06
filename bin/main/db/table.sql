@@ -106,7 +106,7 @@ create table apply_resume_tb(
 create table user_skill_tb(
     id int auto_increment primary key,
     user_id int not null,
-    skill varchar(100) not null 
+    skill varchar(100)
 );
 
 create table recruitment_skill_tb(

@@ -11,4 +11,8 @@ public class UserSkill {
     private int id;
     private int userId;
     private List<String> skill;
+
+    public void setSkill(String skill) {
+        skill = null;
+    }
 }
