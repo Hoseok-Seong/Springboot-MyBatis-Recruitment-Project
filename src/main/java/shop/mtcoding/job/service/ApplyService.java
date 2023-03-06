@@ -36,9 +36,9 @@ public class ApplyService {
 
         int result = applyRepository.insert(userId, insertApplyReqDto.getEnterpriseId(),
                 insertApplyReqDto.getRecruitmentPostId(), insertApplyReqDto.getSector(),
-                insertApplyReqDto.getResumeId(), insertApplyReqDto.getCreatedAt());
+                insertApplyReqDto.getApplyResumeId(), insertApplyReqDto.getCreatedAt());
 
-        Resume resume = resumeRepository.findById(insertApplyReqDto.getResumeId());
+        Resume resume = resumeRepository.findById(insertApplyReqDto.getApplyResumeId());
 
         int result2 = applyResumeRepository.insert(insertApplyReqDto.getRecruitmentPostId(), resume.getUserId(),
                 insertApplyReqDto.getEnterpriseId(),

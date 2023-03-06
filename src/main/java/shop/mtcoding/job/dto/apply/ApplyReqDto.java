@@ -13,7 +13,7 @@ public class ApplyReqDto {
         private int enterpriseId;
         private int recruitmentPostId;
         private String sector;
-        private int resumeId;
+        private int applyResumeId;
         private Timestamp createdAt;
 
         public String getCreatedAtToString() {
