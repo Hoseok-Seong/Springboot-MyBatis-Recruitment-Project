@@ -32,7 +32,6 @@
                             <select class="form-select" aria-label="Default select example" name="education" id="education">
                                 <option value="학력무관" ${recruitment.education=='학력무관' ? 'selected' : '' }>학력무관</option>
                                 <option value="고졸이상" ${recruitment.education=='고졸이상' ? 'selected' : '' }>고졸이상</option>
-                                <option value="초대졸이상" ${recruitment.education=='초대졸이상' ? 'selected' : '' }>초대졸이상</option>
                                 <option value="대졸이상" ${recruitment.education=='대졸이상' ? 'selected' : '' }>대졸이상</option>
                             </select>
                         </div>

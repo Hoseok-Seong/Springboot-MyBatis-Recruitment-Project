@@ -17,7 +17,7 @@ public interface RecruitmentSkillRepository {
 
     public List<RecruitmentPostSkillRespDto> findByRecruitmentId(int recruitmentId);
 
-    public int insert(@Param("recruitmentId") int recruitmentId, @Param("skill") String skill);
+    public int insert(@Param("recruitmentId") int recruitmentId, @Param("skill") Integer skill);
 
     public int updateById(RecruitmentSkill skill);
 

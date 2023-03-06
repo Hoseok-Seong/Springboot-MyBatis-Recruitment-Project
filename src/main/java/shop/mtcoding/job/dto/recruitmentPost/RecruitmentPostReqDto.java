@@ -22,7 +22,7 @@ public class RecruitmentPostReqDto {
         private String address;
         private String position;
         private String content;
-        private List<String> skill;
+        private List<Integer> skill;
         private String deadline;
         private MultipartFile enterpriseLogo;
 
@@ -55,7 +55,7 @@ public class RecruitmentPostReqDto {
         private String address;
         private String position;
         private String content;
-        private List<String> skill;
+        private List<Integer> skill;
         private String deadline;
         private MultipartFile enterpriseLogo;
 

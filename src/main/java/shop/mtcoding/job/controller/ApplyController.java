@@ -50,7 +50,7 @@ public class ApplyController {
         long diffDays = DateUtil.deadline(recruitmentPostDto.getDeadline());
 
         if (diffDays < 0) {
-            throw new CustomApiException("채용공고 제출기간이 지났습니다", HttpStatus.UNAUTHORIZED);
+            throw new CustomApiException("이력서 제출기간이 지났습니다", HttpStatus.UNAUTHORIZED);
         }
 
         applyService.이력서제출(insertApplyReqDto, principal.getId());

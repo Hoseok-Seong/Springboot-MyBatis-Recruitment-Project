@@ -4,6 +4,8 @@ server:
     encoding:
       charset: UTF-8
       force: true
+  tomcat:
+     max-http-form-post-size: 10485760
 
 spring:
   mvc:
@@ -30,6 +32,10 @@ spring:
   output:
     ansi:
       enabled: always
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
 
 mybatis:
   mapper-locations:

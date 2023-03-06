@@ -33,7 +33,6 @@
                                 <option selected>Open this select menu</option>
                                 <option value="학력무관">학력무관</option>
                                 <option value="고졸이상">고졸이상</option>
-                                <option value="초대졸이상">초대졸이상</option>
                                 <option value="대졸이상">대졸이상</option>
                             </select>
                         </div>
@@ -229,6 +228,7 @@
             $('.summernote').summernote(
                 'code', '주요업무 <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br><br>자격요건 <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br><br>우대사항 <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br><br>혜택 및 복지 <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>• 미리 작성된 내용입니다. <br>'
             );
+            
         </script>
 
         <%@ include file="../layout/footer.jsp" %>
