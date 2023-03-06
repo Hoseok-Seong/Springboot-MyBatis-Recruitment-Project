@@ -100,7 +100,7 @@
 
                                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                         <li>
-                                                            <a class=" dropdown-item" href="/logout">로그아웃</a>
+                                                            <a class=" dropdown-item" href="/logout" onclick="logout()">로그아웃</a>
                                                         </li>
                                                         <li class="nav-item">
                                                         <li>
@@ -557,6 +557,7 @@
                                 dataType: "json"  // default : 응답의 mime 타입으로 유추함
                             }).done((res) => {    // 20x 일때
                                 location.reload();
+                                sessionStorage.setItem("username", username);
                             }).fail((err) => {    // 40x , 50x 일때
                                 alert(err.responseJSON.msg);
                             });
@@ -577,15 +578,18 @@
                                 dataType: "json"  // default : 응답의 mime 타입으로 유추함
                             }).done((res) => {    // 20x 일때
                                 location.reload();
+                                sessionStorage.setItem("username", username);
                             }).fail((err) => {    // 40x , 50x 일때
                                 alert(err.responseJSON.msg);
                             });
                         }
                     </script>
 
-
-
-
+                    <script>
+                        function logout() {
+                            sessionStorage.removeItem("username");
+                        }
+                    </script>
 
                     <div class="modal" id="update">
                         <div class="modal-dialog modal-dialog-centered">
@@ -707,3 +711,23 @@
                             </div>
                         </div>
                     </div>
+                    <script>
+                        let url = "http://localhost:8080/notify";
+
+                        $(document).ready(function() {
+
+                            if (sessionStorage.getItem("username") != null) {
+                                let id = sessionStorage.getItem("username");
+                                let eventSource = new EventSource(url + "?username=" + username);
+
+                                eventSource.addEventListener("resultNotify", function(event) {
+                                    let message = event.data;
+                                    alert(message);
+                                })
+
+                                eventSource.addEventListener("error", function(event) {
+                                    eventSource.close()
+                                })
+                            }
+                        })
+                    </script>

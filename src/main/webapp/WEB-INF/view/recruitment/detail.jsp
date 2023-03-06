@@ -69,9 +69,6 @@
                                 <dd>
                                     <span class="badge rounded-pill text-bg-primary">${recruitmentPostDtos.pay}</span>
                                 </dd>
-                                <%-- <dd>
-                                    <span class='text-primary'>${recruitmentPostDtos.pay}</span>
-                                    </dd> --%>
                             </dl>
                             <dl>
                                 <dt>
@@ -81,9 +78,6 @@
                                     <span
                                         class="badge rounded-pill text-bg-primary">${recruitmentPostDtos.address}</span>
                                 </dd>
-                                <%-- <dd>
-                                    <span class='text-primary'>${recruitmentPostDtos.address}</span>
-                                    </dd> --%>
                             </dl>
                             <dl>
                                 <dt>
