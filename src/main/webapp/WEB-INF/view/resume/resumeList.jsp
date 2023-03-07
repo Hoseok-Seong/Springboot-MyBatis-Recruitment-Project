@@ -74,17 +74,16 @@
                 </button>
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="container-fluid" style="width: 65%;">
-                <div class="text-center d-flex justify-content-start flex-wrap">
-                    <div class="card g-col-3 my-3 text-center mx-1" style="width: 17rem;">
+            <div class="container-fluid" style="width: 64%;">
+                <div class="text-center d-flex justify-content-center flex-wrap">
+                    <div class="card g-col-3 my-3 text-center mx-2" style="width: 17rem;">
                         <a href="/resumeForm"><br>
                             <img src="images/resume.png" width="150" height="150"><br><br>
                             <h4>이력서 등록</h4>
                         </a>
                     </div>
                     <c:forEach items="${resumeList}" var="resume" varStatus="status">
-                        <div class="card g-col-3 my-3 mx-1" style="width: 17rem; height: 16.4rem; position: relative;">
+                        <div class="card g-col-3 my-3 mx-2" style="width: 17rem; height: 16.4rem; position: relative;">
                             <div>
                                 <div class="card-body">
                                     <h5 class="card-title my-text-ellipsis">${resume.title}</h5><br>
@@ -226,8 +225,6 @@
                     </c:forEach>
                 </div>
             </div>
-        </div>
-        </div>
         <script>
             function confirmDelete(resumeId) {
                 if (confirm('이력서를 삭제하시면 복구가 불가능합니다.\n정말로 삭제하시겠습니까?')) {

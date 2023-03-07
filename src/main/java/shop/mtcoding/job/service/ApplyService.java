@@ -36,9 +36,9 @@ public class ApplyService {
 
         int result = applyRepository.insert(userId, insertApplyReqDto.getEnterpriseId(),
                 insertApplyReqDto.getRecruitmentPostId(), insertApplyReqDto.getSector(),
-                insertApplyReqDto.getResumeId(), insertApplyReqDto.getCreatedAt());
+                insertApplyReqDto.getApplyResumeId(), insertApplyReqDto.getCreatedAt());
 
-        Resume resume = resumeRepository.findById(insertApplyReqDto.getResumeId());
+        Resume resume = resumeRepository.findById(insertApplyReqDto.getApplyResumeId());
 
         int result2 = applyResumeRepository.insert(insertApplyReqDto.getRecruitmentPostId(), resume.getUserId(),
                 insertApplyReqDto.getEnterpriseId(),
@@ -90,7 +90,8 @@ public class ApplyService {
 
         // 제어권이 없으므로 try, catch
         try {
-            applyRepository.updateResultById(applyId, updateApplicantResultReqDto.isResult());
+            applyRepository.updateResultById(applyId, updateApplicantResultReqDto.isResult(),
+                    updateApplicantResultReqDto.isNotify());
         } catch (Exception e) {
             throw new CustomApiException("서버에 일시적인 문제가 발생했습니다", HttpStatus.INTERNAL_SERVER_ERROR);
             // 로그를 남겨야 함 (DB or File)

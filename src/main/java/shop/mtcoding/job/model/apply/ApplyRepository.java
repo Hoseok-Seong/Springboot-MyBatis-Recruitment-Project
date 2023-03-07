@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 
 import shop.mtcoding.job.dto.apply.ApplyRespDto.ApplyListForEntRespDto;
 import shop.mtcoding.job.dto.apply.ApplyRespDto.ApplyListForUserRespDto;
+import shop.mtcoding.job.dto.apply.ApplyRespDto.NotifyListRespDto;
 
 @Mapper
 public interface ApplyRepository {
@@ -17,7 +18,7 @@ public interface ApplyRepository {
 
         public int insert(@Param("userId") int userId, @Param("enterpriseId") int enterpriseId,
                         @Param("recruitmentPostId") int recruitmentPostId,
-                        @Param("sector") String sector, @Param("resumeId") int resumeId,
+                        @Param("sector") String sector, @Param("applyResumeId") int applyResumeId,
                         @Param("createdAt") Timestamp createdAt);
 
         public int updateById(Apply apply);
@@ -37,5 +38,10 @@ public interface ApplyRepository {
 
         public List<ApplyListForEntRespDto> findByEnterpriseId(int enterpriseId);
 
-        public int updateResultById(@Param("id") int id, @Param("result") Boolean result);
+        public int updateResultById(@Param("id") int id, @Param("result") Boolean result,
+                        @Param("notify") Boolean notify);
+
+        public List<NotifyListRespDto> findNotifyByUserId(@Param("userId") int userId);
+
+        public void updateNotifyById(@Param("userId") int userId, @Param("notify") Boolean notify);
 }

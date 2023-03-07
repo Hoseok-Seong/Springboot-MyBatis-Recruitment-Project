@@ -94,7 +94,7 @@
 
                                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                         <li>
-                                                            <a class=" dropdown-item" href="/logout">로그아웃</a>
+                                                            <a class=" dropdown-item" href="/logout" onclick="logout()">로그아웃</a>
                                                         </li>
                                                         <li class="nav-item">
                                                         <li>
@@ -571,15 +571,18 @@
                                 dataType: "json"  // default : 응답의 mime 타입으로 유추함
                             }).done((res) => {    // 20x 일때
                                 location.reload();
+                                sessionStorage.setItem("username", username);
                             }).fail((err) => {    // 40x , 50x 일때
                                 alert(err.responseJSON.msg);
                             });
                         }
                     </script>
 
-
-
-
+                    <script>
+                        function logout() {
+                            sessionStorage.removeItem("username");
+                        }
+                    </script>
 
                     <div class="modal" id="update">
                         <div class="modal-dialog modal-dialog-centered">
@@ -792,3 +795,16 @@
                             </div>
                         </div>
                     </div>
+                    <script>
+                        $(document).ready(function() {
+
+                        if (sessionStorage.getItem("username") != null) {
+                            const eventSource = new EventSource('/notify');
+                            eventSource.onmessage = function(event) {
+                                const data = event.data;
+                                alert(data);
+                                eventSource.close();
+                            };
+                        }
+                        })
+                    </script>

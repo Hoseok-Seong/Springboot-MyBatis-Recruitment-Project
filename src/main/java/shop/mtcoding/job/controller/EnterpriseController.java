@@ -36,13 +36,14 @@ public class EnterpriseController {
     private HttpSession session;
 
     @PostMapping("/enterprise/login")
-    public @ResponseBody ResponseEntity<?> enterpriseLogin(@RequestBody LoginEnterpriseReqDto loginEnterpriseReqDto, String rememberEnt,
+    public @ResponseBody ResponseEntity<?> enterpriseLogin(@RequestBody LoginEnterpriseReqDto loginEnterpriseReqDto,
+            String rememberEnt,
             HttpServletResponse response) {
         if (loginEnterpriseReqDto.getEnterpriseName() == null || loginEnterpriseReqDto.getEnterpriseName().isEmpty()) {
-            throw new CustomException("아이디를 작성해주세요");
+            throw new CustomApiException("아이디를 작성해주세요");
         }
         if (loginEnterpriseReqDto.getPassword() == null || loginEnterpriseReqDto.getPassword().isEmpty()) {
-            throw new CustomException("비밀번호를 작성해주세요");
+            throw new CustomApiException("비밀번호를 작성해주세요");
         }
         // 1. 로그인하기 service
         Enterprise principalEnt = enterpriseService.기업로그인하기(loginEnterpriseReqDto);
@@ -52,7 +53,7 @@ public class EnterpriseController {
 
         // 3. principal 유효성 검사
         if (session.getAttribute("principalEnt") == null) {
-            throw new CustomException("존재하지 않는 아이디거나 비밀번호를 다시 확인해주시기 바랍니다");
+            throw new CustomApiException("존재하지 않는 아이디거나 비밀번호를 다시 확인해주시기 바랍니다");
         }
         // 4. 아이디 기억
         if (rememberEnt == null) {
@@ -119,7 +120,7 @@ public class EnterpriseController {
 
         Enterprise principalEnt = (Enterprise) session.getAttribute("principalEnt");
         if (principalEnt == null) {
-            throw new CustomApiException("로그인을 먼저 해주세요", HttpStatus.UNAUTHORIZED);
+            throw new CustomException("로그인을 먼저 해주세요", HttpStatus.UNAUTHORIZED);
         }
 
         if (updateEnterpriseReqDto.getPassword() == null || updateEnterpriseReqDto.getPassword().isEmpty()) {
