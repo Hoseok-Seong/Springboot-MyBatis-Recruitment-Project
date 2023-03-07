@@ -586,151 +586,147 @@
 
                                             <div class="tab-pane fade show active" id="updateUser">
                                                 <form action="/user/update" method="post">
-                                                    <table class="table table-borderless">
 
-                                                        <tr class="text-center">
-                                                            <td><input type="password" class="form-control-lg w-100"
-                                                                    name="password" placeholder="비밀번호"></td>
-                                                        </tr>
-                                                        <tr class="text-center">
-                                                            <td><input type="password" class="form-control-lg w-100"
-                                                                    name="passwordcheck" placeholder="비밀번호 중복검사">
-                                                            </td>
-                                                        </tr>
+                                                    <div class="form-floating" style="padding: 8px">
+                                                        <input type="password" class="form-control form-control-lg" name="password" placeholder="비밀번호">
+                                                        <label for="password">비밀번호</label>
+                                                    </div>
+                                                    <div class="form-floating" style="padding: 8px">
+                                                        <input type="password" class="form-control form-control-lg" name="passwordCheck" placeholder="비밀번호 중복검사">
+                                                        <label for="passwordCheck">비밀번호 중복검사</label>
+                                                    </div>
 
-                                                        <tr class="text-center">
-                                                            <td><input type="text" class="form-control-lg w-100"
-                                                                    name="email" placeholder="이메일"
-                                                                    value="${principal.email}"></td>
-                                                        </tr>
-                                                        <tr class="text-center">
-                                                            <td><input type="text" class="form-control-lg w-100"
-                                                                    name="contact" placeholder="전화번호"
-                                                                    value="${principal.contact}">
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="text-left">
-                                                            <td>
-                                                                <a class="btn btn-custom" type="button"
-                                                                    data-bs-toggle="collapse"
-                                                                    data-bs-target="#collapseExample"
-                                                                    aria-expanded="false"
-                                                                    aria-controls="collapseExample">
-                                                                    사용 가능 스택
-                                                                </a>
-                                                                <div class="collapse" id="collapseExample">
-                                                                    <div class="card card-body">
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                type="checkbox" name="skill" value="1"
-                                                                                id="1flexCheckDefault1">
-                                                                            <label class="form-check-label"
-                                                                                for="1flexCheckDefault1">
-                                                                                Java
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                type="checkbox" name="skill" value="2"
-                                                                                id="2flexCheckDefault2">
-                                                                            <label class="form-check-label"
-                                                                                for="2flexCheckDefault2">
-                                                                                Html
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                type="checkbox" name="skill" value="3"
-                                                                                id="3flexCheckDefault3">
-                                                                            <label class="form-check-label"
-                                                                                for="3flexCheckDefault3">
-                                                                                JavaScript
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                type="checkbox" name="skill" value="4"
-                                                                                id="4flexCheckDefault4">
-                                                                            <label class="form-check-label"
-                                                                                for="4flexCheckDefault4">
-                                                                                VueJS
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                type="checkbox" name="skill" value="5"
-                                                                                id="5flexCheckDefault5">
-                                                                            <label class="form-check-label"
-                                                                                for="5flexCheckDefault5">
-                                                                                CSS
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                type="checkbox" name="skill" value="6"
-                                                                                id="6flexCheckDefault6">
-                                                                            <label class="form-check-label"
-                                                                                for="6flexCheckDefault6">
-                                                                                Node.js
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                type="checkbox" name="skill" value="7"
-                                                                                id="7flexCheckDefault7">
-                                                                            <label class="form-check-label"
-                                                                                for="7flexCheckDefault7">
-                                                                                React
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                type="checkbox" name="skill" value="8"
-                                                                                id="8flexCheckDefault8">
-                                                                            <label class="form-check-label"
-                                                                                for="8flexCheckDefault8">
-                                                                                ReactJs
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                type="checkbox" name="skill" value="9"
-                                                                                id="9flexCheckDefault9">
-                                                                            <label class="form-check-label"
-                                                                                for="9flexCheckDefault9">
-                                                                                Typescript
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                type="checkbox" name="skill" value="10"
-                                                                                id="10flexCheckDefault10">
-                                                                            <label class="form-check-label"
-                                                                                for="10flexCheckDefault10">
-                                                                                Zustand
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                type="checkbox" name="skill" value="11"
-                                                                                id="11flexCheckDefault11">
-                                                                            <label class="form-check-label"
-                                                                                for="11flexCheckDefault11">
-                                                                                AWS
-                                                                            </label>
-                                                                        </div>
+                                                    <div class="form-floating" style="padding: 8px">
+                                                        <input type="text" class="form-control form-control-lg" name="email" placeholder="이메일" value="${principal.email}">
+                                                        <label for="email">이메일</label>
+                                                    </div>
 
+                                                    <div class="form-floating" style="padding: 8px">
+                                                        <input type="text" class="form-control form-control-lg" name="contact" placeholder="전화번호" value="${principal.contact}">
+                                                        <label for="contact">전화번호</label>
+                                                    </div>
+
+                                                    <tr class="text-left">
+                                                        <td>
+                                                            <a class="btn btn-custom" type="button"
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#collapseExample"
+                                                                aria-expanded="false"
+                                                                aria-controls="collapseExample">
+                                                                사용 가능 스택
+                                                            </a>
+                                                            <div class="collapse" id="collapseExample">
+                                                                <div class="card card-body">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input"
+                                                                            type="checkbox" name="skill" value="1"
+                                                                            id="1flexCheckDefault1">
+                                                                        <label class="form-check-label"
+                                                                            for="1flexCheckDefault1">
+                                                                            Java
+                                                                        </label>
                                                                     </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input"
+                                                                            type="checkbox" name="skill" value="2"
+                                                                            id="2flexCheckDefault2">
+                                                                        <label class="form-check-label"
+                                                                            for="2flexCheckDefault2">
+                                                                            Html
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input"
+                                                                            type="checkbox" name="skill" value="3"
+                                                                            id="3flexCheckDefault3">
+                                                                        <label class="form-check-label"
+                                                                            for="3flexCheckDefault3">
+                                                                            JavaScript
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input"
+                                                                            type="checkbox" name="skill" value="4"
+                                                                            id="4flexCheckDefault4">
+                                                                        <label class="form-check-label"
+                                                                            for="4flexCheckDefault4">
+                                                                            VueJS
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input"
+                                                                            type="checkbox" name="skill" value="5"
+                                                                            id="5flexCheckDefault5">
+                                                                        <label class="form-check-label"
+                                                                            for="5flexCheckDefault5">
+                                                                            CSS
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input"
+                                                                            type="checkbox" name="skill" value="6"
+                                                                            id="6flexCheckDefault6">
+                                                                        <label class="form-check-label"
+                                                                            for="6flexCheckDefault6">
+                                                                            Node.js
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input"
+                                                                            type="checkbox" name="skill" value="7"
+                                                                            id="7flexCheckDefault7">
+                                                                        <label class="form-check-label"
+                                                                            for="7flexCheckDefault7">
+                                                                            React
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input"
+                                                                            type="checkbox" name="skill" value="8"
+                                                                            id="8flexCheckDefault8">
+                                                                        <label class="form-check-label"
+                                                                            for="8flexCheckDefault8">
+                                                                            ReactJs
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input"
+                                                                            type="checkbox" name="skill" value="9"
+                                                                            id="9flexCheckDefault9">
+                                                                        <label class="form-check-label"
+                                                                            for="9flexCheckDefault9">
+                                                                            Typescript
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input"
+                                                                            type="checkbox" name="skill" value="10"
+                                                                            id="10flexCheckDefault10">
+                                                                        <label class="form-check-label"
+                                                                            for="10flexCheckDefault10">
+                                                                            Zustand
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input"
+                                                                            type="checkbox" name="skill" value="11"
+                                                                            id="11flexCheckDefault11">
+                                                                        <label class="form-check-label"
+                                                                            for="11flexCheckDefault11">
+                                                                            AWS
+                                                                        </label>
+                                                                    </div>
+
                                                                 </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class=" text-center">
-                                                            <td>
-                                                                <button class="btn btn-custom btn-sm my-3 ms-3 me-4"
-                                                                    style="float:right;">회원정보수정</button>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class=" text-center">
+                                                        <td>
+                                                            <button class="btn btn-custom btn-sm my-3 ms-3 me-4"
+                                                                style="float:right;">회원정보수정</button>
+                                                        </td>
+                                                    </tr>
                                                 </form>
                                             </div>
                                         </c:when>
@@ -739,34 +735,31 @@
 
                                             <div class="tab-pane fade show active" id="updateEnterprise">
                                                 <form action="/enterprise/update" method="post">
-                                                    <table class="table table-borderless">
 
-                                                        <tr class="text-center">
-                                                            <td><input type="password" class="form-control-lg w-100"
-                                                                    name="password" placeholder="비밀번호"></td>
-                                                        </tr>
-                                                        <tr class="text-center">
-                                                            <td><input type="password" class="form-control-lg w-100"
-                                                                    name="passwordCheck" placeholder="비밀번호 중복검사">
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="text-center">
-                                                            <td><input type="text" class="form-control-lg w-100"
-                                                                    name="address" placeholder="주소"
-                                                                    value="${principalEnt.address}"></td>
-                                                        </tr>
-                                                        <div class="text-center">
-                                                            <td><input type="text" class="form-control-lg w-100"
-                                                                    name="contact" placeholder="전화번호"
-                                                                    value="${principalEnt.contact}">
-                                                            </td>
-                                                        </div>
-                                                        <tr class="text-center">
-                                                            <td><input type="text" class="form-control-lg w-100"
-                                                                    name="email" placeholder="이메일"
-                                                                    value="${principalEnt.email}"></td>
-                                                        </tr>
-                                                    </table>
+                                                    <div class="form-floating" style="padding: 8px">
+                                                        <input type="password" class="form-control form-control-lg" name="password" placeholder="비밀번호">
+                                                        <label for="password">비밀번호</label>
+                                                    </div>
+                                                    <div class="form-floating" style="padding: 8px">
+                                                        <input type="password" class="form-control form-control-lg" name="passwordCheck" placeholder="비밀번호 중복검사">
+                                                        <label for="passwordCheck">비밀번호 중복검사</label>
+                                                    </div>
+
+                                                    <div class="form-floating" style="padding: 8px">
+                                                        <input type="text" class="form-control form-control-lg" name="address" placeholder="주소" value="${principalEnt.address}">
+                                                        <label for="address">주소</label>
+                                                    </div>
+
+                                                    <div class="form-floating" style="padding: 8px">
+                                                        <input type="text" class="form-control form-control-lg" name="contact" placeholder="전화번호" value="${principalEnt.contact}">
+                                                        <label for="contact">전화번호</label>
+                                                    </div>
+
+                                                    <div class="form-floating" style="padding: 8px">
+                                                        <input type="text" class="form-control form-control-lg" name="email" placeholder="이메일" value="${principalEnt.email}">
+                                                        <label for="email">이메일</label>
+                                                    </div>
+
                                                     <div class="form-control-sm">
                                                         &nbsp;회사분류
                                                         <label for="exampleFormControlSelect1"></label>
