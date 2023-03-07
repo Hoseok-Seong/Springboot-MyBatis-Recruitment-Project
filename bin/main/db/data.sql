@@ -18,20 +18,18 @@ insert into bookmark_tb(user_id, recruitment_id, created_at) values(1,1,now());
 insert into bookmark_tb(user_id, recruitment_id, created_at) values(1,2,now());
 insert into bookmark_tb(user_id, recruitment_id, created_at) values(1,3,now());
 insert into bookmark_tb(user_id, recruitment_id, created_at) values(1,4,now());
-insert into bookmark_tb(user_id, recruitment_id, created_at) values(2,6,now());
 insert into bookmark_tb(user_id, recruitment_id, created_at) values(2,5,now());
+insert into bookmark_tb(user_id, recruitment_id, created_at) values(2,6,now());
 insert into bookmark_tb(user_id, recruitment_id, created_at) values(2,7,now());
 insert into bookmark_tb(user_id, recruitment_id, created_at) values(2,8,now());
-insert into bookmark_tb(user_id, recruitment_id, created_at) values(1,9,now());
 
 insert into user_skill_tb(user_id, skill) values(1, 1);
 insert into user_skill_tb(user_id, skill) values(1, 2);
 insert into user_skill_tb(user_id, skill) values(1, 3);
 insert into user_skill_tb(user_id, skill) values(1, 4);
-insert into user_skill_tb(user_id, skill) values(1, 5);
+insert into user_skill_tb(user_id, skill) values(2, 5);
 insert into user_skill_tb(user_id, skill) values(2, 6);
 insert into user_skill_tb(user_id, skill) values(2, 7);
-insert into user_skill_tb(user_id, skill) values(2, 8);
 insert into user_skill_tb(user_id, skill) values(2, 8);
 
 insert into recruitment_skill_tb(recruitment_id, skill ) values(1, 2);

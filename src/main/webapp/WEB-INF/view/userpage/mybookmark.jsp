@@ -10,7 +10,7 @@
                                 <div class="navbar-nav">
                                     <h3>
                                         <strong>
-                                            <a class="nav-link active" aria-current="page" href="#">프로필</a>
+                                            <a class="nav-link active" aria-current="page">프로필</a>
                                         </strong>
                                     </h3>
                                 </div>
@@ -25,11 +25,12 @@
                             <h5 class="card-title pt-2">${principal.email}</h5>
                             <h5 class="card-title pt-2">${principal.contact}</h5>
                             <br>
-                            <h3>지원횟수 :
-                                <c:out value="${fn:length(applyLists)}" />
+                            <h3>나의 북마크 :
+                                <c:out value="${fn:length(bookmarkDto)}" />
                             </h3>
-                            <button type="button" class="btn btn-outline-info btn-lg" onclick="location.href='
-                                /recruitment/list'">채용공고 보러가기
+                            <br>
+                            <button type="button" class="btn btn-outline-info btn-lg" onclick="window.location.href = '/recruitment/list';">
+                            채용공고 보러가기
                             </button>
                         </div>
                     </div>
@@ -52,6 +53,47 @@
                             </div>
                         </div>
                     </nav>
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="table table-hover">
+                                <br>
+                                <h3><img src="images/bookmark.png" alt="" style="width:40px; height:40px">회원님이 북마크한 기업입니다</h3>
+                                <br>
+                                <thead class="table-light">
+                                    <tr>
+                                        <th scope="col">기업명</th>
+                                        <th scope="col">공고</th>
+                                        <th scope="col">분야</th>
+                                        <th scope="col">마감</th>                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${bookmarkDto}" var="bookmark">
+                                        <tr>
+                                            <td scope="col">${bookmark.enterpriseName}
+                                            </td>
+                                            <td scope="col"><a href="/recruitment/detail/${bookmark.recruitmentId}"
+                                                style="color: inherit; text-decoration: none;">${bookmark.title}</a>
+                                            </td>
+                                            <td scope="col">${bookmark.sector}
+                                            </td>
+                                            <c:choose>
+                                                <c:when test="${Posts[bookmark.recruitmentId-1].diffDays < 0}">
+                                                    <td scope="col">
+                                                        기간 만료
+                                                    </td>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <td scope="col">D-${Posts[bookmark.recruitmentId-1].diffDays}
+                                                    </td>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

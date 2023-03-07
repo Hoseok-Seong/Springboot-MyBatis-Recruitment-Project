@@ -10,7 +10,7 @@
                                 <div class="navbar-nav">
                                     <h3>
                                         <strong>
-                                            <a class="nav-link active" aria-current="page" href="#">프로필</a>
+                                            <a class="nav-link active" aria-current="page">프로필</a>
                                         </strong>
                                     </h3>
                                 </div>
@@ -232,7 +232,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <br>
         <script>

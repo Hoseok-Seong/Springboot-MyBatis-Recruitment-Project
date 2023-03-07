@@ -4,10 +4,6 @@
     <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
       insert into bookmark_tb(user_id, recruitment_id, created_at) values(#{userId}, #{recruitmentId}, now()) 
    </insert>
-    
-   <update id="updateById">
-      update bookmark_tb set user_id = #{userId}, recruitment_id = #{userId}, count = #{count} where id = #{id}
-   </update>
 
    <select id="findAll" resultType="shop.mtcoding.job.model.bookmark.Bookmark">
       select * from bookmark_tb
@@ -25,7 +21,13 @@
       select * from bookmark_tb where recruitment_id = #{recruitmentId} and user_id = #{userId}
    </select>
 
-   <select id="findByBoardId" resultType="shop.mtcoding.job.model.bookmark.Bookmark">
-      select * from bookmark_tb where enterprise_id = #{enterpriseId}
+   <select id="findByUserId" resultType="shop.mtcoding.job.dto.bookmark.BookmarkReqDto">
+      select b.recruitment_id, e.enterprise_name, r.title, r.sector, r.deadline
+      from bookmark_tb b
+      join recruitment_post_tb r
+      on b.recruitment_id = r.id
+      left OUTER JOIN enterprise_tb e
+      on r.enterprise_id = e.id
+      where b.user_id = #{userId} 
    </select>
 </mapper>

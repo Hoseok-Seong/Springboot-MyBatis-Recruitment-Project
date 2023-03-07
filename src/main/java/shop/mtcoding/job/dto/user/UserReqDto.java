@@ -9,6 +9,7 @@ public class UserReqDto {
     public static class LoginUserReqDto {
         private String username;
         private String password;
+        private String remember;
     }
 
     @Setter

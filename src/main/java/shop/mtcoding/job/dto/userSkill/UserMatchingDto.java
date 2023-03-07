@@ -10,5 +10,6 @@ public class UserMatchingDto {
     private String enterpriseName;
     private String enterpriseLogo;
     private String title;
+    private String sector;
     private int recruitmentId;
 }

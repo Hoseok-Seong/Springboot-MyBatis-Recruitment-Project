@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.model.bookmark.Bookmark;
 import shop.mtcoding.job.model.bookmark.BookmarkRepository;
-import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
 
 @Service
 @RequiredArgsConstructor
@@ -17,24 +16,13 @@ public class BookmarkService {
     @Autowired
     private BookmarkRepository bookmarkRepository;
 
-    private final RecruitmentPostRepository recruitmentPostRepository;
-
     @Transactional
     public int 북마크하기(int recruitmentId, int userId) {
-
-        // if (bookmarkRepository.findByRecruitmentIdAndUserId(recruitmentId, userId) !=
-        // null) {
-        // throw new CustomApiException("이미 북마크한 공고 입니다");
-        // }
-
         Bookmark bookmark = new Bookmark();
         bookmark.setRecruitmentId(recruitmentId);
         bookmark.setUserId(userId);
         bookmarkRepository.insert(bookmark);
-        // bookmark = bookmarkRepository.save(bookmark);
-        System.out.println("test: " + bookmark.getId());
         return bookmark.getId();
-
     }
 
     @Transactional

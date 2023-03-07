@@ -4,10 +4,10 @@
     <insert id="insert">
       insert into user_skill_tb(user_id, skill) values(#{userId}, #{skill}) 
     </insert>
-    
-   <!-- <update id="updateById">
+     
+   <update id="updateById">
       update user_skill_tb set user_id = #{userId}, skill=#{skill} where id = #{id}
-   </update> -->
+   </update>
 
    <select id="findAll" resultType="shop.mtcoding.job.model.userSkill.UserSkill">
       select * from user_skill_tb
@@ -30,7 +30,7 @@
    </delete>
 
    <select id="userMatching" resultType="shop.mtcoding.job.dto.userSkill.UserMatchingDto">
-      select distinct u.id as user_id, enterprise_name, r.enterprise_logo, r.title, r.id as recruitment_id
+      select distinct u.id as user_id, enterprise_name, r.enterprise_logo, r.title, r.sector, r.id as recruitment_id
       from user_tb u
       left join user_skill_tb us
       on u.id = us.user_id

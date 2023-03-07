@@ -56,17 +56,16 @@ public class EnterpriseController {
             throw new CustomApiException("존재하지 않는 아이디거나 비밀번호를 다시 확인해주시기 바랍니다");
         }
         // 4. 아이디 기억
-        if (rememberEnt == null) {
-            rememberEnt = "";
-        }
-        if (rememberEnt.equals("on")) {
+        if (loginEnterpriseReqDto.getRememberEnt().equals("true")) {
             Cookie cookie = new Cookie("rememberEnt", loginEnterpriseReqDto.getEnterpriseName());
+            cookie.setPath("/");
+            cookie.setMaxAge(600);
             response.addCookie(cookie);
-        } else {
+        }
+        if (loginEnterpriseReqDto.getRememberEnt().equals("false")) {
             Cookie cookie = new Cookie("rememberEnt", "");
             cookie.setMaxAge(0);
             response.addCookie(cookie);
-
         }
 
         return new ResponseEntity<>(new ResponseDto<>(1, "로그인 성공", null), HttpStatus.CREATED);
