@@ -213,12 +213,12 @@
                                                                 </div>
                                                                 <br>
                                                                 <button
-                                                                    onclick="confirmResult2(`${applyList.name}`, `${applyList.id}`, false)"
+                                                                    onclick="confirmResult2(`${applyList.name}`, `${applyList.id}`, false, true)"
                                                                     name="finish" value="false" type="button"
                                                                     class="btn btn-secondary btn-lg ms-3"
                                                                     style="float:right;">불합격</button>
                                                                 <button
-                                                                    onclick="confirmResult(`${applyList.name}`, `${applyList.id}`, true)"
+                                                                    onclick="confirmResult(`${applyList.name}`, ${applyList.id}, true, true)"
                                                                     name="finish" value="true" type="button"
                                                                     class="btn btn-primary btn-lg"
                                                                     style="float:right;">서류합격</button>
@@ -241,24 +241,25 @@
         </div>
         <br>
         <script>
-            function confirmResult(name, applyId, result) {
+            function confirmResult(name, applyId, result, notify) {
                 if (confirm(name + '님의 지원서를 합격 처리하시겠습니까?')) {
-                    save(applyId, result);
+                    save(applyId, result, notify);
                 }
             }
 
-            function confirmResult2(name, applyId, result) {
+            function confirmResult2(name, applyId, result, notify) {
                 if (confirm(name + '님의 지원서를 불합격 처리하시겠습니까?')) {
-                    save(applyId, result);
+                    save(applyId, result, notify);
                 }
             }
 
-            function save(applyId, result) {
+            function save(applyId, result, notify) {
                 // 1. 값 받아오기
                 let data = {
-                    result: result
+                    result: result,
+                    notify: notify
                 };
-
+                
                 $.ajax({
                     type: "put",
                     url: "/apply/" + applyId,

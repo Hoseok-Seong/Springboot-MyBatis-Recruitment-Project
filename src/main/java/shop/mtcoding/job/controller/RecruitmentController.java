@@ -32,13 +32,11 @@ import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.bookmark.BookmarkRepository;
 import shop.mtcoding.job.model.enterprise.Enterprise;
-import shop.mtcoding.job.model.enterprise.EnterpriseRepository;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
 import shop.mtcoding.job.model.recruitmentSkill.RecruitmentSkillRepository;
 import shop.mtcoding.job.model.resume.ResumeRepository;
 import shop.mtcoding.job.model.user.User;
-import shop.mtcoding.job.service.BookmarkService;
 import shop.mtcoding.job.service.RecruitmentService;
 import shop.mtcoding.job.util.DateUtil;
 
@@ -47,12 +45,6 @@ public class RecruitmentController {
 
     @Autowired
     private BookmarkRepository bookmarkRepository;
-
-    @Autowired
-    private EnterpriseRepository enterpriseRepository;
-
-    @Autowired
-    private BookmarkService bookmarkService;
 
     @Autowired
     private RecruitmentPostRepository recruitmentPostRepository;

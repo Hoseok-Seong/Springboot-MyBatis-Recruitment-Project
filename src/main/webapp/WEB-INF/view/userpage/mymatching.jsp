@@ -10,7 +10,7 @@
                                 <div class="navbar-nav">
                                     <h3>
                                         <strong>
-                                            <a class="nav-link active" aria-current="page" href="#">프로필</a>
+                                            <a class="nav-link active" aria-current="page">프로필</a>
                                         </strong>
                                     </h3>
                                 </div>
@@ -25,9 +25,9 @@
                             <h5 class="card-title pt-2">${principal.email}</h5>
                             <h5 class="card-title pt-2">${principal.contact}</h5>
                             <br>
-                            <h4>나의 매칭기업 :
+                            <h3>나의 매칭기업 :
                                 <c:out value="${fn:length(userMatching)}" />
-                            </h4>
+                            </h3>
                             <br>
                             <button class="btn btn-outline-info btn-lg" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -76,6 +76,7 @@
                                     <tr>
                                         <th scope="col">기업명</th>
                                         <th scope="col">공고</th>
+                                        <th scope="col">분야</th>
                                         <th scope="col">마감</th>
                                     </tr>
                                 </thead>
@@ -86,6 +87,8 @@
                                             </td>
                                             <td scope="col"><a href="/recruitment/detail/${user.recruitmentId}"
                                                     style="color: inherit; text-decoration: none;">${user.title}</a>
+                                            </td>
+                                            <td scope="col">${user.sector}
                                             </td>
                                             <c:choose>
                                                 <c:when test="${Posts[user.recruitmentId-1].diffDays < 0}">
@@ -106,8 +109,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
         </div>
         <br>
         <%@ include file="../layout/footer.jsp" %>

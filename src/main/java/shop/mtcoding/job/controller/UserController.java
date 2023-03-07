@@ -20,6 +20,7 @@ import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.user.UserReqDto.JoinUserReqDto;
 import shop.mtcoding.job.dto.user.UserReqDto.LoginUserReqDto;
 import shop.mtcoding.job.dto.user.UserReqDto.UpdateUserReqDto;
+import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.model.user.UserRepository;
@@ -45,10 +46,10 @@ public class UserController {
     public @ResponseBody ResponseEntity<?> userLogin(
             @RequestBody LoginUserReqDto loginUserReqDto, String remember, HttpServletResponse response) {
         if (loginUserReqDto.getUsername() == null || loginUserReqDto.getUsername().isEmpty()) {
-            throw new CustomException("아이디를 작성해주세요");
+            throw new CustomApiException("아이디를 작성해주세요");
         }
         if (loginUserReqDto.getPassword() == null || loginUserReqDto.getPassword().isEmpty()) {
-            throw new CustomException("비밀번호를 작성해주세요");
+            throw new CustomApiException("비밀번호를 작성해주세요");
         }
         // 1. 로그인하기 service
         User principal = userService.유저로그인하기(loginUserReqDto);
@@ -58,24 +59,23 @@ public class UserController {
 
         // 3. principal 유효성 검사
         if (session.getAttribute("principal") == null) {
-            throw new CustomException("존재하지 않는 아이디거나 비밀번호를 다시 확인해주시기 바랍니다");
+            throw new CustomApiException("존재하지 않는 아이디거나 비밀번호를 다시 확인해주시기 바랍니다");
         }
 
         // 4. 아이디 기억
-        // 요청헤더 : Cookie
-        // 응답헤더 : Set-Cookie
-        if (remember == null) {
-            remember = "";
-        }
-        if (remember.equals("on")) {
+        if (loginUserReqDto.getRemember().equals("true")) {
             Cookie cookie = new Cookie("remember", loginUserReqDto.getUsername());
+            cookie.setPath("/");
+            cookie.setMaxAge(600);
             response.addCookie(cookie);
-        } else {
+        }
+
+        if (loginUserReqDto.getRemember().equals("false")) {
             Cookie cookie = new Cookie("remember", "");
             cookie.setMaxAge(0);
             response.addCookie(cookie);
-
         }
+
         return new ResponseEntity<>(new ResponseDto<>(1, "로그인 성공", null), HttpStatus.CREATED);
     }
 

@@ -37,7 +37,7 @@
       join user_skill_tb us on us.skill = rs.skill
       join user_tb u on u.id = us.user_id
       join resume_tb r on r.user_id = u.id
-      group by e.id,u.username
-      having e.id = 1
+      group by e.id, u.username, r.birthdate
+      having e.id = #{id}
     </select>
 </mapper>

@@ -57,6 +57,7 @@ public class LoginControllerTest {
         HttpSession session = resultActions.andReturn().getRequest().getSession();
         User principal = (User) session.getAttribute("principal");
         System.out.println("테스트 : " + principal.getUsername());
+        System.out.println("테스트 : " + principal.getId());
 
         // then
         assertThat(principal.getUsername()).isEqualTo("ssar");

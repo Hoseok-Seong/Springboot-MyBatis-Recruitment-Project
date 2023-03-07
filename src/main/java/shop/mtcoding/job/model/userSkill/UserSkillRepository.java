@@ -16,7 +16,7 @@ public interface UserSkillRepository {
 
     public int insert(@Param("userId") int userId, @Param("skill") Integer skill);
 
-    // public int updateById(UserSkill userSkill);
+    public int updateById(UserSkill userSkill);
 
     public int deleteById(int id);
 
@@ -26,5 +26,4 @@ public interface UserSkillRepository {
 
     public List<UserSkill> findByUserId(int userId);
 
-    
 }

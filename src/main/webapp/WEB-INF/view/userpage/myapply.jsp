@@ -10,7 +10,7 @@
                                 <div class="navbar-nav">
                                     <h3>
                                         <strong>
-                                            <a class="nav-link active" aria-current="page" href="#">프로필</a>
+                                            <a class="nav-link active" aria-current="page">프로필</a>
                                         </strong>
                                     </h3>
                                 </div>
@@ -80,9 +80,9 @@
                                             </td>
                                             <td>${applyList.sector}</td>
                                             <td data-bs-toggle="modal"
-                                                data-bs-target="#staticBackdrop${applyList.resumeId}"
+                                                data-bs-target="#staticBackdrop${applyList.applyResumeId}"
                                                 style="cursor: pointer;">
-                                                ${applyList.resumeId}
+                                                ${applyList.applyResumeId}
                                             </td>
                                             <td>${applyList.createdAtToString}</td>
                                             <td>
@@ -115,7 +115,7 @@
                                             </td>
 
                                             <!-- modal -->
-                                            <div class="modal fade" id="staticBackdrop${applyList.resumeId}"
+                                            <div class="modal fade" id="staticBackdrop${applyList.applyResumeId}"
                                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                 <div
@@ -133,7 +133,7 @@
                                                                     style="height: 450px;">
                                                                     <input type="text" name="title"
                                                                         style="border: none;"
-                                                                        value="${resumeList[applyList.resumeId-1].title}"
+                                                                        value="${resumeList[applyList.applyResumeId-1].title}"
                                                                         class="form-control" placeholder="제목" readonly>
                                                                     <br>
                                                                     <br>
@@ -142,7 +142,7 @@
                                                                     <hr class="md-0">
                                                                     <div class="form-floating mb-3">
                                                                         <input name="birthdate"
-                                                                            value="${resumeList[applyList.resumeId-1].birthdate}"
+                                                                            value="${resumeList[applyList.applyResumeId-1].birthdate}"
                                                                             required / readonly>
                                                                     </div>
                                                                     <br>
@@ -152,7 +152,7 @@
                                                                     <div class="form-floating mb-3">
                                                                         <input type="text" name="address"
                                                                             class="form-control"
-                                                                            value="${resumeList[applyList.resumeId-1].address}"
+                                                                            value="${resumeList[applyList.applyResumeId-1].address}"
                                                                             readonly>
                                                                         <label for="floatingInput">주소를 입력해주세요 예시: 부산광역시
                                                                             부산진구 양정동
@@ -167,7 +167,7 @@
                                                                 <div class="form-floating">
                                                                     <textarea class="form-control" name="content"
                                                                         style="height: 100px"
-                                                                        readonly>${resumeList[applyList.resumeId-1].content}</textarea>
+                                                                        readonly>${resumeList[applyList.applyResumeId-1].content}</textarea>
                                                                 </div>
                                                                 <br>
                                                                 <div class="mt-5">경력</div>
@@ -175,7 +175,7 @@
                                                                 <div class="form-floating">
                                                                     <textarea class="form-control" name="career"
                                                                         style="height: 100px"
-                                                                        readonly>${resumeList[applyList.resumeId-1].career}</textarea>
+                                                                        readonly>${resumeList[applyList.applyResumeId-1].career}</textarea>
                                                                 </div>
                                                                 <br>
                                                                 <div class="mt-5">학력</div>
@@ -183,7 +183,7 @@
                                                                 <div class="form-floating">
                                                                     <textarea class="form-control" name="education"
                                                                         style="height: 100px"
-                                                                        readonly>${resumeList[applyList.resumeId-1].education}</textarea>
+                                                                        readonly>${resumeList[applyList.applyResumeId-1].education}</textarea>
                                                                 </div>
                                                                 <br>
                                                                 <div class="mt-5">스킬</div>
@@ -191,7 +191,7 @@
                                                                 <div class="form-floating">
                                                                     <textarea class="form-control" name="skill"
                                                                         style="height: 100px"
-                                                                        readonly>${resumeList[applyList.resumeId-1].skill}</textarea>
+                                                                        readonly>${resumeList[applyList.applyResumeId-1].skill}</textarea>
                                                                 </div>
                                                                 <br>
                                                                 <div class="mt-5">수상 및 기타</div>
@@ -199,7 +199,7 @@
                                                                 <div class="form-floating">
                                                                     <textarea class="form-control" name="award"
                                                                         style="height: 100px"
-                                                                        readonly>${resumeList[applyList.resumeId-1].award}</textarea>
+                                                                        readonly>${resumeList[applyList.applyResumeId-1].award}</textarea>
                                                                 </div>
                                                                 <br>
                                                                 <div class="mt-5">외국어</div>
@@ -207,7 +207,7 @@
                                                                 <div class="form-floating">
                                                                     <textarea class="form-control" name="language"
                                                                         style="height: 100px"
-                                                                        readonly>${resumeList[applyList.resumeId-1].language}</textarea>
+                                                                        readonly>${resumeList[applyList.applyResumeId-1].language}</textarea>
                                                                 </div>
                                                                 <br>
                                                                 <div class="mt-5">링크</div>
@@ -215,7 +215,7 @@
                                                                 <div class="form-floating">
                                                                     <textarea class="form-control" name="link"
                                                                         style="height: 100px"
-                                                                        readonly>${resumeList[applyList.resumeId-1].link}</textarea>
+                                                                        readonly>${resumeList[applyList.applyResumeId-1].link}</textarea>
                                                                 </div>
                                                                 <br>
                                                                 <hr class="md-0">
@@ -232,7 +232,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <br>
         <script>

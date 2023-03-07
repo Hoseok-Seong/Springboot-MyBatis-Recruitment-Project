@@ -2,8 +2,6 @@
     <%@ include file="../layout/header.jsp" %>
 
         <style>
-            .dt {}
-
             span.badge {
                 font-size: 13px;
             }
@@ -14,7 +12,7 @@
                 <!-- 채용공고 시작 -->
                 <div class="col-8">
 
-                     <div>
+                    <div>
                         <h5><b>${recruitmentPostDtos.enterpriseName}</b></h5>
                     </div>
 
@@ -23,14 +21,25 @@
                             <h2><b>${recruitmentPostDtos.title}</b>
                         </div>
                         <div>
-                        <c:choose>
-                            <c:when test="${bookmarkDto == null}">
-                                <div id="bookmark" class="fa-regular fa-bookmark fa-2x my-xl my-cursor w-100 h-100" value="${bookmarkDto.id}" onclick="bookmarkOrCancle(`${recruitmentPostDtos.id}`)"></div>
-                            </c:when>
-                            <c:otherwise>
-                                <div id="bookmark" class="fa-solid fa-bookmark fa-2x my-xl my-cursor w-100 h-100" value="${bookmarkDto.id}" onclick="bookmarkOrCancle(`${recruitmentPostDtos.id}`)" style="font-size: 24px;"></div>
-                            </c:otherwise>
-                        </c:choose>
+                            <c:choose>
+                                <c:when test="${principal != null}">
+                                    <c:choose>
+                                        <c:when test="${bookmarkDto == null}">
+                                            <div id="bookmark"
+                                                class="fa-regular fa-bookmark fa-2x my-xl my-cursor w-100 h-100"
+                                                value="${bookmarkDto.id}"
+                                                onclick="bookmarkOrCancle(`${recruitmentPostDtos.id}`)"></div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <div id="bookmark"
+                                                class="fa-solid fa-bookmark fa-2x my-xl my-cursor w-100 h-100"
+                                                value="${bookmarkDto.id}"
+                                                onclick="bookmarkOrCancle(`${recruitmentPostDtos.id}`)"
+                                                style="font-size: 24px;"></div>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:when>
+                            </c:choose>
 
                         </div>
                     </div>
@@ -83,9 +92,6 @@
                                 <dd>
                                     <span class="badge rounded-pill text-bg-primary">${recruitmentPostDtos.pay}</span>
                                 </dd>
-                                <%-- <dd>
-                                    <span class='text-primary'>${recruitmentPostDtos.pay}</span>
-                                    </dd> --%>
                             </dl>
                             <dl>
                                 <dt>
@@ -95,9 +101,6 @@
                                     <span
                                         class="badge rounded-pill text-bg-primary">${recruitmentPostDtos.address}</span>
                                 </dd>
-                                <%-- <dd>
-                                    <span class='text-primary'>${recruitmentPostDtos.address}</span>
-                                    </dd> --%>
                             </dl>
                             <dl>
                                 <dt>
@@ -143,8 +146,8 @@
                                             </dd>
                                         </c:otherwise>
                                     </c:choose>
-                                </dd>
-                            </dl>
+                                    </dd>
+                                </dl>
                         </div>
                     </div>
 
@@ -289,55 +292,50 @@
                 <!-- 지원 창 끝 -->
             </div>
         </div>
-         <script>
-    // location reload 사용하면 간단하게 해결이 가능하다.
-        function bookmarkOrCancle(recruitmentId) {
-            let id = $("#bookmark").attr("value");
-            // let recruitmentId = $("#recruitmentId").val();
-        
-            console.log(id);
-            console.log(recruitmentId);
-             if (id === "" || id === "undefined"){
-               
-                // 좋아요로 통신 요청 (POST)
-                let data = {
-                    recruitmentId : recruitmentId
-                }
-                $.ajax({
-                    type: "post",
-                    url: "/bookmark/" +recruitmentId,
-                    data: JSON.stringify(data),
-                    contentType: 'application/json;charset=UTF-8',
-                    dataType: "json"
-                }).done((res) => {
-                    console.log(res);
-                    alert(res.msg);
-                    $("#bookmark").attr("value",res.data);
-                    $("#bookmark").addClass("fa-solid");
-                    $("#bookmark").removeClass("fa-regular");
-                }).fail((err) => {
-                    alert(err.msg);
-                });
+        <script>
+            // location reload 사용하면 간단하게 해결이 가능하다.
+            function bookmarkOrCancle(recruitmentId) {
+                let id = $("#bookmark").attr("value");
+
+                if (id === "" || id === "undefined") {
+
+                    // 좋아요로 통신 요청 (POST)
+                    let data = {
+                        recruitmentId: recruitmentId
+                    }
+                    $.ajax({
+                        type: "post",
+                        url: "/bookmark/" + recruitmentId,
+                        data: JSON.stringify(data),
+                        contentType: 'application/json;charset=UTF-8',
+                        dataType: "json"
+                    }).done((res) => {
+                        alert(res.msg);
+                        $("#bookmark").attr("value", res.data);
+                        $("#bookmark").addClass("fa-solid");
+                        $("#bookmark").removeClass("fa-regular");
+                    }).fail((err) => {
+                        alert(err.msg);
+                    });
                 } else {
-                
-                // 좋아요 취소로 통신 요청 (DELETE)
-                
-                $.ajax({
-                    type: "delete",
-                    url: "/bookmark/"+id,
-                    dataType: "json"
-                }).done((res) => {
-                    $("#bookmark").attr("value","");
-                    $("#bookmark").removeClass("fa-solid");
-                    $("#bookmark").addClass("fa-regular");
-                    alert(res.msg);
-                }).fail((err) => {
-                    alert(err.msg);
-                    console.log(err);
-                });
+
+                    // 좋아요 취소로 통신 요청 (DELETE)
+
+                    $.ajax({
+                        type: "delete",
+                        url: "/bookmark/" + id,
+                        dataType: "json"
+                    }).done((res) => {
+                        $("#bookmark").attr("value", "");
+                        $("#bookmark").removeClass("fa-solid");
+                        $("#bookmark").addClass("fa-regular");
+                        alert(res.msg);
+                    }).fail((err) => {
+                        alert(err.msg);
+                    });
+                }
             }
-        }
-         </script>
+        </script>
         <script>
             function confirmApply() {
                 var selectedResume = document.querySelector('input[name="chooseResume"]:checked');
@@ -355,7 +353,7 @@
                     recruitmentPostId: $("#postId").val(),
                     enterpriseId: $("#enterpriseId").val(),
                     sector: $("#sector").val(),
-                    resumeId: selectedResumeId
+                    applyResumeId: selectedResumeId
                 };
 
                 $.ajax({

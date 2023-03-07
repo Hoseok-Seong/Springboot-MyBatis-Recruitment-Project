@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.JoinEnterpriseReqDto;
 import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.LoginEnterpriseReqDto;
 import shop.mtcoding.job.dto.enterprise.EnterpriseReqDto.UpdateEnterpriseReqDto;
+import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.enterprise.EnterpriseRepository;
@@ -26,7 +27,7 @@ public class EnterpriseService {
         try {
             String salt = enterpriseRepository.findSaltByEnterprisename(loginEnterpriseReqDto.getEnterpriseName());
             if (salt == null) {
-                throw new CustomException("아이디가 존재하지 않습니다");
+                throw new CustomApiException("아이디가 존재하지 않습니다");
             }
             String sha256Hash = Sha256Encoder.sha256(loginEnterpriseReqDto.getPassword());
             Enterprise principalEnt = enterpriseRepository.findByEnterprisenameAndPassword(

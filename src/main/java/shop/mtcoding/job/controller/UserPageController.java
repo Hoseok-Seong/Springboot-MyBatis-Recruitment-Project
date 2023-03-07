@@ -13,12 +13,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import shop.mtcoding.job.dto.apply.ApplyRespDto.ApplyListForUserRespDto;
+import shop.mtcoding.job.dto.bookmark.BookmarkReqDto;
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostListRespDto;
 import shop.mtcoding.job.dto.userSkill.UserMatchingDto;
 import shop.mtcoding.job.handler.exception.CustomException;
 import shop.mtcoding.job.model.apply.ApplyRepository;
 import shop.mtcoding.job.model.applyResume.ApplyResume;
 import shop.mtcoding.job.model.applyResume.ApplyResumeRepository;
+import shop.mtcoding.job.model.bookmark.BookmarkRepository;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.model.userSkill.UserSkillRepository;
@@ -39,6 +41,9 @@ public class UserPageController {
 
     @Autowired
     private UserSkillRepository userSkillRepository;
+
+    @Autowired
+    private BookmarkRepository bookmarkRepository;
 
     @GetMapping("/myapply")
     public String mypage(Model model) {
@@ -104,11 +109,25 @@ public class UserPageController {
     }
 
     @GetMapping("/mybookmark")
-    public String mybookmark() {
+    public String mybookmark(Model model, BookmarkReqDto bookmarkReqDto) {
         User principal = (User) session.getAttribute("principal");
         if (principal == null) {
             throw new CustomException("회원 인증이 되지 않았습니다. 로그인을 해주세요.", HttpStatus.UNAUTHORIZED);
         }
+
+        if (principal != null) {
+            List<BookmarkReqDto> bookmarkDto = bookmarkRepository.findByUserId(principal.getId());
+            model.addAttribute("bookmarkDto", bookmarkDto);
+        }
+
+        List<RecruitmentPostListRespDto> posts = recruitmentPostRepository.findByPost();
+        // d-day 계산
+        for (RecruitmentPostListRespDto post : posts) {
+            post.calculateDiffDays(); // D-Day 계산
+        }
+
+        model.addAttribute("Posts", posts);
+
         return "userpage/mybookmark";
     }
 }

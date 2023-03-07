@@ -15,7 +15,7 @@ public class ApplyRespDto {
         private String enterpriseName;
         private String title;
         private String sector;
-        private Integer resumeId;
+        private Integer applyResumeId;
         private Boolean result;
         private Timestamp createdAt;
 
@@ -34,12 +34,18 @@ public class ApplyRespDto {
         private Integer recruitmentPostId;
         private String enterpriseName;
         private String title;
-        private Integer resumeId;
+        private Integer applyResumeId;
         private Boolean result;
         private Timestamp createdAt;
 
         public String getCreatedAtToString() {
             return DateUtil.format(createdAt);
         }
+    }
+
+    @Getter
+    @Setter
+    public static class NotifyListRespDto {
+        private Boolean notify;
     }
 }
