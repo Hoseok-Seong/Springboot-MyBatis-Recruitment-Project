@@ -42,8 +42,5 @@
       on e.id = r.enterprise_id
       where u.id = #{id};
    </select>
-   
-   <select id="findByUserId" resultType="shop.mtcoding.job.model.userSkill.UserSkill">
-      select * from user_skill_tb where user_id = #{userId}  
-   </select>
+
 </mapper>

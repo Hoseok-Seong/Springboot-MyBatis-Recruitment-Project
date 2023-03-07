@@ -17,7 +17,7 @@ public class UserSkillController {
     private UserSkillRepository userSkillRepository;
 
     @PostMapping("/user/skill")
-    public String skill(int userId, List<Integer> skill) {
+    public String skill(int userId, @RequestParam("skill") List<Integer> skill) {
         try {
             for (Integer checkSkill : skill) {
                 int result = userSkillRepository.insert(userId, checkSkill);

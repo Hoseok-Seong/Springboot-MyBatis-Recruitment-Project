@@ -43,7 +43,7 @@ public class UserService {
     }
 
     @Transactional
-    public void 유저가입하기(JoinUserReqDto joinUserReqDto, List<Integer> skill) {
+    public void 유저가입하기(JoinUserReqDto joinUserReqDto, @RequestParam("skill") List<Integer> skill) {
         // 1. 유저 유효성 검사
         User sameuser = userRepository.findByName(joinUserReqDto.getUsername());
 
@@ -76,7 +76,6 @@ public class UserService {
                 throw new CustomException("skill insert 실패");
             }
         }
-        userSkillRepository.insert(joinUserReqDto.getId(), null);
     }
 
     @Transactional

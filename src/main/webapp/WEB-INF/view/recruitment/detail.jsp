@@ -14,11 +14,15 @@
                 <!-- 채용공고 시작 -->
                 <div class="col-8">
 
-                     <div class="d-flex justify-content-between">
+                     <div>
+                        <h5><b>${recruitmentPostDtos.enterpriseName}</b></h5>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
                         <div>
-                        <h2><b>${recruitmentPostDtos.title}</b>
+                            <h2><b>${recruitmentPostDtos.title}</b>
                         </div>
-                        <div >
+                        <div>
                         <c:choose>
                             <c:when test="${bookmarkDto == null}">
                                 <div id="bookmark" class="fa-regular fa-bookmark fa-2x my-xl my-cursor w-100 h-100" value="${bookmarkDto.id}" onclick="bookmarkOrCancle()"></div>
@@ -29,8 +33,6 @@
                         </c:choose>
 
                         </div>
-                    <div>
-                        <h5><b>${recruitmentPostDtos.enterpriseName}</b></h5>
                     </div>
 
                     <div class="d-flex justify-content-between pb-3">
