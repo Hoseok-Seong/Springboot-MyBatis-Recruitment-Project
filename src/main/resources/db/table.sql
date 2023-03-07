@@ -70,6 +70,7 @@ create table apply_tb(
     sector varchar(100),
     apply_resume_id int not null,
     result boolean null,
+    notify boolean default false,
     created_at timestamp not null
 );
 

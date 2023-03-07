@@ -717,7 +717,6 @@
                             const eventSource = new EventSource('/notify');
                             eventSource.onmessage = function(event) {
                                 const data = event.data;
-                                console.log('Received event: ' + data);
                                 alert(data);
                                 eventSource.close();
                             };

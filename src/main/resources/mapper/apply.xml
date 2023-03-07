@@ -56,10 +56,14 @@
    </select>
 
    <update id="updateResultById">
-      update apply_tb set result = #{result} where id = #{id}
+      update apply_tb set result = #{result}, notify = #{notify} where id = #{id}
    </update>
 
-   <select id="findResult" resultType="boolean">
-      select result from apply_tb where id = #{id}
+   <select id="findNotifyByUserId" resultType="shop.mtcoding.job.dto.apply.ApplyRespDto$NotifyListRespDto">
+      select notify from apply_tb where user_id = #{userId}
    </select>
+
+   <update id="updateNotifyById">
+      update apply_tb set notify = #{notify} where user_id = #{userId}
+   </update>
 </mapper>

@@ -15,5 +15,6 @@ public class Apply {
     private String sector;
     private int applyResumeId;
     private Boolean result;
+    private Boolean notify;
     private Timestamp createdAt;
 }

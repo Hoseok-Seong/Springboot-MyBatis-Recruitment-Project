@@ -25,5 +25,6 @@ public class ApplyReqDto {
     @Setter
     public static class UpdateApplicantResultReqDto {
         private boolean result;
+        private boolean notify;
     }
 }

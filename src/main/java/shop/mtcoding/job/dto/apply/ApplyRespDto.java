@@ -42,4 +42,10 @@ public class ApplyRespDto {
             return DateUtil.format(createdAt);
         }
     }
+
+    @Getter
+    @Setter
+    public static class NotifyListRespDto {
+        private Boolean notify;
+    }
 }
