@@ -57,15 +57,15 @@ create table resume_tb(
 
 create table bookmark_tb(
     id int auto_increment primary key,
-    user_id int not null unique,
-    enterprise_id int not null unique,
+    user_id int not null,
+    recruitment_id int not null,    
     created_at timestamp not null
 );
 
 create table apply_tb(
     id int auto_increment primary key,
     user_id int not null,
-    enterprise_id int not null,
+    enterprise_id int not null,  
     recruitment_post_id int not null,
     sector varchar(100),
     apply_resume_id int not null,

@@ -92,7 +92,7 @@ public class UserController {
     }
 
     @PostMapping("/user/join")
-    public String userJoin(JoinUserReqDto joinUserReqDto, @RequestParam List<String> skill) {
+    public String userJoin(JoinUserReqDto joinUserReqDto, @RequestParam(required = false) List<Integer> skill) {
         if (joinUserReqDto.getUsername() == null || joinUserReqDto.getUsername().isEmpty()) {
             throw new CustomException("아이디를 작성해주세요");
         }
@@ -133,7 +133,7 @@ public class UserController {
     }
 
     @PostMapping("/user/update")
-    public String userUpdate(UpdateUserReqDto updateUserReqDto) {
+    public String userUpdate(UpdateUserReqDto updateUserReqDto, @RequestParam("skill") List<Integer> skill) {
         User principal = (User) session.getAttribute("principal");
         if (principal == null) {
             throw new CustomException("회원 인증이 되지 않았습니다. 로그인을 해주세요.", HttpStatus.UNAUTHORIZED);
@@ -149,7 +149,7 @@ public class UserController {
             throw new CustomException("전화번호를 입력해주세요");
         }
 
-        userService.유저회원정보수정하기(updateUserReqDto, principal.getId());
+        userService.유저회원정보수정하기(updateUserReqDto, principal.getId(), skill);
         session.invalidate();
 
         return "redirect:/";

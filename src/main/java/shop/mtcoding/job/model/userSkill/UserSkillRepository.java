@@ -14,13 +14,17 @@ public interface UserSkillRepository {
 
     public UserSkill findById(int id);
 
-    public int insert(@Param("userId") int userId, @Param("skill") String skill);
+    public int insert(@Param("userId") int userId, @Param("skill") Integer skill);
 
-    public int updateById(UserSkill skill);
+    // public int updateById(UserSkill userSkill);
 
     public int deleteById(int id);
+
+    public int deleteByUserId(int userId);
 
     public List<UserMatchingDto> userMatching(int id);
 
     public List<UserSkill> findByUserId(int userId);
+
+    
 }

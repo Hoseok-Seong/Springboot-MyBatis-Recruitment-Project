@@ -3,6 +3,7 @@ package shop.mtcoding.job.model.bookmark;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface BookmarkRepository {
@@ -15,4 +16,9 @@ public interface BookmarkRepository {
         public int updateById(Bookmark bookmark);
 
         public int deleteById(int id);
+        
+        public Bookmark findByRecruitmentIdAndUserId(@Param("recruitmentId") int recruitmentId,
+                        @Param("userId") int userId);
+
+        public List<Bookmark> findByBoardId(int enterpriseId);
 }

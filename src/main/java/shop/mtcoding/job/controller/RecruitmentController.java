@@ -30,17 +30,29 @@ import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentP
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostSearchRespDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
+import shop.mtcoding.job.model.bookmark.BookmarkRepository;
 import shop.mtcoding.job.model.enterprise.Enterprise;
+import shop.mtcoding.job.model.enterprise.EnterpriseRepository;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
 import shop.mtcoding.job.model.recruitmentSkill.RecruitmentSkillRepository;
 import shop.mtcoding.job.model.resume.ResumeRepository;
 import shop.mtcoding.job.model.user.User;
+import shop.mtcoding.job.service.BookmarkService;
 import shop.mtcoding.job.service.RecruitmentService;
 import shop.mtcoding.job.util.DateUtil;
 
 @Controller
 public class RecruitmentController {
+
+    @Autowired
+    private BookmarkRepository bookmarkRepository;
+
+    @Autowired
+    private EnterpriseRepository enterpriseRepository;
+
+    @Autowired
+    private BookmarkService bookmarkService;
 
     @Autowired
     private RecruitmentPostRepository recruitmentPostRepository;
@@ -239,6 +251,11 @@ public class RecruitmentController {
 
     @GetMapping("/recruitment/detail/{id}")
     public String recruitmentPostDetail(@PathVariable int id, Model model) {
+        User principal = (User) session.getAttribute("principal");
+        if (principal != null) {
+            model.addAttribute("bookmarkDto",
+                    bookmarkRepository.findByRecruitmentIdAndUserId(id, principal.getId()));
+        }
         RecruitmentPostDetailRespDto recruitmentPostDto = recruitmentPostRepository.findByIdWithEnterpriseId(id);
 
         // d-day 계산
@@ -264,7 +281,6 @@ public class RecruitmentController {
         model.addAttribute("skillMap", skillMap);
         model.addAttribute("recruitmentPostSkillDtos", recruitmentSkillRepository.findByRecruitmentId(id));
 
-        User principal = (User) session.getAttribute("principal");
         if (principal != null) {
             model.addAttribute("resumes", resumeRepository.findByUserId(principal.getId()));
         }
