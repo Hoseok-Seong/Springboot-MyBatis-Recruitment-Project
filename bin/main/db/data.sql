@@ -27,10 +27,9 @@ insert into user_skill_tb(user_id, skill) values(1, 1);
 insert into user_skill_tb(user_id, skill) values(1, 2);
 insert into user_skill_tb(user_id, skill) values(1, 3);
 insert into user_skill_tb(user_id, skill) values(1, 4);
-insert into user_skill_tb(user_id, skill) values(1, 5);
+insert into user_skill_tb(user_id, skill) values(2, 5);
 insert into user_skill_tb(user_id, skill) values(2, 6);
 insert into user_skill_tb(user_id, skill) values(2, 7);
-insert into user_skill_tb(user_id, skill) values(2, 8);
 insert into user_skill_tb(user_id, skill) values(2, 8);
 
 insert into recruitment_skill_tb(recruitment_id, skill ) values(1, 2);

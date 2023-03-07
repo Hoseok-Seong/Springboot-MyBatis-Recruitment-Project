@@ -4,10 +4,10 @@
     <insert id="insert">
       insert into user_skill_tb(user_id, skill) values(#{userId}, #{skill}) 
     </insert>
-    
-   <!-- <update id="updateById">
+     
+   <update id="updateById">
       update user_skill_tb set user_id = #{userId}, skill=#{skill} where id = #{id}
-   </update> -->
+   </update>
 
    <select id="findAll" resultType="shop.mtcoding.job.model.userSkill.UserSkill">
       select * from user_skill_tb

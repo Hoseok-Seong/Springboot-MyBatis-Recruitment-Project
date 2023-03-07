@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
-import shop.mtcoding.job.handler.exception.CustomException;
-import shop.mtcoding.job.model.enterprise.Enterprise;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.service.BookmarkService;
 
