@@ -254,7 +254,7 @@ public class RecruitmentController {
         User principal = (User) session.getAttribute("principal");
         if (principal != null) {
             model.addAttribute("bookmarkDto",
-                    bookmarkRepository.findByEnterpriseIdAndUserId(id, principal.getId()));
+                    bookmarkRepository.findByRecruitmentIdAndUserId(id, principal.getId()));
         }
         RecruitmentPostDetailRespDto recruitmentPostDto = recruitmentPostRepository.findByIdWithEnterpriseId(id);
 

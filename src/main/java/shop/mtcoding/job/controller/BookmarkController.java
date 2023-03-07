@@ -17,6 +17,7 @@ import shop.mtcoding.job.dto.ResponseDto;
 import shop.mtcoding.job.dto.bookmark.BookmarkReqDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.model.bookmark.BookmarkRepository;
+import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;
 import shop.mtcoding.job.model.user.User;
 import shop.mtcoding.job.service.BookmarkService;
 
@@ -32,14 +33,15 @@ public class BookmarkController {
     @Autowired
     private BookmarkRepository bookmarkRepository;
 
-    @PostMapping("/bookmark")
-    public ResponseEntity<?> bookmark(@RequestBody BookmarkReqDto bookmarkReqDto, Model model) {
+    @PostMapping("/bookmark/{id}")
+    public ResponseEntity<?> bookmark(@PathVariable int id) {
         User principal = (User) session.getAttribute("principal");
         if (principal == null) {
             throw new CustomApiException("로그인이 필요합니다", HttpStatus.UNAUTHORIZED);
         }
+        RecruitmentPost recruitmentPost = new RecruitmentPost();
 
-        int bookmarkId = bookmarkService.북마크하기(bookmarkReqDto.getEnterpriseId(), principal.getId());
+        int bookmarkId = bookmarkService.북마크하기(id, principal.getId());
 
         return new ResponseEntity<>(new ResponseDto<>(1, "북마크 성공", bookmarkId), HttpStatus.OK);
     }

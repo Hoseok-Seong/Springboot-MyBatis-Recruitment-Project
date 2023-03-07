@@ -630,78 +630,78 @@
                                                                 <div class="card card-body">
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="checkbox" name="skill"
-                                                                            value="1" id="flexCheckDefault1">
-                                                                        <label class="form-check-label" for="flexCheckDefault1">
+                                                                            value="1" id="1flexCheckDefault1">
+                                                                        <label class="form-check-label" for="1flexCheckDefault1">
                                                                             Java
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="checkbox" name="skill"
-                                                                            value="2" id="flexCheckDefault2">
-                                                                        <label class="form-check-label" for="flexCheckDefault2">
+                                                                            value="2" id="2flexCheckDefault2">
+                                                                        <label class="form-check-label" for="2flexCheckDefault2">
                                                                             Html
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="checkbox" name="skill"
-                                                                            value="3" id="flexCheckDefault3">
-                                                                        <label class="form-check-label" for="flexCheckDefault3">
+                                                                            value="3" id="3flexCheckDefault3">
+                                                                        <label class="form-check-label" for="3flexCheckDefault3">
                                                                             JavaScript
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="checkbox" name="skill"
-                                                                            value="4" id="flexCheckDefault4">
-                                                                        <label class="form-check-label" for="flexCheckDefault4">
+                                                                            value="4" id="4flexCheckDefault4">
+                                                                        <label class="form-check-label" for="4flexCheckDefault4">
                                                                             VueJS
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="checkbox" name="skill"
-                                                                            value="5" id="flexCheckDefault5">
-                                                                        <label class="form-check-label" for="flexCheckDefault5">
+                                                                            value="5" id="5flexCheckDefault5">
+                                                                        <label class="form-check-label" for="5flexCheckDefault5">
                                                                             CSS
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="checkbox" name="skill"
-                                                                            value="6" id="flexCheckDefault6">
-                                                                        <label class="form-check-label" for="flexCheckDefault6">
+                                                                            value="6" id="6flexCheckDefault6">
+                                                                        <label class="form-check-label" for="6flexCheckDefault6">
                                                                             Node.js
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="checkbox" name="skill"
-                                                                            value="7" id="flexCheckDefault7">
-                                                                        <label class="form-check-label" for="flexCheckDefault7">
+                                                                            value="7" id="7flexCheckDefault7">
+                                                                        <label class="form-check-label" for="7flexCheckDefault7">
                                                                             React
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="checkbox" name="skill"
-                                                                            value="8" id="flexCheckDefault8">
-                                                                        <label class="form-check-label" for="flexCheckDefault8">
+                                                                            value="8" id="8flexCheckDefault8">
+                                                                        <label class="form-check-label" for="8flexCheckDefault8">
                                                                             ReactJs
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="checkbox" name="skill"
-                                                                            value="9" id="flexCheckDefault9">
-                                                                        <label class="form-check-label" for="flexCheckDefault9">
+                                                                            value="9" id="9flexCheckDefault9">
+                                                                        <label class="form-check-label" for="9flexCheckDefault9">
                                                                             Typescript
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="checkbox" name="skill"
-                                                                            value="10" id="flexCheckDefault10">
-                                                                        <label class="form-check-label" for="flexCheckDefault10">
+                                                                            value="10" id="10flexCheckDefault10">
+                                                                        <label class="form-check-label" for="10flexCheckDefault10">
                                                                             Zustand
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="checkbox" name="skill"
-                                                                            value="11" id="flexCheckDefault11">
-                                                                        <label class="form-check-label" for="flexCheckDefault11">
+                                                                            value="11" id="11flexCheckDefault11">
+                                                                        <label class="form-check-label" for="11flexCheckDefault11">
                                                                             AWS
                                                                         </label>
                                                                     </div>

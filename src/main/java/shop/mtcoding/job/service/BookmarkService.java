@@ -20,15 +20,15 @@ public class BookmarkService {
     private final RecruitmentPostRepository recruitmentPostRepository;
 
     @Transactional
-    public int 북마크하기(int enterpriseId, int userId) {
+    public int 북마크하기(int recruitmentId, int userId) {
 
-        // if (bookmarkRepository.findByEnterpriseIdAndUserId(enterpriseId, userId) !=
+        // if (bookmarkRepository.findByRecruitmentIdAndUserId(recruitmentId, userId) !=
         // null) {
         // throw new CustomApiException("이미 북마크한 공고 입니다");
         // }
 
         Bookmark bookmark = new Bookmark();
-        bookmark.setEnterpriseId(enterpriseId);
+        bookmark.setRecruitmentId(recruitmentId);
         bookmark.setUserId(userId);
         bookmarkRepository.insert(bookmark);
         // bookmark = bookmarkRepository.save(bookmark);

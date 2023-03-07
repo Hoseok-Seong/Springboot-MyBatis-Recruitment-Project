@@ -25,10 +25,10 @@
                         <div>
                         <c:choose>
                             <c:when test="${bookmarkDto == null}">
-                                <div id="bookmark" class="fa-regular fa-bookmark fa-2x my-xl my-cursor w-100 h-100" value="${bookmarkDto.id}" onclick="bookmarkOrCancle()"></div>
+                                <div id="bookmark" class="fa-regular fa-bookmark fa-2x my-xl my-cursor w-100 h-100" value="${bookmarkDto.id}" onclick="bookmarkOrCancle(`${recruitmentPostDtos.id}`)"></div>
                             </c:when>
                             <c:otherwise>
-                                <div id="bookmark" class="fa-solid fa-bookmark fa-2x my-xl my-cursor w-100 h-100" value="${bookmarkDto.id}" onclick="bookmarkOrCancle()" style="font-size: 24px;"></div>
+                                <div id="bookmark" class="fa-solid fa-bookmark fa-2x my-xl my-cursor w-100 h-100" value="${bookmarkDto.id}" onclick="bookmarkOrCancle(`${recruitmentPostDtos.id}`)" style="font-size: 24px;"></div>
                             </c:otherwise>
                         </c:choose>
 
@@ -161,6 +161,7 @@
                 <input type="hidden" name="enterpriseId" id="enterpriseId" value="${recruitmentPostDtos.enterpriseId}">
                 <input type="hidden" name="sector" id="sector" value="${recruitmentPostDtos.sector}">
                 <input type="hidden" name="resumeId" id="resumeId" value="${resume.id}">
+                <input type="hidden" name="recruitmentId" id="recruitmentId" value="${bookmarkDto.recruitmentId}">
                 <!-- 지원 창 시작 -->
                 <div class="col-4">
                     <div class="d-flex justify-content-center py-3">
@@ -290,21 +291,21 @@
         </div>
          <script>
     // location reload 사용하면 간단하게 해결이 가능하다.
-        function bookmarkOrCancle() {
+        function bookmarkOrCancle(recruitmentId) {
             let id = $("#bookmark").attr("value");
-            let enterpriseId = $("#enterpriseId").val();
+            // let recruitmentId = $("#recruitmentId").val();
         
             console.log(id);
-            console.log(enterpriseId);
+            console.log(recruitmentId);
              if (id === "" || id === "undefined"){
                
                 // 좋아요로 통신 요청 (POST)
                 let data = {
-                    enterpriseId : enterpriseId
+                    recruitmentId : recruitmentId
                 }
                 $.ajax({
                     type: "post",
-                    url: "/bookmark",
+                    url: "/bookmark/" +recruitmentId,
                     data: JSON.stringify(data),
                     contentType: 'application/json;charset=UTF-8',
                     dataType: "json"

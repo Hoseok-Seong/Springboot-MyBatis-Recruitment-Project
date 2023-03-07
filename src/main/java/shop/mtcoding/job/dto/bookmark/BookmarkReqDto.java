@@ -6,5 +6,5 @@ import lombok.Setter;
 @Setter
 @Getter
 public class BookmarkReqDto {
-    private Integer enterpriseId;
+    private Integer recruitmentId;
 }

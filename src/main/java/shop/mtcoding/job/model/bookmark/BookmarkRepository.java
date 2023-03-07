@@ -17,7 +17,7 @@ public interface BookmarkRepository {
 
         public int deleteById(int id);
         
-        public Bookmark findByEnterpriseIdAndUserId(@Param("enterpriseId") int enterpriseId,
+        public Bookmark findByRecruitmentIdAndUserId(@Param("recruitmentId") int recruitmentId,
                         @Param("userId") int userId);
 
         public List<Bookmark> findByBoardId(int enterpriseId);
