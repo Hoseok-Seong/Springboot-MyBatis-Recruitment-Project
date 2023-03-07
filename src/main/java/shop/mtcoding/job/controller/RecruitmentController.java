@@ -30,17 +30,29 @@ import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentP
 import shop.mtcoding.job.dto.recruitmentPost.RecruitmentPostRespDto.RecruitmentPostSearchRespDto;
 import shop.mtcoding.job.handler.exception.CustomApiException;
 import shop.mtcoding.job.handler.exception.CustomException;
+import shop.mtcoding.job.model.bookmark.BookmarkRepository;
 import shop.mtcoding.job.model.enterprise.Enterprise;
+import shop.mtcoding.job.model.enterprise.EnterpriseRepository;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPost;
 import shop.mtcoding.job.model.recruitmentPost.RecruitmentPostRepository;
 import shop.mtcoding.job.model.recruitmentSkill.RecruitmentSkillRepository;
 import shop.mtcoding.job.model.resume.ResumeRepository;
 import shop.mtcoding.job.model.user.User;
+import shop.mtcoding.job.service.BookmarkService;
 import shop.mtcoding.job.service.RecruitmentService;
 import shop.mtcoding.job.util.DateUtil;
 
 @Controller
 public class RecruitmentController {
+
+    @Autowired
+    private BookmarkRepository bookmarkRepository;
+
+    @Autowired
+    private EnterpriseRepository enterpriseRepository;
+
+    @Autowired
+    private BookmarkService bookmarkService;
 
     @Autowired
     private RecruitmentPostRepository recruitmentPostRepository;
@@ -239,6 +251,11 @@ public class RecruitmentController {
 
     @GetMapping("/recruitment/detail/{id}")
     public String recruitmentPostDetail(@PathVariable int id, Model model) {
+        User principal = (User) session.getAttribute("principal");
+        if (principal != null) {
+            model.addAttribute("bookmarkDto",
+                    bookmarkRepository.findByEnterpriseIdAndUserId(id, principal.getId()));
+        }
         RecruitmentPostDetailRespDto recruitmentPostDto = recruitmentPostRepository.findByIdWithEnterpriseId(id);
 
         // d-day 계산
@@ -248,23 +265,6 @@ public class RecruitmentController {
         model.addAttribute("recruitmentPostDtos", recruitmentPostDto);
         model.addAttribute("dDay", diffDays); // deadline
 
-        // 스킬 매핑 정보를 저장한 Map 객체를 만들어서 Model 객체에 추가
-        Map<Integer, String> skillMap = new HashMap<>();
-        skillMap.put(1, "Java");
-        skillMap.put(2, "HTML");
-        skillMap.put(3, "JavaScript");
-        skillMap.put(4, "VueJS");
-        skillMap.put(5, "CSS");
-        skillMap.put(6, "Node.js");
-        skillMap.put(7, "React");
-        skillMap.put(8, "ReactJS");
-        skillMap.put(9, "Typescript");
-        skillMap.put(10, "Zustand");
-        skillMap.put(11, "AWS");
-        model.addAttribute("skillMap", skillMap);
-        model.addAttribute("recruitmentPostSkillDtos", recruitmentSkillRepository.findByRecruitmentId(id));
-
-        User principal = (User) session.getAttribute("principal");
         if (principal != null) {
             model.addAttribute("resumes", resumeRepository.findByUserId(principal.getId()));
         }

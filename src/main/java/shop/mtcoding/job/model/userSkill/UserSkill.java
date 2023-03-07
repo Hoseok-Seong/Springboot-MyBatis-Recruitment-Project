@@ -1,5 +1,7 @@
 package shop.mtcoding.job.model.userSkill;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,5 +10,10 @@ import lombok.Setter;
 public class UserSkill {
     private int id;
     private int userId;
-    private int skill;
+    private Integer skill;
+
+
+    public void setSkill(Integer skill) {
+        skill = null;
+    }
 }

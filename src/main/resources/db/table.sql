@@ -57,9 +57,8 @@ create table resume_tb(
 
 create table bookmark_tb(
     id int auto_increment primary key,
-    user_id int not null unique,
-    enterprise_id int not null unique,    
-    count int not null,
+    user_id int not null,
+    enterprise_id int not null,    
     created_at timestamp not null
 );
 

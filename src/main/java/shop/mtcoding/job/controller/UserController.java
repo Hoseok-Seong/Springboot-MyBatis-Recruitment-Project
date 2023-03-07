@@ -91,7 +91,7 @@ public class UserController {
     }
 
     @PostMapping("/user/join")
-    public String userJoin(JoinUserReqDto joinUserReqDto, @RequestParam List<String> skill) {
+    public String userJoin(JoinUserReqDto joinUserReqDto, @RequestParam List<Integer> skill) {
         if (joinUserReqDto.getUsername() == null || joinUserReqDto.getUsername().isEmpty()) {
             throw new CustomException("아이디를 작성해주세요");
         }
@@ -132,7 +132,7 @@ public class UserController {
     }
 
     @PostMapping("/user/update")
-    public String userUpdate(UpdateUserReqDto updateUserReqDto, @RequestParam List<String> skill) {
+    public String userUpdate(UpdateUserReqDto updateUserReqDto, @RequestParam List<Integer> skill) {
         User principal = (User) session.getAttribute("principal");
         if (principal == null) {
             throw new CustomException("회원 인증이 되지 않았습니다. 로그인을 해주세요.", HttpStatus.UNAUTHORIZED);

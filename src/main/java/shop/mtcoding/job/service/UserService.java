@@ -43,7 +43,7 @@ public class UserService {
     }
 
     @Transactional
-    public void 유저가입하기(JoinUserReqDto joinUserReqDto, @RequestParam List<String> skill) {
+    public void 유저가입하기(JoinUserReqDto joinUserReqDto, List<Integer> skill) {
         // 1. 유저 유효성 검사
         User sameuser = userRepository.findByName(joinUserReqDto.getUsername());
 
@@ -63,20 +63,24 @@ public class UserService {
         } catch (NoSuchAlgorithmException e) {
             System.err.println("알고리즘을 찾을 수 없습니다: " + e.getMessage());
         }
-        try {
-            for (String checkSkill : skill) {
-                int result = userSkillRepository.insert(joinUserReqDto.getId(), checkSkill);
-                if (result != 1) {
-                    throw new CustomException("실패");
+        // 3. skill에 대한 처리
+        if (skill != null) { // skill이 0이 아닌 경우에만 처리
+            try {
+                for (Integer checkSkill : skill) {
+                    int result = userSkillRepository.insert(joinUserReqDto.getId(), checkSkill);
+                    if (result != 1) {
+                        throw new CustomException("실패");
+                    }
                 }
+            } catch (Exception e) {
+                throw new CustomException("skill insert 실패");
             }
-        } catch (Exception e) {
-            throw new CustomException("skill insert 실패");
         }
+        userSkillRepository.insert(joinUserReqDto.getId(), null);
     }
 
     @Transactional
-    public void 유저회원정보수정하기(UpdateUserReqDto updateUserReqDto, int id, @RequestParam List<String> skill) {
+    public void 유저회원정보수정하기(UpdateUserReqDto updateUserReqDto, int id, @RequestParam List<Integer> skill) {
 
         try {
             String sha256Hash = Sha256Encoder.sha256(updateUserReqDto.getPassword());
@@ -93,7 +97,7 @@ public class UserService {
         }
         userSkillRepository.deleteByUserId(id);
         try {
-            for (String checkSkill : skill) {
+            for (Integer checkSkill : skill) {
                 int result = userSkillRepository.insert(id, checkSkill);
                 if (result != 1) {
                     throw new CustomException("실패");

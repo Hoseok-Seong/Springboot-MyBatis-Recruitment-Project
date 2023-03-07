@@ -14,9 +14,21 @@
                 <!-- 채용공고 시작 -->
                 <div class="col-8">
 
-                    <div>
-                        <h1><b>${recruitmentPostDtos.title}</b></h1>
-                    </div>
+                     <div class="d-flex justify-content-between">
+                        <div>
+                        <h2><b>${recruitmentPostDtos.title}</b>
+                        </div>
+                        <div >
+                        <c:choose>
+                            <c:when test="${bookmarkDto == null}">
+                                <div id="bookmark" class="fa-regular fa-bookmark fa-2x my-xl my-cursor w-100 h-100" value="${bookmarkDto.id}" onclick="bookmarkOrCancle()"></div>
+                            </c:when>
+                            <c:otherwise>
+                                <div id="bookmark" class="fa-solid fa-bookmark fa-2x my-xl my-cursor w-100 h-100" value="${bookmarkDto.id}" onclick="bookmarkOrCancle()" style="font-size: 24px;"></div>
+                            </c:otherwise>
+                        </c:choose>
+
+                        </div>
                     <div>
                         <h5><b>${recruitmentPostDtos.enterpriseName}</b></h5>
                     </div>
@@ -274,6 +286,55 @@
                 <!-- 지원 창 끝 -->
             </div>
         </div>
+         <script>
+    // location reload 사용하면 간단하게 해결이 가능하다.
+        function bookmarkOrCancle() {
+            let id = $("#bookmark").attr("value");
+            let enterpriseId = $("#enterpriseId").val();
+        
+            console.log(id);
+            console.log(enterpriseId);
+             if (id === "" || id === "undefined"){
+               
+                // 좋아요로 통신 요청 (POST)
+                let data = {
+                    enterpriseId : enterpriseId
+                }
+                $.ajax({
+                    type: "post",
+                    url: "/bookmark",
+                    data: JSON.stringify(data),
+                    contentType: 'application/json;charset=UTF-8',
+                    dataType: "json"
+                }).done((res) => {
+                    console.log(res);
+                    alert(res.msg);
+                    $("#bookmark").attr("value",res.data);
+                    $("#bookmark").addClass("fa-solid");
+                    $("#bookmark").removeClass("fa-regular");
+                }).fail((err) => {
+                    alert(err.msg);
+                });
+                } else {
+                
+                // 좋아요 취소로 통신 요청 (DELETE)
+                
+                $.ajax({
+                    type: "delete",
+                    url: "/bookmark/"+id,
+                    dataType: "json"
+                }).done((res) => {
+                    $("#bookmark").attr("value","");
+                    $("#bookmark").removeClass("fa-solid");
+                    $("#bookmark").addClass("fa-regular");
+                    alert(res.msg);
+                }).fail((err) => {
+                    alert(err.msg);
+                    console.log(err);
+                });
+            }
+        }
+         </script>
         <script>
             function confirmApply() {
                 var selectedResume = document.querySelector('input[name="chooseResume"]:checked');
