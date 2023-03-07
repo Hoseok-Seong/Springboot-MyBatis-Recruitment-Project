@@ -11,6 +11,10 @@
       email = #{email}, size = #{size},sector=#{sector} where id = #{id}
    </update>
 
+   <select id="findByUserId" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
+      select * from enterprise_tb where id = #{id}  
+   </select>
+   
    <select id="findAll" resultType="shop.mtcoding.job.model.enterprise.Enterprise">
       select * from enterprise_tb
    </select>

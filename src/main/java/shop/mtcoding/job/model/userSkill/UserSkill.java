@@ -8,5 +8,10 @@ import lombok.Setter;
 public class UserSkill {
     private int id;
     private int userId;
-    private int skill;
+    private Integer skill;
+
+
+    public void setSkill(Integer skill) {
+        skill = null;
+    }
 }

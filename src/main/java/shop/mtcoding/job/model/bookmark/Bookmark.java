@@ -10,7 +10,6 @@ import lombok.Setter;
 public class Bookmark {
     private int id;
     private int userId;
-    private int enterpriseId;
-    private int count;
+    private int recruitmentId;
     private Timestamp createdAt;
 }

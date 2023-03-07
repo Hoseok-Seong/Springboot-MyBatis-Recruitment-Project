@@ -34,4 +34,6 @@ public interface EnterpriseRepository {
 
         public Enterprise findByEnterprisenameAndPassword(@Param("enterpriseName") String enterpriseName,
                         @Param("password") String password);
+
+        public Enterprise findByUserId(int id);
 }

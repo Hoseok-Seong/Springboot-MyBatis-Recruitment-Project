@@ -17,9 +17,9 @@ public class UserSkillController {
     private UserSkillRepository userSkillRepository;
 
     @PostMapping("/user/skill")
-    public String skill(int userId, @RequestParam List<String> skill) {
+    public String skill(int userId, @RequestParam("skill") List<Integer> skill) {
         try {
-            for (String checkSkill : skill) {
+            for (Integer checkSkill : skill) {
                 int result = userSkillRepository.insert(userId, checkSkill);
                 if (result != 1) {
                     throw new CustomException("실패");

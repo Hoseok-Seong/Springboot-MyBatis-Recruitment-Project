@@ -14,11 +14,25 @@
                 <!-- 채용공고 시작 -->
                 <div class="col-8">
 
-                    <div>
-                        <h1><b>${recruitmentPostDtos.title}</b></h1>
-                    </div>
-                    <div>
+                     <div>
                         <h5><b>${recruitmentPostDtos.enterpriseName}</b></h5>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h2><b>${recruitmentPostDtos.title}</b>
+                        </div>
+                        <div>
+                        <c:choose>
+                            <c:when test="${bookmarkDto == null}">
+                                <div id="bookmark" class="fa-regular fa-bookmark fa-2x my-xl my-cursor w-100 h-100" value="${bookmarkDto.id}" onclick="bookmarkOrCancle(`${recruitmentPostDtos.id}`)"></div>
+                            </c:when>
+                            <c:otherwise>
+                                <div id="bookmark" class="fa-solid fa-bookmark fa-2x my-xl my-cursor w-100 h-100" value="${bookmarkDto.id}" onclick="bookmarkOrCancle(`${recruitmentPostDtos.id}`)" style="font-size: 24px;"></div>
+                            </c:otherwise>
+                        </c:choose>
+
+                        </div>
                     </div>
 
                     <div class="d-flex justify-content-between pb-3">
@@ -147,6 +161,7 @@
                 <input type="hidden" name="enterpriseId" id="enterpriseId" value="${recruitmentPostDtos.enterpriseId}">
                 <input type="hidden" name="sector" id="sector" value="${recruitmentPostDtos.sector}">
                 <input type="hidden" name="resumeId" id="resumeId" value="${resume.id}">
+                <input type="hidden" name="recruitmentId" id="recruitmentId" value="${bookmarkDto.recruitmentId}">
                 <!-- 지원 창 시작 -->
                 <div class="col-4">
                     <div class="d-flex justify-content-center py-3">
@@ -274,6 +289,55 @@
                 <!-- 지원 창 끝 -->
             </div>
         </div>
+         <script>
+    // location reload 사용하면 간단하게 해결이 가능하다.
+        function bookmarkOrCancle(recruitmentId) {
+            let id = $("#bookmark").attr("value");
+            // let recruitmentId = $("#recruitmentId").val();
+        
+            console.log(id);
+            console.log(recruitmentId);
+             if (id === "" || id === "undefined"){
+               
+                // 좋아요로 통신 요청 (POST)
+                let data = {
+                    recruitmentId : recruitmentId
+                }
+                $.ajax({
+                    type: "post",
+                    url: "/bookmark/" +recruitmentId,
+                    data: JSON.stringify(data),
+                    contentType: 'application/json;charset=UTF-8',
+                    dataType: "json"
+                }).done((res) => {
+                    console.log(res);
+                    alert(res.msg);
+                    $("#bookmark").attr("value",res.data);
+                    $("#bookmark").addClass("fa-solid");
+                    $("#bookmark").removeClass("fa-regular");
+                }).fail((err) => {
+                    alert(err.msg);
+                });
+                } else {
+                
+                // 좋아요 취소로 통신 요청 (DELETE)
+                
+                $.ajax({
+                    type: "delete",
+                    url: "/bookmark/"+id,
+                    dataType: "json"
+                }).done((res) => {
+                    $("#bookmark").attr("value","");
+                    $("#bookmark").removeClass("fa-solid");
+                    $("#bookmark").addClass("fa-regular");
+                    alert(res.msg);
+                }).fail((err) => {
+                    alert(err.msg);
+                    console.log(err);
+                });
+            }
+        }
+         </script>
         <script>
             function confirmApply() {
                 var selectedResume = document.querySelector('input[name="chooseResume"]:checked');
