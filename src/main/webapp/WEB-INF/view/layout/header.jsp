@@ -169,21 +169,15 @@
                                         </ul>
                                         <div class="tab-content ">
                                             <div class="tab-pane fade show active" id="loginUser">
-                                                <table class="table table-borderless">
+                                                <div class="form-floating" style="padding: 8px">
+                                                    <input type="text" value="${remember}" class="form-control form-control-lg" id="usernameCheck" name="username" placeholder="아이디">
+                                                    <label for="usernameCheck">아이디</label>
+                                                </div>
+                                                <div class="form-floating" style="padding: 8px">
+                                                    <input type="password" class="form-control form-control-lg" id="passwordCheck" name="password" placeholder="비밀번호">
+                                                    <label for="passwordCheck">비밀번호</label>
+                                                </div>
 
-                                                    <tr class="text-center">
-                                                        <!-- input의 크기는 class="form-control-lg" 로 늘린다. -->
-                                                        <td><input type="text" value="${remember}"
-                                                                class="form-control-lg w-100" id="usernameCheck"
-                                                                name="username" placeholder="아이디"></td>
-                                                    </tr>
-
-                                                    <tr class="text-center">
-                                                        <td><input type="password" class="form-control-lg w-100"
-                                                                id="passwordCheck" name="password" placeholder="비밀번호">
-                                                        </td>
-                                                    </tr>
-                                                </table>
                                                 <button type="submit" class="btn login-btn-custom btn-sm me-2"
                                                     onclick="userLogin()" style="float:right;">로그인</button>
                                                 <input class="ms-2" type="checkbox" name="remember"> 아이디 기억<br><br>
@@ -191,20 +185,15 @@
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="loginEnterprise">
-                                                <table class="table table-borderless">
+                                                <div class="form-floating" style="padding: 8px;">
+                                                    <input type="text" value="${remember}" class="form-control form-control-lg" id="enterpriseName" name="enterpriseName" placeholder="아이디">
+                                                    <label for="enterpriseName">아이디</label>
+                                                </div>
+                                                <div class="form-floating" style="padding: 8px;">
+                                                    <input type="password" class="form-control form-control-lg" id="enterpassword" name="password" placeholder="비밀번호">
+                                                    <label for="enterpassword">비밀번호</label>
+                                                </div>
 
-                                                    <tr class="text-center ">
-                                                        <td><input type="text" value="${remember}"
-                                                                class="form-control-lg w-100" id="enterpriseName"
-                                                                name="enterpriseName" placeholder="아이디"></td>
-                                                    </tr>
-
-                                                    <tr class="text-center">
-                                                        <td><input type="password" class="form-control-lg w-100"
-                                                                id="enterpassword" name="password" placeholder="비밀번호">
-                                                        </td>
-                                                    </tr>
-                                                </table>
                                                 <button type="submit" class="btn login-btn-custom btn-sm me-2"
                                                     onclick="enterpriseLogin()" style="float:right;">로그인</button>
                                                 <input class="ms-2" type="checkbox" name="rememberEnt"> 아이디
@@ -245,42 +234,42 @@
                                     <div class="tab-pane fade show active" id="joinUser">
                                         <form id="signup-form" action="/user/join" method="post"
                                             onsubmit="return valid()">
-                                            <table class="table table-borderless">
-                                                <div class="text-center d-flex justify-content-end"><br>
-                                                    <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
-                                                        <td><input type="text" id="username"
-                                                                class="form-control-lg col-9" name="username"
-                                                                placeholder="아이디">
-                                                            <button type="button"
-                                                                class="btn btn-custom btn-sm col-2 my-2 me-3"
-                                                                onclick="sameCheck()" style="float:right;">중복확인</button>
-                                                        </td>
+
+                                                <div class="form-floating d-flex justify-content-end" style="padding: 8px;">
+                                                    <input type="text" id="username"
+                                                                    class="form-control form-control-lg" name="username"
+                                                                    placeholder="아이디">
+                                                    <label for="username">아이디</label>
+                                                    <button type="button"
+                                                        class="btn btn-custom btn-sm col-2"
+                                                        onclick="sameCheck()" style="float:right;">중복확인</button>
                                                 </div>
-                                                <tr class="text-center">
-                                                    <td><input type="password" class="form-control-lg w-100"
-                                                            id="password" name="password" placeholder="비밀번호" required>
-                                                    </td>
-                                                </tr>
-                                                <tr class="text-center">
-                                                    <td><input type="password" class="form-control-lg w-100"
-                                                            placeholder="비밀번호 확인" id="confirm-password"
-                                                            name="confirm-password" required>
-                                                    </td>
-                                                </tr>
-                                                <tr class="text-center">
-                                                    <td><input type="text" class="form-control-lg w-100" name="name"
-                                                            placeholder="이름"></td>
-                                                </tr>
-                                                <tr class="text-center">
-                                                    <td><input type="text" class="form-control-lg w-100" name="email"
-                                                            placeholder="이메일"></td>
-                                                </tr>
-                                                <div class="text-center">
-                                                    <td><input type="text" class="form-control-lg w-100" name="contact"
-                                                            placeholder="전화번호">
-                                                    </td>
+
+                                                <div class="form-floating" style="padding: 8px">
+                                                    <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="비밀번호">
+                                                    <label for="password">비밀번호</label>
                                                 </div>
-                                            </table>
+
+                                                <div class="form-floating" style="padding: 8px">
+                                                    <input type="password" class="form-control form-control-lg" id="confirm-password" name="confirm-password" placeholder="비밀번호 확인">
+                                                    <label for="confirm-password">비밀번호 확인</label>
+                                                </div>
+
+                                                <div class="form-floating" style="padding: 8px">
+                                                    <input type="text" class="form-control form-control-lg" name="name" placeholder="이름">
+                                                    <label for="name">이름</label>
+                                                </div>
+
+                                                <div class="form-floating" style="padding: 8px">
+                                                    <input type="text" class="form-control form-control-lg" name="email" placeholder="이메일">
+                                                    <label for="email">이메일</label>
+                                                </div>
+
+                                                <div class="form-floating" style="padding: 8px">
+                                                    <input type="text" class="form-control form-control-lg" name="contact" placeholder="전화번호">
+                                                    <label for="contact">전화번호</label>
+                                                </div>
+
                                             <a class="btn btn-custom ms-2" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#collapseExample" aria-expanded="false"
                                                 aria-controls="collapseExample">
@@ -386,44 +375,38 @@
                                     <div class="tab-pane fade" id="joinEnterprise">
                                         <form id="entsignup-form" action="/enterprise/join" method="post"
                                             onsubmit="return valid()">
-                                            <table class="table table-borderless">
-                                                <div class="text-center d-flex justify-content-end"><br>
-                                                    <%-- input의 크기는 class="form-control-lg" 로 늘린다. --%>
-                                                        <td><input type="text" id="enterpriseNameCheck"
-                                                                class="form-control-lg w-75 col-9" name="enterpriseName"
-                                                                placeholder="아이디">
-                                                            <button type="button"
-                                                                class="btn btn-custom btn-sm col-2 my-2 me-3"
-                                                                onclick="sameCheckEnt()"
-                                                                style="float:right;">중복확인</button>
-                                                        </td>
-                                                </div>
-                                                <tr class="text-center">
-                                                    <td><input type="password" class="form-control-lg w-100"
-                                                            id="entpassword" name="password" placeholder="비밀번호"
-                                                            required>
-                                                    </td>
-                                                </tr>
-                                                <tr class="text-center">
-                                                    <td><input type="password" class="form-control-lg w-100"
-                                                            placeholder="비밀번호 확인" id="entconfirm-password"
-                                                            name="confirm-password" required>
-                                                    </td>
-                                                </tr>
-                                                <tr class="text-center">
-                                                    <td><input type="text" class="form-control-lg w-100" name="address"
-                                                            placeholder="주소"></td>
-                                                </tr>
-                                                <div class="text-center">
-                                                    <td><input type="text" class="form-control-lg w-100" name="contact"
-                                                            placeholder="전화번호">
-                                                    </td>
-                                                </div>
-                                                <tr class="text-center">
-                                                    <td><input type="text" class="form-control-lg w-100" name="email"
-                                                            placeholder="이메일"></td>
-                                                </tr>
-                                            </table>
+
+                                            <div class="form-floating d-flex justify-content-end" style="padding: 8px;">
+                                                <input type="text" id="enterpriseNameCheck" class="form-control form-control-lg" name="enterpriseName" placeholder="아이디">
+                                                <label for="enterpriseName">아이디</label>
+                                                <button type="button" class="btn btn-custom btn-sm col-2" onclick="sameCheckEnt()" style="float:right;">중복확인</button>
+                                            </div>
+
+                                            <div class="form-floating" style="padding: 8px">
+                                                <input type="password" class="form-control form-control-lg" id="entpassword" name="password" placeholder="비밀번호">
+                                                <label for="entpassword">비밀번호</label>
+                                            </div>
+
+                                            <div class="form-floating" style="padding: 8px">
+                                                <input type="password" class="form-control form-control-lg" id="entconfirm-password" name="confirm-password" placeholder="비밀번호 확인">
+                                                <label for="entconfirm-password">비밀번호 확인</label>
+                                            </div>
+
+                                            <div class="form-floating" style="padding: 8px">
+                                                <input type="text" class="form-control form-control-lg" name="address" placeholder="주소">
+                                                <label for="address">주소</label>
+                                            </div>
+
+                                            <div class="form-floating" style="padding: 8px">
+                                                <input type="text" class="form-control form-control-lg" name="contact" placeholder="전화번호">
+                                                <label for="contact">전화번호</label>
+                                            </div>
+
+                                            <div class="form-floating" style="padding: 8px">
+                                                <input type="text" class="form-control form-control-lg" name="email" placeholder="이메일">
+                                                <label for="email">이메일</label>
+                                            </div>
+
                                             <div class="form-control-sm">
                                                 &nbsp;회사분류
                                                 <label for="exampleFormControlSelect4"></label>

@@ -112,7 +112,7 @@
                                                 <dt class="badge rounded-pill text-bg-warning" style="font-size: 12px;"><b>${post.diffDays}일 남았습니다</b></dt>
                                             </c:when>
                                             <c:otherwise>
-                                                <dt class="badge rounded-pill text-bg-success" style="font-size: 12px;"><b>D-${post.diffDays}일 남았습니다</b></dt>
+                                                <dt class="badge rounded-pill text-bg-success" style="font-size: 12px;"><b>${post.diffDays}일 남았습니다</b></dt>
                                             </c:otherwise>
                                         </c:choose>
                                         <div class="jm_company_name my-text-ellipsis">${post.title}</div>

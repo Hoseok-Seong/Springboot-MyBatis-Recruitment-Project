@@ -84,7 +84,6 @@ public class ResumeControllerTest {
         resumeUpdateReqDto.setAddress("주소1-수정");
         resumeUpdateReqDto.setLink("링크1-수정");
         resumeUpdateReqDto.setEducation("학력1-수정");
-        resumeUpdateReqDto.setFile("파일1-수정");
         resumeUpdateReqDto.setLanguage("외국어1-수정");
 
         String requestBody = om.writeValueAsString(resumeUpdateReqDto);
