@@ -9,6 +9,7 @@ public class EnterpriseReqDto {
     public static class LoginEnterpriseReqDto {
         private String enterpriseName;
         private String password;
+        private String rememberEnt;
     }
 
     @Setter

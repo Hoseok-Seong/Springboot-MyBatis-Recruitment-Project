@@ -82,10 +82,6 @@
                                     <c:choose>
                                         <c:when test="${not empty principal or not empty principalEnt}">
                                             <!-- 세션에 principal 또는 principalEnt 중 하나 이상이 존재하는 경우 -->
-                                            <!-- <li class="nav-item">
-                                                <a class="nav-link text-dark" href=""><i class=" bi
-                                                bi-bell"></i></a>
-                                            </li> -->
                                             <li class="nav-item">
                                                 <div class="dropdown">
                                                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
@@ -178,7 +174,7 @@
 
                                                     <tr class="text-center">
                                                         <!-- input의 크기는 class="form-control-lg" 로 늘린다. -->
-                                                        <td><input type="text" value="${remember}"
+                                                        <td><input type="text" value="${cookie.remember.value}"
                                                                 class="form-control-lg w-100" id="usernameCheck"
                                                                 name="username" placeholder="아이디"></td>
                                                     </tr>
@@ -199,7 +195,7 @@
                                                 <table class="table table-borderless">
 
                                                     <tr class="text-center ">
-                                                        <td><input type="text" value="${remember}"
+                                                        <td><input type="text" value="${cookie.rememberEnt.value}"
                                                                 class="form-control-lg w-100" id="enterpriseName"
                                                                 name="enterpriseName" placeholder="아이디"></td>
                                                     </tr>
@@ -544,9 +540,11 @@
                     </script>
                     <script>
                         function enterpriseLogin() {
+                            var rememberEnt = document.querySelector('input[name="rememberEnt"]').checked;
                             let data = {
                                 enterpriseName: $("#enterpriseName").val(),
                                 password: $("#enterpassword").val(),
+                                rememberEnt: rememberEnt
                             };
                             $.ajax({
                                 type: "post",
@@ -564,9 +562,11 @@
 
                     <script>
                         function userLogin() {
+                            var remember = document.querySelector('input[name="remember"]').checked;
                             let data = {
                                 username: $("#usernameCheck").val(),
                                 password: $("#passwordCheck").val(),
+                                remember: remember
                             };
                             $.ajax({
                                 type: "post",

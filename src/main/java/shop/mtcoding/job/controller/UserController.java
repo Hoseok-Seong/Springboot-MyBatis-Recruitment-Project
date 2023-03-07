@@ -63,20 +63,19 @@ public class UserController {
         }
 
         // 4. 아이디 기억
-        // 요청헤더 : Cookie
-        // 응답헤더 : Set-Cookie
-        if (remember == null) {
-            remember = "";
-        }
-        if (remember.equals("on")) {
+        if (loginUserReqDto.getRemember().equals("true")) {
             Cookie cookie = new Cookie("remember", loginUserReqDto.getUsername());
+            cookie.setPath("/");
+            cookie.setMaxAge(600);
             response.addCookie(cookie);
-        } else {
+        }
+
+        if (loginUserReqDto.getRemember().equals("false")) {
             Cookie cookie = new Cookie("remember", "");
             cookie.setMaxAge(0);
             response.addCookie(cookie);
-
         }
+
         return new ResponseEntity<>(new ResponseDto<>(1, "로그인 성공", null), HttpStatus.CREATED);
     }
 
