@@ -30,14 +30,12 @@
    </delete>
 
    <select id="enterpriseMatching" resultType="shop.mtcoding.job.dto.recruitmentSkill.EnterpriseMatchingDto">
-      select e.id as enterprise_id, u.username, u.email, r.birthdate, u.contact, u.name
+      select distinct e.id as enterprise_id, u.username, u.email, u.contact, u.name
       from enterprise_tb e
-      join recruitment_post_tb rt on e.id = rt.enterprise_id
-      join recruitment_skill_tb rs on rs.recruitment_id = rt.id
+      join recruitment_skill_tb rs on rs.recruitment_id = e.id
       join user_skill_tb us on us.skill = rs.skill
       join user_tb u on u.id = us.user_id
-      join resume_tb r on r.user_id = u.id
-      group by e.id, u.username, r.birthdate
+      group by e.id, u.username
       having e.id = #{id}
     </select>
 </mapper>
