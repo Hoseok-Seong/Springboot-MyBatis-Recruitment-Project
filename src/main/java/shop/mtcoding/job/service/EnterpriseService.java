@@ -29,10 +29,10 @@ public class EnterpriseService {
             if (salt == null) {
                 throw new CustomApiException("아이디가 존재하지 않습니다");
             }
-            String sha256Hash = Sha256Encoder.sha256(loginEnterpriseReqDto.getPassword());
+            String sha256Hash = Sha256Encoder.sha256(loginEnterpriseReqDto.getPassword() + salt);
             Enterprise principalEnt = enterpriseRepository.findByEnterprisenameAndPassword(
                     loginEnterpriseReqDto.getEnterpriseName(),
-                    sha256Hash + "_" + salt);
+                    sha256Hash);
             return principalEnt;
         } catch (NoSuchAlgorithmException e) {
             System.err.println("알고리즘을 찾을 수 없습니다: " + e.getMessage());
@@ -50,9 +50,9 @@ public class EnterpriseService {
         }
         // 2. 암호화 후 db에 insert하기
         try {
-            String sha256Hash = Sha256Encoder.sha256(joinEnterpriseReqDto.getPassword());
             String salt = SaltEncoder.salt();
-            int result = enterpriseRepository.insert(joinEnterpriseReqDto.getEnterpriseName(), sha256Hash + "_" + salt,
+            String sha256Hash = Sha256Encoder.sha256(joinEnterpriseReqDto.getPassword() + salt);
+            int result = enterpriseRepository.insert(joinEnterpriseReqDto.getEnterpriseName(), sha256Hash,
                     salt,
                     joinEnterpriseReqDto.getAddress(), joinEnterpriseReqDto.getContact(),
                     joinEnterpriseReqDto.getEmail(), joinEnterpriseReqDto.getSize(),
@@ -71,13 +71,10 @@ public class EnterpriseService {
     public void 기업정보수정하기(UpdateEnterpriseReqDto updateEnterpriseReqDto, int id) {
 
         try {
-            Enterprise enterprise = enterpriseRepository.findById(id);
-            String savedSalt = enterprise.getSalt();
-
-            String sha256Hash = Sha256Encoder.sha256(updateEnterpriseReqDto.getPassword());
-            String salt = savedSalt;
+            String salt = SaltEncoder.salt();
+            String sha256Hash = Sha256Encoder.sha256(updateEnterpriseReqDto.getPassword() + salt);
             int result = enterpriseRepository.updateById(id,
-                    sha256Hash + "_" + salt,
+                    sha256Hash,
                     salt,
                     updateEnterpriseReqDto.getAddress(), updateEnterpriseReqDto.getContact(),
                     updateEnterpriseReqDto.getEmail(), updateEnterpriseReqDto.getSize(),

@@ -33,9 +33,9 @@ public class UserService {
             if (salt == null) {
                 throw new CustomApiException("아이디가 존재하지 않습니다");
             }
-            String sha256Hash = Sha256Encoder.sha256(loginUserReqDto.getPassword());
+            String sha256Hash = Sha256Encoder.sha256(loginUserReqDto.getPassword() + salt);
             User principal = userRepository.findByUsernameAndPassword(loginUserReqDto.getUsername(),
-                    sha256Hash + "_" + salt);
+                    sha256Hash);
             return principal;
         } catch (NoSuchAlgorithmException e) {
             System.err.println("알고리즘을 찾을 수 없습니다: " + e.getMessage());
@@ -53,9 +53,9 @@ public class UserService {
         }
         // 2. 암호화 후 db에 insert하기
         try {
-            String sha256Hash = Sha256Encoder.sha256(joinUserReqDto.getPassword());
             String salt = SaltEncoder.salt();
-            int result = userRepository.insert(joinUserReqDto.getUsername(), sha256Hash + "_" + salt, salt,
+            String sha256Hash = Sha256Encoder.sha256(joinUserReqDto.getPassword() + salt);
+            int result = userRepository.insert(joinUserReqDto.getUsername(), sha256Hash, salt,
                     joinUserReqDto.getName(), joinUserReqDto.getEmail(), joinUserReqDto.getContact());
             if (result != 1) {
                 throw new CustomException("회원가입이 실패하였습니다");
@@ -83,10 +83,10 @@ public class UserService {
     public void 유저회원정보수정하기(UpdateUserReqDto updateUserReqDto, int id, @RequestParam List<Integer> skill) {
 
         try {
-            String sha256Hash = Sha256Encoder.sha256(updateUserReqDto.getPassword());
             String salt = SaltEncoder.salt();
+            String sha256Hash = Sha256Encoder.sha256(updateUserReqDto.getPassword() + salt);
             int result = userRepository.updateById(id,
-                    sha256Hash + "_" + salt, salt,
+                    sha256Hash, salt,
                     updateUserReqDto.getEmail(),
                     updateUserReqDto.getContact());
             if (result != 1) {
