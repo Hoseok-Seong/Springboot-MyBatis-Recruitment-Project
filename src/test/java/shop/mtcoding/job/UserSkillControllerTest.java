@@ -14,7 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
 public class UserSkillControllerTest {
-    
+
     @Autowired
     private MockMvc mvc;
 
@@ -28,7 +28,6 @@ public class UserSkillControllerTest {
         String requestBody = "userId=1&skill=3&userId=1&skill=4&userId=1&skill=2";
         // when
 
-        
         assertNotNull(requestBody);
         assertFalse(requestBody.isEmpty());
         System.out.println("테스트: " + requestBody);
