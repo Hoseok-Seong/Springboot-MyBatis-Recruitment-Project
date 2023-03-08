@@ -10,7 +10,6 @@ public class BookmarkEntReqDto {
     private String name;
     private String email;
     private String contact;
-    private String birthdate;
     private String title;
     private Integer recruitmentId;
 }

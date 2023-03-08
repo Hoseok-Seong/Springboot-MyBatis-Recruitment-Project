@@ -9,7 +9,6 @@ public class EnterpriseMatchingDto {
     private int enterpriseId;
     private String username;
     private String email;
-    private String birthdate;
     private String name;
     private String contact;
 }

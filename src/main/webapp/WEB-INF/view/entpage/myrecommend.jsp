@@ -65,7 +65,6 @@
                                     <tr>
                                         <th scope="col">아이디</th>
                                         <th scope="col">이름</th>
-                                        <th scope="col">생년월일</th>
                                         <th scope="col">연락처</th>
                                         <th scope="col">이메일</th>
                                     </tr>
@@ -76,9 +75,6 @@
                                             <td scope="col">${user.username}
                                             </td>
                                             <td scope="col">${user.name}
-                                            </td>
-                                            <td scope="col">
-                                                ${user.birthdate}
                                             </td>
                                             <td scope="col">
                                                 ${user.contact}

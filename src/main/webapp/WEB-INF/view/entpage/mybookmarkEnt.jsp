@@ -67,7 +67,6 @@
                                         <th scope="col">채용공고</th>
                                         <th scope="col">아이디</th>
                                         <th scope="col">이름</th>
-                                        <th scope="col">생년월일</th>
                                         <th scope="col">연락처</th>
                                         <th scope="col">이메일</th>
                                     </tr>
@@ -82,9 +81,6 @@
                                             <td scope="col">${bookmark.username}
                                             </td>
                                             <td scope="col">${bookmark.name}
-                                            </td>
-                                            <td scope="col">
-                                                ${bookmark.birthdate}
                                             </td>
                                             <td scope="col">
                                                 ${bookmark.contact}

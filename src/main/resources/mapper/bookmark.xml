@@ -32,12 +32,10 @@
    </select>
 
    <select id="findByEnterpriseId" resultType="shop.mtcoding.job.dto.bookmark.BookmarkEntReqDto">
-      select distinct b.recruitment_id, u.username, u.name, u.email, u.contact, r.birthdate, rp.title
+      select distinct b.recruitment_id, u.username, u.name, u.email, u.contact, rp.title
       from bookmark_tb b
       join user_tb u
       on b.user_id = u.id
-      join resume_tb r
-      on b.user_id = r.user_id
       join recruitment_post_tb rp
       on b.recruitment_id = rp.id
       where b.recruitment_id = #{recruitmentId}
