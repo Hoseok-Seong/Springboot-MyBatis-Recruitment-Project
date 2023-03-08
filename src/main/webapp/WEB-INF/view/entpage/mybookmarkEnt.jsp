@@ -10,7 +10,7 @@
                                 <div class="navbar-nav">
                                     <h3>
                                         <strong>
-                                            <a class="nav-link active" aria-current="page" href="#">프로필</a>
+                                            <a class="nav-link active" aria-current="page">프로필</a>
                                         </strong>
                                     </h3>
                                 </div>
@@ -27,8 +27,8 @@
                             <h5 class="card-title pt-2">${principalEnt.contact}</h5>
                             <h5 class="card-title pt-2">${principalEnt.size}</h5>
                             <br>
-                            <h3>내가 찾는 인재 :
-                                <c:out value="${fn:length(enterpriseMatching)}" />
+                            <h3>북마크 :
+                                <c:out value="${fn:length(bookmarkDto)}" />
                             </h3>
                             <br>
                             <button type="button" class="btn btn-outline-info btn-lg"
@@ -46,10 +46,10 @@
                                         <a class="nav-link" href="/myapplicant">지원자현황</a>
                                     </h3>
                                     <h3>
-                                        <a class="nav-link active" aria-current="page" href="/myrecommend">인재추천</a>
+                                        <a class="nav-link" aria-current="page" href="/myrecommend">인재추천</a>
                                     </h3>
                                     <h3>
-                                        <a class="nav-link" aria-current="page" href="/mybookmarkEnt">북마크</a>
+                                        <a class="nav-link active" aria-current="page" href="/mybookmarkEnt">북마크</a>
                                     </h3>
                                 </div>
                             </div>
@@ -59,10 +59,12 @@
                         <div class="card-body">
                             <table class="table table-hover">
                                 <br>
-                                <h3><img src="images/applicant.png" alt="">회원님이 찾는 기술스택을 보유한 지원자입니다</h3>
+                                <h3><img src="images/bookmark.png" alt="" style="width:40px; height:40px">나의 채용공고를 북마크한
+                                    인재입니다</h3>
                                 <br>
                                 <thead class="table-light">
                                     <tr>
+                                        <th scope="col">채용공고</th>
                                         <th scope="col">아이디</th>
                                         <th scope="col">이름</th>
                                         <th scope="col">생년월일</th>
@@ -71,20 +73,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${enterpriseMatching}" var="user">
+                                    <c:forEach items="${bookmarkDto}" var="bookmark">
                                         <tr>
-                                            <td scope="col">${user.username}
+                                            <td scope="col">
+                                                <a href="/recruitment/detail/${bookmark.recruitmentId}">
+                                                    ${bookmark.title}</a>
                                             </td>
-                                            <td scope="col">${user.name}
+                                            <td scope="col">${bookmark.username}
+                                            </td>
+                                            <td scope="col">${bookmark.name}
                                             </td>
                                             <td scope="col">
-                                                ${user.birthdate}
+                                                ${bookmark.birthdate}
                                             </td>
                                             <td scope="col">
-                                                ${user.contact}
+                                                ${bookmark.contact}
                                             </td>
                                             <td scope="col">
-                                                ${user.email}
+                                                ${bookmark.email}
                                             </td>
                                         </tr>
                                     </c:forEach>

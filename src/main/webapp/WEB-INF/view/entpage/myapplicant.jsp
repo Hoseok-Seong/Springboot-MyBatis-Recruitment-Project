@@ -31,8 +31,8 @@
                                 <c:out value="${fn:length(applyLists)}" />
                             </h3>
                             <br>
-                            <button type="button" class="btn btn-outline-info btn-lg" onclick="location.href='
-                                /recruitment/list'">채용공고 보러가기
+                            <button type="button" class="btn btn-outline-info btn-lg"
+                                onclick="window.location.href = '/recruitment/list';">채용공고 보러가기
                             </button>
                         </div>
                     </div>
@@ -47,6 +47,9 @@
                                     </h3>
                                     <h3>
                                         <a class="nav-link" href="/myrecommend">인재추천</a>
+                                    </h3>
+                                    <h3>
+                                        <a class="nav-link" href="/mybookmarkEnt">북마크</a>
                                     </h3>
                                 </div>
                             </div>
@@ -259,7 +262,7 @@
                     result: result,
                     notify: notify
                 };
-                
+
                 $.ajax({
                     type: "put",
                     url: "/apply/" + applyId,
