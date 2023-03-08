@@ -135,7 +135,7 @@
                                         <div class="modal-body justify-content-start">
                                             <div class="container-fluid">
                                                 <div class="container-fluid pt-4 ps-0" style="height: 450px;">
-                                                    <input type="text" name="title" id="title" style="border: none;"
+                                                    <input type="text" name="title" id="title${resume.id}" style="border: none;"
                                                         class="form-control" value="${resume.title}" placeholder="제목">
                                                     <br>
                                                     <br>
@@ -143,7 +143,7 @@
                                                     <div>생년월일</div>
                                                     <hr class="md-0">
                                                     <div class="form-floating mb-3">
-                                                        <input type="date" name="birthdate" id="birthdate"
+                                                        <input type="date" name="birthdate" id="birthdate${resume.id}"
                                                             value="${resume.birthdate}" min="1900-01-01" required />
                                                     </div>
                                                     <br>
@@ -151,7 +151,7 @@
                                                     <div>주소</div>
                                                     <hr class="md-0">
                                                     <div class="form-floating mb-3">
-                                                        <input type="text" name="address" id="address"
+                                                        <input type="text" name="address" id="address${resume.id}"
                                                             class="form-control" id="floatingInputValue"
                                                             value="${resume.address}">
                                                         <label for="floatingInput">주소를 입력해주세요 예시: 부산광역시 부산진구 양정동
@@ -164,49 +164,49 @@
                                                 <div>간단 소개글</div>
                                                 <hr class="md-0">
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" name="content" id="content"
+                                                    <textarea class="form-control" name="content" id="content${resume.id}"
                                                         style="height: 100px">${resume.content}</textarea>
                                                 </div>
                                                 <br>
                                                 <div class="mt-5">경력</div>
                                                 <hr class="md-0">
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" name="career" id="career"
+                                                    <textarea class="form-control" name="career" id="career${resume.id}"
                                                         style="height: 100px">${resume.career}</textarea>
                                                 </div>
                                                 <br>
                                                 <div class="mt-5">학력</div>
                                                 <hr class="md-0">
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" name="education" id="education"
+                                                    <textarea class="form-control" name="education" id="education${resume.id}"
                                                         style="height: 100px">${resume.education}</textarea>
                                                 </div>
                                                 <br>
                                                 <div class="mt-5">스킬</div>
                                                 <hr class="md-0">
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" name="skill" id="skill"
+                                                    <textarea class="form-control" name="skill" id="skill${resume.id}"
                                                         style="height: 100px">${resume.skill}</textarea>
                                                 </div>
                                                 <br>
                                                 <div class="mt-5">수상 및 기타</div>
                                                 <hr class="md-0">
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" name="award" id="award"
+                                                    <textarea class="form-control" name="award" id="award${resume.id}"
                                                         style="height: 100px">${resume.award}</textarea>
                                                 </div>
                                                 <br>
                                                 <div class="mt-5">외국어</div>
                                                 <hr class="md-0">
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" name="language" id="language"
+                                                    <textarea class="form-control" name="language" id="language${resume.id}"
                                                         style="height: 100px">${resume.language}</textarea>
                                                 </div>
                                                 <br>
                                                 <div class="mt-5">링크</div>
                                                 <hr class="md-0">
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" name="link" id="link"
+                                                    <textarea class="form-control" name="link" id="link${resume.id}"
                                                         style="height: 100px">${resume.link}</textarea>
                                                 </div>
                                                 <br>
@@ -248,17 +248,17 @@
         <script>
             function updateByResume(id, result) {
                 let data = {
-                    title: $("#title").val(),
-                    content: $("#content").val(),
-                    career: $("#career").val(),
-                    education: $("#education").val(),
-                    skill: $("#skill").val(),
-                    award: $("#award").val(),
-                    language: $("#language").val(),
-                    link: $("#link").val(),
-                    file: $("#file").val(),
-                    birthdate: $("#birthdate").val(),
-                    address: $("#address").val(),
+                    title: $("#title"+id).val(),
+                    content: $("#content"+id).val(),
+                    career: $("#career"+id).val(),
+                    education: $("#education"+id).val(),
+                    skill: $("#skill"+id).val(),
+                    award: $("#award"+id).val(),
+                    language: $("#language"+id).val(),
+                    link: $("#link"+id).val(),
+                    file: $("#file"+id).val(),
+                    birthdate: $("#birthdate"+id).val(),
+                    address: $("#address"+id).val(),
                     finish: result
                 };
                 $.ajax({
