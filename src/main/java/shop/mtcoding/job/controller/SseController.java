@@ -44,7 +44,6 @@ public class SseController {
                         applyRepository.updateNotifyById(principal.getId(), false);
                     }
                 }
-                emitter.completeWithError(new IllegalArgumentException("notify 없음"));
             } catch (Exception e) {
                 emitter.completeWithError(e);
             } finally {

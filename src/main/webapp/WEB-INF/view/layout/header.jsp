@@ -78,7 +78,6 @@
 
                                 </ul>
                                 <ul class="navbar-nav col-5 justify-content-end">
-                                    <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
                                     <c:choose>
                                         <c:when test="${not empty principal or not empty principalEnt}">
                                             <!-- 세션에 principal 또는 principalEnt 중 하나 이상이 존재하는 경우 -->
@@ -796,7 +795,6 @@
                                 eventSource.onmessage = function (event) {
                                     const data = event.data;
                                     alert(data);
-                                    eventSource.close();
                                 };
                             }
                         })
