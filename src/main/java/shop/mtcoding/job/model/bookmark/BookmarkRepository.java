@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import shop.mtcoding.job.dto.bookmark.BookmarkEntReqDto;
 import shop.mtcoding.job.dto.bookmark.BookmarkReqDto;
 
 @Mapper
@@ -23,4 +24,6 @@ public interface BookmarkRepository {
                         @Param("userId") int userId);
 
         public List<BookmarkReqDto> findByUserId(@Param("userId") int userId);
+
+        public List<BookmarkEntReqDto> findByEnterpriseId(@Param("recruitmentId") int recruitmentId);
 }
