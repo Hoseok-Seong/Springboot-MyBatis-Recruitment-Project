@@ -3,7 +3,17 @@
 # HIGHRE - 개발자를 위한 구인구직 웹사이트
 ![image](https://user-images.githubusercontent.com/122351733/223630188-a70350c4-3496-4705-bfe3-c031f68d27f3.png)
 
-<br> 
+<br>
+
+# 시연영상
+[![youtube](http://img.youtube.com/vi/fA5lgoRrtc8/0.jpg)](https://www.youtube.com/watch?v=fA5lgoRrtc8)
+
+<br>
+
+# 발표자료
+[미니프로젝트_5조.pdf](https://drive.google.com/file/d/1DezLgt5yquNGs-7O1Q0Ky3qVpvy_B5lX/view?usp=share_link)
+
+<br>
 
 # 소개
 >'고용하다'라는 의미의 Hire와 '더 높은'이라는 의미의 Higher를
