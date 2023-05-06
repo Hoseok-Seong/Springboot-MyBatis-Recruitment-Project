@@ -1,11 +1,22 @@
 <!-- # Springboot-MyBatis-Recruitment-Project -->
+# Highre
 
-# HIGHRE - 개발자를 위한 구인구직 웹사이트
-![image](https://user-images.githubusercontent.com/122351733/223630188-a70350c4-3496-4705-bfe3-c031f68d27f3.png)
+<h1 align="center">
+  <br>
+  <br>
+  <img width="300" alt="image" src="https://user-images.githubusercontent.com/93416157/235137778-5fedc41e-8e17-4fdf-bd08-887200f946f4.png">
+  <br>
+  <br>
+  <br>
+</h1>
+
+# 👨‍👨‍👧 서비스 소개
+>'고용하다'라는 의미의 Hire와 '더 높은'이라는 의미의 Higher를
+><br>합친 의미를 가진 구인구직 웹사이트 프로젝트입니다
 
 <br>
 
-# 시연영상
+# 데모영상
 [![youtube](http://img.youtube.com/vi/fA5lgoRrtc8/0.jpg)](https://www.youtube.com/watch?v=fA5lgoRrtc8)
 
 <br>
@@ -15,11 +26,14 @@
 
 <br>
 
-# 소개
->'고용하다'라는 의미의 Hire와 '더 높은'이라는 의미의 Higher를
-><br>합쳐 고객들에게 더 좋은 일자리를 제공한다는 의미를 담았습니다
+## Contact
 
-<br> 
+|                                                 성호석(팀장)                                                  |                                                 김호현                                                  |                                                                          임지상                                                                          |                                                 심동환                                                  |
+| :-----------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------: |
+| <img src="https://avatars.githubusercontent.com/u/93416157?v=4" alt="profile" width="100" height="100"> | <img src="https://avatars.githubusercontent.com/u/122351733?v=4" alt="profile" width="100" height="100"> | <img src="https://avatars.githubusercontent.com/u/67888405?v=4" alt="profile" width="100" height="100"> | <img src="https://avatars.githubusercontent.com/u/122349890?v=4" alt="profile" width="100" height="100"> |
+|                                   [@Hoseok-Seong](https://github.com/Hoseok-Seong)                                   |                                 [@Khohyeon](https://github.com/Khohyeon)                                 |                                                        [@tero1115](https://github.com/tero1115)                                                         |                              [@controller22](https://github.com/controller22)                              |
+
+<br>
 
 # ⏰ 개발 기간
 - 2023.02.20~2023.03.10(3주)
@@ -27,19 +41,114 @@
 <br>
 
 # ⚙️ 기술스택
-- 언어: JDK 11
-- 백엔드: Springboot 2.7.8
-- 프론트엔드: HTML5, CSS3, Javascript, JSP, Bootstrap
-- 데이터베이스: 테스트 H2, 프로덕션 MySQL, MyBatis, Redis 세션
-- 테스트: Junit
-- IDE: Visual Studio Code
-- VCS: Github
+<img src="https://img.shields.io/badge/JDK-11-007396?style=for-the-badge&logo=java&logoColor=white"><br><img src="https://img.shields.io/badge/Springboot-6DB33F?style=for-the-badge&logo=Springboot&logoColor=white">
+<br>
+<img src="https://img.shields.io/badge/html-E34F26?style=for-the-badge&logo=html5&logoColor=white"><img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"><img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"><img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white"><img src="https://img.shields.io/badge/jsp-F5C300?style=for-the-badge&logo=jsp&logoColor=white"><img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
+<br>
+<img src="https://img.shields.io/badge/H2-512BD4?style=for-the-badge&logo=H2&logoColor=white"><img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"><img src="https://img.shields.io/badge/MyBatis-색상?style=for-the-badge&logo=MyBatis&logoColor=white"><img src="https://img.shields.io/badge/redis-DC382D?style=for-the-badge&logo=redis&logoColor=white">
+<br>
+<img src="https://img.shields.io/badge/junit5-25A162?style=for-the-badge&logo=junit5&logoColor=white">
+<br>
+<img src="https://img.shields.io/badge/visualstudiocode-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white">
+<br>
+<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"><img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
 
 <br>
 
-# 🖥 아키텍쳐(MVC)
+# 📋  ERD-Diagram
 
-![image](https://user-images.githubusercontent.com/122351733/223648466-ee6ce325-64b3-4f82-888b-5d627e5e55fe.png)
+![erd](https://user-images.githubusercontent.com/93416157/236497375-e2d3e29a-1e19-488d-b4ff-04d0de803732.png)
+
+<br>
+
+# Coding-Convention
+<details>
+  <summary>Camel Case</summary>
+  <ul>
+  <br>
+    <li>폴더명, 패키지명, 메서드명, 변수명은 첫 단어는 소문자로, 그 뒤는 대문자로</li>
+    <li>단어와 단어 사이는 붙이는 것을 원칙으로 함.</li>
+    <li>단, 클래스명은 파스칼 표기법으로 함.</li>
+  <br>
+  </ul>
+</details>
+<details>
+  <summary>주석 규칙</summary>
+  <ul>
+  <br>
+    <li>한줄을 "//"로 적고, 그 이상은 "/* */"로 함.</li>
+  <br>
+  </ul>
+</details>
+<details>
+  <summary>데이터베이스 명명 규칙</summary>
+  <ul>
+  <br>
+    <li>데이터베이스 명은 영어 소문자로 구성. 대문자는 _로 표현한다.</li>
+    <li>테이블은 영어 소문자로 구성, 대문자는 _로 표현한다. 대분류_의미있는 테이블 명 형태로 작성한다.</li>
+    <li>컬럼은 영어 소문자로 구성, 대문자는 _로 표현한다. 의미있는 컬럼명_접미사 형태로 작성한다.</li>
+    <li>컬럼의 성질을 나타내는 접미사를 사용한다. (사용하는 데이터의 타입을 나타내는 것이 아님에 유의)</li>
+    <li>단어는 언더바.</li>
+  <br>
+  </ul>
+</details>
+<details>
+  <summary>변수명 명명 Recommend</summary>
+  <ul>
+  <br>
+    <li>배열이 들어가는 변수면 마지막에 List.</li>
+    <li>통신이 쓰인 변수는 data.</li>
+    <li>함수는 동사가 제일 먼저 오고, 뒤에 명사가 붙는다.</li>
+  <br>
+  </ul>
+</details>
+<details>
+  <summary>CSS 명명 규칙</summary>
+  <ul>
+  <br>
+    <li>소문자_소문자의 형태로 표기.</li>
+    <li>부트스트랩이 아닌 직접 만든 CSS는 맨 앞에 my_를 붙인다. (본인이 커스텀한 CSS는 my_이름 영문이니셜 2자_CSS명을 붙인다)</li>
+    <li>동사가 제일 먼저 오고 뒤에 명사가 붙는다.</li>
+  <br>
+  </ul>
+</details>
+
+<br>
+
+# 브랜치 전략
+<details>
+  <summary>Branch 중심 운영</summary>
+  <ul>
+  <br>
+    <li>master - 실제 올라가는 Branch</li>
+    <li>develop - 중간 Branch</li>
+    <li>topic - 기능 개발용 Branch</li>
+  <br>
+  </ul>
+</details>
+<details>
+  <summary>Merge 규칙</summary>
+  <ul>
+  <br>
+    <li>Pull Request 날리기</li>
+    <li>코드 작성자가 리뷰를 한 후 Merge</li>
+  <br>
+  </ul>
+</details>
+<details>
+  <summary>Commit Message</summary>
+  <ul>
+  <br>
+    <li>Feat: 새로운 기능 구현</li>
+    <li>Refactor: 원래 있던 코드의 수정(기능도 변경될 경우)</li>
+    <li>Style: 원래 있던 코드의 수정(기능이 안 변경될 경우)</li>
+    <li>Docs: 문서 변경</li>
+    <li>Fix: 오류 수정</li>
+    <li>Test: 테스트 코드</li>
+    <li>한글로 커밋하기. 커밋은 이해하기 편한 단위로 나누기</li>
+  <br>
+  </ul>
+</details>
 
 <br>
 
